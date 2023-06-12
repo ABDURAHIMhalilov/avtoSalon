@@ -64,7 +64,6 @@ export default function Bmw8() {
       <Swiper
         onSwiper={setThumbsSwiper}
         loop={true}
-        slidesPerView={3}
         spaceBetween={10}
         slidesPerView={"auto"}
         freeMode={true}

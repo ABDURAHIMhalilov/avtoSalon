@@ -16,7 +16,7 @@ import url from "./Host";
 export default function Login() {
   const page = 1;
   const [data, setData] = React.useState(1);
-  const [staff, setStaff] = React.useState();
+  const [ staff, setStaff ] = React.useState()
 
   const plus = () => {
     setData(data + 1);
@@ -26,25 +26,26 @@ export default function Login() {
       setData(data - 1);
     }
   };
-  function agerr(id) {
-    setStaff(id);
-  }
+function agerr(id) {
+  setStaff(id)
+}
   function postUser() {
-    console.log(staff);
+console.log(staff);
 
-    var data = new FormData();
-    data.append("username", document.querySelector(".Username").value);
-    data.append("phone", document.querySelector(".Phone").value);
-    data.append("password", document.querySelector(".Password").value);
-    data.append("is_staff", false);
-    axios.post(`${url}/auth/register/`, data)
-      .then((res) => {
-        alert("success");
-        // window.location = "/login";
-      })
-      .catch((err) => {
-        alert(err);
-      })
+    
+
+    var data = new FormData()
+    data.append('username', document.querySelector('.Username').value)
+    data.append('phone',  document.querySelector('.Phone').value)
+    data.append('password',  document.querySelector('.Password').value)
+    data.append('is_staff',  false)
+    axios.post(`${url}/auth/register/`, data).then(res => {
+      alert('success');
+      window.location = '/login'
+    }).catch(err => {
+      alert(err)
+    })
+
   }
 
   return (
@@ -104,18 +105,10 @@ export default function Login() {
                 <h2>Register</h2>
                 <h3>Create new account today.</h3>
                 <div className="inputs">
-                  <input
-                    type="text"
-                    className="Username"
-                    placeholder="Username*"
-                  />
+                  <input type="text" className="Username" placeholder="Username*" />
                   {/* <input type="text" className="Email" placeholder="Email*" /> */}
                   <input type="text" className="Phone" placeholder="Phone*" />
-                  <input
-                    type="password"
-                    className="Password"
-                    placeholder="Password*"
-                  />
+                  <input type="password" className="Password" placeholder="Password*" />
                   {/* <div className="checkbox1">
                     <div className="check">
                       <input onClick={() => agerr(false)}  id="cb1" type="radio" className="radio" name="radio" />
@@ -133,12 +126,10 @@ export default function Login() {
                     <p>I accept the</p>
                   </div>
                   <a className="privacy" href="#">
-                  privacy policy
+                    privacy policy
                   </a>
                 </div> */}
-                {/* <a href="/userpage"> */}
-                  <button onClick={() => postUser()}>Register</button>
-                {/* </a> */}
+                <button onClick={() => postUser()}>Register</button>
               </div>
             )}
           </div>
