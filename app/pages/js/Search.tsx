@@ -15,7 +15,8 @@ import axios from "axios";
 import url from '../js/Host'
 import { isTemplateExpression } from 'typescript'
 
-
+import Typography from '@mui/material/Typography';
+import Stack from '@mui/material/Stack';
 export default function Search() {
   // const [position, setPosition] = React.useState('')
   const [model, setModel] = React.useState([])
@@ -35,6 +36,15 @@ export default function Search() {
   const [makes, setMakes] = React.useState([])
   const [images, setImages] = React.useState([])
   const [year, setYear] = React.useState('');
+  const [page, setPage] = React.useState(1);
+  const [countpag, setCountpag] = React.useState(1);
+
+  const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    setPage(value);
+    console.log(value);
+    
+  };
+
   const handleModel = (event) => {
     setSelectModel(event.target.value);
     axios.get(`${url}/api/series/`).then(res => {   
@@ -121,7 +131,11 @@ export default function Search() {
 
   }
 
-
+  function getData(key){
+    console.log(key);
+    localStorage.setItem("oneproduct",JSON.stringify(key))
+    window.location="/onecar"
+    }
 
   const openModal2 = () => {
     document.querySelector('.mobile_search').classList.add('db')
@@ -132,6 +146,7 @@ export default function Search() {
   useEffect(() => {
     axios.get(`${url}/api/cars_get/`).then(res => {   
       setMakes(res.data)
+      setCountpag(Math.floor((res.data.length)/10)+1)
     }).catch(err => {
       console.log(err, "salom");
     })
@@ -532,7 +547,7 @@ export default function Search() {
         <div className="result_wrapper">
           {makes.map((item,key) => {
             return (
-              <div key={key} className='feat_card2'>
+              <div key={key} onClick={()=>getData(item)} className='feat_card2'>
                 <div>
                   <h1 className="salesale">-{(item).sale}%</h1>
                   <Image src={car} alt='a' className='featured_img' />
@@ -551,7 +566,9 @@ export default function Search() {
           })}
           </div>
         
-        <Pagination count={10} color="secondary" />
+          <Stack spacing={2}>
+      <Pagination count={countpag} page={page} onChange={handleChange} color="secondary"/>
+    </Stack>
       </div>
     </div>
   )
