@@ -15,7 +15,8 @@ import axios from "axios";
 import url from '../js/Host'
 import { isTemplateExpression } from 'typescript'
 
-
+import Typography from '@mui/material/Typography';
+import Stack from '@mui/material/Stack';
 export default function Search() {
   // const [position, setPosition] = React.useState('')
   // const [model, setModel] = React.useState('')
@@ -29,6 +30,14 @@ export default function Search() {
   const [makes, setMakes] = React.useState([])
   const [images, setImages] = React.useState([])
   // const [data1, setdata1] = React.useState([])
+  const [page, setPage] = React.useState(1);
+  const [countpag, setCountpag] = React.useState(1);
+
+  const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    setPage(value);
+    console.log(value);
+    
+  };
 
 //   const handlePosition = (event) => {
 //     setPosition(event.target.value);
@@ -99,7 +108,21 @@ export default function Search() {
   }
   useEffect(() => {
     axios.get(`${url}/api/cars_get/`).then(res => {   
-      setMakes(res.data)
+      setCountpag(Math.floor((res.data.length)/10)+1)
+//       var cardata=res.data
+// axios.get(`${url}/api/images/`).then(res2=>{
+// for (let i = 0; i < cardata.length; i++) {
+//   for (let j = 0; j < res2.data.length; j++) {
+// if(cardata[i].id===res2.data[j].){
+//   // chala
+// }
+
+//   }
+
+// }
+// })
+     setMakes(res.data)
+    
     }).catch(err => {
       console.log(err, "salom");
     })
@@ -123,6 +146,7 @@ export default function Search() {
 function getData(key){
 console.log(key);
 localStorage.setItem("oneproduct",JSON.stringify(key))
+window.location="/onecar"
 }
   return (
     <div>
@@ -493,8 +517,9 @@ localStorage.setItem("oneproduct",JSON.stringify(key))
             )
           })}
           </div>
-        
-        <Pagination count={10} color="secondary" />
+          <Stack spacing={2}>
+      <Pagination count={countpag} page={page} onChange={handleChange} color="secondary"/>
+    </Stack>
       </div>
     </div>
   )
