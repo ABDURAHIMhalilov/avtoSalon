@@ -329,26 +329,6 @@ export default function Search() {
           <Box>
             <FormControl className='inpsearch'>
               <InputLabel id='demo-simple-select-label'>Year</InputLabel>
-              {/* <Select
-                labelId='demo-simple-select-label'
-                id='demo-simple-select'
-                // value={Featur}
-                // label='Featur'
-                // onChange={FeaturSearch}
-              >
-                 <MenuItem >1991</MenuItem>
-                 <MenuItem >1992</MenuItem>
-                 <MenuItem >1993</MenuItem>
-                 <MenuItem >1994</MenuItem>
-                 <MenuItem >1995</MenuItem>
-                 <MenuItem >1990</MenuItem>
-                 <MenuItem >1990</MenuItem>
-                 <MenuItem >1990</MenuItem>
-                 <MenuItem >1990</MenuItem>
-                 <MenuItem >1990</MenuItem>
-                 <MenuItem >1990</MenuItem>
-                 <MenuItem >1990</MenuItem>
-              </Select> */}
                   <input 
       type="number" 
       min="1900" 
@@ -370,73 +350,83 @@ export default function Search() {
           </div>
           <div className='mobile_body'>
             <Box className='searchBox'>
-              <FormControl className='inpsearch2'>
-                <InputLabel id='demo-simple-select-label'>Make</InputLabel>
-                <Select
-                  labelId='demo-simple-select-label'
-                  id='demo-simple-select'
-                  // value={position}
-                  // label='Make'
-                  // onChange={handlePosition}
-                >
-                  {makes.map(item => {
-                    return <MenuItem value={item.name}>{item.name}</MenuItem>
-                  })}
-                </Select>
-              </FormControl>
+            <FormControl className='inpsearch2'>
+      <InputLabel id='demo-simple-select-label'>Model</InputLabel>
+      <Select
+        labelId='demo-simple-select-label'
+        id='demo-simple-select'
+        value={selectModel}
+        onChange={handleModel}
+      >
+        {model.map((item) => (
+          <MenuItem value={item.id}>{item.name}</MenuItem>
+        ))}
+      </Select>
+    </FormControl>
             </Box>
             <Box className='searchBox'>
-              <FormControl className='inpsearch2'>
-                <InputLabel id='demo-simple-select-label'>Model</InputLabel>
-                <Select
-                  labelId='demo-simple-select-label'
-                  id='demo-simple-select'
-                  // value={model}
-                  // label='model'
-                  // onChange={modelSearch}
-                >
-                  {makes.map(item => {
-                    return <MenuItem value={item.name}>{item.name}</MenuItem>
-                  })}
-                </Select>
-              </FormControl>
-            </Box>
-            <input
-              type='text'
-              className='searchInp searchInp2'
-              placeholder='Location'
-            />
-            <Box className='searchBox'>
-              <FormControl className='inpsearch2'>
-                <InputLabel id='demo-simple-select-label'>Distance</InputLabel>
-                <Select
-                  labelId='demo-simple-select-label'
-                  id='demo-simple-select'
-                  // value={Distance}
-                  // label='Distance'
-                  // onChange={distanceSearch}
-                >
-                  {makes.map(item => {
-                    return <MenuItem value={item.name}>{item.name}</MenuItem>
-                  })}
-                </Select>
-              </FormControl>
+            <FormControl className='inpsearch2'>
+              <InputLabel id='demo-simple-select-label'>Series</InputLabel>
+              <Select
+                labelId='demo-simple-select-label'
+                id='demo-simple-select'
+                value={selectSeries}
+                // label='model'
+                onChange={handleSeries}
+              >
+                {series.map((item) => (
+                   <MenuItem value={item.name}>{item.name}</MenuItem>
+                ))}
+              </Select>
+            </FormControl>
             </Box>
             <Box className='searchBox'>
-              <FormControl className='inpsearch2'>
-                <InputLabel id='demo-simple-select-label'>Type</InputLabel>
-                <Select
-                  labelId='demo-simple-select-label'
-                  id='demo-simple-select'
-                  // value={Type}
-                  // label='Type'
-                  // onChange={TypeSearch}
-                >
-                  {makes.map(item => {
-                    return <MenuItem value={item.name}>{item.name}</MenuItem>
-                  })}
-                </Select>
-              </FormControl>
+            <FormControl className='inpsearch2'>
+              <InputLabel id='demo-simple-select-label'>Position </InputLabel>
+              <Select
+                labelId='demo-simple-select-label'
+                id='demo-simple-select'
+                value={selectPosition}
+                // label='Distance'
+                onChange={handlePosition}
+              >
+                {position.map(item => {
+                  return <MenuItem value={item.name}>{item.name}</MenuItem>
+                })}
+              </Select>
+            </FormControl>
+            </Box>
+            <Box className='searchBox'>
+            <FormControl className='inpsearch2'>
+              <InputLabel id='demo-simple-select-label'>fuel_sort</InputLabel>
+              <Select
+                labelId='demo-simple-select-label'
+                id='demo-simple-select'
+                value={selectFuelsort}
+                // label='location'
+                onChange={handleFuelsort}
+              >
+                {fuelsort.map(item => {
+                  return <MenuItem value={item.id}>{item.name}</MenuItem>
+                })}
+              </Select>
+            </FormControl>
+            </Box>
+            <Box className='searchBox'>
+            <FormControl className='inpsearch2'>
+              <InputLabel id='demo-simple-select-label'>Gear Box</InputLabel>
+              <Select
+                labelId='demo-simple-select-label'
+                id='demo-simple-select'
+                value={selectGearBox}
+                label='Type'
+                onChange={handleGearBox}
+              >
+                {gearBox.map(item => {
+                  return <MenuItem value={item.id}>{item.name}</MenuItem>
+                })}
+              </Select>
+            </FormControl>
             </Box>
             <div className='boxPrice boxprice2'>
               <input
@@ -451,56 +441,51 @@ export default function Search() {
               />
             </div>
             <Box className='searchBox'>
-              <FormControl className='inpsearch2'>
-                <InputLabel id='demo-simple-select-label'>Mileage</InputLabel>
-                <Select
-                  labelId='demo-simple-select-label'
-                  id='demo-simple-select'
-                  // value={Mileage}
-                  // label='Mileage'
-                  // onChange={MileageSearch}
-                >
-                  {makes.map(item => {
-                    return <MenuItem value={item.name}>{item.name}</MenuItem>
-                  })}
-                </Select>
-              </FormControl>
+            <FormControl className='inpsearch2'>
+              <InputLabel id='demo-simple-select-label'>Garant</InputLabel>
+              <Select
+                labelId='demo-simple-select-label'
+                id='demo-simple-select'
+                value={selectgarant}
+                // label='Mileage'
+                onChange={handlegarant}
+              >
+                {garant.map(item => {
+                  return <MenuItem value={item.id}>{item.name}</MenuItem>
+                })}
+              </Select>
+            </FormControl>
             </Box>
             <Box className='searchBox'>
-              <FormControl className='inpsearch2'>
-                <InputLabel id='demo-simple-select-label'>
-                  Drive Type
-                </InputLabel>
-                <Select
-                  labelId='demo-simple-select-label'
-                  id='demo-simple-select'
-                  // value={Drive}
-                  // label='Drive'
-                  // onChange={DriveSearch}
-                >
-                  {makes.map(item => {
-                    return <MenuItem value={item.name}>{item.name}</MenuItem>
-                  })}
-                </Select>
-              </FormControl>
+            <FormControl className='inpsearch2'>
+              <InputLabel id='demo-simple-select-label'>Branch </InputLabel>
+              <Select
+                labelId='demo-simple-select-label'
+                id='demo-simple-select'
+                value={selectBranch}
+                // label='Drive'
+                onChange={handleBranch}
+              >
+                {branch.map(item => {
+                  return <MenuItem value={item.id}>{item.name}</MenuItem>
+                })}
+              </Select>
+            </FormControl>
             </Box>
             <Box className='searchBox'>
-              <FormControl className='inpsearch2'>
-                <InputLabel id='demo-simple-select-label'>Fuel</InputLabel>
-                <Select
-                  labelId='demo-simple-select-label'
-                  id='demo-simple-select'
-                  // value={Fuel}
-                  // label='Fuel'
-                  // onChange={FuelSearch}
-                >
-                  {makes.map(item => {
-                    return <MenuItem value={item.name}>{item.name}</MenuItem>
-                  })}
-                </Select>
-              </FormControl>
+            <FormControl className='inpsearch2'>
+              <InputLabel id='demo-simple-select-label'>Year</InputLabel>
+                  <input 
+      type="number" 
+      min="1900" 
+      max="2100" 
+      minLength='4'
+      value={year} 
+      onChange={handleInputChange} 
+    />
+            </FormControl>
             </Box>
-            <Box className='searchBox'>
+            {/* <Box className='searchBox'>
               <FormControl className='inpsearch2'>
                 <InputLabel id='demo-simple-select-label'>Featured</InputLabel>
                 <Select
@@ -515,7 +500,7 @@ export default function Search() {
                   })}
                 </Select>
               </FormControl>
-            </Box>
+            </Box> */}
             <button className='btnSearch'>Search</button>
           </div>
         </div>
