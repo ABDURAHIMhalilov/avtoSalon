@@ -144,7 +144,7 @@ export default function Login() {
           </div>
         </div>
       </center>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
