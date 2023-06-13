@@ -73,6 +73,27 @@ export default function Loginpage() {
         console.log(iagee);
 
     }
+
+
+    function postAdress() {
+        var data = new FormData()
+        data.append('country', document.querySelector('.countrySlc').value)
+        data.append('region', document.querySelector('.regionSlc').value)
+        data.append('city', document.querySelector('.citySlc').value)
+        data.append('district', document.querySelector('.districtSlc').value)
+        data.append('street', document.querySelector('.streetSlc').value)
+        data.append('user', user.id)
+        axios.post(`${url}/auth/adress/`, data, { headers: { 'Authorization': 'Bearer ' + localStorage.getItem( "Token_user") } })
+        .then(res => {
+            alert('manzil yangilandi', res.data)
+        }).catch(err => {
+            alert(err)
+        })
+    }
+
+
+
+
     return (
         <div>
             <Navbar />
@@ -148,26 +169,6 @@ export default function Loginpage() {
                                         <input type="number" className='passportSer' />
                                     </div>
                                 </div>
-                                <br />
-                                <br />
-                                <div className="inputs0">
-                                    {/* <div className="input1"> */}
-                                    <h2>Yor adress</h2>
-                                    <select className='selectLocation' value='asdasdyashnobod' >
-                                        <option>Yashnobod</option>
-                                        <option>Yunsobod</option>
-                                        <option>Sergeli</option>
-                                        <option>Mirzo Ulug'bek</option>
-                                        <option>ZangiOta</option>
-                                        <option>Oqtepa</option>
-                                        <option>Bektemir</option>
-                                        <option>Mirobod</option>
-                                        <option>Yashnobod</option>
-                                        <option>Yashnobod</option>
-                                        <option>Yashnobod</option>
-                                    </select>
-                                    {/* </div> */}
-                                </div>
                                 {/* <div className="check2">
                                     <input id='cb1' type="checkbox" />
                                     <p>WhatsApp (require country code for mobile numbers)</p>
@@ -203,8 +204,68 @@ export default function Loginpage() {
                                 </div><button>Save</button>
                             </div>
                         </div>
-                    </div>) :(data===4?(<div>
-                        
+                    </div>) :(data===4?(<div className="regionDv">
+                                    <h2>Yor adress</h2>
+                        <div className='regionAdd'>
+                                    {/* <div className="input1"> */}
+                                    <select className='countrySlc'>
+                                        <option>Yashnobod</option>
+                                        <option>Yunsobod</option>
+                                        <option>Sergeli</option>
+                                        <option>Mirzo Ulugbek</option>
+                                        <option>ZangiOta</option>
+                                        <option>Oqtepa</option>
+                                        <option>Bektemir</option>
+                                        <option>Mirobod</option>
+                                    </select>
+                                    <select className='regionSlc'>
+                                        <option>Yashnobod</option>
+                                        <option>Yunsobod</option>
+                                        <option>Sergeli</option>
+                                        <option>Mirzo Ulugbek</option>
+                                        <option>ZangiOta</option>
+                                        <option>Oqtepa</option>
+                                        <option>Bektemir</option>
+                                        <option>Mirobod</option>
+                                    </select> 
+                        </div>
+                        <div className='regionAdd'>
+                                    {/* <div className="input1"> */}
+                                    <select className='citySlc'>
+                                        <option>Yashnobod</option>
+                                        <option>Yunsobod</option>
+                                        <option>Sergeli</option>
+                                        <option>Mirzo Ulugbek</option>
+                                        <option>ZangiOta</option>
+                                        <option>Oqtepa</option>
+                                        <option>Bektemir</option>
+                                        <option>Mirobod</option>
+                                    </select>
+                                    <select className='districtSlc'>
+                                        <option>Yashnobod</option>
+                                        <option>Yunsobod</option>
+                                        <option>Sergeli</option>
+                                        <option>Mirzo Ulugbek</option>
+                                        <option>ZangiOta</option>
+                                        <option>Oqtepa</option>
+                                        <option>Bektemir</option>
+                                        <option>Mirobod</option>
+                                    </select> 
+                        </div>
+                        <div className='regionAdd'>
+                                    {/* <div className="input1"> */}
+                                    <select className='streetSlc'>
+                                        <option>Yashnobod</option>
+                                        <option>Yunsobod</option>
+                                        <option>Sergeli</option>
+                                        <option>Mirzo Ulugbek</option>
+                                        <option>ZangiOta</option>
+                                        <option>Oqtepa</option>
+                                        <option>Bektemir</option>
+                                        <option>Mirobod</option>
+                                    </select>
+                        </div>
+                        <button onClick={() => postAdress()}>click</button>
                     </div>):(  <div className='ba'>
                         <div className="kok">
                             <center><h1>No Favorites Yet!</h1></center>
@@ -217,7 +278,7 @@ export default function Loginpage() {
 
 
 
-                <Footer />
+                {/* <Footer /> */}
             </div>
         </div>
     )
