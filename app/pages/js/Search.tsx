@@ -20,65 +20,101 @@ import Stack from '@mui/material/Stack';
 export default function Search() {
   // const [position, setPosition] = React.useState('')
   const [model, setModel] = React.useState([])
-  const [selectModel, setSelectModel] = React.useState([])
+  const [selectModel, setSelectModel] = React.useState("")
   const [series, setSeries] = React.useState([])
-  const [selectSeries, setSelectSeries] = React.useState([])
+  const [selectSeries, setSelectSeries] = React.useState("")
   const [position, setPosition] = React.useState([])
-  const [selectPosition, setSelectPosition] = React.useState([])
+  const [selectPosition, setSelectPosition] = React.useState("")
   const [fuelsort,setFuelsort ] = React.useState([])
-  const [selectFuelsort, setSelectFuelsort] = React.useState([])
+  const [selectFuelsort, setSelectFuelsort] = React.useState("")
   const [gearBox,setGearBox ] = React.useState([])
-  const [selectGearBox, setSelectGearBox] = React.useState([])
+  const [selectGearBox, setSelectGearBox] = React.useState("")
   const [garant,setgarant ] = React.useState([])
-  const [selectgarant, setSelectgarant] = React.useState([])
+  const [selectgarant, setSelectgarant] = React.useState("")
   const [branch,setBranch ] = React.useState([])
-  const [selectBranch, setSelectBranch] = React.useState([])
+  const [selectBranch, setSelectBranch] = React.useState("")
   const [makes, setMakes] = React.useState([])
   const [images, setImages] = React.useState([])
   const [year, setYear] = React.useState('');
+  const [mincount, setmincount] = React.useState('');
+  const [maxcount, setmaxcount] = React.useState('');
   const [page, setPage] = React.useState(1);
   const [countpag, setCountpag] = React.useState(1);
+  const [data, setdata] = React.useState(1);
+
+  const abbasFilter=(model1,seria1,position1,gearBox1,fuelsort1,garant1,branch1,year1,mincount1,maxcount1)=>{
+    var pushdata=[]
+axios.get(`${url}/api/cars_get/`).then(res=>{
+  res.data.map(item=>{
+    console.log(year1);
+    
+    if(
+      (model1!=""?(item.position.series.model.id===model1):(true))
+      &&
+      (seria1!=""?(item.position.series.name===seria1):(true))
+      &&
+      (position1!=""?(item.position.name===position1):(true))
+      &&
+      (branch1!=""?(item.branch.id===branch1):(true))
+      &&
+      (fuelsort1!=""?(item.fuel_sort.id===fuelsort1):(true))
+      &&
+      (gearBox1!=""?(item.gearbox.id===gearBox1):(true))
+      &&
+      (garant1!=""?(item.garant.id===garant1):(true))
+      &&
+      (year1!=""?(item.year===year1*1):(true))
+      &&
+      (mincount1!=""?(item.price>mincount1*1):(true))
+      &&
+      (maxcount1!=""?(item.price<maxcount1*1):(true))
+    ){
+pushdata.push(item)
+
+    }
+  })
+  setMakes(pushdata)
+})
+  }
 
   const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
     setPage(value);
     console.log(value);
     
   };
-
   const handleModel = (event) => {
+    abbasFilter(event.target.value,"","",selectGearBox,selectFuelsort,selectgarant,selectBranch,year,mincount,maxcount)
     setSelectModel(event.target.value);
+    console.log(event.target.value,"zb");
     axios.get(`${url}/api/series/`).then(res => {   
       const search = res.data.filter(item=>item.model===event.target.value)
       setSeries(search)
+      setSelectSeries("")
+      setSelectPosition("")
+      setPosition([])
     })
-    const searchdata=makes.filter(item=>
-      item.position.series.model.id===event.target.value
-    )
-    setMakes(searchdata)
-    if (makes.length<1) {
-      axios.get(`${url}/api/cars_get/`).then(res => {   
-        const searchdata2=res.data.filter(item=>
-          item.position.series.model.id===event.target.value
-        )
-        setMakes(searchdata2)
-      })
-      setMakes(searchdata2)
-    }
+
   }
   const handleSeries = (event) => {
     setSelectSeries(event.target.value);
-
+    console.log(event.target.value,"zb");
+    console.log(selectSeries,"ddd");
     
     axios.get(`${url}/api/series/`).then(res => {   
       const search = res.data.filter(item=>item.name===event.target.value)
       axios.get(`${url}/api/position/`).then(res2 => {   
         const search2 = res2.data.filter(item=>item.series===search[0].model)
-        setPosition(search2)
+        setSelectPosition("")
+        if(event.target.value=""){
+         setPosition([])
+        }else{
+          setPosition(search2) 
+        }
+       
       })
-      const searchdata=makes.filter(item=>
-        item.position.series.id===search[0].model
-      )
-      setMakes(searchdata)
+      abbasFilter(selectModel,event.target.value,"",selectGearBox,selectFuelsort,selectgarant,selectBranch,year,mincount,maxcount)
+      console.log(search[0].model,"zb2");
+      
 
     })
   }
@@ -86,24 +122,19 @@ export default function Search() {
     setSelectPosition(event.target.value);
     axios.get(`${url}/api/position/`).then(res => {   
       const search = res.data.filter(item=>item.name===event.target.value)
-      const searchdata=makes.filter(item=>
-        item.position.id===search[0].series
-      )
-      setMakes(searchdata)
+      abbasFilter(selectModel,selectSeries,event.target.value,selectGearBox,selectFuelsort,selectgarant,selectBranch,year,mincount,maxcount)
     })
   }
   const handleFuelsort= (event) => {
     setSelectFuelsort(event.target.value);
-    const searchdata=makes.filter(item=>
-      item.fuel_sort.id===event.target.value
-    )
-   setMakes(searchdata)
+    abbasFilter(selectModel,selectSeries,selectPosition,selectGearBox,event.target.value,selectgarant,selectBranch,year,mincount,maxcount)
   }
   const handleGearBox= (event) => {
     setSelectGearBox(event.target.value);
     const searchdata=makes.filter(item=>
       item.gearbox.id===event.target.value
     )
+    abbasFilter(selectModel,selectSeries,selectPosition,event.target.value,selectFuelsort,selectgarant,selectBranch,year,mincount,maxcount)
    setMakes(searchdata)
   }
   const handlegarant= (event) => {
@@ -111,6 +142,7 @@ export default function Search() {
     const searchdata=makes.filter(item=>
       item.garant.id===event.target.value
     )
+    abbasFilter(selectModel,selectSeries,selectPosition,selectGearBox,selectFuelsort,event.target.value,selectBranch,year,mincount,maxcount)
    setMakes(searchdata)
   }
   const handleBranch= (event) => {
@@ -118,19 +150,23 @@ export default function Search() {
     const searchdata=makes.filter(item=>
       item.branch.id===event.target.value
     )
+    abbasFilter(selectModel,selectSeries,selectPosition,selectGearBox,selectFuelsort,selectgarant,event.target.value,year,mincount,maxcount)
    setMakes(searchdata)
   }
-  const handleInputChange = (event) => {
-    setYear(event.target.value);
-    console.log(event.target.value,"aa");
-   const data = parseInt(event.target.value); 
-   if (!isNaN(data) && data.toString().length === 4) { // проверка на то, что data число из 4 цифр
-      const searchdata = makes.filter(item => item.year === data);
-      setMakes(searchdata);
-   }
-
+  function handleyear (id): typeAnnotation {
+    setYear(id.target.value)
+    console.log(id.target.value,"LOG");
+    
+    abbasFilter(selectModel,selectSeries,selectPosition,selectGearBox,selectFuelsort,selectgarant,selectBranch,id.target.value,mincount,maxcount)
   }
-
+  function minChange (id): typeAnnotation {
+    setmincount(id.target.value)
+    abbasFilter(selectModel,selectSeries,selectPosition,selectGearBox,selectFuelsort,selectgarant,selectBranch,year,id.target.value,maxcount)
+  }
+  function maxChange (id): typeAnnotation {
+    setmaxcount(id.target.value)
+    abbasFilter(selectModel,selectSeries,selectPosition,selectGearBox,selectFuelsort,selectgarant,selectBranch,year,mincount,id.target.value)
+  }
   function getData(key){
     console.log(key);
     localStorage.setItem("oneproduct",JSON.stringify(key))
@@ -197,6 +233,7 @@ export default function Search() {
         label="Model"
         onChange={handleModel}
       >
+          <MenuItem value="">None</MenuItem>
         {model.map((item) => (
           <MenuItem value={item.id}>{item.name}</MenuItem>
         ))}
@@ -210,9 +247,11 @@ export default function Search() {
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
                 value={selectSeries}
-                // label='model'
+                 label='Series'
                 onChange={handleSeries}
               >
+          <MenuItem value="">None</MenuItem>
+
                 {series.map((item) => (
                    <MenuItem value={item.name}>{item.name}</MenuItem>
                 ))}
@@ -221,14 +260,15 @@ export default function Search() {
           </Box>
           <Box>
             <FormControl className='inpsearch'>
-              <InputLabel id='demo-simple-select-label'>Position </InputLabel>
+              <InputLabel id='demo-simple-select-label'>Position</InputLabel>
               <Select
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
                 value={selectPosition}
-                // label='Distance'
+                label='Position'
                 onChange={handlePosition}
               >
+               <MenuItem value="">None</MenuItem>
                 {position.map(item => {
                   return <MenuItem value={item.name}>{item.name}</MenuItem>
                 })}
@@ -242,9 +282,10 @@ export default function Search() {
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
                 value={selectFuelsort}
-                // label='location'
+                label='fuel_sort'
                 onChange={handleFuelsort}
               >
+              <MenuItem value="">None</MenuItem>
                 {fuelsort.map(item => {
                   return <MenuItem value={item.id}>{item.name}</MenuItem>
                 })}
@@ -258,9 +299,10 @@ export default function Search() {
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
                 value={selectGearBox}
-                label='Type'
+                label='Gear Box'
                 onChange={handleGearBox}
               >
+          <MenuItem value="">None</MenuItem>
                 {gearBox.map(item => {
                   return <MenuItem value={item.id}>{item.name}</MenuItem>
                 })}
@@ -272,14 +314,14 @@ export default function Search() {
               type='text'
               className='searchInp priceInp1'
               placeholder='Min Price'
-              // onChange={minChange}
+               onKeyUp={minChange}
               
             />
             <input
               type='text'
               className='searchInp priceInp2'
               placeholder='Max Price'
-              // onChange={maxChange}
+              onKeyUp={maxChange}
             />
           </div>
           <Box>
@@ -289,9 +331,10 @@ export default function Search() {
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
                 value={selectgarant}
-                // label='Mileage'
+                label='Garant'
                 onChange={handlegarant}
               >
+          <MenuItem value="">None</MenuItem>
                 {garant.map(item => {
                   return <MenuItem value={item.id}>{item.name}</MenuItem>
                 })}
@@ -305,7 +348,7 @@ export default function Search() {
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
                 value={selectBranch}
-                // label='Drive'
+                label='Branch'
                 onChange={handleBranch}
               >
                 {branch.map(item => {
@@ -315,28 +358,16 @@ export default function Search() {
             </FormControl>
           </Box>
           <Box>
-            {/* <FormControl className='inpsearch'>
-              <InputLabel id='demo-simple-select-label'>Fuel</InputLabel>
-              <Select
-                labelId='demo-simple-select-label'
-                id='demo-simple-select'
-                // value={Fuel}
-                // label='Fuel'
-                // onChange={FuelSearch}
-              >
-              </Select>
-            </FormControl> */}
           </Box>
           <Box>
             <FormControl className='inpsearch'>
               <InputLabel id='demo-simple-select-label'>Year</InputLabel>
                   <input 
-      type="number" 
+      type="text" 
       min="1900" 
       max="2100" 
       minLength='4'
-      value={year} 
-      onChange={handleInputChange} 
+      onKeyUp={handleyear}
     />
             </FormControl>
           </Box>
@@ -372,7 +403,7 @@ export default function Search() {
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
                 value={selectSeries}
-                // label='model'
+                label='Series'
                 onChange={handleSeries}
               >
                 {series.map((item) => (
@@ -388,7 +419,7 @@ export default function Search() {
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
                 value={selectPosition}
-                // label='Distance'
+                label='Position'
                 onChange={handlePosition}
               >
                 {position.map(item => {
@@ -404,7 +435,7 @@ export default function Search() {
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
                 value={selectFuelsort}
-                // label='location'
+                label='fuel_sort'
                 onChange={handleFuelsort}
               >
                 {fuelsort.map(item => {
@@ -420,7 +451,7 @@ export default function Search() {
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
                 value={selectGearBox}
-                label='Type'
+                label='Gear Box'
                 onChange={handleGearBox}
               >
                 {gearBox.map(item => {
@@ -430,16 +461,19 @@ export default function Search() {
             </FormControl>
             </Box>
             <div className='boxPrice boxprice2'>
-              <input
-                type='text'
-                className='searchInp priceInp1 priceinp'
-                placeholder='Min Price'
-              />
-              <input
-                type='text'
-                className='searchInp priceInp2 priceinp'
-                placeholder='Max Price'
-              />
+            <input
+              type='text'
+              className='searchInp priceInp1'
+              placeholder='Min Price'
+               onKeyUp={minChange}
+              
+            />
+            <input
+              type='text'
+              className='searchInp priceInp2'
+              placeholder='Max Price'
+              onKeyUp={maxChange}
+            />
             </div>
             <Box className='searchBox'>
             <FormControl className='inpsearch2'>
@@ -476,13 +510,12 @@ export default function Search() {
             <Box className='searchBox'>
             <FormControl className='inpsearch2'>
               <InputLabel id='demo-simple-select-label'>Year</InputLabel>
-                  <input 
-      type="number" 
+               <input 
+      type="text" 
       min="1900" 
       max="2100" 
       minLength='4'
-      value={year} 
-      onChange={handleInputChange} 
+      onKeyUp={handleyear}
     />
             </FormControl>
             </Box>
