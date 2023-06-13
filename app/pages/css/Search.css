@@ -36,7 +36,11 @@
     display: flex;
     justify-content: space-between;
 }
-
+.input_year{
+    width: 260px;
+    height: 50px;
+    border-radius: 5px 0 0 5px;
+}
 .priceInp1 {
     width: 49.5%;
     border-radius: 5px 0 0 5px;
