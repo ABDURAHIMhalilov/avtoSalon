@@ -264,7 +264,7 @@ pushdata.push(item)
               >
                <MenuItem value="">None</MenuItem>
                 {position.map(item => {
-                  return <MenuItem value={item.name}>{item.name}</MenuItem>
+                  return <MenuItem value={item.id}>{item.name}</MenuItem>
                 })}
               </Select>
             </FormControl>
