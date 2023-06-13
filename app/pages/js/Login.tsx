@@ -18,6 +18,8 @@ export default function Login() {
   const [data, setData] = React.useState(1);
   const [ staff, setStaff ] = React.useState()
 
+
+
   const plus = () => {
     setData(data + 1);
   };
@@ -30,22 +32,23 @@ function agerr(id) {
   setStaff(id)
 }
   function postUser() {
-console.log(staff);
-
-    
-
-    var data = new FormData()
-    data.append('username', document.querySelector('.Username').value)
-    data.append('phone',  document.querySelector('.Phone').value)
-    data.append('password',  document.querySelector('.Password').value)
-    data.append('is_staff',  false)
-    axios.post(`${url}/auth/register/`, data).then(res => {
-      alert('success');
-      window.location = '/login'
-    }).catch(err => {
-      alert(err)
-    })
-
+    console.log(staff);
+    var usernamee = document.querySelector(".Username").value
+    var data = new FormData();
+    data.append("username", usernamee);
+    data.append("phone", document.querySelector(".Phone").value);
+    data.append("password", document.querySelector(".Password").value);
+    data.append("is_staff", false);
+    axios.post(`${url}/auth/register/`, data)
+      .then((res) => {
+        localStorage.setItem('Token_user', res.data.access)
+        alert("success");
+        window.location = "/userpage";
+        localStorage.setItem('username', usernamee)
+      })
+      .catch((err) => {
+        alert(err);
+      })
   }
 
   return (

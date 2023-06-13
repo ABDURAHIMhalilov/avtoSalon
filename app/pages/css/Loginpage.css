@@ -171,7 +171,7 @@
 }
 
 .inputs111 button {
-    width: 120px;
+    width: 40%;
     height: 50px;
     background-color: #ff4605;
     font-size: 17px;
@@ -583,6 +583,11 @@
 .icon1{
     font-size: 80px !important;
     color: rgb(194, 194, 194);
+}
 
-
+.selectLocation {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
 }

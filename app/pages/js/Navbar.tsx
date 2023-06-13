@@ -10,6 +10,7 @@ import '../css/Navbar.css'
 
 export default function Navbar () {
   const [count, setCount] = useState(false)
+  const [ user, setUser ] = useState(localStorage.getItem('username'))
   return (
     <div className='navbar'>
       <div
