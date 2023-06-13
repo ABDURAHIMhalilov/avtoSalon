@@ -51,9 +51,9 @@ axios.get(`${url}/api/cars_get/`).then(res=>{
     if(
       (model1!=""?(item.position.series.model.id===model1):(true))
       &&
-      (seria1!=""?(item.position.series.name===seria1):(true))
+      (seria1!=""?(item.position.series.id===seria1):(true))
       &&
-      (position1!=""?(item.position.name===position1):(true))
+      (position1!=""?(item.position.id===position1):(true))
       &&
       (branch1!=""?(item.branch.id===branch1):(true))
       &&
@@ -83,11 +83,11 @@ pushdata.push(item)
     
   };
   const handleModel = (event) => {
+    console.log(event.target.value,"kkkk");
     abbasFilter(event.target.value,"","",selectGearBox,selectFuelsort,selectgarant,selectBranch,year,mincount,maxcount)
     setSelectModel(event.target.value);
-    console.log(event.target.value,"zb");
-    axios.get(`${url}/api/series/`).then(res => {   
-      const search = res.data.filter(item=>item.model===event.target.value)
+    axios.get(`${url}/api/series_get/`).then(res => {   
+      const search = res.data.filter(item=>item.model.id===event.target.value)
       setSeries(search)
       setSelectSeries("")
       setSelectPosition("")
@@ -97,13 +97,10 @@ pushdata.push(item)
   }
   const handleSeries = (event) => {
     setSelectSeries(event.target.value);
-    console.log(event.target.value,"zb");
-    console.log(selectSeries,"ddd");
+    console.log(event.target.value,"kkkk");
     
-    axios.get(`${url}/api/series/`).then(res => {   
-      const search = res.data.filter(item=>item.name===event.target.value)
-      axios.get(`${url}/api/position/`).then(res2 => {   
-        const search2 = res2.data.filter(item=>item.series===search[0].model)
+      axios.get(`${url}/api/position_get/`).then(res2 => {   
+        const search2 = res2.data.filter(item=>item.series.id===event.target.value)
         setSelectPosition("")
         if(event.target.value=""){
          setPosition([])
@@ -113,17 +110,14 @@ pushdata.push(item)
        
       })
       abbasFilter(selectModel,event.target.value,"",selectGearBox,selectFuelsort,selectgarant,selectBranch,year,mincount,maxcount)
-      console.log(search[0].model,"zb2");
       
 
-    })
+   
   }
   const handlePosition = (event) => {
     setSelectPosition(event.target.value);
-    axios.get(`${url}/api/position/`).then(res => {   
-      const search = res.data.filter(item=>item.name===event.target.value)
       abbasFilter(selectModel,selectSeries,event.target.value,selectGearBox,selectFuelsort,selectgarant,selectBranch,year,mincount,maxcount)
-    })
+
   }
   const handleFuelsort= (event) => {
     setSelectFuelsort(event.target.value);
@@ -189,9 +183,9 @@ pushdata.push(item)
     
     axios.get(`${url}/api/models/`).then(res => {   
       setModel(res.data)
-      axios.get(`${url}/api/series/`).then(res2 => {   
+      axios.get(`${url}/api/series_get/`).then(res2 => {   
         setSeries(res2.data)
-        axios.get(`${url}/api/position/`).then(res3 => {   
+        axios.get(`${url}/api/position_get/`).then(res3 => {   
           setPosition(res3.data)
           axios.get(`${url}/api/fuel_sort/`).then(res4 => {   
             setFuelsort(res4.data)
@@ -253,7 +247,7 @@ pushdata.push(item)
           <MenuItem value="">None</MenuItem>
 
                 {series.map((item) => (
-                   <MenuItem value={item.name}>{item.name}</MenuItem>
+                   <MenuItem value={item.id}>{item.name}</MenuItem>
                 ))}
               </Select>
             </FormControl>
@@ -407,7 +401,7 @@ pushdata.push(item)
                 onChange={handleSeries}
               >
                 {series.map((item) => (
-                   <MenuItem value={item.name}>{item.name}</MenuItem>
+                   <MenuItem value={item.id}>{item.name}</MenuItem>
                 ))}
               </Select>
             </FormControl>
@@ -423,7 +417,7 @@ pushdata.push(item)
                 onChange={handlePosition}
               >
                 {position.map(item => {
-                  return <MenuItem value={item.name}>{item.name}</MenuItem>
+                  return <MenuItem value={item.id}>{item.name}</MenuItem>
                 })}
               </Select>
             </FormControl>
@@ -519,22 +513,7 @@ pushdata.push(item)
     />
             </FormControl>
             </Box>
-            {/* <Box className='searchBox'>
-              <FormControl className='inpsearch2'>
-                <InputLabel id='demo-simple-select-label'>Featured</InputLabel>
-                <Select
-                  labelId='demo-simple-select-label'
-                  id='demo-simple-select'
-                  // value={Featur}
-                  // label='Featur'
-                  // onChange={FeaturSearch}
-                >
-                  {makes.map(item => {
-                    return <MenuItem value={item.name}>{item.name}</MenuItem>
-                  })}
-                </Select>
-              </FormControl>
-            </Box> */}
+
             <button className='btnSearch'>Search</button>
           </div>
         </div>
