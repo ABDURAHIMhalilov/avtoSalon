@@ -194,6 +194,7 @@ export default function Search() {
         labelId='demo-simple-select-label'
         id='demo-simple-select'
         value={selectModel}
+        label="Model"
         onChange={handleModel}
       >
         {model.map((item) => (
