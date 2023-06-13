@@ -19,17 +19,23 @@ import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 export default function Search() {
   // const [position, setPosition] = React.useState('')
-  // const [model, setModel] = React.useState('')
-  // const [Distance, setDistance] = React.useState('')
-  // const [location, setlocation] = React.useState('')
-  // const [Type, setType] = React.useState('')
-  // const [Mileage, setMileage] = React.useState('')
-  // const [Drive, setDrive] = React.useState('')
-  // const [Fuel, setFuel] = React.useState('')
-  // const [Featur, setFeatur] = React.useState('')
+  const [model, setModel] = React.useState([])
+  const [selectModel, setSelectModel] = React.useState([])
+  const [series, setSeries] = React.useState([])
+  const [selectSeries, setSelectSeries] = React.useState([])
+  const [position, setPosition] = React.useState([])
+  const [selectPosition, setSelectPosition] = React.useState([])
+  const [fuelsort,setFuelsort ] = React.useState([])
+  const [selectFuelsort, setSelectFuelsort] = React.useState([])
+  const [gearBox,setGearBox ] = React.useState([])
+  const [selectGearBox, setSelectGearBox] = React.useState([])
+  const [garant,setgarant ] = React.useState([])
+  const [selectgarant, setSelectgarant] = React.useState([])
+  const [branch,setBranch ] = React.useState([])
+  const [selectBranch, setSelectBranch] = React.useState([])
   const [makes, setMakes] = React.useState([])
   const [images, setImages] = React.useState([])
-  // const [data1, setdata1] = React.useState([])
+  const [year, setYear] = React.useState('');
   const [page, setPage] = React.useState(1);
   const [countpag, setCountpag] = React.useState(1);
 
@@ -39,66 +45,97 @@ export default function Search() {
     
   };
 
-//   const handlePosition = (event) => {
-//     setPosition(event.target.value);
-//     const search = data1.filter((item) => item.position.name.includes(event.target.value));
-//     setdata1(search)
-//   }
-//   const modelSearch = event => {
-//     setModel(event.target.value)
-//     const search = data1.filter((item) => item.position.series.name.includes(event.target.value));
-//     setdata1(search)
-//   }
-//   const distanceSearch = event => {
-//     setDistance(event.target.value)
-//     const search = data1.filter((item) => item.position.series.model.name.includes(event.target.value));
-//     setdata1(search)
-//   }
-//   const loacationSearch = event => {
-//     setlocation(event.target.value)
-//     const search = data1.filter((item) =>item.branch.name.includes(event.target.value));
-//     setdata1(search)
-//   }
-//   const TypeSearch = event => {
-//     setType(event.target.value)
-//     const search = data1.filter((item) =>item.name.includes(event.target.value));
-//     setdata1(search)
-//   }
-//   const minChange = (event) => {
-//   const search = data1.filter((item) =>item.price>event.target.value);
-//     setdata1(search)
+  const handleModel = (event) => {
+    setSelectModel(event.target.value);
+    axios.get(`${url}/api/series/`).then(res => {   
+      const search = res.data.filter(item=>item.model===event.target.value)
+      setSeries(search)
+    })
+    const searchdata=makes.filter(item=>
+      item.position.series.model.id===event.target.value
+    )
+    setMakes(searchdata)
+    if (makes.length<1) {
+      axios.get(`${url}/api/cars_get/`).then(res => {   
+        const searchdata2=res.data.filter(item=>
+          item.position.series.model.id===event.target.value
+        )
+        setMakes(searchdata2)
+      })
+      setMakes(searchdata2)
+    }
+  }
+  const handleSeries = (event) => {
+    setSelectSeries(event.target.value);
 
-//   };
-//   const maxChange = (event) => {
-// if (event.target.value.length>=4) {
-//   const search = data1.filter((item) =>item.price<event.target.value);
-//   setdata1(search)
-//   console.log(search,"dd");
-// }
     
-//   };
-//   const MileageSearch = event => {
-//     setMileage(event.target.value)
-//     const search = data1.filter((item) =>item.distance.includes(event.target.value));
-//     setdata1(search)
-//   }
-//   const DriveSearch = event => {
-//     setDrive(event.target.value)
-//     const search = data1.filter((item) =>item.gearbox.name.includes(event.target.value));
-//     setdata1(search)
-//   }
-//   const FuelSearch = event => {
-//     setFuel(event.target.value)
-//     const search = data1.filter((item) =>item.fuel_sort.name.includes(event.target.value));
-//     setdata1(search)
-//   }
-//   const FeaturSearch = event => {
-//     setFeatur(event.target.value)
-//     const search = data1.filter((item) =>item.year.includes(event.target.value));
-//     setdata1(search)
-//   }
+    axios.get(`${url}/api/series/`).then(res => {   
+      const search = res.data.filter(item=>item.name===event.target.value)
+      axios.get(`${url}/api/position/`).then(res2 => {   
+        const search2 = res2.data.filter(item=>item.series===search[0].model)
+        setPosition(search2)
+      })
+      const searchdata=makes.filter(item=>
+        item.position.series.id===search[0].model
+      )
+      setMakes(searchdata)
 
+    })
+  }
+  const handlePosition = (event) => {
+    setSelectPosition(event.target.value);
+    axios.get(`${url}/api/position/`).then(res => {   
+      const search = res.data.filter(item=>item.name===event.target.value)
+      const searchdata=makes.filter(item=>
+        item.position.id===search[0].series
+      )
+      setMakes(searchdata)
+    })
+  }
+  const handleFuelsort= (event) => {
+    setSelectFuelsort(event.target.value);
+    const searchdata=makes.filter(item=>
+      item.fuel_sort.id===event.target.value
+    )
+   setMakes(searchdata)
+  }
+  const handleGearBox= (event) => {
+    setSelectGearBox(event.target.value);
+    const searchdata=makes.filter(item=>
+      item.gearbox.id===event.target.value
+    )
+   setMakes(searchdata)
+  }
+  const handlegarant= (event) => {
+    setSelectgarant(event.target.value);
+    const searchdata=makes.filter(item=>
+      item.garant.id===event.target.value
+    )
+   setMakes(searchdata)
+  }
+  const handleBranch= (event) => {
+    setSelectBranch(event.target.value);
+    const searchdata=makes.filter(item=>
+      item.branch.id===event.target.value
+    )
+   setMakes(searchdata)
+  }
+  const handleInputChange = (event) => {
+    setYear(event.target.value);
+    console.log(event.target.value,"aa");
+   const data = parseInt(event.target.value); 
+   if (!isNaN(data) && data.toString().length === 4) { // проверка на то, что data число из 4 цифр
+      const searchdata = makes.filter(item => item.year === data);
+      setMakes(searchdata);
+   }
 
+  }
+
+  function getData(key){
+    console.log(key);
+    localStorage.setItem("oneproduct",JSON.stringify(key))
+    window.location="/onecar"
+    }
 
   const openModal2 = () => {
     document.querySelector('.mobile_search').classList.add('db')
@@ -108,30 +145,35 @@ export default function Search() {
   }
   useEffect(() => {
     axios.get(`${url}/api/cars_get/`).then(res => {   
+      setMakes(res.data)
       setCountpag(Math.floor((res.data.length)/10)+1)
-//       var cardata=res.data
-// axios.get(`${url}/api/images/`).then(res2=>{
-// for (let i = 0; i < cardata.length; i++) {
-//   for (let j = 0; j < res2.data.length; j++) {
-// if(cardata[i].id===res2.data[j].){
-//   // chala
-// }
-
-//   }
-
-// }
-// })
-     setMakes(res.data)
-    
     }).catch(err => {
       console.log(err, "salom");
     })
     
-    // axios.get(`${url}/api/cars_get/`).then(res => {   
-    //   setdata1(res.data)
-    // }).catch(err => {
-    //   console.log(err, "salom");
-    // })
+    axios.get(`${url}/api/models/`).then(res => {   
+      setModel(res.data)
+      axios.get(`${url}/api/series/`).then(res2 => {   
+        setSeries(res2.data)
+        axios.get(`${url}/api/position/`).then(res3 => {   
+          setPosition(res3.data)
+          axios.get(`${url}/api/fuel_sort/`).then(res4 => {   
+            setFuelsort(res4.data)
+            axios.get(`${url}/api/gear_box/`).then(res5 => {   
+              setGearBox(res5.data)
+              axios.get(`${url}/api/garant/`).then(res6 => {   
+                setgarant(res6.data)
+                axios.get(`${url}/api/branch/`).then(res7 => {   
+                  setBranch(res7.data)
+                })
+              })
+            })
+          })
+        })
+      })
+    })
+
+
   }, [])
   useEffect(() => {
     axios.get(`${url}/api/images/`).then(res => {
@@ -140,14 +182,6 @@ export default function Search() {
       console.log(err, "salom");
     })
   }, [])
-
-
-
-function getData(key){
-console.log(key);
-localStorage.setItem("oneproduct",JSON.stringify(key))
-window.location="/onecar"
-}
   return (
     <div>
       <Navbar />
@@ -155,16 +189,16 @@ window.location="/onecar"
         <div className='search_top_body'>
           <Box>
           <FormControl className='inpsearch'>
-      <InputLabel id='demo-simple-select-label'>Position</InputLabel>
+      <InputLabel id='demo-simple-select-label'>Model</InputLabel>
       <Select
         labelId='demo-simple-select-label'
         id='demo-simple-select'
-        // value={position}
-        // onChange={handlePosition}
+        value={selectModel}
+        onChange={handleModel}
       >
-        {/* {data1.map((item) => (
-          <MenuItem key={item.position.name} value={item.position.name}>{item.position.name}</MenuItem>
-        ))} */}
+        {model.map((item) => (
+          <MenuItem value={item.id}>{item.name}</MenuItem>
+        ))}
       </Select>
     </FormControl>
           </Box>
@@ -174,61 +208,61 @@ window.location="/onecar"
               <Select
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
-                // value={model}
+                value={selectSeries}
                 // label='model'
-                // onChange={modelSearch}
+                onChange={handleSeries}
               >
-                {/* {data1.map(item => {
-                  return <MenuItem value={item.position.series.name}>{item.position.series.name}</MenuItem>
-                })} */}
+                {series.map((item) => (
+                   <MenuItem value={item.name}>{item.name}</MenuItem>
+                ))}
               </Select>
             </FormControl>
           </Box>
           <Box>
             <FormControl className='inpsearch'>
-              <InputLabel id='demo-simple-select-label'>Model</InputLabel>
+              <InputLabel id='demo-simple-select-label'>Position </InputLabel>
               <Select
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
-                // value={Distance}
+                value={selectPosition}
                 // label='Distance'
-                // onChange={distanceSearch}
+                onChange={handlePosition}
               >
-                {/* {data1.map(item => {
-                  return <MenuItem value={item.position.series.model.name}>{item.position.series.model.name}</MenuItem>
-                })} */}
-              </Select>
-            </FormControl>
-          </Box>
-          <Box>
-            <FormControl className='inpsearch'>
-              <InputLabel id='demo-simple-select-label'>Location</InputLabel>
-              <Select
-                labelId='demo-simple-select-label'
-                id='demo-simple-select'
-                // value={location}
-                // label='location'
-                // onChange={loacationSearch}
-              >
-                {/* {data1.map(item => {
-                  return <MenuItem value={item.branch.name}>{item.branch.name}</MenuItem>
-                })} */}
-              </Select>
-            </FormControl>
-          </Box>
-          <Box>
-            <FormControl className='inpsearch'>
-              <InputLabel id='demo-simple-select-label'>Name</InputLabel>
-              <Select
-                labelId='demo-simple-select-label'
-                id='demo-simple-select'
-                // value={Type}
-                // label='Type'
-                // onChange={TypeSearch}
-              >
-                {/* {data1.map(item => {
+                {position.map(item => {
                   return <MenuItem value={item.name}>{item.name}</MenuItem>
-                })} */}
+                })}
+              </Select>
+            </FormControl>
+          </Box>
+          <Box>
+            <FormControl className='inpsearch'>
+              <InputLabel id='demo-simple-select-label'>fuel_sort</InputLabel>
+              <Select
+                labelId='demo-simple-select-label'
+                id='demo-simple-select'
+                value={selectFuelsort}
+                // label='location'
+                onChange={handleFuelsort}
+              >
+                {fuelsort.map(item => {
+                  return <MenuItem value={item.id}>{item.name}</MenuItem>
+                })}
+              </Select>
+            </FormControl>
+          </Box>
+          <Box>
+            <FormControl className='inpsearch'>
+              <InputLabel id='demo-simple-select-label'>Gear Box</InputLabel>
+              <Select
+                labelId='demo-simple-select-label'
+                id='demo-simple-select'
+                value={selectGearBox}
+                label='Type'
+                onChange={handleGearBox}
+              >
+                {gearBox.map(item => {
+                  return <MenuItem value={item.id}>{item.name}</MenuItem>
+                })}
               </Select>
             </FormControl>
           </Box>
@@ -249,38 +283,38 @@ window.location="/onecar"
           </div>
           <Box>
             <FormControl className='inpsearch'>
-              <InputLabel id='demo-simple-select-label'>Mileage</InputLabel>
+              <InputLabel id='demo-simple-select-label'>Garant</InputLabel>
               <Select
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
-                // value={Mileage}
+                value={selectgarant}
                 // label='Mileage'
-                // onChange={MileageSearch}
+                onChange={handlegarant}
               >
-                {/* {data1.map(item => {
-                  return <MenuItem value={item.distance}>{item.distance}</MenuItem>
-                })} */}
+                {garant.map(item => {
+                  return <MenuItem value={item.id}>{item.name}</MenuItem>
+                })}
               </Select>
             </FormControl>
           </Box>
           <Box>
             <FormControl className='inpsearch'>
-              <InputLabel id='demo-simple-select-label'>Gearbox</InputLabel>
+              <InputLabel id='demo-simple-select-label'>Branch </InputLabel>
               <Select
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
-                // value={Drive}
+                value={selectBranch}
                 // label='Drive'
-                // onChange={DriveSearch}
+                onChange={handleBranch}
               >
-                {/* {data1.map(item => {
-                  return <MenuItem value={item.gearbox.name}>{item.gearbox.name}</MenuItem>
-                })} */}
+                {branch.map(item => {
+                  return <MenuItem value={item.id}>{item.name}</MenuItem>
+                })}
               </Select>
             </FormControl>
           </Box>
           <Box>
-            <FormControl className='inpsearch'>
+            {/* <FormControl className='inpsearch'>
               <InputLabel id='demo-simple-select-label'>Fuel</InputLabel>
               <Select
                 labelId='demo-simple-select-label'
@@ -289,26 +323,20 @@ window.location="/onecar"
                 // label='Fuel'
                 // onChange={FuelSearch}
               >
-                {/* {data1.map(item => {
-                  return <MenuItem value={item.fuel_sort.name}>{item.fuel_sort.name}</MenuItem>
-                })} */}
               </Select>
-            </FormControl>
+            </FormControl> */}
           </Box>
           <Box>
             <FormControl className='inpsearch'>
               <InputLabel id='demo-simple-select-label'>Year</InputLabel>
-              <Select
-                labelId='demo-simple-select-label'
-                id='demo-simple-select'
-                // value={Featur}
-                // label='Featur'
-                // onChange={FeaturSearch}
-              >
-                {/* {data1.map(item => {
-                  return <MenuItem value={item.year}>{item.year}</MenuItem>
-                })} */}
-              </Select>
+                  <input 
+      type="number" 
+      min="1900" 
+      max="2100" 
+      minLength='4'
+      value={year} 
+      onChange={handleInputChange} 
+    />
             </FormControl>
           </Box>
         </div>
@@ -322,73 +350,83 @@ window.location="/onecar"
           </div>
           <div className='mobile_body'>
             <Box className='searchBox'>
-              <FormControl className='inpsearch2'>
-                <InputLabel id='demo-simple-select-label'>Make</InputLabel>
-                <Select
-                  labelId='demo-simple-select-label'
-                  id='demo-simple-select'
-                  // value={position}
-                  // label='Make'
-                  // onChange={handlePosition}
-                >
-                  {makes.map(item => {
-                    return <MenuItem value={item.name}>{item.name}</MenuItem>
-                  })}
-                </Select>
-              </FormControl>
+            <FormControl className='inpsearch2'>
+      <InputLabel id='demo-simple-select-label'>Model</InputLabel>
+      <Select
+        labelId='demo-simple-select-label'
+        id='demo-simple-select'
+        value={selectModel}
+        onChange={handleModel}
+      >
+        {model.map((item) => (
+          <MenuItem value={item.id}>{item.name}</MenuItem>
+        ))}
+      </Select>
+    </FormControl>
             </Box>
             <Box className='searchBox'>
-              <FormControl className='inpsearch2'>
-                <InputLabel id='demo-simple-select-label'>Model</InputLabel>
-                <Select
-                  labelId='demo-simple-select-label'
-                  id='demo-simple-select'
-                  // value={model}
-                  // label='model'
-                  // onChange={modelSearch}
-                >
-                  {makes.map(item => {
-                    return <MenuItem value={item.name}>{item.name}</MenuItem>
-                  })}
-                </Select>
-              </FormControl>
-            </Box>
-            <input
-              type='text'
-              className='searchInp searchInp2'
-              placeholder='Location'
-            />
-            <Box className='searchBox'>
-              <FormControl className='inpsearch2'>
-                <InputLabel id='demo-simple-select-label'>Distance</InputLabel>
-                <Select
-                  labelId='demo-simple-select-label'
-                  id='demo-simple-select'
-                  // value={Distance}
-                  // label='Distance'
-                  // onChange={distanceSearch}
-                >
-                  {makes.map(item => {
-                    return <MenuItem value={item.name}>{item.name}</MenuItem>
-                  })}
-                </Select>
-              </FormControl>
+            <FormControl className='inpsearch2'>
+              <InputLabel id='demo-simple-select-label'>Series</InputLabel>
+              <Select
+                labelId='demo-simple-select-label'
+                id='demo-simple-select'
+                value={selectSeries}
+                // label='model'
+                onChange={handleSeries}
+              >
+                {series.map((item) => (
+                   <MenuItem value={item.name}>{item.name}</MenuItem>
+                ))}
+              </Select>
+            </FormControl>
             </Box>
             <Box className='searchBox'>
-              <FormControl className='inpsearch2'>
-                <InputLabel id='demo-simple-select-label'>Type</InputLabel>
-                <Select
-                  labelId='demo-simple-select-label'
-                  id='demo-simple-select'
-                  // value={Type}
-                  // label='Type'
-                  // onChange={TypeSearch}
-                >
-                  {makes.map(item => {
-                    return <MenuItem value={item.name}>{item.name}</MenuItem>
-                  })}
-                </Select>
-              </FormControl>
+            <FormControl className='inpsearch2'>
+              <InputLabel id='demo-simple-select-label'>Position </InputLabel>
+              <Select
+                labelId='demo-simple-select-label'
+                id='demo-simple-select'
+                value={selectPosition}
+                // label='Distance'
+                onChange={handlePosition}
+              >
+                {position.map(item => {
+                  return <MenuItem value={item.name}>{item.name}</MenuItem>
+                })}
+              </Select>
+            </FormControl>
+            </Box>
+            <Box className='searchBox'>
+            <FormControl className='inpsearch2'>
+              <InputLabel id='demo-simple-select-label'>fuel_sort</InputLabel>
+              <Select
+                labelId='demo-simple-select-label'
+                id='demo-simple-select'
+                value={selectFuelsort}
+                // label='location'
+                onChange={handleFuelsort}
+              >
+                {fuelsort.map(item => {
+                  return <MenuItem value={item.id}>{item.name}</MenuItem>
+                })}
+              </Select>
+            </FormControl>
+            </Box>
+            <Box className='searchBox'>
+            <FormControl className='inpsearch2'>
+              <InputLabel id='demo-simple-select-label'>Gear Box</InputLabel>
+              <Select
+                labelId='demo-simple-select-label'
+                id='demo-simple-select'
+                value={selectGearBox}
+                label='Type'
+                onChange={handleGearBox}
+              >
+                {gearBox.map(item => {
+                  return <MenuItem value={item.id}>{item.name}</MenuItem>
+                })}
+              </Select>
+            </FormControl>
             </Box>
             <div className='boxPrice boxprice2'>
               <input
@@ -403,56 +441,51 @@ window.location="/onecar"
               />
             </div>
             <Box className='searchBox'>
-              <FormControl className='inpsearch2'>
-                <InputLabel id='demo-simple-select-label'>Mileage</InputLabel>
-                <Select
-                  labelId='demo-simple-select-label'
-                  id='demo-simple-select'
-                  // value={Mileage}
-                  // label='Mileage'
-                  // onChange={MileageSearch}
-                >
-                  {makes.map(item => {
-                    return <MenuItem value={item.name}>{item.name}</MenuItem>
-                  })}
-                </Select>
-              </FormControl>
+            <FormControl className='inpsearch2'>
+              <InputLabel id='demo-simple-select-label'>Garant</InputLabel>
+              <Select
+                labelId='demo-simple-select-label'
+                id='demo-simple-select'
+                value={selectgarant}
+                // label='Mileage'
+                onChange={handlegarant}
+              >
+                {garant.map(item => {
+                  return <MenuItem value={item.id}>{item.name}</MenuItem>
+                })}
+              </Select>
+            </FormControl>
             </Box>
             <Box className='searchBox'>
-              <FormControl className='inpsearch2'>
-                <InputLabel id='demo-simple-select-label'>
-                  Drive Type
-                </InputLabel>
-                <Select
-                  labelId='demo-simple-select-label'
-                  id='demo-simple-select'
-                  // value={Drive}
-                  // label='Drive'
-                  // onChange={DriveSearch}
-                >
-                  {makes.map(item => {
-                    return <MenuItem value={item.name}>{item.name}</MenuItem>
-                  })}
-                </Select>
-              </FormControl>
+            <FormControl className='inpsearch2'>
+              <InputLabel id='demo-simple-select-label'>Branch </InputLabel>
+              <Select
+                labelId='demo-simple-select-label'
+                id='demo-simple-select'
+                value={selectBranch}
+                // label='Drive'
+                onChange={handleBranch}
+              >
+                {branch.map(item => {
+                  return <MenuItem value={item.id}>{item.name}</MenuItem>
+                })}
+              </Select>
+            </FormControl>
             </Box>
             <Box className='searchBox'>
-              <FormControl className='inpsearch2'>
-                <InputLabel id='demo-simple-select-label'>Fuel</InputLabel>
-                <Select
-                  labelId='demo-simple-select-label'
-                  id='demo-simple-select'
-                  // value={Fuel}
-                  // label='Fuel'
-                  // onChange={FuelSearch}
-                >
-                  {makes.map(item => {
-                    return <MenuItem value={item.name}>{item.name}</MenuItem>
-                  })}
-                </Select>
-              </FormControl>
+            <FormControl className='inpsearch2'>
+              <InputLabel id='demo-simple-select-label'>Year</InputLabel>
+                  <input 
+      type="number" 
+      min="1900" 
+      max="2100" 
+      minLength='4'
+      value={year} 
+      onChange={handleInputChange} 
+    />
+            </FormControl>
             </Box>
-            <Box className='searchBox'>
+            {/* <Box className='searchBox'>
               <FormControl className='inpsearch2'>
                 <InputLabel id='demo-simple-select-label'>Featured</InputLabel>
                 <Select
@@ -467,7 +500,7 @@ window.location="/onecar"
                   })}
                 </Select>
               </FormControl>
-            </Box>
+            </Box> */}
             <button className='btnSearch'>Search</button>
           </div>
         </div>
@@ -475,7 +508,7 @@ window.location="/onecar"
       <div className='search_body'>
         <div className="body_top">
           <h2> Results</h2>
-          <div className="top_box">
+          {/* <div className="top_box">
             <p>Sort by:</p>
             <Box className="inpsearch3">
               <FormControl className='inpsearch inpsearch3'>
@@ -494,7 +527,7 @@ window.location="/onecar"
               </FormControl>
             </Box>
 
-          </div>
+          </div> */}
         </div>        
         <div className="result_wrapper">
           {makes.map((item,key) => {
@@ -517,6 +550,7 @@ window.location="/onecar"
             )
           })}
           </div>
+        
           <Stack spacing={2}>
       <Pagination count={countpag} page={page} onChange={handleChange} color="secondary"/>
     </Stack>
