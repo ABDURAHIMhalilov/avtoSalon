@@ -357,11 +357,13 @@ pushdata.push(item)
             <FormControl className='inpsearch'>
               <InputLabel id='demo-simple-select-label'>Year</InputLabel>
                   <input 
+                  className='input_year'
       type="text" 
       min="1900" 
       max="2100" 
       minLength='4'
       onKeyUp={handleyear}
+      // className='searchInp priceInp2'
     />
             </FormControl>
           </Box>
@@ -505,6 +507,7 @@ pushdata.push(item)
             <FormControl className='inpsearch2'>
               <InputLabel id='demo-simple-select-label'>Year</InputLabel>
                <input 
+               className='input_year'
       type="text" 
       min="1900" 
       max="2100" 
