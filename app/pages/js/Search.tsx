@@ -34,8 +34,6 @@ export default function Search() {
   const [branch,setBranch ] = React.useState([])
   const [selectBranch, setSelectBranch] = React.useState([])
   const [makes, setMakes] = React.useState([])
-  const [makes1, setMakes1] = React.useState([])
-
   const [images, setImages] = React.useState([])
   const [year, setYear] = React.useState('');
   const [page, setPage] = React.useState(1);
@@ -48,18 +46,16 @@ export default function Search() {
   };
 
   const handleModel = (event) => {
-    
-    
     setSelectModel(event.target.value);
     axios.get(`${url}/api/series/`).then(res => {   
       const search = res.data.filter(item=>item.model===event.target.value)
-      setSeries(search)  
+      setSeries(search)
     })
-    const searchdata=makes1.filter(item=>
+    const searchdata=makes.filter(item=>
       item.position.series.model.id===event.target.value
     )
     setMakes(searchdata)
-    if (makes1.length<1) {
+    if (makes.length<1) {
       axios.get(`${url}/api/cars_get/`).then(res => {   
         const searchdata2=res.data.filter(item=>
           item.position.series.model.id===event.target.value
@@ -71,9 +67,10 @@ export default function Search() {
   }
   const handleSeries = (event) => {
     setSelectSeries(event.target.value);
-console.log(event.target.value);
+
+    
     axios.get(`${url}/api/series/`).then(res => {   
-      const search = res.data.filter(item=>item.id==event.target.value)
+      const search = res.data.filter(item=>item.name===event.target.value)
       axios.get(`${url}/api/position/`).then(res2 => {   
         const search2 = res2.data.filter(item=>item.series===search[0].model)
         setPosition(search2)
@@ -97,28 +94,28 @@ console.log(event.target.value);
   }
   const handleFuelsort= (event) => {
     setSelectFuelsort(event.target.value);
-    const searchdata=makes1.filter(item=>
+    const searchdata=makes.filter(item=>
       item.fuel_sort.id===event.target.value
     )
    setMakes(searchdata)
   }
   const handleGearBox= (event) => {
     setSelectGearBox(event.target.value);
-    const searchdata=makes1.filter(item=>
+    const searchdata=makes.filter(item=>
       item.gearbox.id===event.target.value
     )
    setMakes(searchdata)
   }
   const handlegarant= (event) => {
     setSelectgarant(event.target.value);
-    const searchdata=makes1.filter(item=>
+    const searchdata=makes.filter(item=>
       item.garant.id===event.target.value
     )
    setMakes(searchdata)
   }
   const handleBranch= (event) => {
     setSelectBranch(event.target.value);
-    const searchdata=makes1.filter(item=>
+    const searchdata=makes.filter(item=>
       item.branch.id===event.target.value
     )
    setMakes(searchdata)
@@ -149,11 +146,11 @@ console.log(event.target.value);
   useEffect(() => {
     axios.get(`${url}/api/cars_get/`).then(res => {   
       setMakes(res.data)
-      setMakes1(res.data)
       setCountpag(Math.floor((res.data.length)/10)+1)
     }).catch(err => {
       console.log(err, "salom");
     })
+    
     axios.get(`${url}/api/models/`).then(res => {   
       setModel(res.data)
       axios.get(`${url}/api/series/`).then(res2 => {   
@@ -196,7 +193,6 @@ console.log(event.target.value);
       <Select
         labelId='demo-simple-select-label'
         id='demo-simple-select'
-        label="Model"
         value={selectModel}
         onChange={handleModel}
       >
@@ -213,23 +209,23 @@ console.log(event.target.value);
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
                 value={selectSeries}
-                label='Series'
+                // label='model'
                 onChange={handleSeries}
               >
                 {series.map((item) => (
-                   <MenuItem value={item.id}>{item.name}</MenuItem>
+                   <MenuItem value={item.name}>{item.name}</MenuItem>
                 ))}
               </Select>
             </FormControl>
           </Box>
           <Box>
             <FormControl className='inpsearch'>
-              <InputLabel id='demo-simple-select-label'>Position</InputLabel>
+              <InputLabel id='demo-simple-select-label'>Position </InputLabel>
               <Select
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
                 value={selectPosition}
-                label='Position'
+                // label='Distance'
                 onChange={handlePosition}
               >
                 {position.map(item => {
