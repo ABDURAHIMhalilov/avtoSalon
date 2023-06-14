@@ -31,7 +31,7 @@
 }
 .team .swiper {
   width: 80% !important;
-  height: 500px !important;
+  min-height: 530px !important;
   padding: 20px;
   position: absolute !important;
   right: -12%;
@@ -43,7 +43,7 @@
 }
 .team_card {
   width: 335px !important;
-  height: 480px !important;
+  height: 500px !important;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 0 10px #fff !important;

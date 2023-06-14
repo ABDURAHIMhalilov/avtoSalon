@@ -12,30 +12,53 @@ import url from "./Host";
 
 export default function Popular() {
   const [cars, setCars] = React.useState([]);
+  const [model, setModel] = React.useState([]);
+
 
   useEffect(() => {
     axios.get(`${url}/api/cars_get/`).then((res) => {
       setCars(res.data);
-      console.log(res.data);
+      axios.get(`${url}/api/series_get/`).then((res) => {
+        setModel(res.data);  
+      });
+   
     });
   }, []);
+  const getData=(key)=>{
+    var pust=[]
+    axios.get(`${url}/api/cars_get/`).then((res) => {
+      console.log(res.data,key);
+      
+  res.data.map((item)=>{
+    console.log(item.position.series.id,key);
+     if(item.position.series.id==key){
+pust.push(item)
+    }
+  }) 
+     
+    setCars(pust)
+   
+    })
+  }
+
+  function getData2(key){
+    console.log(key);
+    localStorage.setItem("oneproduct",JSON.stringify(key))
+    window.location="/onecar"
+    }
+
   return (
     <div className="popular">
       <div className="popular_top">
         <h1>Popular Makes</h1>
         <div className="pop_btns">
-          <a href="#!" className="popular_btn">
-            Audi
-          </a>
-          <a href="#!" className="popular_btn">
-            BMW
-          </a>
-          <a href="#!" className="popular_btn">
-            Cadillac
-          </a>
-          <a href="#!" className="popular_btn">
-            Ferrari
-          </a>
+        { model.map((item,key)=>{
+          if(key<4){
+         return  <a href="#!" onClick={()=>getData(item.id)} className="popular_btn">
+            {item.name}
+          </a>}
+        }) } 
+        
         </div>
       </div>
       <Swiper
@@ -63,8 +86,8 @@ export default function Popular() {
         className="mySwiper"
       >
         {cars.map((item, key) => {
-          return (
-            <SwiperSlide key={key} className="swiperPopCard">
+        if(key<10){ return (
+            <SwiperSlide key={key} onClick={()=>getData2(item)} className="swiperPopCard">
               <div className="feat_card">
                 <Image src={car} alt="a" className="featured_img" />
                 <div className="featCard_bottom">
@@ -78,7 +101,7 @@ export default function Popular() {
                 </div> 
               </div>
             </SwiperSlide>
-          );
+          );} 
         })}
 
         {/* <SwiperSlide className='swiperPopCard'>

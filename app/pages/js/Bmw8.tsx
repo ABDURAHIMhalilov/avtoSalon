@@ -28,6 +28,7 @@ export default function Bmw8() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [user, setUser] = useState(localStorage.getItem("username"));
   const [ branchs, setBranchs ] = useState([])
+  const [ getavto, setAvto ] = useState([])
   var [data, setData] = useState(
     JSON.parse(localStorage.getItem("oneproduct"))
   );
@@ -66,6 +67,15 @@ export default function Bmw8() {
       })
       .then(res => {
         setBranchs(res.data)
+      })
+      axios.get(`${url}/api/cars_get/`).then(res => {
+        var hh = []
+        res.data.map(item => {
+          if (data.id!=item.id && data.position.series.model.id == item.position.series.model.id) {
+            hh.push(item)
+          }
+        })
+        setAvto(hh)
       })
   }, []);
 
@@ -552,6 +562,10 @@ export default function Bmw8() {
           modules={[Pagination]}
           className="mySwiper"
         >
+          {
+            getavto.map(item => {
+              return(
+
           <SwiperSlide>
             <div className="audi4">
               <img
@@ -559,113 +573,21 @@ export default function Bmw8() {
                 alt=""
               />
               <h3>
-                Mercedes-Benz AMG GT <br />
-                <h2>$14,600</h2>
+                {item.name}<br />
+                <h2>${item.price}</h2>
               </h3>
 
               <hr />
               <div className="miles">
-                <div className="mnb2">2020</div>
+                <div className="mnb2">{item.year}</div>
                 <div className="mile">160,000 miles</div>
                 <div className="au">Automatic</div>
               </div>
             </div>
           </SwiperSlide>
-          <SwiperSlide>
-            <div className="audi4">
-              <img
-                src="https://demo.vehica.com/wp-content/uploads/2020/02/1-42-670x372.jpg"
-                alt=""
-              />
-              <h3>
-                Porsche Macan 5-door <br />
-                <h2>$14,600</h2>
-              </h3>
-
-              <hr />
-              <div className="miles">
-                <div className="mnb2">2018</div>
-                <div className="mile">190,000 miles</div>
-                <div className="au">Automatic</div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="audi4">
-              <img
-                src="https://demo.vehica.com/wp-content/uploads/2020/02/audi1.jpg"
-                alt=""
-              />
-              <h3>
-                PAudi A4 4-door <br />
-                <h2>$23,000</h2>
-              </h3>
-
-              <hr />
-              <div className="miles">
-                <div className="mnb2">2020</div>
-                <div className="mile">245,000 miles</div>
-                <div className="au">Manual</div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="audi4">
-              <img
-                src="https://demo.vehica.com/wp-content/uploads/2020/08/5-670x372.jpg"
-                alt=""
-              />
-              <h3>
-                Chevrolet Camaro 2-door <br />
-                <h2>$40,000</h2>
-              </h3>
-
-              <hr />
-              <div className="miles">
-                <div className="mnb2">2021</div>
-                <div className="mile">Automatic</div>
-                <div className="au">Diesel</div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="audi4">
-              <img
-                src="https://demo.vehica.com/wp-content/uploads/2020/09/car-red.jpg"
-                alt=""
-              />
-              <h3>
-                Ferrari LaFerrari 2-door <br />
-                <h2>$810,000</h2>
-              </h3>
-
-              <hr />
-              <div className="miles">
-                <div className="mnb2">2021</div>
-                <div className="mile">Automatic</div>
-                <div className="au">Diesel</div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="audi4">
-              <img
-                src="https://demo.vehica.com/wp-content/uploads/2020/08/audi3-670x372.jpg"
-                alt=""
-              />
-              <h3>
-                Audi A8 4-door <br />
-                <h2>$70,000</h2>
-              </h3>
-
-              <hr />
-              <div className="miles">
-                <div className="mnb2">2021</div>
-                <div className="mile">Automatic</div>
-                <div className="au">Diesel</div>
-              </div>
-            </div>
-          </SwiperSlide>
+              )
+            })
+          }
         </Swiper>
       </div>
 

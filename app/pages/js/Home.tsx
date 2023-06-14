@@ -18,9 +18,12 @@ import url from "./Host";
 
 export default function Home() {
   const [select, setSelect] = React.useState("");
-  const [models, setModels] = React.useState([{ id: 0, name: "none" }]);
-  const [series, setSeries] = React.useState([{ id: 0, name: "none" }]);
-  const [position, setPosition] = React.useState([{ id: 0, name: "none" }]);
+  const [selectSeries,setSelectSeries]=React.useState("")
+  const [selectPosition,setSelectPosition]=React.useState("")
+
+  const [models, setModels] = React.useState([]);
+  const [series, setSeries] = React.useState([]);
+  const [position, setPosition] = React.useState([]);
 
 
 
@@ -30,34 +33,39 @@ export default function Home() {
       setModels(res.data);
     });
   }, []);
-  const getSeries = (value) => {
-    setSelect(value);
-    console.log(value);
+  const getSeries = (event) => {
+    setSelect(event.target.value);
+    setSelectPosition("")
+    setPosition([])
     var seriesData = [];
     axios.get(`https://baracar.onrender.com/api/series_get/`).then((res) => {
       for (let i = 0; i < res.data.length; i++) {
         if (!(res.data[i].model == null)) {
-          if (res.data[i].model.id === value * 1) seriesData.push(res.data[i]);
+          if (res.data[i].model.id === event.target.value * 1) seriesData.push(res.data[i]);
         }
       }
 
       setSeries(seriesData);
     });
   };
-  const getPosition = (value) => {
-    console.log(value);
+  const getPosition = (event) => {
+    setSelectSeries(event.target.value)
+    setSelectPosition("")
     var seriesData = [];
+
     axios.get(`https://baracar.onrender.com/api/position_get/`).then((res) => {
       for (let i = 0; i < res.data.length; i++) {
         if (!(res.data[i].series == null)) {
-          if (res.data[i].series.id === value * 1) seriesData.push(res.data[i]);
+          if (res.data[i].series.id === event.target.value * 1) seriesData.push(res.data[i]);
         }
       }
 
       setPosition(seriesData);
     });
   };
-
+ const postPosition=(event)=>{
+  setSelectPosition(event.target.value)
+ }
   return (
     <div>
       <Head>
@@ -78,7 +86,7 @@ export default function Home() {
                   id="demo-select-small"
                   label="Models"
                   value={select}
-                  // onChange={handleChange}
+                   onChange={getSeries}
                 >
                   <MenuItem value="">
                     <em>None</em>
@@ -87,9 +95,7 @@ export default function Home() {
                     return (
                       <MenuItem
                         key={key}
-                        onClick={() => {
-                          getSeries(item.id);
-                        }}
+                      
                         value={item.id}
                       >
                         {item.name}
@@ -104,18 +110,14 @@ export default function Home() {
                   labelId="demo-select-small-label"
                   id="demo-select-small"
                   label="Position"
-                  value={position.id}
-
-                  // onChange={handleChange}
+                  value={selectSeries}
+                   onChange={getPosition}
                 >
-                  <MenuItem value=""></MenuItem>
+                  <MenuItem value="">None</MenuItem>
                   {series.map((item, key) => {
                     return (
                       <MenuItem
                         key={key}
-                        onClick={() => {
-                          getPosition(item.id);
-                        }}
                         value={item.id}
                       >
                         {item.name}
@@ -129,12 +131,11 @@ export default function Home() {
                 <Select
                   labelId="demo-select-small-label"
                   id="demo-select-small"
-                  label="Age"
-                  value={models[0].id}
-
-                  // onChange={handleChange}
+                  label="Pasition"
+                  value={selectPosition}
+                  onChange={postPosition}
                 >
-                  <MenuItem value=""></MenuItem>
+                  <MenuItem value="">None</MenuItem>
                   {position.map((item, key) => {
                     return (
                       <MenuItem key={key} value={item.id}>

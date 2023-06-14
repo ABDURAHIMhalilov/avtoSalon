@@ -550,11 +550,14 @@ pushdata.push(item)
             return (
               <div key={key} onClick={()=>getData(item)} className='feat_card2'>
                 <div>
-                  <h1 className="salesale">-{(item).sale}%</h1>
+                  <h1 className="salesale">{item.sale==0?(""):(`${item.sale}%`)}</h1>
                   <Image src={car} alt='a' className='featured_img' />
                   <div className='featCard_bottom'>
-                    <div className='feat-cardorab'><h3 className='featCard_name'>{item.name}</h3><del>{item.price}.sum</del></div>
-                    <h4 className='featCard_price'>{item.price-((item.price*item.sale/100).toFixed(0))}.sum</h4>
+                    <div className='feat-cardorab'><h3 className='featCard_name'>{item.name}</h3><del>{item.sale==0?(""):(`${item.price}.sum`)}</del></div>
+                    <h4 className='featCard_price'>{
+                    item.sale==0?(item.price):(`${item.price-((item.price*item.sale/100).toFixed(0))}`)
+                    
+                    }.sum</h4>
                     <div className='featCard_box'>
                       <p className='featCard_year'>{item.year}</p>
                       <p className='featCard_auto'>{item.gearbox.name}</p>

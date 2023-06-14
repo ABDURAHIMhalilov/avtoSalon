@@ -218,45 +218,77 @@ export default function Featured() {
         "time_create": "2023-06-07T10:41:35.620711Z",
         "time_update": "2023-06-07T10:41:35.620724Z",
         "is_active": true
-        }
+        }, {
+
+          "id": 44,
+          "position": {
+              "id": 3,
+              "name": "gentra",
+              "series": {
+                  "id": 2,
+                  "name": "lacetti",
+                  "model": {
+                      "id": 2,
+                      "name": "Chevrolet"
+                  }
+              }
+          },
+          "fuel_sort": {
+              "id": 4,
+              "name": "gaz"
+          },
+          "gearbox": {
+              "id": 2,
+              "name": "mexanik"
+          },
+          "garant": {
+              "id": 11,
+              "name": "10 yil",
+              "time": 1
+          },
+          "branch": {
+              "id": 6,
+              "name": "Yashnabod branch",
+              "country": "Uzbekistan",
+              "region": "Toshkent",
+              "city": "Toshkent",
+              "district": "Yashnabod",
+              "street": "Mohinur ko'chasi"
+          },
+          "name": "qwdqqew2",
+          "initial_price": 10000.0,
+          "price": 10000.0,
+          "sale": 30.0,
+          "depozit": 10.0,
+          "fuel_consumption": 11.0,
+          "year": 2022,
+          "distance": 100.0,
+          "engine": 20.0,
+          "colour": "red",
+          "views": 1111,
+          "description": "1",
+          "time_create": "2023-06-07T10:41:35.620711Z",
+          "time_update": "2023-06-07T10:41:35.620724Z",
+          "is_active": true
+          }
     ]
 )    
 
   const [price, setPrice] = React.useState([]);
 
-  // useEffect(() => {
-  //   axios.get(`${url}/api/cars_get/`).then((res) => {
-  //     setCars(res.data);
-  //     // console.log(res.data, 'fgkhl;');
-  //     res.data.map((item) => {
-  //       var s = item.sale;
-  //       var p = item.price;
-  //       var sales = p - (p * s) / 100;
-  //       setPrice(sales);
-  //       //   res.data.map(item=>{
-  //       //     var s=item.sale
-  //       //     var p=item.price
-  //       //     var sales=p-(p*s/100)
-  //       //       setPrice(sales)
-  //       //   })
-  //     });
-  //   });
-  //   // var s = cars[0].sale
-  //   // var p = cars[0].price
-  //   // if (s == 0) {
-  //   //     setPrice(p)
-  //   // } else {
-  //   //     var f = p-(p*s/100)
-  //   //     setPrice(f)
-  //   // }
-  // }, []);
+  function getData2(key){
+    console.log(key);
+    localStorage.setItem("oneproduct",JSON.stringify(key))
+    window.location="/onecar"
+    }
+
 
   return (
     <div className="featured">
       <h5 className="featured_info">Handy picked</h5>
       <h2 className="featured_title">Featured Listings</h2>
       <div className="featured_body">
-        <div className="featured_left">
+        <div className="featured_left" onClick={()=>{getData2(cars[0])}}>
           <Image src={car} alt="a" className="featured_img" />
           <div className="featured_bottom">
             <h3 className="featured_name">{cars[0].name}</h3>
@@ -270,7 +302,7 @@ export default function Featured() {
           </div>
         </div>
         <div className="featured_right">
-          <div className="feat_card">
+          <div className="feat_card" onClick={()=>{getData2(cars[1])}}>
             <Image src={car} alt="a" className="featured_img" />
             <div className="featCard_bottom">
               <h3 className="featCard_name">{cars[1].name}</h3>
@@ -282,7 +314,7 @@ export default function Featured() {
               </div>
             </div>
           </div>
-          <div className="feat_card">
+          <div className="feat_card" onClick={()=>{getData2(cars[2])}}>
             <Image src={car} alt="a" className="featured_img" />
             <div className="featCard_bottom">
               <h3 className="featCard_name">{cars[2].name}</h3>
@@ -294,7 +326,7 @@ export default function Featured() {
               </div>
             </div>
           </div>
-          <div className="feat_card">
+          <div className="feat_card" onClick={()=>{getData2(cars[3])}}>
             <Image src={car} alt="a" className="featured_img" />
             <div className="featCard_bottom">
               <h3 className="featCard_name">{cars[3].name}</h3>
@@ -306,15 +338,15 @@ export default function Featured() {
               </div>
             </div>
           </div>
-            <div className="feat_card">
+            <div className="feat_card" onClick={()=>{getData2(cars[4])}}>
                 <Image src={car} alt="a" className="featured_img" />
                 <div className="featCard_bottom">
-                <h3 className="featCard_name">BMW 8-serie 2-door coupe grey</h3>
-                <h4 className="featCard_price">$4000</h4>
+                <h3 className="featCard_name">{cars[4].name}</h3>
+                <h4 className="featCard_price">{cars[4].price}</h4>
                 <div className="featCard_box">
-                    <p className="featCard_year">2021</p>
-                    <p className="featCard_auto">Automatic</p>
-                    <p className="featCard_pet">Petrol</p>
+                <p className="featCard_year">{cars[4].year}</p>
+              <p className="featCard_auto">{cars[4].gearbox.name}</p>
+              <p className="featCard_pet">{cars[4].fuel_sort.name}</p>
                 </div>
                 </div>
             </div>
@@ -384,7 +416,7 @@ export default function Featured() {
           </a>
         </div>
         <p className="feat_tit">Follow Us</p>
-        <button className="Btnbody feat_btn">View News</button>
+        <button className="Btnbody feat_btn" onClick={()=>window.location="/cars"} >View News</button>
       </div>
     </div>
   );
