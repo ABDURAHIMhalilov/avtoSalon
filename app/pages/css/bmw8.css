@@ -390,18 +390,24 @@ margin-left: 0%;
     display: flex;
     justify-content: space-around;
     border-radius: 20px;
-    
 }
 .maky1{
     background-color: #eff3fa;
     display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
+    justify-content: space-between;
+    /* margin-top: 20px; */
     border-radius: 20px;
     padding-bottom: 20px;
-    padding-top: 30px;
+    /* padding-top: 30px; */
     width: 80%;
+    margin: auto;
+    
 }
+.maky1 th{
+text-align: right !important;
+/* border: 1px solid red */
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200&family=Roboto+Slab&display=swap');
 
 
@@ -458,18 +464,22 @@ font-family: 'Roboto Slab', serif !important;
     width: 50%;
     font-weight: 600;
 }
-.maa p{
+.maa th{
     font-weight: 700;
     margin: 0px 0px 12px 0px;
     margin-top: 15px;
     font-weight: 500;
     font-size: 18px;
     width: 300px;
+    line-height: 23px;
 }
-.mn p{
-    margin-top: 10px;
+.mn td{
+    margin-top: 15px;
+    margin-top: 15px;
     margin: 0px 0px 19.5px 0px;
     color: grey;
+    line-height: 20px;
+
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Mulish:wght@200&display=swap');
@@ -523,7 +533,7 @@ font-family: 'Roboto Slab', serif !important;
     }
 }
 @media (max-width:400px) {
-    .mn p{
+    .mn td{
         font-size: 15px;
     }
     .maa p{
@@ -1093,6 +1103,12 @@ font-family: 'Roboto Slab', serif !important;
   .audi4 img{
     height: 223px;
     width: 100%;
+  } 
+  .konechswip2{
+    display: none;
+  }
+  .konechswip3{
+    display: none;
   }
   .miles{
     display: flex;
@@ -1151,12 +1167,7 @@ font-family: 'Roboto Slab', serif !important;
     }
   }
 
-  .konechswip2{
-    display: none;
-  }
-  .konechswip3{
-    display: none;
-  }
+ 
 
   .gfbvdc select {
     width: 97%;
@@ -1167,3 +1178,59 @@ font-family: 'Roboto Slab', serif !important;
     padding-left: 10px;
     border-radius: 10px;
   }
+
+  .defectDiv {
+    width: 100%;
+    min-height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #fff;
+    z-index: 9999999999999999999 !important;
+    display: none;
+  }
+
+  .defectBig {
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    background: #fff;
+    box-shadow: inset 0 0 10px black;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .deskBg {
+    width: 50%;
+  }
+
+  .deskBg img {
+    width: 80%;
+  }
+
+  .deskBg2 {
+    width: 50%;
+  }
+
+  .deskB2 img {
+    width: 10%;
+  }
+
+  .defectBig span {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  /* .mySwiper {
+    display: none;
+  }
+
+  .mySwiper2 {
+    display: none;
+  } */

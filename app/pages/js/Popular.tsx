@@ -13,6 +13,7 @@ import url from "./Host";
 export default function Popular() {
   const [cars, setCars] = React.useState([]);
   const [model, setModel] = React.useState([]);
+  const [images, setImages] = React.useState([])
 
 
   useEffect(() => {
@@ -23,6 +24,11 @@ export default function Popular() {
       });
    
     });
+    axios.get(`${url}/api/images/`).then(res => {
+      setImages(res.data)
+    }).catch(err => {
+      console.log(err, "salom");
+    })
   }, []);
   const getData=(key)=>{
     var pust=[]
@@ -60,7 +66,7 @@ pust.push(item)
         }) } 
         
         </div>
-      </div>
+      </div>  
       <Swiper
         spaceBetween={10}
         navigation={true}
@@ -89,7 +95,14 @@ pust.push(item)
         if(key<10){ return (
             <SwiperSlide key={key} onClick={()=>getData2(item)} className="swiperPopCard">
               <div className="feat_card">
-                <Image src={car} alt="a" className="featured_img" />
+              {images.map(item2=>{
+                    if (item.id===item2.car) {
+                      return (<img src={item2.image} alt={item2.image} />)
+                    } else {
+                      return (<Image src={car} alt={car} className='featured_img' />)
+                    }
+                  })}
+                {/* <Image src={car} alt="a" className="featured_img" /> */}
                 <div className="featCard_bottom">
                 <h3 className="featCard_name">{item.name}</h3>
                   <h4 className="featCard_price">{item.price}.sum</h4>

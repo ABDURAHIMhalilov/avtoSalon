@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import "../css/Login.css";
@@ -16,9 +16,8 @@ import url from "./Host";
 export default function Login() {
   const page = 1;
   const [data, setData] = React.useState(1);
-  const [ staff, setStaff ] = React.useState()
-
-
+  const [staff, setStaff] = React.useState();
+  const [user, setUser] = useState([]);
 
   const plus = () => {
     setData(data + 1);
@@ -28,27 +27,49 @@ export default function Login() {
       setData(data - 1);
     }
   };
-function agerr(id) {
-  setStaff(id)
-}
+  function agerr(id) {
+    setStaff(id);
+  }
   function postUser() {
     console.log(staff);
-    var usernamee = document.querySelector(".Username").value
+    var usernamee = document.querySelector(".Username").value;
     var data = new FormData();
     data.append("username", usernamee);
     data.append("phone", document.querySelector(".Phone").value);
     data.append("password", document.querySelector(".Password").value);
     data.append("is_staff", false);
-    axios.post(`${url}/auth/register/`, data)
+    axios
+      .post(`${url}/auth/register/`, data)
       .then((res) => {
-        localStorage.setItem('Token_user', res.data.access)
+        localStorage.setItem("Token_user", res.data.access);
         alert("success");
         window.location = "/userpage";
-        localStorage.setItem('username', usernamee)
+        localStorage.setItem("username", usernamee);
       })
       .catch((err) => {
         alert(err);
-      })
+      });
+  }
+  function userLogin() {
+    var datta = new FormData();
+    var usernamee = document.querySelector(".userNameEmail").value;
+    datta.append("phone", usernamee);
+    datta.append("password", document.querySelector(".userPassword").value);
+    axios
+      .post(`${url}/auth/login/`, datta)
+      .then((res) => {
+        // res.data.map(item => {
+        // if (res.data.username === asd && res.data.password === asd2) {
+        // alert("zo`r");
+        console.log(res.data);
+        localStorage.setItem('username', usernamee)
+        JSON.stringify(localStorage.setItem("Token_user", res.data.access))
+        window.location = "/userpage";
+        // } else {
+        //   alert('To`g`ri kelmadi')
+        // }
+        // })
+      });
   }
 
   return (
@@ -89,8 +110,16 @@ function agerr(id) {
                 <h2>Log in to your account</h2>
                 <h3>Welcome back! Sign in to your account</h3>
                 <div className="inputs">
-                  <input type="text" placeholder="Email or Username" />
-                  <input type="password" placeholder="Password" />
+                  <input
+                    className="userNameEmail"
+                    type="text"
+                    placeholder="Email or Username"
+                  />
+                  <input
+                    className="userPassword"
+                    type="password"
+                    placeholder="Password"
+                  />
                 </div>
                 <div className="checkbox">
                   {/* <div className="check2">
@@ -101,17 +130,25 @@ function agerr(id) {
                     Forgotten password?
                   </a>
                 </div>
-                <button>Login</button>
+                <button onClick={() => userLogin()}>Login</button>
               </div>
             ) : (
               <div className="registratsiya">
                 <h2>Register</h2>
                 <h3>Create new account today.</h3>
                 <div className="inputs">
-                  <input type="text" className="Username" placeholder="Username*" />
+                  <input
+                    type="text"
+                    className="Username"
+                    placeholder="Username*"
+                  />
                   {/* <input type="text" className="Email" placeholder="Email*" /> */}
                   <input type="text" className="Phone" placeholder="Phone*" />
-                  <input type="password" className="Password" placeholder="Password*" />
+                  <input
+                    type="password"
+                    className="Password"
+                    placeholder="Password*"
+                  />
                   {/* <div className="checkbox1">
                     <div className="check">
                       <input onClick={() => agerr(false)}  id="cb1" type="radio" className="radio" name="radio" />

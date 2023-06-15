@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import logo from "../images/logo.png";
 import { AiOutlineUser } from "react-icons/ai";
@@ -7,10 +7,29 @@ import { HiUsers } from "react-icons/hi";
 import { BiMenuAltLeft } from "react-icons/bi";
 import { MdClose } from "react-icons/md";
 import "../css/Navbar.css";
+import axios from "axios";
+import url from "./Host";
 
 export default function Navbar() {
   const [count, setCount] = useState(false);
   const [user, setUser] = useState(localStorage.getItem("username"));
+  const [ users, setUsers ] = useState([])
+
+  useEffect(() => {
+    axios.get(`${url}/auth/users/`, {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("Token_user"),
+      },
+    }).then(res => {
+      res.data.map(item => {
+        if(item.phone == user) {
+          setUsers(item)
+        }
+      })
+          
+    })
+  }, []);
+
   return (
     <div className="navbar">
       <div
@@ -65,13 +84,13 @@ export default function Navbar() {
           More
         </a>
       </div>
-      {user === true ? (
+      {user ? (
         <div>
           <div className="navbar_right">
             <div className="loginIn">
               <AiOutlineUser className="user_icon" />
-              <a href="/login" className="a_fff">
-                {user.username}
+              <a href="/userpage" className="a_fff">
+                {users.username}
               </a>
             </div>
           </div>

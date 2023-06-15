@@ -23,12 +23,16 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import axios from "axios";
 import url from "./Host";
+import car from "../images/6.jpg";
 
 export default function Bmw8() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [user, setUser] = useState(localStorage.getItem("username"));
-  const [ branchs, setBranchs ] = useState([])
-  const [ getavto, setAvto ] = useState([])
+  const [branchs, setBranchs] = useState([]);
+  const [getavto, setAvto] = useState([]);
+  const [images, setImages] = useState([]);
+  const [cars, setCars] = useState([]);
+
   var [data, setData] = useState(
     JSON.parse(localStorage.getItem("oneproduct"))
   );
@@ -49,35 +53,75 @@ export default function Bmw8() {
     }
   }
 
+  function defectOpen(key) {
+    console.log(key);
+    axios.get(`${url}/api/defect_get/`).then((res) => {
+      var hh = []
+      res.data.map((item) => {
+        if (item.car == data.id) {
+          hh.push(item);
+        }
+      });
+      setCars(hh)
+    });
+    document.querySelector(".defectDiv").style = "display: block";
+    document.querySelector(".mySwiper").style = "display: none";
+    document.querySelector(".mySwiper2").style = "display: none";
+  }
+
+  function defectClose() {
+    document.querySelector(".defectDiv").style = "display: none";
+    document.querySelector(".mySwiper").style = "display: block";
+    document.querySelector(".mySwiper2").style = "display: block";
+  }
+
   useEffect(() => {
+    // axios
+    //   .get(`${url}/api/comment/`, {
+    //     headers: {
+    //       Authorization: "Bearer " + localStorage.getItem("Token_user"),
+    //     },
+    //   })
+    //   .then((res) => {
+    //     console.log(res.data);
+    //   });
+
     axios
-      .get(`${url}/api/comment/`, {
+      .get(`${url}/api/branch/`, {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("Token_user"),
         },
       })
       .then((res) => {
-        console.log(res.data);
+        setBranchs(res.data);
       });
+    axios.get(`${url}/api/cars_get/`).then((res) => {
+      var hh = [];
+      res.data.map((item) => {
+        if (
+          data.id != item.id &&
+          data.position.series.id == item.position.series.id
+        ) {
+          hh.push(item);
+        }
+      });
+      setAvto(hh);
 
-      axios.get(`${url}/api/branch/`,  {
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("Token_user"),
-        },
-      })
-      .then(res => {
-        setBranchs(res.data)
-      })
-      axios.get(`${url}/api/cars_get/`).then(res => {
-        var hh = []
-        res.data.map(item => {
-          if (data.id!=item.id && data.position.series.model.id == item.position.series.model.id) {
-            hh.push(item)
-          }
+      axios
+        .get(`${url}/api/images/`)
+        .then((res) => {
+          setImages(res.data);
         })
-        setAvto(hh)
-      })
+        .catch((err) => {
+          console.log(err, "salom");
+        });
+    });
   }, []);
+  function getData2(key) {
+    console.log(key);
+    localStorage.setItem("oneproduct", JSON.stringify(key));
+    window.location = "/onecar";
+  }
 
   return (
     <div>
@@ -110,48 +154,36 @@ export default function Bmw8() {
               modules={[FreeMode, Navigation, Thumbs]}
               className="mySwiper2"
             >
-              <SwiperSlide>
+              {images.map((item2) => {
+                if (data.id === item2.car) {
+                  return (
+                    <SwiperSlide>
+                      <img
+                        className="s2img"
+                        src={item2.image}
+                        alt={item2.image}
+                      />
+                    </SwiperSlide>
+                  );
+                } else {
+                  return (
+                    <SwiperSlide>
+                      <img
+                        className="s2img"
+                        src={item2.image}
+                        alt={item2.image}
+                      />
+                    </SwiperSlide>
+                  );
+                }
+              })}
+
+              {/* <SwiperSlide>
                 <img
                   className="s2img"
                   src="https://demo.vehica.com/wp-content/uploads/2020/08/6.jpg"
                 />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  className="s2img"
-                  src="https://demo.vehica.com/wp-content/uploads/2020/02/1-58-1024x683.jpg"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  className="s2img"
-                  src="https://demo.vehica.com/wp-content/uploads/2020/02/2-59-1024x683.jpg"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  className="s2img"
-                  src="https://demo.vehica.com/wp-content/uploads/2020/02/3-59-1024x683.jpg"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  className="s2img"
-                  src="https://demo.vehica.com/wp-content/uploads/2020/02/4-59-1024x683.jpg"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  className="s2img"
-                  src="https://demo.vehica.com/wp-content/uploads/2020/02/5-59-1024x683.jpg"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  className="s2img"
-                  src="https://demo.vehica.com/wp-content/uploads/2020/02/6-58-1024x683.jpg"
-                />
-              </SwiperSlide>
+              </SwiperSlide> */}
             </Swiper>
             <Swiper
               onSwiper={setThumbsSwiper}
@@ -163,48 +195,29 @@ export default function Bmw8() {
               modules={[FreeMode, Navigation, Thumbs]}
               className="mySwiper"
             >
-              <SwiperSlide>
-                <img
-                  className="simg"
-                  src="https://demo.vehica.com/wp-content/uploads/2020/08/6.jpg"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  className="simg"
-                  src="https://demo.vehica.com/wp-content/uploads/2020/02/1-58-1024x683.jpg"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  className="simg"
-                  src="https://demo.vehica.com/wp-content/uploads/2020/02/2-59-1024x683.jpg"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  className="simg"
-                  src="https://demo.vehica.com/wp-content/uploads/2020/02/3-59-1024x683.jpg"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  className="simg"
-                  src="https://demo.vehica.com/wp-content/uploads/2020/02/4-59-1024x683.jpg"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  className="simg"
-                  src="https://demo.vehica.com/wp-content/uploads/2020/02/5-59-1024x683.jpg"
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <img
-                  className="simg"
-                  src="https://demo.vehica.com/wp-content/uploads/2020/02/6-58-1024x683.jpg"
-                />
-              </SwiperSlide>
+              {images.map((item2) => {
+                if (data.id === item2.car) {
+                  return (
+                    <SwiperSlide>
+                      <img
+                        className="s2img"
+                        src={item2.image}
+                        alt={item2.image}
+                      />
+                    </SwiperSlide>
+                  );
+                } else {
+                  return (
+                    <SwiperSlide>
+                      <img
+                        className="s2img"
+                        src={item2.image}
+                        alt={item2.image}
+                      />
+                    </SwiperSlide>
+                  );
+                }
+              })}
             </Swiper>
           </div>
           <div className="ypn1">
@@ -220,8 +233,7 @@ export default function Bmw8() {
             </div>
             <div className="oxirkotta">
               <div className="maky">
-                <div className="maky1">
-                  <div className="maa">
+                {/*<div className="maky1"> <div className="maa">
                     <p>Make:</p>
                     <p>Model:</p>
                     <p>Color:</p>
@@ -246,10 +258,56 @@ export default function Bmw8() {
                     <p>{data.engine}L</p>
                     <p>4</p>
                     <p>{data.id}</p>
-                  </div>
-                </div>
+                  </div> </div>*/}
+                <table style={{ width: "100%", paddingTop: "30px" }}>
+                  <tr className="maky1">
+                    <th>Make:</th>
+                    <td>{data.position.series.model.name}</td>
+                  </tr>
+                  <tr className="maky1">
+                    <th>Model:</th>
+                    <td>{data.position.series.name}</td>
+                  </tr>
+                  <tr className="maky1">
+                    <th>Color:</th>
+                    <td>{data.colour}</td>
+                  </tr>
+                  <tr className="maky1">
+                    <th>Drive Type:</th>
+                    <td>Front Wheel Drive</td>
+                  </tr>
+                  <tr className="maky1">
+                    <th>TransColormission:</th>
+                    <td>{data.gearbox.name}</td>
+                  </tr>
+                  <tr className="maky1">
+                    <th>Condition:</th>
+                    <td>{data.distance > 2 ? "NEW" : "B/Y"}</td>
+                  </tr>
+                  <tr className="maky1">
+                    <th>Year:</th>
+                    <td>{data.year}</td>
+                  </tr>
+                  <tr className="maky1">
+                    <th>Fuel Type:</th>
+                    <td>{data.fuel_sort.name}</td>
+                  </tr>
+                  <tr className="maky1">
+                    <th>Engine Size:</th>
+                    <td>{data.engine}L</td>
+                  </tr>
+                  <tr className="maky1">
+                    <th>Cylinders:</th>
+                    <td>4</td>
+                  </tr>
+                  <tr className="maky1">
+                    <th>VIN:</th>
+                    <td>{data.id}</td>
+                  </tr>
+                </table>
               </div>
               <div className="buttonz1">
+                <button className="spend">Send Massage</button>
                 <button className="byt">
                   {" "}
                   <span>
@@ -257,15 +315,13 @@ export default function Bmw8() {
                   </span>{" "}
                   123 *** *** -reveal
                 </button>
-                <button className="wat">
+                {/* <button className="wat">
                   {" "}
                   <span>
                     <BsWhatsapp />
                   </span>{" "}
                   Chat via WhatsApp
-                </button>
-
-                <button className="spend">Send Massage</button>
+                </button> */}
               </div>
             </div>
           </div>
@@ -419,47 +475,96 @@ export default function Bmw8() {
             </p>
           </div>
           <div className="maky">
-            <div className="maa">
-              <p>Make:</p>
-              <p>Model:</p>
-              <p>Color:</p>
-              <p>Drive Type:</p>
-              <p>Transmission:</p>
-              <p>Condition:</p>
-              <p>Year:</p>
-              <p>Fuel Type:</p>
-              <p>Engine Size:</p>
-              <p>Doors:</p>
-              <p>Cylinders:</p>
-              <p>VIN:</p>
-            </div>
-            <div className="mn">
-              {/* <p>{data.name}</p>
-              <p>{data.position.series.name}</p>
-              <p>Grey</p>
-              <p>Front Wheel Drive</p>
-              <p>Automatic</p>
-              <p>New</p>
-              <p>2021</p>
-              <p>Petrol</p>
-              <p>3.8L</p>
-              <p>2-door</p>
-              <p>4</p>
-              <p>1C4TJPBA1CD907950</p> */}
-              <p>{data.position.series.model.name}</p>
-              <p>{data.position.series.name}</p>
-              <p>{data.colour}</p>
-              <p>Front Wheel Drive</p>
-              <p>{data.gearbox.name}</p>
-              <p>{data.distance > 2 ? "NEW" : "B/Y"}</p>
-              <p>{data.year}</p>
-              <p>{data.fuel_sort.name}</p>
-              <p>{data.engine}L</p>
-              <p>4</p>
-              <p>{data.id}</p>
-            </div>
+            <table style={{ width: "100%", paddingTop: "30px" }}>
+              <tr className="maky1">
+                <th>Make:</th>
+                <td>{data.position.series.model.name}</td>
+              </tr>
+              <tr className="maky1">
+                <th>Model:</th>
+                <td>{data.position.series.name}</td>
+              </tr>
+              <tr className="maky1">
+                <th>Color:</th>
+                <td>{data.colour}</td>
+              </tr>
+              <tr className="maky1">
+                <th>Drive Type:</th>
+                <td>Front Wheel Drive</td>
+              </tr>
+              <tr className="maky1">
+                <th>TransColormission:</th>
+                <td>{data.gearbox.name}</td>
+              </tr>
+              <tr className="maky1">
+                <th>Condition:</th>
+                <td>{data.distance > 2 ? "NEW" : "B/Y"}</td>
+              </tr>
+              <tr className="maky1">
+                <th>Year:</th>
+                <td>{data.year}</td>
+              </tr>
+              <tr className="maky1">
+                <th>Fuel Type:</th>
+                <td>{data.fuel_sort.name}</td>
+              </tr>
+              <tr className="maky1">
+                <th>Engine Size:</th>
+                <td>{data.engine}L</td>
+              </tr>
+              <tr className="maky1">
+                <th>Cylinders:</th>
+                <td>4</td>
+              </tr>
+              <tr className="maky1">
+                <th>VIN:</th>
+                <td>{data.id}</td>
+              </tr>
+            </table>
           </div>
+
+          <div className="defectDiv">
+            {cars.map((item) => {
+               if(item.id != car.id) {
+                return(
+                  <div className="defectBig">
+                  <span onClick={() => defectClose()}>X</span>
+                  <div className="deskBg">
+                    <center><h1>Bu avtomobil haqida hech qanday ma'lumotlar yo'q!</h1></center>
+                  </div>
+                  <div className="deskBg2">
+                  </div>
+                </div>
+                )
+              }else {
+
+                return (
+                  <div className="defectBig">
+                  <span onClick={() => defectClose()}>X</span>
+                  <div className="deskBg">
+                    <img src={item.image1} alt="" />
+                  </div>
+                  <div className="deskBg2">
+                    <img src={item.image2} alt="" />
+                    <h1>{item.description}</h1>
+                  </div>
+                </div>
+              );
+            }
+             
+            })}
+          </div>
+
           <div className="buttonz">
+            {user ? (
+              <button className="spend" onClick={() => defectOpen(data.id)}>
+                Description
+              </button>
+            ) : (
+              <a href="/login">
+                <button className="spend">Send Massage2</button>
+              </a>
+            )}
             <button className="byt">
               {" "}
               <span>
@@ -467,20 +572,14 @@ export default function Bmw8() {
               </span>{" "}
               123 *** *** -reveal
             </button>
-            <button className="wat">
+            {/* <button className="wat">
               {" "}
               <span>
                 <BsWhatsapp />
               </span>{" "}
               Chat via WhatsApp
-            </button>
-            {user === true ? (
-              <button className="spend">Send Massage1</button>
-            ) : (
-              <a href="/login">
-                <button className="spend">Send Massage2</button>
-              </a>
-            )}
+            </button> */}
+
             <div className="pas">
               <p>Offer ID #9650</p>
             </div>
@@ -500,17 +599,17 @@ export default function Bmw8() {
                 </div>
               </div>
               <textarea placeholder="Massege*" className="texta"></textarea>
-                <select>
-                  {
-                    branchs.map(item => {
-                      return(
-                        <option>{item.city} {item.district} {item.street}</option>
-                      )
-                    })
-                  }
-                </select>
+              <select>
+                {branchs.map((item) => {
+                  return (
+                    <option>
+                      {item.city} {item.district} {item.street}
+                    </option>
+                  );
+                })}
+              </select>
               <div className="buy">
-                  <button>Send</button>
+                <button>Send</button>
               </div>
             </div>
             <div className="carf">
@@ -562,32 +661,36 @@ export default function Bmw8() {
           modules={[Pagination]}
           className="mySwiper"
         >
-          {
-            getavto.map(item => {
-              return(
+          {getavto.map((item, key) => {
+            if (key < 12) {
+              return (
+                <SwiperSlide
+                  onClick={() => {
+                    getData2(item);
+                  }}
+                >
+                  <div className="audi4">
+                    <img
+                      src="https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg"
+                      alt=""
+                    />
+                    <h3>
+                      {item.name}
+                      <br />
+                      <h2>${item.price}</h2>
+                    </h3>
 
-          <SwiperSlide>
-            <div className="audi4">
-              <img
-                src="https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg"
-                alt=""
-              />
-              <h3>
-                {item.name}<br />
-                <h2>${item.price}</h2>
-              </h3>
-
-              <hr />
-              <div className="miles">
-                <div className="mnb2">{item.year}</div>
-                <div className="mile">160,000 miles</div>
-                <div className="au">Automatic</div>
-              </div>
-            </div>
-          </SwiperSlide>
-              )
-            })
-          }
+                    <hr />
+                    <div className="miles">
+                      <div className="mnb2">{item.year}</div>
+                      <div className="mile">160,000 miles</div>
+                      <div className="au">Automatic</div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              );
+            }
+          })}
         </Swiper>
       </div>
 
@@ -601,120 +704,36 @@ export default function Bmw8() {
           modules={[Pagination]}
           className="mySwiper"
         >
-          <SwiperSlide>
-            <div className="audi4">
-              <img
-                src="https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg"
-                alt=""
-              />
-              <h3>
-                Mercedes-Benz AMG GT <br />
-                <h2>$14,600</h2>
-              </h3>
+          {getavto.map((item, key) => {
+            if (key < 12) {
+              return (
+                <SwiperSlide
+                  onClick={() => {
+                    getData2(item);
+                  }}
+                >
+                  <div className="audi4">
+                    <img
+                      src="https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg"
+                      alt=""
+                    />
+                    <h3>
+                      {item.name}
+                      <br />
+                      <h2>${item.price}</h2>
+                    </h3>
 
-              <hr />
-              <div className="miles">
-                <div className="mnb2">2020</div>
-                <div className="mile">160,000 miles</div>
-                <div className="au">Automatic</div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="audi4">
-              <img
-                src="https://demo.vehica.com/wp-content/uploads/2020/02/1-42-670x372.jpg"
-                alt=""
-              />
-              <h3>
-                Porsche Macan 5-door <br />
-                <h2>$14,600</h2>
-              </h3>
-
-              <hr />
-              <div className="miles">
-                <div className="mnb2">2018</div>
-                <div className="mile">190,000 miles</div>
-                <div className="au">Automatic</div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="audi4">
-              <img
-                src="https://demo.vehica.com/wp-content/uploads/2020/02/audi1.jpg"
-                alt=""
-              />
-              <h3>
-                PAudi A4 4-door <br />
-                <h2>$23,000</h2>
-              </h3>
-
-              <hr />
-              <div className="miles">
-                <div className="mnb2">2020</div>
-                <div className="mile">245,000 miles</div>
-                <div className="au">Manual</div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="audi4">
-              <img
-                src="https://demo.vehica.com/wp-content/uploads/2020/08/5-670x372.jpg"
-                alt=""
-              />
-              <h3>
-                Chevrolet Camaro 2-door <br />
-                <h2>$40,000</h2>
-              </h3>
-
-              <hr />
-              <div className="miles">
-                <div className="mnb2">2021</div>
-                <div className="mile">Automatic</div>
-                <div className="au">Diesel</div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="audi4">
-              <img
-                src="https://demo.vehica.com/wp-content/uploads/2020/09/car-red.jpg"
-                alt=""
-              />
-              <h3>
-                Ferrari LaFerrari 2-door <br />
-                <h2>$810,000</h2>
-              </h3>
-
-              <hr />
-              <div className="miles">
-                <div className="mnb2">2021</div>
-                <div className="mile">Automatic</div>
-                <div className="au">Diesel</div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="audi4">
-              <img
-                src="https://demo.vehica.com/wp-content/uploads/2020/08/audi3-670x372.jpg"
-                alt=""
-              />
-              <h3>
-                Audi A8 4-door sedan silver <br />
-                <h2>$70,000</h2>
-              </h3>
-
-              <hr />
-              <div className="miles">
-                <div className="mnb2">2021</div>
-                <div className="mile">Automatic</div>
-                <div className="au">Diesel</div>
-              </div>
-            </div>
-          </SwiperSlide>
+                    <hr />
+                    <div className="miles">
+                      <div className="mnb2">{item.year}</div>
+                      <div className="mile">160,000 miles</div>
+                      <div className="au">Automatic</div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              );
+            }
+          })}
         </Swiper>
       </div>
 
@@ -728,120 +747,36 @@ export default function Bmw8() {
           modules={[Pagination]}
           className="mySwiper"
         >
-          <SwiperSlide>
-            <div className="audi4">
-              <img
-                src="https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg"
-                alt=""
-              />
-              <h3>
-                Mercedes-Benz AMG GT <br />
-                <h2>$14,600</h2>
-              </h3>
+          {getavto.map((item, key) => {
+            if (key < 12) {
+              return (
+                <SwiperSlide
+                  onClick={() => {
+                    getData2(item);
+                  }}
+                >
+                  <div className="audi4">
+                    <img
+                      src="https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg"
+                      alt=""
+                    />
+                    <h3>
+                      {item.name}
+                      <br />
+                      <h2>${item.price}</h2>
+                    </h3>
 
-              <hr />
-              <div className="miles">
-                <div className="mnb2">2020</div>
-                <div className="mile">160,000 miles</div>
-                <div className="au">Automatic</div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="audi4">
-              <img
-                src="https://demo.vehica.com/wp-content/uploads/2020/02/1-42-670x372.jpg"
-                alt=""
-              />
-              <h3>
-                Porsche Macan 5-door <br />
-                <h2>$14,600</h2>
-              </h3>
-
-              <hr />
-              <div className="miles">
-                <div className="mnb2">2018</div>
-                <div className="mile">190,000 miles</div>
-                <div className="au">Automatic</div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="audi4">
-              <img
-                src="https://demo.vehica.com/wp-content/uploads/2020/02/audi1.jpg"
-                alt=""
-              />
-              <h3>
-                PAudi A4 4-door <br />
-                <h2>$23,000</h2>
-              </h3>
-
-              <hr />
-              <div className="miles">
-                <div className="mnb2">2020</div>
-                <div className="mile">245,000 miles</div>
-                <div className="au">Manual</div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="audi4">
-              <img
-                src="https://demo.vehica.com/wp-content/uploads/2020/08/5-670x372.jpg"
-                alt=""
-              />
-              <h3>
-                Chevrolet Camaro 2-door <br />
-                <h2>$40,000</h2>
-              </h3>
-
-              <hr />
-              <div className="miles">
-                <div className="mnb2">2021</div>
-                <div className="mile">Automatic</div>
-                <div className="au">Diesel</div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="audi4">
-              <img
-                src="https://demo.vehica.com/wp-content/uploads/2020/09/car-red.jpg"
-                alt=""
-              />
-              <h3>
-                Ferrari LaFerrari 2-door <br />
-                <h2>$810,000</h2>
-              </h3>
-
-              <hr />
-              <div className="miles">
-                <div className="mnb2">2021</div>
-                <div className="mile">Automatic</div>
-                <div className="au">Diesel</div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="audi4">
-              <img
-                src="https://demo.vehica.com/wp-content/uploads/2020/08/audi3-670x372.jpg"
-                alt=""
-              />
-              <h3>
-                Audi A8 4-door sedan silver <br />
-                <h2>$70,000</h2>
-              </h3>
-
-              <hr />
-              <div className="miles">
-                <div className="mnb2">2021</div>
-                <div className="mile">Automatic</div>
-                <div className="au">Diesel</div>
-              </div>
-            </div>
-          </SwiperSlide>
+                    <hr />
+                    <div className="miles">
+                      <div className="mnb2">{item.year}</div>
+                      <div className="mile">160,000 miles</div>
+                      <div className="au">Automatic</div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              );
+            }
+          })}
         </Swiper>
       </div>
 
@@ -855,120 +790,36 @@ export default function Bmw8() {
           modules={[Pagination]}
           className="mySwiper"
         >
-          <SwiperSlide>
-            <div className="audi4">
-              <img
-                src="https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg"
-                alt=""
-              />
-              <h3>
-                Mercedes-Benz AMG GT <br />
-                <h2>$14,600</h2>
-              </h3>
+          {getavto.map((item, key) => {
+            if (key < 12) {
+              return (
+                <SwiperSlide
+                  onClick={() => {
+                    getData2(item);
+                  }}
+                >
+                  <div className="audi4">
+                    <img
+                      src="https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg"
+                      alt=""
+                    />
+                    <h3>
+                      {item.name}
+                      <br />
+                      <h2>${item.price}</h2>
+                    </h3>
 
-              <hr />
-              <div className="miles">
-                <div className="mnb2">2020</div>
-                <div className="mile">160,000 miles</div>
-                <div className="au">Automatic</div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="audi4">
-              <img
-                src="https://demo.vehica.com/wp-content/uploads/2020/02/1-42-670x372.jpg"
-                alt=""
-              />
-              <h3>
-                Porsche Macan 5-door <br />
-                <h2>$14,600</h2>
-              </h3>
-
-              <hr />
-              <div className="miles">
-                <div className="mnb2">2018</div>
-                <div className="mile">190,000 miles</div>
-                <div className="au">Automatic</div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="audi4">
-              <img
-                src="https://demo.vehica.com/wp-content/uploads/2020/02/audi1.jpg"
-                alt=""
-              />
-              <h3>
-                PAudi A4 4-door <br />
-                <h2>$23,000</h2>
-              </h3>
-
-              <hr />
-              <div className="miles">
-                <div className="mnb2">2020</div>
-                <div className="mile">245,000 miles</div>
-                <div className="au">Manual</div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="audi4">
-              <img
-                src="https://demo.vehica.com/wp-content/uploads/2020/08/5-670x372.jpg"
-                alt=""
-              />
-              <h3>
-                Chevrolet Camaro 2-door <br />
-                <h2>$40,000</h2>
-              </h3>
-
-              <hr />
-              <div className="miles">
-                <div className="mnb2">2021</div>
-                <div className="mile">Automatic</div>
-                <div className="au">Diesel</div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="audi4">
-              <img
-                src="https://demo.vehica.com/wp-content/uploads/2020/09/car-red.jpg"
-                alt=""
-              />
-              <h3>
-                Ferrari LaFerrari 2-door <br />
-                <h2>$810,000</h2>
-              </h3>
-
-              <hr />
-              <div className="miles">
-                <div className="mnb2">2021</div>
-                <div className="mile">Automatic</div>
-                <div className="au">Diesel</div>
-              </div>
-            </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="audi4">
-              <img
-                src="https://demo.vehica.com/wp-content/uploads/2020/08/audi3-670x372.jpg"
-                alt=""
-              />
-              <h3>
-                Audi A8 4-door sedan silver <br />
-                <h2>$70,000</h2>
-              </h3>
-
-              <hr />
-              <div className="miles">
-                <div className="mnb2">2021</div>
-                <div className="mile">Automatic</div>
-                <div className="au">Diesel</div>
-              </div>
-            </div>
-          </SwiperSlide>
+                    <hr />
+                    <div className="miles">
+                      <div className="mnb2">{item.year}</div>
+                      <div className="mile">160,000 miles</div>
+                      <div className="au">Automatic</div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              );
+            }
+          })}
         </Swiper>
       </div>
       {/* <Footer/> */}
