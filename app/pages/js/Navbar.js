@@ -12,13 +12,13 @@ import url from "./Host";
 
 export default function Navbar() {
   const [count, setCount] = useState(false);
-  const [user, setUser] = useState(localStorage.getItem("username"));
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("username")));
   const [ users, setUsers ] = useState([])
 
   useEffect(() => {
     axios.get(`${url}/auth/users/`, {
       headers: {
-        Authorization: "Bearer " + localStorage.getItem("Token_user"),
+        Authorization: "Bearer " + localStorage .getItem("Token_user"),
       },
     }).then(res => {
       res.data.map(item => {

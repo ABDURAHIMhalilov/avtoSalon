@@ -12,7 +12,7 @@ import car from "../images/6.jpg"
 import Image from "next/image"
 import Pagination from '@mui/material/Pagination';
 import axios from "axios";
-import url from '../js/Host'
+import url from './Host'
 import { isTemplateExpression } from 'typescript'
 
 import Typography from '@mui/material/Typography';
@@ -82,10 +82,8 @@ pushdata.push(item)
     window.location="/onecar"
     }
 
-  const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
-    setPage(value);
-    console.log(value);
-    
+  const handleChange = (event) => {
+    setPage(event.target.value)
   };
   const handleModel = (event) => {
     console.log(event.target.value,"kkkk");
@@ -152,17 +150,17 @@ pushdata.push(item)
     abbasFilter(selectModel,selectSeries,selectPosition,selectGearBox,selectFuelsort,selectgarant,event.target.value,year,mincount,maxcount)
    setMakes(searchdata)
   }
-  function handleyear (id): typeAnnotation {
+  function handleyear (id) {
     setYear(id.target.value)
     console.log(id.target.value,"LOG");
     
     abbasFilter(selectModel,selectSeries,selectPosition,selectGearBox,selectFuelsort,selectgarant,selectBranch,id.target.value,mincount,maxcount)
   }
-  function minChange (id): typeAnnotation {
+  function minChange (id) {
     setmincount(id.target.value)
     abbasFilter(selectModel,selectSeries,selectPosition,selectGearBox,selectFuelsort,selectgarant,selectBranch,year,id.target.value,maxcount)
   }
-  function maxChange (id): typeAnnotation {
+  function maxChange (id) {
     setmaxcount(id.target.value)
     abbasFilter(selectModel,selectSeries,selectPosition,selectGearBox,selectFuelsort,selectgarant,selectBranch,year,mincount,id.target.value)
   }
@@ -529,26 +527,6 @@ pushdata.push(item)
       <div className='search_body'>
         <div className="body_top">
           <h2> Results</h2>
-          {/* <div className="top_box">
-            <p>Sort by:</p>
-            <Box className="inpsearch3">
-              <FormControl className='inpsearch inpsearch3'>
-                <InputLabel id='demo-simple-select-label'>Make</InputLabel>
-                <Select
-                  labelId='demo-simple-select-label'
-                  id='demo-simple-select'
-                  // value={position}
-                  // label='Make'
-                  // onChange={handlePosition}
-                >
-                  {makes.map(item => {
-                    return <MenuItem value={item.name}>{item.name}</MenuItem>
-                  })}
-                </Select>
-              </FormControl>
-            </Box>
-
-          </div> */}
         </div>        
         <div className="result_wrapper">
           {makes.map((item,key) => {

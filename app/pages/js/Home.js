@@ -29,7 +29,7 @@ export default function Home() {
 
 
   useEffect(() => {
-    axios.get(`https://baracar.onrender.com/api/models/`).then((res) => {
+    axios.get(`${url}/api/models/`).then((res) => {
       setModels(res.data);
     });
   }, []);
@@ -38,7 +38,7 @@ export default function Home() {
     setSelectPosition("")
     setPosition([])
     var seriesData = [];
-    axios.get(`https://baracar.onrender.com/api/series_get/`).then((res) => {
+    axios.get(`${url}/api/series_get/`).then((res) => {
       for (let i = 0; i < res.data.length; i++) {
         if (!(res.data[i].model == null)) {
           if (res.data[i].model.id === event.target.value * 1) seriesData.push(res.data[i]);
@@ -53,7 +53,7 @@ export default function Home() {
     setSelectPosition("")
     var seriesData = [];
 
-    axios.get(`https://baracar.onrender.com/api/position_get/`).then((res) => {
+    axios.get(`${url}/api/position_get/`).then((res) => {
       for (let i = 0; i < res.data.length; i++) {
         if (!(res.data[i].series == null)) {
           if (res.data[i].series.id === event.target.value * 1) seriesData.push(res.data[i]);

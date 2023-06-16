@@ -27,44 +27,27 @@ import car from "../images/6.jpg";
 
 export default function Bmw8() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const [user, setUser] = useState(localStorage.getItem("username"));
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("username")));
   const [branchs, setBranchs] = useState([]);
   const [getavto, setAvto] = useState([]);
-  const [images, setImages] = useState([]);
   const [cars, setCars] = useState([]);
-  const [createData, setcreateData] = useState([]);
-
+ 
   var [data, setData] = useState(
     JSON.parse(localStorage.getItem("oneproduct")?(`${localStorage.getItem("oneproduct")}`):('[]'))
   );
-  // var [fav, setFav] = useState(
-  //   localStorage.getItem("fav") ? JSON.parse(localStorage.getItem("fav")?(`${localStorage.getItem("fav")}`):('[]')) : []
-  // );
 
-  // function getFavorit() {
-  //   var push = true;
-  //   fav.map(item=> {
-  //     if (item.id == data.id) {
-  //       push = false;
-  //     }
-  //   });
-  //   if (push) {
-  //     fav.push(data);
-  //     localStorage.setItem("fav", JSON.stringify(fav));
-  //   }
-  // }
 
-  function defectOpen() { 
-    setcreateData([])
+  function defectOpen() {
     axios.get(`${url}/api/defect_get/`).then(res=> {
+      var initialProducts=[]
       var a=res.data
-      a.map(item=>{
-        if (item.car == data.id) {
-          createData.push(item);
-        }
-      });
-      setCars(createData)
-    });
+      for (let i = 0; i < res.data.length; i++) {
+         if (res.data[i].car===data.id) {
+          initialProducts.push((a[i]));
+        }}
+     setCars(initialProducts)
+    });  
+     
     document.querySelector(".defectDiv").style = "display: block";
     document.querySelector(".mySwiper").style = "display: none";
     document.querySelector(".mySwiper2").style = "display: none";
@@ -77,16 +60,6 @@ export default function Bmw8() {
   }
 
   useEffect(() => {
-    // axios
-    //   .get(`${url}/api/comment/`, {
-    //     headers: {
-    //       Authorization: "Bearer " + localStorage.getItem("Token_user"),
-    //     },
-    //   })
-    //   .then((res) => {
-    //     console.log(res.data);
-    //   });
-
     axios
       .get(`${url}/api/branch/`, {
         headers: {
@@ -97,26 +70,22 @@ export default function Bmw8() {
         setBranchs(res.data);
       });
     axios.get(`${url}/api/cars_get/`).then((res) => {
-      var hh = [];
-      res.data.map((item) => {
-        if (
-          data.id != item.id &&
-          data.position.series.id == item.position.series.id
-        ) {
-          hh.push(item);
+      axios.get(`${url}/api/images/`)
+      .then((res1) => {
+       for (let i = 0; i < res.data.length; i++) {
+        res.data[i].image=[]
+       for (let j = 0; j < res1.data.length; j++) {
+        if(res.data[i].id==res1.data[j].car){
+          res.data[i].image.push(res1.data[j])
         }
-      });
-      setAvto(hh);
+      }}
+      console.log(res.data,data.position.series.id,data.id);
+     res.data=res.data.filter(item=>data.id!=item.id)
+  res.data=res.data.filter(item=>data.position.series.id==item.position.series.id)
+      console.log(res.data);
 
-      axios
-        .get(`${url}/api/images/`)
-        .then((res) => {
-          setImages(res.data);
-        })
-        .catch((err) => {
-          console.log(err, "salom");
-        });
-    });
+      setAvto(res.data) 
+    })})
   }, []);
   function getData2(key) {
     console.log(key);
@@ -155,7 +124,7 @@ export default function Bmw8() {
               modules={[FreeMode, Navigation, Thumbs]}
               className="mySwiper2"
             >
-              {images.map((item2) => {
+              {data.image.map((item2) => {
                 if (data.id === item2.car) {
                   return (
                     <SwiperSlide>
@@ -196,7 +165,7 @@ export default function Bmw8() {
               modules={[FreeMode, Navigation, Thumbs]}
               className="mySwiper"
             >
-              {images.map((item2) => {
+              {data.image.map((item2) => {
                 if (data.id === item2.car) {
                   return (
                     <SwiperSlide>
@@ -397,7 +366,7 @@ export default function Bmw8() {
               <div className="maa1">
                 <img
                   src="https://demo.vehica.com/wp-content/uploads/2020/06/Layer-56.png"
-                  alt=""
+                  alt="underfined img"
                 />
               </div>
             </div>
@@ -543,10 +512,10 @@ export default function Bmw8() {
                   <div className="defectBig">
                   <span onClick={() => defectClose()}>X</span>
                   <div className="deskBg">
-                    <img src={item.image1} alt="" />
+                    <img src={item.image1} alt="underfined img" />
                   </div>
                   <div className="deskBg2">
-                    <img src={item.image2} alt="" />
+                    <img src={item.image2} alt="underfined img" />
                     <h1>{item.description}</h1>
                   </div>
                 </div>
@@ -629,7 +598,7 @@ export default function Bmw8() {
                   </div>
                   <img
                     src="https://demo.vehica.com/wp-content/uploads/2020/10/p1-1-100x100.jpg"
-                    alt=""
+                    alt="underfined img"
                   />
                 </div>
               </div>
@@ -672,8 +641,8 @@ export default function Bmw8() {
                 >
                   <div className="audi4">
                     <img
-                      src="https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg"
-                      alt=""
+                      src={item.image[0]!=undefined?(item.image[0].image):("https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg")}
+                      alt="underfined img"
                     />
                     <h3>
                       {item.name}
@@ -715,8 +684,8 @@ export default function Bmw8() {
                 >
                   <div className="audi4">
                     <img
-                      src="https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg"
-                      alt=""
+                      src={item.image[0]!=undefined?(item.image[0].image):("https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg")}
+                      alt="underfined img"
                     />
                     <h3>
                       {item.name}
@@ -758,8 +727,8 @@ export default function Bmw8() {
                 >
                   <div className="audi4">
                     <img
-                      src="https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg"
-                      alt=""
+                      src={item.image[0]!=undefined?(item.image[0].image):("https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg")}
+                      alt="underfined img"
                     />
                     <h3>
                       {item.name}
@@ -801,17 +770,17 @@ export default function Bmw8() {
                 >
                   <div className="audi4">
                     <img
-                      src="https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg"
-                      alt=""
+                      src={item.image[0]!=undefined?(item.image[0].image):("https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg")}
+                      alt="underfined img"
                     />
                     <h3>
-                      {item.name}
+                      {item.name}</h3>
                       <br />
                       <h2>${item.price}</h2>
-                    </h3>
+                    <div className="miles">
+                    
 
                     <hr />
-                    <div className="miles">
                       <div className="mnb2">{item.year}</div>
                       <div className="mile">160,000 miles</div>
                       <div className="au">Automatic</div>
@@ -828,5 +797,4 @@ export default function Bmw8() {
   );
 }
 
-// maktab282
-// halilovabdurahim13
+
