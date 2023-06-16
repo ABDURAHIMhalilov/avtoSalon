@@ -32,37 +32,38 @@ export default function Bmw8() {
   const [getavto, setAvto] = useState([]);
   const [images, setImages] = useState([]);
   const [cars, setCars] = useState([]);
+  const [createData, setcreateData] = useState([]);
 
   var [data, setData] = useState(
-    JSON.parse(localStorage.getItem("oneproduct"))
+    JSON.parse(localStorage.getItem("oneproduct")?(`${localStorage.getItem("oneproduct")}`):('[]'))
   );
-  var [fav, setFav] = useState(
-    localStorage.getItem("fav") ? JSON.parse(localStorage.getItem("fav")) : []
-  );
+  // var [fav, setFav] = useState(
+  //   localStorage.getItem("fav") ? JSON.parse(localStorage.getItem("fav")?(`${localStorage.getItem("fav")}`):('[]')) : []
+  // );
 
-  function getFavorit() {
-    var push = true;
-    fav.map((item) => {
-      if (item.id == data.id) {
-        push = false;
-      }
-    });
-    if (push) {
-      fav.push(data);
-      localStorage.setItem("fav", JSON.stringify(fav));
-    }
-  }
+  // function getFavorit() {
+  //   var push = true;
+  //   fav.map(item=> {
+  //     if (item.id == data.id) {
+  //       push = false;
+  //     }
+  //   });
+  //   if (push) {
+  //     fav.push(data);
+  //     localStorage.setItem("fav", JSON.stringify(fav));
+  //   }
+  // }
 
-  function defectOpen(key) {
-    console.log(key);
-    axios.get(`${url}/api/defect_get/`).then((res) => {
-      var hh = []
-      res.data.map((item) => {
+  function defectOpen() { 
+    setcreateData([])
+    axios.get(`${url}/api/defect_get/`).then(res=> {
+      var a=res.data
+      a.map(item=>{
         if (item.car == data.id) {
-          hh.push(item);
+          createData.push(item);
         }
       });
-      setCars(hh)
+      setCars(createData)
     });
     document.querySelector(".defectDiv").style = "display: block";
     document.querySelector(".mySwiper").style = "display: none";
