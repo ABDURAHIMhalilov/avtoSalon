@@ -47,16 +47,16 @@ export default function Loginpage() {
       })
       .then((res) => {
         res.data.map((item) => {
-          if (usernameUs == item.phone && usernameUs == item.username) {
-            console.log(item, ',l,l,l,l,l,l,l,l');
-            setUser(item);
+          if (usernameUs == item.phone || usernameUs == item.username) {
+            setUser(item); 
+            localStorage.setItem("onemen", JSON.stringify(item));
             document.querySelector("#username").value = item.username;
             document.querySelector("#email").value = item.email;
             document.querySelector("#birthday").value = item.birthday;
             document.querySelector("#phone").value = item.phone;
             document.querySelector("#passportNum").value = item.passport_number;
             document.querySelector("#passportSer").value = item.passport_series;
-            localStorage.setItem("onemen", JSON.stringify(item));
+           
           }
         });
       });
@@ -81,12 +81,16 @@ export default function Loginpage() {
 
   function putUser() {
     // console.log(data);
-    var iagee = document.querySelector(".image").files[0];
+  
 
     var data = new FormData();
     data.append("birthday", document.querySelector(".birthday").value);
     data.append("email", document.querySelector(".email").value);
-    data.append("image", iagee);
+    if( document.querySelector(".image").files[0]){
+      data.append("image", document.querySelector(".image").files[0]);
+    }
+    
+    
     data.append(
       "passport_number",
       document.querySelector(".passportNum").value
@@ -105,7 +109,10 @@ export default function Loginpage() {
       })
       .then((res) => {
         alert("yangilandi");
+        localStorage.setItem("username",document.querySelector(".phone").value)
+       setTimeout(() => {
         window.location.reload();
+       }, 100);
       })
       .catch((err) => {
         alert(`Malumotni to'liq kiriting!`);
@@ -127,13 +134,13 @@ export default function Loginpage() {
       })
       .then((res) => {
         alert("manzil yangilandi");
-        console.log();
-        // setManzil(res.data);
-        // document.querySelector(".countrySlc").value = res.data.country;
-        // document.querySelector(".regionSlc").value = res.data.region;
-        // document.querySelector(".citySlc").value = res.data.city;
-        // document.querySelector(".districtSlc").value = res.data.district;
-        // document.querySelector(".streetSlc").value = res.data.street;
+       
+        setManzil(res.data);
+        document.querySelector(".countrySlc").value = res.data.country;
+        document.querySelector(".regionSlc").value = res.data.region;
+        document.querySelector(".citySlc").value = res.data.city;
+        document.querySelector(".districtSlc").value = res.data.district;
+        document.querySelector(".streetSlc").value = res.data.street;
       })
       .catch((err) => {
         alert(err);
@@ -157,6 +164,7 @@ export default function Loginpage() {
       })
       .then((res) => {
         alert("Yangilandi");
+        window.location.reload()
       })
       .catch((err) => {
         alert(err);
@@ -203,7 +211,7 @@ export default function Loginpage() {
             >
               Account
             </button>
-            <button>Sign Out</button>
+            <button  onClick={()=>{localStorage.clear();window.location="/"}} >Sign Out</button>
             <div className="prof">
               <input type="file" />
               <FaUserAlt className="icon12" />
@@ -301,8 +309,8 @@ export default function Loginpage() {
                       <FaUserAlt className="icon1" />
                     ) : (
                       <Image
-                        width={100}
-                        height={100}
+                        width={200}
+                        height={200}
                         src={user.image}
                         alt="no img"
                       />

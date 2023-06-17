@@ -12,29 +12,12 @@ import url from "./Host";
 
 export default function Navbar() {
   const [count, setCount] = useState(false);
-  const [user, setUser] = useState(localStorage.getItem("username"));
-  const [ users, setUsers ] = useState([])
+  const [user, setUser] = useState(localStorage.getItem("onemen")?JSON.parse(localStorage.getItem("onemen")):false);
+ 
 
-  useEffect(() => {
-    axios.get(`${url}/auth/users/`, {
-      headers: {
-        Authorization: "Bearer " + localStorage .getItem("Token_user"),
-      },
-    }).then(res => {
-      res.data.map(item => {
-        console.log(item);
-        if(item.username == user || item.phone == user || item.email == user) {
-          console.log(item,'gfyuigjgh')
-          setUsers(item)
-          // localStorage.setItem('keysdada', item)
-        }
-      })  
-    })
-  }, []);
 
-  function localTest() {
-    console.log(users);
-  }
+
+  
 
 
 
@@ -92,7 +75,6 @@ export default function Navbar() {
         <a href="#" className="a_fff">
           More
         </a>
-        <button onClick={() => localTest()}>localTest</button>
       </div>
       {user ? (
         <div>
@@ -100,7 +82,7 @@ export default function Navbar() {
             <div className="loginIn">
               <AiOutlineUser className="user_icon" />
               <a href="/userpage" className="a_fff">
-                {user}
+                {user.username}
               </a>
             </div>
           </div>

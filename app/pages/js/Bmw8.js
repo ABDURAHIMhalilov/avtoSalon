@@ -27,7 +27,7 @@ import car from "../images/6.jpg";
 
 export default function Bmw8() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem("username")));
+  const [user,setUser]=useState(localStorage.getItem("onemen")!=null?(JSON.parse(localStorage.getItem("onemen"))):(false));
   const [branchs, setBranchs] = useState([]);
   const [getavto, setAvto] = useState([]);
   const [cars, setCars] = useState([]);
@@ -38,16 +38,6 @@ export default function Bmw8() {
 
 
   function defectOpen() {
-    axios.get(`${url}/api/defect_get/`).then(res=> {
-      var initialProducts=[]
-      var a=res.data
-      for (let i = 0; i < res.data.length; i++) {
-         if (res.data[i].car===data.id) {
-          initialProducts.push((a[i]));
-        }}
-     setCars(initialProducts)
-    });  
-     
     document.querySelector(".defectDiv").style = "display: block";
     document.querySelector(".mySwiper").style = "display: none";
     document.querySelector(".mySwiper2").style = "display: none";
@@ -60,6 +50,7 @@ export default function Bmw8() {
   }
 
   useEffect(() => {
+
     axios
       .get(`${url}/api/branch/`, {
         headers: {
@@ -79,16 +70,26 @@ export default function Bmw8() {
           res.data[i].image.push(res1.data[j])
         }
       }}
-      console.log(res.data,data.position.series.id,data.id);
      res.data=res.data.filter(item=>data.id!=item.id)
   res.data=res.data.filter(item=>data.position.series.id==item.position.series.id)
-      console.log(res.data);
+
 
       setAvto(res.data) 
     })})
+
+    axios.get(`${url}/api/defect_get/`).then(res=> {
+      var initialProducts=[]
+      for (let i = 0; i < res.data.length; i++) {
+         if (res.data[i].car===data.id) {
+          initialProducts.push(res.data[i]);
+        }}
+        console.log(initialProducts);
+     setCars(initialProducts)
+    });  
+
+
   }, []);
   function getData2(key) {
-    console.log(key);
     localStorage.setItem("oneproduct", JSON.stringify(key));
     window.location = "/onecar";
   }
@@ -148,12 +149,7 @@ export default function Bmw8() {
                 }
               })}
 
-              {/* <SwiperSlide>
-                <img
-                  className="s2img"
-                  src="https://demo.vehica.com/wp-content/uploads/2020/08/6.jpg"
-                />
-              </SwiperSlide> */}
+             
             </Swiper>
             <Swiper
               onSwiper={setThumbsSwiper}
@@ -203,32 +199,6 @@ export default function Bmw8() {
             </div>
             <div className="oxirkotta">
               <div className="maky">
-                {/*<div className="maky1"> <div className="maa">
-                    <p>Make:</p>
-                    <p>Model:</p>
-                    <p>Color:</p>
-                    <p>Drive Type:</p>
-                    <p>TransColormission:</p>
-                    <p>Condition:</p>
-                    <p>Year:</p>
-                    <p>Fuel Type:</p>
-                    <p>Engine Size:</p>
-                    <p>Cylinders:</p>
-                    <p>VIN:</p>
-                  </div>
-                  <div className="mn">
-                    <p>{data.position.series.model.name}</p>
-                    <p>{data.position.series.name}</p>
-                    <p>{data.colour}</p>
-                    <p>Front Wheel Drive</p>
-                    <p>{data.gearbox.name}</p>
-                    <p>{data.distance > 2 ? "NEW" : "B/Y"}</p>
-                    <p>{data.year}</p>
-                    <p>{data.fuel_sort.name}</p>
-                    <p>{data.engine}L</p>
-                    <p>4</p>
-                    <p>{data.id}</p>
-                  </div> </div>*/}
                 <table style={{ width: "100%", paddingTop: "30px" }}>
                   <tr className="maky1">
                     <th>Make:</th>
@@ -494,22 +464,16 @@ export default function Bmw8() {
           </div>
 
           <div className="defectDiv">
-            {cars.map((item) => {
-               if(item.id != car.id) {
-                return(
-                  <div className="defectBig">
+           
+            {cars.length==0?(<div className="defectBig">
                   <span onClick={() => defectClose()}>X</span>
                   <div className="deskBg">
                     <center><h1>Bu avtomobil haqida hech qanday ma'lumotlar yo'q!</h1></center>
                   </div>
                   <div className="deskBg2">
                   </div>
-                </div>
-                )
-              }else {
-
-                return (
-                  <div className="defectBig">
+                </div>):(<div>{cars.map((item) => {  
+                 return <div className="defectBig">
                   <span onClick={() => defectClose()}>X</span>
                   <div className="deskBg">
                     <img src={item.image1} alt="underfined img" />
@@ -519,22 +483,27 @@ export default function Bmw8() {
                     <h1>{item.description}</h1>
                   </div>
                 </div>
-              );
-            }
-             
-            })}
+              })
+             }</div>) 
+           }
+              
+                  
+                
+              
+ 
           </div>
 
           <div className="buttonz">
-            {user ? (
-              <button className="spend" onClick={() => defectOpen(data.id)}>
-                Description
-              </button>
-            ) : (
-              <a href="/login">
-                <button className="spend">Send Massage2</button>
-              </a>
-            )}
+             {cars.length===0?("no defect"):( <button className="spend" onClick={() => defectOpen(data.id)}>
+                Defect
+              </button>)}
+            {user?(<button  className="spend">
+               <a href="#send"> Messeage1 </a>
+              </button>):(<button onClick={()=>{window.location="/login"}} className="spend">
+                Messeage2
+              </button>)
+
+            }
             <button className="byt">
               {" "}
               <span>
@@ -557,7 +526,7 @@ export default function Bmw8() {
         </div>
       </div>
       <div className="kjl">
-        <div className="mnbc">
+        <div className="mnbc" id="send">
           <div className="bnm">
             <div className="gfbvdc">
               <h2>Send message</h2>
@@ -565,6 +534,7 @@ export default function Bmw8() {
                 <div className="inp2">
                   <input placeholder="Name" type="text" />
                   <input placeholder="Email*" type="text" />
+                  <input placeholder="Phone" type="text" />
                   <input placeholder="Phone" type="text" />
                 </div>
               </div>
@@ -579,7 +549,7 @@ export default function Bmw8() {
                 })}
               </select>
               <div className="buy">
-                <button>Send</button>
+                {user?(<button onClick={()=>{postData()}} >Send</button>):(<button onClick={()=>{alert("Siz ro`yhatdan o`tmagansiz");window.location="/login"}} >Send</button>)}
               </div>
             </div>
             <div className="carf">

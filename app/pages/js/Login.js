@@ -32,12 +32,12 @@ export default function Login() {
   }
   function postUser() {
     console.log(staff);
-    var usernamee = document.querySelector(".Username").value;
+    var usernamee = document.querySelector(".Phone").value;
     var data = new FormData();
     data.append("username", usernamee);
     data.append("phone", document.querySelector(".Phone").value);
     data.append("password", document.querySelector(".Password").value);
-    data.append("is_staff", true);
+    data.append("is_staff", false);
     axios
       .post(`${url}/auth/register/`, data)
       .then((res) => {
