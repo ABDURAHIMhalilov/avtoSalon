@@ -37,7 +37,7 @@ export default function Login() {
     data.append("username", usernamee);
     data.append("phone", document.querySelector(".Phone").value);
     data.append("password", document.querySelector(".Password").value);
-    data.append("is_staff", false);
+    data.append("is_staff", true);
     axios
       .post(`${url}/auth/register/`, data)
       .then((res) => {
@@ -55,8 +55,7 @@ export default function Login() {
     var usernamee = document.querySelector(".userNameEmail").value;
     datta.append("phone", usernamee);
     datta.append("password", document.querySelector(".userPassword").value);
-    axios
-      .post(`${url}/auth/login/`, datta)
+    axios.post(`${url}/auth/login/`, datta)
       .then((res) => {
         // res.data.map(item => {
         // if (res.data.username === asd && res.data.password === asd2) {

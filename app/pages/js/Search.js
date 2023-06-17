@@ -34,17 +34,24 @@ export default function Search() {
   const [branch,setBranch ] = React.useState([])
   const [selectBranch, setSelectBranch] = React.useState("")
   const [makes, setMakes] = React.useState([])
-  const [images, setImages] = React.useState([])
   const [year, setYear] = React.useState('');
   const [mincount, setmincount] = React.useState('');
   const [maxcount, setmaxcount] = React.useState('');
   const [page, setPage] = React.useState(1);
   const [countpag, setCountpag] = React.useState(1);
-  const [data, setdata] = React.useState(1);
 
   const abbasFilter=(model1,seria1,position1,gearBox1,fuelsort1,garant1,branch1,year1,mincount1,maxcount1)=>{
     var pushdata=[]
 axios.get(`${url}/api/cars_get/`).then(res=>{
+  axios.get(`${url}/api/images/`)
+  .then((res1) => {
+   for (let i = 0; i < res.data.length; i++) {
+    res.data[i].image=[]
+   for (let j = 0; j < res1.data.length; j++) {
+    if(res.data[i].id==res1.data[j].car){
+      res.data[i].image.push(res1.data[j])
+    }
+  }}
   res.data.map(item=>{
     console.log(year1);
     
@@ -73,7 +80,13 @@ pushdata.push(item)
 
     }
   })
+  setCountpag(Math.floor((pushdata.length)/10)+1)
   setMakes(pushdata)
+
+})
+
+
+
 })
   }
   function getData2(key){
@@ -177,9 +190,23 @@ pushdata.push(item)
     document.querySelector('.mobile_search').classList.remove('db')
   }
   useEffect(() => {
-    axios.get(`${url}/api/cars_get/`).then(res => {   
-      setMakes(res.data)
+    axios.get(`${url}/api/cars_get/`).then(res => {  
+      axios.get(`${url}/api/images/`)
+      .then((res1) => {
+       for (let i = 0; i < res.data.length; i++) {
+        res.data[i].image=[]
+       for (let j = 0; j < res1.data.length; j++) {
+        if(res.data[i].id==res1.data[j].car){
+          res.data[i].image.push(res1.data[j])
+        }
+      }}
+   
+     setMakes(res.data)
       setCountpag(Math.floor((res.data.length)/10)+1)
+    
+    
+    }) 
+     
     }).catch(err => {
       console.log(err, "salom");
     })
@@ -208,13 +235,7 @@ pushdata.push(item)
 
 
   }, [])
-  useEffect(() => {
-    axios.get(`${url}/api/images/`).then(res => {
-      setImages(res.data)
-    }).catch(err => {
-      console.log(err, "salom");
-    })
-  }, [])
+
   return (
     <div>
       <Navbar />
@@ -358,15 +379,15 @@ pushdata.push(item)
           </Box>
           <Box>
             <FormControl className='inpsearch'>
-              <InputLabel id='demo-simple-select-label'>Year</InputLabel>
+             
                   <input 
-                  className='input_year'
+                  className='searchInp input_year'
       type="text" 
       min="1900" 
       max="2100" 
       minLength='4'
       onKeyUp={handleyear}
-      // className='searchInp priceInp2'
+      placeholder='Year'
     />
             </FormControl>
           </Box>
@@ -508,13 +529,13 @@ pushdata.push(item)
             </Box>
             <Box className='searchBox'>
             <FormControl className='inpsearch2'>
-              <InputLabel id='demo-simple-select-label'>Year</InputLabel>
                <input 
-               className='input_year'
+               className='searchInp input_year'
       type="text" 
       min="1900" 
       max="2100" 
       minLength='4'
+      placeholder="Year"
       onKeyUp={handleyear}
     />
             </FormControl>
@@ -530,17 +551,13 @@ pushdata.push(item)
         </div>        
         <div className="result_wrapper">
           {makes.map((item,key) => {
+            if(key>page-2 && key<page*10){
             return (
               <div key={key} onClick={()=>getData(item)} className='feat_card2'>
                 <div>
                   <h1 className="salesale">{item.sale==0?(""):(`${item.sale}%`)}</h1>
-                  {images.map(item2=>{
-                    if (item.id === item2.car) {
-                      return (<img src={item2.image} alt={item2.image} />)
-                    } else {
-                      return (<img src={car} alt={car} />)
-                    }
-                  })}
+                  <img src={item.image[0]!=undefined?(item.image[0].image):("https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg")}
+                      alt="no img" />
                   <div className='featCard_bottom'>
                     <div className='feat-cardorab'><h3 className='featCard_name'>{item.name}</h3><del>{item.sale==0?(""):(`${item.price}.sum`)}</del></div>
                     <h4 className='featCard_price'>{
@@ -555,7 +572,7 @@ pushdata.push(item)
                   </div>
                 </div>
               </div>
-            )
+            )}
           })}
           </div>
         

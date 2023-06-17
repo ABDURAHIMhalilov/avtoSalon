@@ -597,9 +597,11 @@
   margin-top: 10px;
 }
 
-.regionAdd select {
+.regionAdd input {
     width: 45%;
     height: 40px;
-    border: none;
+    border: 1px solid black;
+    padding-left: 10px;
     border-radius: 100px;
+    outline: none;
 }

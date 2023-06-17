@@ -12,7 +12,7 @@ import url from "./Host";
 
 export default function Navbar() {
   const [count, setCount] = useState(false);
-  const [user, setUser] = useState(JSON.parse(localStorage.getItem("username")));
+  const [user, setUser] = useState(localStorage.getItem("username"));
   const [ users, setUsers ] = useState([])
 
   useEffect(() => {
@@ -22,13 +22,22 @@ export default function Navbar() {
       },
     }).then(res => {
       res.data.map(item => {
-        if(item.phone == user) {
+        console.log(item);
+        if(item.username == user || item.phone == user || item.email == user) {
+          console.log(item,'gfyuigjgh')
           setUsers(item)
+          // localStorage.setItem('keysdada', item)
         }
-      })
-          
+      })  
     })
   }, []);
+
+  function localTest() {
+    console.log(users);
+  }
+
+
+
 
   return (
     <div className="navbar">
@@ -83,6 +92,7 @@ export default function Navbar() {
         <a href="#" className="a_fff">
           More
         </a>
+        <button onClick={() => localTest()}>localTest</button>
       </div>
       {user ? (
         <div>
@@ -90,7 +100,7 @@ export default function Navbar() {
             <div className="loginIn">
               <AiOutlineUser className="user_icon" />
               <a href="/userpage" className="a_fff">
-                {users.username}
+                {user}
               </a>
             </div>
           </div>

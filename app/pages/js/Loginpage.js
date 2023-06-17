@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import "../css/Loginpage.css";
@@ -7,11 +7,13 @@ import { FaUserAlt } from "react-icons/fa";
 import { AiOutlineCamera } from "react-icons/ai";
 import url from "./Host";
 import axios from "axios";
-import { Select, Space } from "antd";
+import Image from "next/image";
+// import { Select, Space } from "antd";
 
 export default function Loginpage() {
   const [user, setUser] = React.useState([]);
   const [data, setData] = React.useState(1);
+  const [manzil, setManzil] = React.useState([]);
   // const provinceData = ['Zhejiang', 'Jiangsu'];
   // const cityData = {
   //     Zhejiang: ['Hangzhou', 'Ningbo', 'Wenzhou'],
@@ -45,17 +47,40 @@ export default function Loginpage() {
       })
       .then((res) => {
         res.data.map((item) => {
-          console.log(item);
-          console.log(usernameUs);
-          if (usernameUs == item.phone) {
-            console.log(item);
+          if (usernameUs == item.phone && usernameUs == item.username) {
+            console.log(item, ',l,l,l,l,l,l,l,l');
             setUser(item);
+            document.querySelector("#username").value = item.username;
+            document.querySelector("#email").value = item.email;
+            document.querySelector("#birthday").value = item.birthday;
+            document.querySelector("#phone").value = item.phone;
+            document.querySelector("#passportNum").value = item.passport_number;
+            document.querySelector("#passportSer").value = item.passport_series;
+            localStorage.setItem("onemen", JSON.stringify(item));
           }
         });
       });
+
+      // document.querySelector('.').value = manzil.region
+      // document.querySelector('.').value = manzil.region
+      // document.querySelector('.').value = manzil.region
+      // document.querySelector('.').value = manzil.region
+      // document.querySelector('.').value = manzil.region
+      
+      
+      
   }, []);
 
+  // useEffect(() => {
+  //     document.querySelector(".countrySlc").value = 'manzil.country'
+  //     // document.querySelector("#regionSlc").value = manzil.region
+  //     // document.querySelector("#citySlc").value = manzil.city
+  //     // document.querySelector("#districtSlc").value = manzil.district
+  //     // document.querySelector("#streetSlc").value = manzil.street
+  // }, [])
+
   function putUser() {
+    // console.log(data);
     var iagee = document.querySelector(".image").files[0];
 
     var data = new FormData();
@@ -68,7 +93,7 @@ export default function Loginpage() {
     );
     data.append(
       "passport_series",
-      document.querySelector(".passportSer").value
+      document.querySelector("#passportSer").value
     );
     data.append("phone", document.querySelector(".phone").value);
     data.append("username", document.querySelector(".username").value);
@@ -80,12 +105,11 @@ export default function Loginpage() {
       })
       .then((res) => {
         alert("yangilandi");
-        console.log(res.data);
+        window.location.reload();
       })
       .catch((err) => {
-        alert(err);
+        alert(`Malumotni to'liq kiriting!`);
       });
-    console.log(iagee);
   }
 
   function postAdress() {
@@ -95,15 +119,21 @@ export default function Loginpage() {
     data.append("city", document.querySelector(".citySlc").value);
     data.append("district", document.querySelector(".districtSlc").value);
     data.append("street", document.querySelector(".streetSlc").value);
-    data.append("user", user.id)
-    axios
-      .post(`${url}/auth/adress/`, data, {
+    data.append("user", user.id);
+    axios.post(`${url}/auth/adress/`, data, {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("Token_user"),
         },
       })
       .then((res) => {
         alert("manzil yangilandi");
+        console.log();
+        // setManzil(res.data);
+        // document.querySelector(".countrySlc").value = res.data.country;
+        // document.querySelector(".regionSlc").value = res.data.region;
+        // document.querySelector(".citySlc").value = res.data.city;
+        // document.querySelector(".districtSlc").value = res.data.district;
+        // document.querySelector(".streetSlc").value = res.data.street;
       })
       .catch((err) => {
         alert(err);
@@ -111,20 +141,26 @@ export default function Loginpage() {
   }
 
   function postPassword() {
-    var psData = new FormData()
-    psData.append('userid',user.id)
-    psData.append('phone', user.phone)
-    psData.append('old_password', 'mlBBqwerty')
-    psData.append('new_password', document.querySelector('.passwordChange').value)
-    axios.put(`${url}/auth/change_password/`,  {
+    var psData = new FormData();
+    psData.append("userid", user.id);
+    psData.append("phone", user.phone);
+    psData.append("old_password", document.querySelector('.oldPassword').value);
+    psData.append("new_password", document.querySelector(".passwordChange").value
+    );
+    psData.append("new_password", document.querySelector(".restPassword").value
+    );
+    axios
+      .put(`${url}/auth/change_password/`, psData, {
         headers: {
-          Authorization: "Bearer " + localStorage.getItem("Token_user"),
+          Authorization: "Bearer " + localStorage.getItem("Token_user")
         },
-      }).then(res => {
-        alert('Yangilandi')
-    }).catch(err => {
-        alert(err)
-    })
+      })
+      .then((res) => {
+        alert("Yangilandi");
+      })
+      .catch((err) => {
+        alert(err);
+      });
   }
 
   return (
@@ -223,46 +259,36 @@ export default function Loginpage() {
                     <div className="inputs1">
                       <div className="input1">
                         <h2>Name*</h2>
-                        <input type="text" className="username" />
+                        <input type="text" className="username" id="username" />
                         <h2>Phone</h2>
-                        <input type="number" className="phone" />
+                        <input type="number" className="phone" id="phone" />
                       </div>
                       <div className="input1">
                         <h2>Birthday*</h2>
-                        <input type="date" className="birthday" />
+                        <input type="date" className="birthday" id="birthday" />
                         <h2>Email</h2>
-                        <input type="text" className="email" />
+                        <input type="text" className="email" id="email" />
                       </div>
-                      {/* 
-                                    <div className="input1">
-                                        <h2>
-                                            Passport_number: </h2>
-                                        <input type="text" />
-                                        <h2>Email</h2>
-                                        <input type="text" />
-
-                                    </div> */}
                     </div>
                     <div className="inputs1">
                       <div className="input1">
                         <h2>Passport_number</h2>
-                        <input type="number" className="passportNum" />
+                        <input
+                          type="number"
+                          className="passportNum"
+                          id="passportNum"
+                        />
                       </div>
                       <div className="input1">
                         <h2>Passport_series</h2>
-                        <input type="number" className="passportSer" />
+                        <input
+                          type="text"
+                          className="passportSer"
+                          id="passportSer"
+                        />
                       </div>
                     </div>
-                    {/* <div className="check2">
-                                    <input id='cb1' type="checkbox" />
-                                    <p>WhatsApp (require country code for mobile numbers)</p>
-                                </div> */}
                     <div className="inputs111">
-                      {/* <h2>Type</h2> */}
-                      {/* <input type="text" placeholder='Private seller' /> */}
-
-                      {/* <h2>Description</h2> */}
-                      {/* <textarea id="vv"></textarea> */}
                       <button onClick={() => putUser()}>Save</button>
                     </div>
                   </div>
@@ -271,7 +297,16 @@ export default function Loginpage() {
                   <h2>Your photo</h2>
                   <div className="profil1">
                     <input type="file" className="image" />
-                    <FaUserAlt className="icon1" />
+                    {user.image == null ? (
+                      <FaUserAlt className="icon1" />
+                    ) : (
+                      <Image
+                        width={100}
+                        height={100}
+                        src={user.image}
+                        alt="no img"
+                      />
+                    )}
                   </div>
                   <h2 className="bb1">Upload profile photo</h2>
                 </div>
@@ -288,11 +323,11 @@ export default function Loginpage() {
                         {/* <h2>Phone</h2> */}
                         {/* <input type="number" /> */}
                         <h2>Old Password</h2>
-                        <input type="text" />
+                        <input className="oldPassword" type="text" />
                         <h2>New Password</h2>
                         <input className="passwordChange" type="text" />
                         <h2>Restart New Password</h2>
-                        <input type="text" />
+                        <input className="restPassword" type="text" />
                       </div>
                       <button onClick={() => postPassword()}>Save</button>
                     </div>
@@ -300,67 +335,33 @@ export default function Loginpage() {
                 </div>
               ) : data === 4 ? (
                 <div className="regionDv">
-                  <h2>Yor adress</h2>
-                  <div className="regionAdd">
-                    {/* <div className="input1"> */}
-                    <select className="countrySlc">
-                      <option>Yashnobod</option>
-                      <option>Yunsobod</option>
-                      <option>Sergeli</option>
-                      <option>Mirzo Ulugbek</option>
-                      <option>ZangiOta</option>
-                      <option>Oqtepa</option>
-                      <option>Bektemir</option>
-                      <option>Mirobod</option>
-                    </select>
-                    <select className="regionSlc">
-                      <option>Yashnobod</option>
-                      <option>Yunsobod</option>
-                      <option>Sergeli</option>
-                      <option>Mirzo Ulugbek</option>
-                      <option>ZangiOta</option>
-                      <option>Oqtepa</option>
-                      <option>Bektemir</option>
-                      <option>Mirobod</option>
-                    </select>
+                  {/* {
+                    manzil.map(item => {
+                      return ( */}
+                  <div>
+                    <h2>Yor adress</h2>
+                    <pre>      manzilni kiriting                                     manzilni kiriting</pre>
+                    <div className="regionAdd">
+                      {/* <div className="input1"> */}
+                      <input className="countrySlc" id="countrySlc" />
+                      <input className="regionSlc" id="regionSlc" />
+                    </div>
+                    <pre>      manzilni kiriting                                     manzilni kiriting</pre>
+                    <div className="regionAdd">
+                      {/* <div className="input1"> */}
+                      <input className="citySlc" id="citySlc" />
+                      <input className="districtSlc" id="districtSlc" />
+                    </div>
+                    <pre>                                      manzilni kiriting                                     </pre>
+                    <div className="regionAdd">
+                      {/* <div className="input1"> */}
+                      <input className="streetSlc" id="streetSlc" />
+                    </div>
+                    <button onClick={() => postAdress()}>click</button>
                   </div>
-                  <div className="regionAdd">
-                    {/* <div className="input1"> */}
-                    <select className="citySlc">
-                      <option>Yashnobod</option>
-                      <option>Yunsobod</option>
-                      <option>Sergeli</option>
-                      <option>Mirzo Ulugbek</option>
-                      <option>ZangiOta</option>
-                      <option>Oqtepa</option>
-                      <option>Bektemir</option>
-                      <option>Mirobod</option>
-                    </select>
-                    <select className="districtSlc">
-                      <option>Yashnobod</option>
-                      <option>Yunsobod</option>
-                      <option>Sergeli</option>
-                      <option>Mirzo Ulugbek</option>
-                      <option>ZangiOta</option>
-                      <option>Oqtepa</option>
-                      <option>Bektemir</option>
-                      <option>Mirobod</option>
-                    </select>
-                  </div>
-                  <div className="regionAdd">
-                    {/* <div className="input1"> */}
-                    <select className="streetSlc">
-                      <option>Yashnobod</option>
-                      <option>Yunsobod</option>
-                      <option>Sergeli</option>
-                      <option>Mirzo Ulugbek</option>
-                      <option>ZangiOta</option>
-                      <option>Oqtepa</option>
-                      <option>Bektemir</option>
-                      <option>Mirobod</option>
-                    </select>
-                  </div>
-                  <button onClick={() => postAdress()}>click</button>
+                      {/* )
+                    })
+                  } */}
                 </div>
               ) : (
                 <div className="ba">
@@ -382,3 +383,9 @@ export default function Loginpage() {
 }
 
 // user ?() : ()
+
+// className="countrySlc" < 1
+// className="regionSlc < 2
+// className="citySlc" < 3
+// className="districtSlc < 4
+// className="streetSlc" < 5
