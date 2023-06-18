@@ -1211,6 +1211,7 @@ font-family: 'Roboto Slab', serif !important;
     justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
+    padding-left: 5%;
   }
 
   .deskBg {
@@ -1225,8 +1226,8 @@ font-family: 'Roboto Slab', serif !important;
     width: 50%;
   }
 
-  .deskB2 img {
-    width: 10%;
+  .bigImg {
+    width: 60%;
   }
 
   .defectBig span {

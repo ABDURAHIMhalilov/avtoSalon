@@ -505,8 +505,8 @@ document.querySelector('.visit_number').value=a.phone
                     <img src={item.image1} alt="underfined img" />
                   </div>
                   <div className="deskBg2">
-                    <img src={item.image2} alt="underfined img" />
-                    <h1>{item.description}</h1>
+                    <img className="bigImg" src={item.image2} alt="underfined img" />
+                    <p>{item.description}</p>
                   </div>
                 </div>
               })
