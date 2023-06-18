@@ -8,15 +8,31 @@ import { AiOutlineCamera } from "react-icons/ai";
 import url from "./Host";
 import axios from "axios";
 import Image from "next/image";
-import Table from "react-bootstrap/Table";
+import { FiEdit } from "react-icons/fi";
+import { RiDeleteBin6Line } from "react-icons/ri";
 // import { Select, Space } from "antd";
 
 export default function Loginpage() {
   const [user, setUser] = React.useState([]);
   const [data, setData] = React.useState(1);
   const [manzil, setManzil] = React.useState([]);
-  const [ adres, setAdres ] = React.useState([])
-
+  const [adress, setAdress] = React.useState([]);
+  const [ adresput, setAdresput ] = React.useState([])
+  // const [ users, setUsers ] = JSON.parse(localStorage.getItem('onemen'))
+  // const provinceData = ['Zhejiang', 'Jiangsu'];
+  // const cityData = {
+  //     Zhejiang: ['Hangzhou', 'Ningbo', 'Wenzhou'],
+  //     Jiangsu: ['Nanjing', 'Suzhou', 'Zhenjiang'],
+  // };
+  // const [cities, setCities] = useState(cityData[provinceData[0]]);
+  // const [secondCity, setSecondCity] = useState(cityData[provinceData[0]][0]);
+  // const handleProvinceChange = (value) => {
+  //     setCities(cityData[value]);
+  //     setSecondCity(cityData[value][0]);
+  // };
+  // const onSecondCityChange = (value) => {
+  //     setSecondCity(value);
+  // };
 
   const plus = () => {
     setData(data + 1);
@@ -39,26 +55,28 @@ export default function Loginpage() {
           if (usernameUs == item.phone || usernameUs == item.username) {
             setUser(item);
             localStorage.setItem("onemen", JSON.stringify(item));
-              document.querySelector("#username").value = item.username;
-              document.querySelector("#email").value = item.email;
-              document.querySelector("#birthday").value = item.birthday;
-              document.querySelector("#phone").value = item.phone;
-              document.querySelector("#passportNum").value = item.passport_number;
-              document.querySelector("#passportSer").value = item.passport_series;
+            document.querySelector("#username").value = item.username;
+            document.querySelector("#email").value = item.email;
+            document.querySelector("#birthday").value = item.birthday;
+            document.querySelector("#phone").value = item.phone;
+            document.querySelector("#passportNum").value = item.passport_number;
+            document.querySelector("#passportSer").value = item.passport_series;
           }
         });
       });
 
-      axios.get(`${url}/auth/adress/`, {
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("Token_user"),
-        },
-      }).then(res => {
-        console.log(res.data);
-        setAdres(res.data)
-      })
-  }, []);
+    var users = JSON.parse(localStorage.getItem("onemen"));
 
+    axios.get(`${url}/auth/adress/`).then((res) => {
+      var aa = [];
+      res.data.map((item) => {
+        if (item.user == users.id) {
+          aa.push(item);
+        }
+      });
+      setAdress(aa);
+    });
+  }, []);
 
   function putUser() {
     var data = new FormData();
@@ -67,6 +85,7 @@ export default function Loginpage() {
     if (document.querySelector(".image").files[0]) {
       data.append("image", document.querySelector(".image").files[0]);
     }
+
     data.append(
       "passport_number",
       document.querySelector(".passportNum").value
@@ -113,8 +132,8 @@ export default function Loginpage() {
         },
       })
       .then((res) => {
-        alert("manzil yangilandi");
-
+        alert("manzil qo'shildi");
+        window.location.reload();
         setManzil(res.data);
         document.querySelector(".countrySlc").value = res.data.country;
         document.querySelector(".regionSlc").value = res.data.region;
@@ -154,14 +173,60 @@ export default function Loginpage() {
         alert(err);
       });
   }
-function connectData() {
-  document.querySelector("#username").value = user.username;
-  document.querySelector("#email").value = user.email;
-  document.querySelector("#birthday").value = user.birthday;
-  document.querySelector("#phone").value = user.phone;
-  document.querySelector("#passportNum").value = user.passport_number;
-  document.querySelector("#passportSer").value = user.passport_series;
-}
+
+  function deleteAdress(key) {
+    axios
+      .delete(`${url}/auth/adress/${key}/`, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("Token_user"),
+        },
+      })
+      .then((res) => {
+        alert("deleted");
+        window.location.reload();
+      })
+      .catch((err) => {
+        alert(err);
+      }); 
+  }
+
+  function editAdres(key) {
+    localStorage.setItem('keyAddres', key)
+    console.log(key);
+    document.querySelector('.adres2Big').style = 'display: flex'
+    axios.get(`${url}/auth/adress/${key}/`).then(res => {
+      setAdresput(res.data)
+      document.querySelector('#countrySlc2').value = res.data.country
+      document.querySelector('#regionSlc2').value = res.data.region
+      document.querySelector('#citySlc2').value = res.data.city
+      document.querySelector('#districtSlc2').value = res.data.district
+      document.querySelector('#streetSlc2').value = res.data.street
+    })
+  }
+
+  function closeditAdres() {
+    document.querySelector('.adres2Big').style = 'display: none'
+  }
+
+  function editedAdd() {
+    var locals = localStorage.getItem('keyAddres')
+    var locals2 = JSON.parse(localStorage.getItem('onemen'))
+    var data = new FormData()
+    data.append('country', document.querySelector('.countrySlc2').value)
+    data.append('region', document.querySelector('.regionSlc2').value)
+    data.append('city', document.querySelector('.citySlc2').value)
+    data.append('district', document.querySelector('.districtSlc2').value)
+    data.append('street', document.querySelector('.streetSlc2').value)
+    data.append('user', locals2.id)
+    axios.put(`${url}/auth/adress/${locals}/`, data,  {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("Token_user"),
+      },
+    }).then(res => {
+      alert('O`zgartirildi')
+    })
+  }
+
   return (
     <div>
       <Navbar />
@@ -198,9 +263,6 @@ function connectData() {
               onClick={() => {
                 setData(1);
                 document.querySelector(".all-button").style = "display:flex";
-                setTimeout(() => {
-                  connectData()
-                }, 10);
               }}
             >
               Account
@@ -228,9 +290,6 @@ function connectData() {
             }
             onClick={() => {
               setData(1);
-              setTimeout(() => {
-                connectData()
-              }, 10);
             }}
           >
             Account Details
@@ -347,47 +406,94 @@ function connectData() {
                 </div>
               ) : data === 4 ? (
                 <div className="regionDv">
-                  {/* <div>
-                    <h2>Yor adress</h2>
-                    <pre>      manzilni kiriting                                     manzilni kiriting</pre>
+                  <div className="tableAdres">
+                    <div className="minTableA">
+                      <h5>country</h5>
+                      <h5>region</h5>
+                      <h5>city</h5>
+                      <h5>district</h5>
+                      <h5>street</h5>
+                      <h5>Tahrirlash</h5>
+                    </div>
+                    {adress.map((item) => {
+                      return (
+                        <div className="minTableA2">
+                          <h5>{item.country}</h5>
+                          <h5>{item.region}</h5>
+                          <h5>{item.city}</h5>
+                          <h5>{item.district}</h5>
+                          <h5>{item.street}</h5>
+                          <h5>
+                            <FiEdit
+                            style={{cursor: 'pointer'}}
+                            onClick={() => editAdres(item.id)} className="fiEdit" />
+                            <RiDeleteBin6Line
+                            style={{cursor: 'pointer'}}
+                            onClick={() => deleteAdress(item.id)}
+                              className="riDelete"
+                            />
+                          </h5>
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <br />
+                  <div className="divAdress">
+                    <h2>Manzil Qo'shish</h2>
+                    <br />
+                    <p>
+                      <span>countryni kiriting</span>
+                      <span>regionni kiriting</span>
+                    </p>
                     <div className="regionAdd">
                       <input className="countrySlc" id="countrySlc" />
                       <input className="regionSlc" id="regionSlc" />
                     </div>
-                    <pre>      manzilni kiriting                                     manzilni kiriting</pre>
+                    <p>
+                      <span>cityni kiriting</span>
+                      <span>districtni kiriting</span>
+                    </p>{" "}
                     <div className="regionAdd">
                       <input className="citySlc" id="citySlc" />
                       <input className="districtSlc" id="districtSlc" />
                     </div>
-                    <pre>                                      manzilni kiriting                                     </pre>
+                    <p>streetni kiriting </p>
                     <div className="regionAdd">
                       <input className="streetSlc" id="streetSlc" />
                     </div>
                     <button onClick={() => postAdress()}>click</button>
-                  </div> */}
-                  {
-                    adres.map(item => {
-                      return(
+                  </div>
 
-                 <div className="divTable">
-                  <div className="HeadTable">
-                  <h3 className="tableText">addres</h3>
-                  <h3 className="tableText">addres</h3>
-                  <h3 className="tableText">addres</h3>
-                  <h3 className="tableText">addres</h3>
-                  <h3 className="tableText">addres</h3>
+                    <div className="adres2Big">
+                  <div className="divAdress2">
+                  <h2>Manzil Tahrirlash</h2>
+                  <br />
+                  <p>
+                    <span>countryni kiriting</span>
+                    <span>regionni kiriting</span>
+                  </p>
+                  <div className="regionAdd">
+                    <input className="countrySlc2" id="countrySlc2" />
+                    <input className="regionSlc2" id="regionSlc2" />
                   </div>
-                  <div className="BodyTable">
-                  <h3 className="tableText">{item.country}</h3>
-                  <h3 className="tableText">{item.country}</h3>
-                  <h3 className="tableText">{item.country}</h3>
-                  <h3 className="tableText">{item.country}</h3>
-                  <h3 className="tableText">{item.country}</h3>
+                  <p>
+                    <span>cityni kiriting</span>
+                    <span>districtni kiriting</span>
+                  </p>{" "}
+                  <div className="regionAdd">
+                    <input className="citySlc2" id="citySlc2" />
+                    <input className="districtSlc2" id="districtSlc2" />
                   </div>
-                 </div>
-                      )
-                    })
-                  }
+                  <p>streetni kiriting </p>
+                  <div className="regionAdd">
+                    <input className="streetSlc2" id="streetSlc2" />
+                  </div>
+                  <div className="btnddiv">
+                  <button onClick={() => closeditAdres()}>Close</button>
+                  <button onClick={() => editedAdd()}>Save</button>
+                  </div>
+                  </div>
+                  </div>
                 </div>
               ) : (
                 <div className="ba">

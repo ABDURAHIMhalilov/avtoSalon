@@ -581,7 +581,7 @@
     border-radius: 10px;
 }
 
-.regionDv button {
+/* .regionDv button {
   width: 40%;
   height: 40px;
   margin-left: 30%;
@@ -595,7 +595,7 @@
   display: flex;
   justify-content: space-evenly;
   margin-top: 10px;
-}
+} */
 
 .regionAdd input {
     width: 45%;
@@ -606,23 +606,168 @@
     outline: none;
 }
 
-.divTable {
+.regionDv {
+  width: 600px;
+  width: 1000px;
+  background: #fff;
+  box-shadow: 0 0 4px black;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.regionDv button {
+  width: 40%;
+  height: 40px;
+  margin-left: 30%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+}
+
+.regionAdd input {
+    width: 45%;
+    padding-left: 10px;
+    border-radius: 100px;
+    outline: none;
+}
+
+.tableAdres {
   width: 100%;
 }
 
-.HeadTable {
-  width: 100%;
+.minTableA {
   display: flex;
   justify-content: space-between;
+  box-shadow: 0 0 4px black;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  /* padding: 5px; */
 }
 
-.BodyTable {
-  width: 100%;
+.minTableA h5 {
+  width: 400px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* text-align: center; */
+}
+
+.minTableA2 {
   display: flex;
   justify-content: space-between;
+  /* padding: 5px; */
 }
 
-.tableText {
-  width: 360px;
+.minTableA2 h5 {
+  width: 400px;
+  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 4px black;
+  /* text-align: center; */
+}
+
+.minTableA2 button {
+  width: 45%;
+  height: 35px;
+  margin-left: 3px;
+}
+
+.fiEdit {
+  font-size: 20px;
+  margin: 5px;
+}
+
+.riDelete {
+  font-size: 20px;
+  margin: 5px;
+}
+
+.divAdress button {
+  width: 25%;
+  height: 35px;
+  font-size: 20px;
+  margin-left: 35%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.divAdress input {
+  width: 45%;
+  margin-left: 5px;
+  margin-bottom: 15px;
+}
+
+.divAdress p {
+  width: 57%;
+  margin-left: 10px;
+  display: flex;
   text-align: left;
+  justify-content: space-between;
+}
+
+.divAdress2 {
+  width: 40%;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.divAdress2 button {
+  width: 25%;
+  height: 35px;
+  font-size: 20px;
+  margin-left: 35%;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.divAdress2 input {
+  width: 45%;
+  margin-left: 5px;
+  margin-bottom: 15px;
+}
+
+.divAdress2 p {
+  width: 63%;
+  margin-left: 10px;
+  display: flex;
+  text-align: left;
+  justify-content: space-between;
+}
+
+.adres2Big {
+  width: 100%;
+  min-height: 100vh;
+  background: #000007a0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.btnddiv {
+  width: 70%;
+  margin: auto;
+  display: flex;
+}
+
+.btnddiv button {
+  width: 40%;
+  margin: 0;
+  margin-left: 10px;
+  margin-right: 0;
+}
+
+.btnddiv button:nth-child(1){
+  background: red;
 }
