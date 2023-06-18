@@ -26,7 +26,15 @@ export default function Home() {
   const [position, setPosition] = React.useState([]);
 
 
-
+const getAllSearch=()=>{
+  var data={
+    model:select,
+    series:selectSeries,
+    position:selectPosition
+  }
+  localStorage.setItem("search",JSON.stringify(data))
+  window.location="/cars"
+}
 
   useEffect(() => {
     axios.get(`${url}/api/models/`).then((res) => {
@@ -145,7 +153,7 @@ export default function Home() {
                   })}
                 </Select>
               </FormControl>
-              <button className="Btnbody header_btn">
+              <button onClick={()=>{getAllSearch()}} className="Btnbody header_btn">
                 <FiSearch />
               </button>
             </div>
