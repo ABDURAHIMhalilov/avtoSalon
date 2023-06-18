@@ -8,12 +8,17 @@ import { AiOutlineCamera } from "react-icons/ai";
 import url from "./Host";
 import axios from "axios";
 import Image from "next/image";
+import { FiEdit } from "react-icons/fi";
+import { RiDeleteBin6Line } from "react-icons/ri";
 // import { Select, Space } from "antd";
 
 export default function Loginpage() {
   const [user, setUser] = React.useState([]);
   const [data, setData] = React.useState(1);
   const [manzil, setManzil] = React.useState([]);
+  const [adress, setAdress] = React.useState([]);
+  const [ adresput, setAdresput ] = React.useState([])
+  // const [ users, setUsers ] = JSON.parse(localStorage.getItem('onemen'))
   // const provinceData = ['Zhejiang', 'Jiangsu'];
   // const cityData = {
   //     Zhejiang: ['Hangzhou', 'Ningbo', 'Wenzhou'],
@@ -48,7 +53,7 @@ export default function Loginpage() {
       .then((res) => {
         res.data.map((item) => {
           if (usernameUs == item.phone || usernameUs == item.username) {
-            setUser(item); 
+            setUser(item);
             localStorage.setItem("onemen", JSON.stringify(item));
             document.querySelector("#username").value = item.username;
             document.querySelector("#email").value = item.email;
@@ -56,41 +61,31 @@ export default function Loginpage() {
             document.querySelector("#phone").value = item.phone;
             document.querySelector("#passportNum").value = item.passport_number;
             document.querySelector("#passportSer").value = item.passport_series;
-           
           }
         });
       });
 
-      // document.querySelector('.').value = manzil.region
-      // document.querySelector('.').value = manzil.region
-      // document.querySelector('.').value = manzil.region
-      // document.querySelector('.').value = manzil.region
-      // document.querySelector('.').value = manzil.region
-      
-      
-      
+    var users = JSON.parse(localStorage.getItem("onemen"));
+
+    axios.get(`${url}/auth/adress/`).then((res) => {
+      var aa = [];
+      res.data.map((item) => {
+        if (item.user == users.id) {
+          aa.push(item);
+        }
+      });
+      setAdress(aa);
+    });
   }, []);
 
-  // useEffect(() => {
-  //     document.querySelector(".countrySlc").value = 'manzil.country'
-  //     // document.querySelector("#regionSlc").value = manzil.region
-  //     // document.querySelector("#citySlc").value = manzil.city
-  //     // document.querySelector("#districtSlc").value = manzil.district
-  //     // document.querySelector("#streetSlc").value = manzil.street
-  // }, [])
-
   function putUser() {
-    // console.log(data);
-  
-
     var data = new FormData();
     data.append("birthday", document.querySelector(".birthday").value);
     data.append("email", document.querySelector(".email").value);
-    if( document.querySelector(".image").files[0]){
+    if (document.querySelector(".image").files[0]) {
       data.append("image", document.querySelector(".image").files[0]);
     }
-    
-    
+
     data.append(
       "passport_number",
       document.querySelector(".passportNum").value
@@ -109,10 +104,13 @@ export default function Loginpage() {
       })
       .then((res) => {
         alert("yangilandi");
-        localStorage.setItem("username",document.querySelector(".phone").value)
-       setTimeout(() => {
-        window.location.reload();
-       }, 100);
+        localStorage.setItem(
+          "username",
+          document.querySelector(".phone").value
+        );
+        setTimeout(() => {
+          window.location.reload();
+        }, 100);
       })
       .catch((err) => {
         alert(`Malumotni to'liq kiriting!`);
@@ -127,14 +125,15 @@ export default function Loginpage() {
     data.append("district", document.querySelector(".districtSlc").value);
     data.append("street", document.querySelector(".streetSlc").value);
     data.append("user", user.id);
-    axios.post(`${url}/auth/adress/`, data, {
+    axios
+      .post(`${url}/auth/adress/`, data, {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("Token_user"),
         },
       })
       .then((res) => {
-        alert("manzil yangilandi");
-       
+        alert("manzil qo'shildi");
+        window.location.reload();
         setManzil(res.data);
         document.querySelector(".countrySlc").value = res.data.country;
         document.querySelector(".regionSlc").value = res.data.region;
@@ -151,24 +150,65 @@ export default function Loginpage() {
     var psData = new FormData();
     psData.append("userid", user.id);
     psData.append("phone", user.phone);
-    psData.append("old_password", document.querySelector('.oldPassword').value);
-    psData.append("new_password", document.querySelector(".passwordChange").value
+    psData.append("old_password", document.querySelector(".oldPassword").value);
+    psData.append(
+      "new_password",
+      document.querySelector(".passwordChange").value
     );
-    psData.append("new_password", document.querySelector(".restPassword").value
+    psData.append(
+      "new_password",
+      document.querySelector(".restPassword").value
     );
     axios
       .put(`${url}/auth/change_password/`, psData, {
         headers: {
-          Authorization: "Bearer " + localStorage.getItem("Token_user")
+          Authorization: "Bearer " + localStorage.getItem("Token_user"),
         },
       })
       .then((res) => {
         alert("Yangilandi");
-        window.location.reload()
+        window.location.reload();
       })
       .catch((err) => {
         alert(err);
       });
+  }
+
+  function deleteAdress(key) {
+    axios
+      .delete(`${url}/auth/adress/${key}/`, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("Token_user"),
+        },
+      })
+      .then((res) => {
+        alert("deleted");
+        window.location.reload();
+      })
+      .catch((err) => {
+        alert(err);
+      }); 
+  }
+
+  function editAdres(key) {
+    console.log(key);
+    document.querySelector('.adres2Big').style = 'display: flex'
+    axios.get(`${url}/auth/adress/${key}/`).then(res => {
+      setAdresput(res.data)
+      document.querySelector('#countrySlc2').value = res.data.country
+      document.querySelector('#regionSlc2').value = res.data.region
+      document.querySelector('#citySlc2').value = res.data.city
+      document.querySelector('#districtSlc2').value = res.data.district
+      document.querySelector('#streetSlc2').value = res.data.street
+    })
+    // var data = new FormData()
+    // data.append('')
+    // axios.put(`${url}/auth/adress/`, data).then(res => {
+    //   alert('yangilandi')
+    // })
+  }
+  function closeditAdres() {
+    document.querySelector('.adres2Big').style = 'display: none'
   }
 
   return (
@@ -211,7 +251,14 @@ export default function Loginpage() {
             >
               Account
             </button>
-            <button  onClick={()=>{localStorage.clear();window.location="/"}} >Sign Out</button>
+            <button
+              onClick={() => {
+                localStorage.clear();
+                window.location = "/";
+              }}
+            >
+              Sign Out
+            </button>
             <div className="prof">
               <input type="file" />
               <FaUserAlt className="icon12" />
@@ -343,33 +390,94 @@ export default function Loginpage() {
                 </div>
               ) : data === 4 ? (
                 <div className="regionDv">
-                  {/* {
-                    manzil.map(item => {
-                      return ( */}
-                  <div>
-                    <h2>Yor adress</h2>
-                    <pre>      manzilni kiriting                                     manzilni kiriting</pre>
+                  <div className="tableAdres">
+                    <div className="minTableA">
+                      <h5>country</h5>
+                      <h5>region</h5>
+                      <h5>city</h5>
+                      <h5>district</h5>
+                      <h5>street</h5>
+                      <h5>Tahrirlash</h5>
+                    </div>
+                    {adress.map((item) => {
+                      return (
+                        <div className="minTableA2">
+                          <h5>{item.country}</h5>
+                          <h5>{item.region}</h5>
+                          <h5>{item.city}</h5>
+                          <h5>{item.district}</h5>
+                          <h5>{item.street}</h5>
+                          <h5>
+                            <FiEdit
+                            style={{cursor: 'pointer'}}
+                            onClick={() => editAdres(item.id)} className="fiEdit" />
+                            <RiDeleteBin6Line
+                            style={{cursor: 'pointer'}}
+                            onClick={() => deleteAdress(item.id)}
+                              className="riDelete"
+                            />
+                          </h5>
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <br />
+                  <div className="divAdress">
+                    <h2>Manzil Qo'shish</h2>
+                    <br />
+                    <p>
+                      <span>countryni kiriting</span>
+                      <span>regionni kiriting</span>
+                    </p>
                     <div className="regionAdd">
-                      {/* <div className="input1"> */}
                       <input className="countrySlc" id="countrySlc" />
                       <input className="regionSlc" id="regionSlc" />
                     </div>
-                    <pre>      manzilni kiriting                                     manzilni kiriting</pre>
+                    <p>
+                      <span>cityni kiriting</span>
+                      <span>districtni kiriting</span>
+                    </p>{" "}
                     <div className="regionAdd">
-                      {/* <div className="input1"> */}
                       <input className="citySlc" id="citySlc" />
                       <input className="districtSlc" id="districtSlc" />
                     </div>
-                    <pre>                                      manzilni kiriting                                     </pre>
+                    <p>streetni kiriting </p>
                     <div className="regionAdd">
-                      {/* <div className="input1"> */}
                       <input className="streetSlc" id="streetSlc" />
                     </div>
                     <button onClick={() => postAdress()}>click</button>
                   </div>
-                      {/* )
-                    })
-                  } */}
+
+                    <div className="adres2Big">
+                  <div className="divAdress2">
+                  <h2>Manzil Tahrirlash</h2>
+                  <br />
+                  <p>
+                    <span>countryni kiriting</span>
+                    <span>regionni kiriting</span>
+                  </p>
+                  <div className="regionAdd">
+                    <input className="countrySlc2" id="countrySlc2" />
+                    <input className="regionSlc2" id="regionSlc2" />
+                  </div>
+                  <p>
+                    <span>cityni kiriting</span>
+                    <span>districtni kiriting</span>
+                  </p>{" "}
+                  <div className="regionAdd">
+                    <input className="citySlc2" id="citySlc2" />
+                    <input className="districtSlc2" id="districtSlc2" />
+                  </div>
+                  <p>streetni kiriting </p>
+                  <div className="regionAdd">
+                    <input className="streetSlc2" id="streetSlc2" />
+                  </div>
+                  <div className="btnddiv">
+                  <button onClick={() => closeditAdres()}>Close</button>
+                  <button onClick={() => postAdress()}>Save</button>
+                  </div>
+                  </div>
+                  </div>
                 </div>
               ) : (
                 <div className="ba">
