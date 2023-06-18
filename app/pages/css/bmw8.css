@@ -862,7 +862,7 @@ font-family: 'Roboto Slab', serif !important;
 }
 .buy button{
     height: 50px;
-    width: 130px;
+    width: 230px;
     font-size: 20px;
 }
 .carf1{
@@ -1095,7 +1095,7 @@ font-family: 'Roboto Slab', serif !important;
   .audi4{
     background-color: #222732;
     width: 400px;
-    height: 420px;
+    min-height: 420px;
     border-radius: 10px;
   }
   .audi4 h3{

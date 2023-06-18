@@ -49,7 +49,7 @@ export default function Navbar() {
         <MdClose className="close_btn" onClick={() => setCount(false)} />
         <div className="a_box">
           <a href="#" className="a_fff a_mobile">
-            Homess
+            Homes
           </a>
         </div>
         <div className="a_box">

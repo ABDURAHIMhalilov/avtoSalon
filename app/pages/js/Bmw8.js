@@ -50,10 +50,33 @@ export default function Bmw8() {
   }
 
   function postData(){
+ var formdata=new FormData()
 
+ formdata.append("visit_time",document.querySelector("#visit_time").value+document.querySelector(".visit_email").value)
+ formdata.append("branch", document.querySelector(".visit_brench").value)
+ formdata.append("user", JSON.parse(localStorage.getItem("onemen")).id)
+ formdata.append("car",  JSON.parse(localStorage.getItem("oneproduct")).id )
+ formdata.append("is_active", false )
+axios.post(`${url}/api/order/`, formdata , {
+  headers: {
+    Authorization: "Bearer " + localStorage.getItem("Token_user"),
+  },
+}).then(res=>{
+  alert('Ma`lumot yuborildi')
+  window.location.reload()
+}).catch(err=>{
+  alert('to`liqroq ma`lumot yuboring')
+})
   }
   useEffect(() => {
+   
+if(localStorage.getItem("onemen")){ 
+  var a=JSON.parse(localStorage.getItem("onemen"))
+document.querySelector('.visit_name').value=a.username
+document.querySelector('.visit_email').value=a.email
+document.querySelector('.visit_number').value=a.phone
 
+}
     axios
       .get(`${url}/api/branch/`, {
         headers: {
@@ -501,9 +524,9 @@ export default function Bmw8() {
                 Defect
               </button>)}
             {user?(<button  className="spend">
-               <a href="#send"> Messeage1 </a>
+               <a style={{textDecoration:'none',color:'#fff'}} href="#send">Send messeage </a>
               </button>):(<button onClick={()=>{window.location="/login"}} className="spend">
-                Messeage2
+              Send messeage
               </button>)
 
             }
@@ -536,23 +559,23 @@ export default function Bmw8() {
               <div className="inps1">
                 <div className="inp2">
                   <input placeholder="Name" className="visit_name" type="text" />
-                  <input placeholder="Email*" className="visit_email" type="text" />
+                  <input placeholder="Email*" className="visit_email" type="date" />
                   <input placeholder="Phone" type="text" className="visit_number"/>
-                  <input placeholder="visit time" className="visit_time" type="text" />
+                  <input placeholder="visit time" id="visit_time" type="time" />
                 </div>
               </div>
-              <textarea placeholder="Massege*" className="visit_deck" className="texta"></textarea>
-              <select>
+              <textarea placeholder="Massege*" className="texta visit_deck"></textarea>
+              <select className="visit_brench" >
                 {branchs.map((item) => {
                   return (
-                    <option>
+                    <option value={item.id} > 
                       {item.city} {item.district} {item.street}
                     </option>
                   );
                 })}
               </select>
               <div className="buy">
-                {user?(<button onClick={()=>{postData()}} >Send</button>):(<button onClick={()=>{alert("Siz ro`yhatdan o`tmagansiz");window.location="/login"}} >Send</button>)}
+                {user?(<button onClick={()=>{postData()}} >Send message</button>):(<button onClick={()=>{alert("Siz ro`yhatdan o`tmagansiz");window.location="/login"}} >Send message</button>)}
               </div>
             </div>
             <div className="carf">
