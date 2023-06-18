@@ -606,6 +606,31 @@
     outline: none;
 }
 
+.regionDv {
+  width: 600px;
+  width: 1000px;
+  background: #fff;
+  box-shadow: 0 0 4px black;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.regionDv button {
+  width: 40%;
+  height: 40px;
+  margin-left: 30%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+}
+
+.regionAdd input {
+    width: 45%;
+    padding-left: 10px;
+    border-radius: 100px;
+    outline: none;
+}
+
 .tableAdres {
   width: 100%;
 }
@@ -613,7 +638,10 @@
 .minTableA {
   display: flex;
   justify-content: space-between;
-  padding: 5px;
+  box-shadow: 0 0 4px black;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  /* padding: 5px; */
 }
 
 .minTableA h5 {
@@ -622,16 +650,13 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 0 4px black;
-  border-radius: 5px;
   /* text-align: center; */
 }
 
 .minTableA2 {
   display: flex;
   justify-content: space-between;
-  padding: 5px;
-  z-index: 5;
+  /* padding: 5px; */
 }
 
 .minTableA2 h5 {
@@ -651,12 +676,12 @@
 }
 
 .fiEdit {
-  font-size: 24px;
+  font-size: 20px;
   margin: 5px;
 }
 
 .riDelete {
-  font-size: 24px;
+  font-size: 20px;
   margin: 5px;
 }
 
@@ -666,6 +691,9 @@
   font-size: 20px;
   margin-left: 35%;
   margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .divAdress input {
@@ -679,7 +707,6 @@
   margin-left: 10px;
   display: flex;
   text-align: left;
-  /* background: #000; */
   justify-content: space-between;
 }
 
@@ -697,6 +724,9 @@
   font-size: 20px;
   margin-left: 35%;
   margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .divAdress2 input {
@@ -710,7 +740,6 @@
   margin-left: 10px;
   display: flex;
   text-align: left;
-  /* background: #000; */
   justify-content: space-between;
 }
 
@@ -730,7 +759,6 @@
   width: 70%;
   margin: auto;
   display: flex;
-  /* justify-content: space-evenly; */
 }
 
 .btnddiv button {
@@ -741,6 +769,5 @@
 }
 
 .btnddiv button:nth-child(1){
-  /* box-shadow: 0 0 10px red; */
   background: red;
 }

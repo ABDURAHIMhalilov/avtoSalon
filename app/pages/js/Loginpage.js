@@ -191,6 +191,7 @@ export default function Loginpage() {
   }
 
   function editAdres(key) {
+    localStorage.setItem('keyAddres', key)
     console.log(key);
     document.querySelector('.adres2Big').style = 'display: flex'
     axios.get(`${url}/auth/adress/${key}/`).then(res => {
@@ -201,14 +202,29 @@ export default function Loginpage() {
       document.querySelector('#districtSlc2').value = res.data.district
       document.querySelector('#streetSlc2').value = res.data.street
     })
-    // var data = new FormData()
-    // data.append('')
-    // axios.put(`${url}/auth/adress/`, data).then(res => {
-    //   alert('yangilandi')
-    // })
   }
+
   function closeditAdres() {
     document.querySelector('.adres2Big').style = 'display: none'
+  }
+
+  function editedAdd() {
+    var locals = localStorage.getItem('keyAddres')
+    var locals2 = JSON.parse(localStorage.getItem('onemen'))
+    var data = new FormData()
+    data.append('country', document.querySelector('.countrySlc2').value)
+    data.append('region', document.querySelector('.regionSlc2').value)
+    data.append('city', document.querySelector('.citySlc2').value)
+    data.append('district', document.querySelector('.districtSlc2').value)
+    data.append('street', document.querySelector('.streetSlc2').value)
+    data.append('user', locals2.id)
+    axios.put(`${url}/auth/adress/${locals}/`, data,  {
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("Token_user"),
+      },
+    }).then(res => {
+      alert('O`zgartirildi')
+    })
   }
 
   return (
@@ -474,7 +490,7 @@ export default function Loginpage() {
                   </div>
                   <div className="btnddiv">
                   <button onClick={() => closeditAdres()}>Close</button>
-                  <button onClick={() => postAdress()}>Save</button>
+                  <button onClick={() => editedAdd()}>Save</button>
                   </div>
                   </div>
                   </div>

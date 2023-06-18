@@ -49,6 +49,9 @@ export default function Bmw8() {
     document.querySelector(".mySwiper2").style = "display: block";
   }
 
+  function postData(){
+
+  }
   useEffect(() => {
 
     axios
@@ -532,13 +535,13 @@ export default function Bmw8() {
               <h2>Send message</h2>
               <div className="inps1">
                 <div className="inp2">
-                  <input placeholder="Name" type="text" />
-                  <input placeholder="Email*" type="text" />
-                  <input placeholder="Phone" type="text" />
-                  <input placeholder="Phone" type="text" />
+                  <input placeholder="Name" className="visit_name" type="text" />
+                  <input placeholder="Email*" className="visit_email" type="text" />
+                  <input placeholder="Phone" type="text" className="visit_number"/>
+                  <input placeholder="visit time" className="visit_time" type="text" />
                 </div>
               </div>
-              <textarea placeholder="Massege*" className="texta"></textarea>
+              <textarea placeholder="Massege*" className="visit_deck" className="texta"></textarea>
               <select>
                 {branchs.map((item) => {
                   return (
