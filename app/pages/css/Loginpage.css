@@ -574,7 +574,7 @@
 }
 
 .regionDv {
-  width: 600px;
+  width: 1000px;
   background: #fff;
   box-shadow: 0 0 4px black;
     padding: 20px;
@@ -604,4 +604,25 @@
     padding-left: 10px;
     border-radius: 100px;
     outline: none;
+}
+
+.divTable {
+  width: 100%;
+}
+
+.HeadTable {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.BodyTable {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tableText {
+  width: 360px;
+  text-align: left;
 }

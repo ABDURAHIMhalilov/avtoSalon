@@ -8,26 +8,15 @@ import { AiOutlineCamera } from "react-icons/ai";
 import url from "./Host";
 import axios from "axios";
 import Image from "next/image";
+import Table from "react-bootstrap/Table";
 // import { Select, Space } from "antd";
 
 export default function Loginpage() {
   const [user, setUser] = React.useState([]);
   const [data, setData] = React.useState(1);
   const [manzil, setManzil] = React.useState([]);
-  // const provinceData = ['Zhejiang', 'Jiangsu'];
-  // const cityData = {
-  //     Zhejiang: ['Hangzhou', 'Ningbo', 'Wenzhou'],
-  //     Jiangsu: ['Nanjing', 'Suzhou', 'Zhenjiang'],
-  // };
-  // const [cities, setCities] = useState(cityData[provinceData[0]]);
-  // const [secondCity, setSecondCity] = useState(cityData[provinceData[0]][0]);
-  // const handleProvinceChange = (value) => {
-  //     setCities(cityData[value]);
-  //     setSecondCity(cityData[value][0]);
-  // };
-  // const onSecondCityChange = (value) => {
-  //     setSecondCity(value);
-  // };
+  const [ adres, setAdres ] = React.useState([])
+
 
   const plus = () => {
     setData(data + 1);
@@ -48,49 +37,36 @@ export default function Loginpage() {
       .then((res) => {
         res.data.map((item) => {
           if (usernameUs == item.phone || usernameUs == item.username) {
-            setUser(item); 
+            setUser(item);
             localStorage.setItem("onemen", JSON.stringify(item));
-            document.querySelector("#username").value = item.username;
-            document.querySelector("#email").value = item.email;
-            document.querySelector("#birthday").value = item.birthday;
-            document.querySelector("#phone").value = item.phone;
-            document.querySelector("#passportNum").value = item.passport_number;
-            document.querySelector("#passportSer").value = item.passport_series;
-           
+              document.querySelector("#username").value = item.username;
+              document.querySelector("#email").value = item.email;
+              document.querySelector("#birthday").value = item.birthday;
+              document.querySelector("#phone").value = item.phone;
+              document.querySelector("#passportNum").value = item.passport_number;
+              document.querySelector("#passportSer").value = item.passport_series;
           }
         });
       });
 
-      // document.querySelector('.').value = manzil.region
-      // document.querySelector('.').value = manzil.region
-      // document.querySelector('.').value = manzil.region
-      // document.querySelector('.').value = manzil.region
-      // document.querySelector('.').value = manzil.region
-      
-      
-      
+      axios.get(`${url}/auth/adress/`, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("Token_user"),
+        },
+      }).then(res => {
+        console.log(res.data);
+        setAdres(res.data)
+      })
   }, []);
 
-  // useEffect(() => {
-  //     document.querySelector(".countrySlc").value = 'manzil.country'
-  //     // document.querySelector("#regionSlc").value = manzil.region
-  //     // document.querySelector("#citySlc").value = manzil.city
-  //     // document.querySelector("#districtSlc").value = manzil.district
-  //     // document.querySelector("#streetSlc").value = manzil.street
-  // }, [])
 
   function putUser() {
-    // console.log(data);
-  
-
     var data = new FormData();
     data.append("birthday", document.querySelector(".birthday").value);
     data.append("email", document.querySelector(".email").value);
-    if( document.querySelector(".image").files[0]){
+    if (document.querySelector(".image").files[0]) {
       data.append("image", document.querySelector(".image").files[0]);
     }
-    
-    
     data.append(
       "passport_number",
       document.querySelector(".passportNum").value
@@ -109,10 +85,13 @@ export default function Loginpage() {
       })
       .then((res) => {
         alert("yangilandi");
-        localStorage.setItem("username",document.querySelector(".phone").value)
-       setTimeout(() => {
-        window.location.reload();
-       }, 100);
+        localStorage.setItem(
+          "username",
+          document.querySelector(".phone").value
+        );
+        setTimeout(() => {
+          window.location.reload();
+        }, 100);
       })
       .catch((err) => {
         alert(`Malumotni to'liq kiriting!`);
@@ -127,14 +106,15 @@ export default function Loginpage() {
     data.append("district", document.querySelector(".districtSlc").value);
     data.append("street", document.querySelector(".streetSlc").value);
     data.append("user", user.id);
-    axios.post(`${url}/auth/adress/`, data, {
+    axios
+      .post(`${url}/auth/adress/`, data, {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("Token_user"),
         },
       })
       .then((res) => {
         alert("manzil yangilandi");
-       
+
         setManzil(res.data);
         document.querySelector(".countrySlc").value = res.data.country;
         document.querySelector(".regionSlc").value = res.data.region;
@@ -151,26 +131,37 @@ export default function Loginpage() {
     var psData = new FormData();
     psData.append("userid", user.id);
     psData.append("phone", user.phone);
-    psData.append("old_password", document.querySelector('.oldPassword').value);
-    psData.append("new_password", document.querySelector(".passwordChange").value
+    psData.append("old_password", document.querySelector(".oldPassword").value);
+    psData.append(
+      "new_password",
+      document.querySelector(".passwordChange").value
     );
-    psData.append("new_password", document.querySelector(".restPassword").value
+    psData.append(
+      "new_password",
+      document.querySelector(".restPassword").value
     );
     axios
       .put(`${url}/auth/change_password/`, psData, {
         headers: {
-          Authorization: "Bearer " + localStorage.getItem("Token_user")
+          Authorization: "Bearer " + localStorage.getItem("Token_user"),
         },
       })
       .then((res) => {
         alert("Yangilandi");
-        window.location.reload()
+        window.location.reload();
       })
       .catch((err) => {
         alert(err);
       });
   }
-
+function connectData() {
+  document.querySelector("#username").value = user.username;
+  document.querySelector("#email").value = user.email;
+  document.querySelector("#birthday").value = user.birthday;
+  document.querySelector("#phone").value = user.phone;
+  document.querySelector("#passportNum").value = user.passport_number;
+  document.querySelector("#passportSer").value = user.passport_series;
+}
   return (
     <div>
       <Navbar />
@@ -207,11 +198,21 @@ export default function Loginpage() {
               onClick={() => {
                 setData(1);
                 document.querySelector(".all-button").style = "display:flex";
+                setTimeout(() => {
+                  connectData()
+                }, 10);
               }}
             >
               Account
             </button>
-            <button  onClick={()=>{localStorage.clear();window.location="/"}} >Sign Out</button>
+            <button
+              onClick={() => {
+                localStorage.clear();
+                window.location = "/";
+              }}
+            >
+              Sign Out
+            </button>
             <div className="prof">
               <input type="file" />
               <FaUserAlt className="icon12" />
@@ -227,6 +228,9 @@ export default function Loginpage() {
             }
             onClick={() => {
               setData(1);
+              setTimeout(() => {
+                connectData()
+              }, 10);
             }}
           >
             Account Details
@@ -343,33 +347,47 @@ export default function Loginpage() {
                 </div>
               ) : data === 4 ? (
                 <div className="regionDv">
-                  {/* {
-                    manzil.map(item => {
-                      return ( */}
-                  <div>
+                  {/* <div>
                     <h2>Yor adress</h2>
                     <pre>      manzilni kiriting                                     manzilni kiriting</pre>
                     <div className="regionAdd">
-                      {/* <div className="input1"> */}
                       <input className="countrySlc" id="countrySlc" />
                       <input className="regionSlc" id="regionSlc" />
                     </div>
                     <pre>      manzilni kiriting                                     manzilni kiriting</pre>
                     <div className="regionAdd">
-                      {/* <div className="input1"> */}
                       <input className="citySlc" id="citySlc" />
                       <input className="districtSlc" id="districtSlc" />
                     </div>
                     <pre>                                      manzilni kiriting                                     </pre>
                     <div className="regionAdd">
-                      {/* <div className="input1"> */}
                       <input className="streetSlc" id="streetSlc" />
                     </div>
                     <button onClick={() => postAdress()}>click</button>
+                  </div> */}
+                  {
+                    adres.map(item => {
+                      return(
+
+                 <div className="divTable">
+                  <div className="HeadTable">
+                  <h3 className="tableText">addres</h3>
+                  <h3 className="tableText">addres</h3>
+                  <h3 className="tableText">addres</h3>
+                  <h3 className="tableText">addres</h3>
+                  <h3 className="tableText">addres</h3>
                   </div>
-                      {/* )
+                  <div className="BodyTable">
+                  <h3 className="tableText">{item.country}</h3>
+                  <h3 className="tableText">{item.country}</h3>
+                  <h3 className="tableText">{item.country}</h3>
+                  <h3 className="tableText">{item.country}</h3>
+                  <h3 className="tableText">{item.country}</h3>
+                  </div>
+                 </div>
+                      )
                     })
-                  } */}
+                  }
                 </div>
               ) : (
                 <div className="ba">

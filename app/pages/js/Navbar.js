@@ -15,7 +15,24 @@ export default function Navbar() {
   const [user, setUser] = useState(localStorage.getItem("onemen")?JSON.parse(localStorage.getItem("onemen")):false);
  
 
-
+  const googleTranslateElementInit = () => {
+    new window.google.translate.TranslateElement(
+      {
+        pageLanguage: "ru",
+        autoDisplay: false
+      },
+      "google_translate_element"
+    );
+  };
+  useEffect(() => {
+    var addScript = document.createElement("script");
+    addScript.setAttribute(
+      "src",
+      "//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    );
+    document.body.appendChild(addScript);
+    window.googleTranslateElementInit = googleTranslateElementInit;
+  }, []);
 
   
 
@@ -24,6 +41,7 @@ export default function Navbar() {
 
   return (
     <div className="navbar">
+     
       <div
         className="modalMenu"
         style={count === true ? { display: "flex" } : { display: "none" }}
@@ -76,6 +94,7 @@ export default function Navbar() {
           More
         </a>
       </div>
+      
       {user ? (
         <div>
           <div className="navbar_right">
@@ -114,6 +133,7 @@ export default function Navbar() {
         </a>
       </div> */}
       <HiUsers className="usersIcon" />
+      <div id="google_translate_element"></div>
     </div>
   );
 }

@@ -767,6 +767,7 @@ font-family: 'Roboto Slab', serif !important;
     margin-top: 50px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     width: 75%;
     padding-top: 15px;
     flex-wrap: wrap;
@@ -802,6 +803,11 @@ font-family: 'Roboto Slab', serif !important;
     margin-top: 10px;
     flex-wrap: wrap;
 }
+.inp2 input{
+    min-width: 300px;
+    width: 40%;
+    margin-bottom: 20px;
+}
 .texta{
     width: 97%;
     height: 200px;
@@ -817,6 +823,8 @@ font-family: 'Roboto Slab', serif !important;
 }
 .gfbvdc{
     display: block;
+    width: 50%;
+    min-width:300px;
 }
 .c1 h3  {
     color: #ff4805;
@@ -1099,6 +1107,7 @@ font-family: 'Roboto Slab', serif !important;
   .audi4 h2{
     margin-right: 47%;
     color: white;
+    font-size:23px;
   }
   .audi4 img{
     height: 223px;
