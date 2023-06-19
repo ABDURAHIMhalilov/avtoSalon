@@ -24,6 +24,9 @@ import Footer from "./Footer";
 import axios from "axios";
 import url from "./Host";
 import car from "../images/6.jpg";
+import Carousel from 'react-bootstrap/Carousel';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 export default function Bmw8() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -113,7 +116,7 @@ document.querySelector('.visit_number').value=a.phone
      setCars(initialProducts)
     });  
 
-
+    console.log(getavto);
   }, []);
   function getData2(key) {
     localStorage.setItem("oneproduct", JSON.stringify(key));
@@ -498,19 +501,56 @@ document.querySelector('.visit_number').value=a.phone
                   </div>
                   <div className="deskBg2">
                   </div>
-                </div>):(<div>{cars.map((item) => {  
-                 return <div className="defectBig">
-                  <span onClick={() => defectClose()}>X</span>
-                  <div className="deskBg">
-                    <img src={item.image1} alt="underfined img" />
-                  </div>
-                  <div className="deskBg2">
-                    <img src={item.image2} alt="underfined img" />
-                    <h1>{item.description}</h1>
-                  </div>
-                </div>
-              })
-             }</div>) 
+                </div>):(
+<>
+<span className="caruselsspan" onClick={() => defectClose()}>X</span>
+        <span className="nameDefect"> {data.position.series.model.name} {data.position.series.name} haqidagi defectlar</span>
+      <Carousel className="carusels">
+        {cars.map((item) => {  
+ 
+                  return (
+                  <Carousel.Item className="carusels2">
+                    {/* <h1>{item.description}</h1> */}
+                 <div className="defectBig">
+                   <img className='deskBgimg' src={item.image1} alt="underfined img" />
+                   <div className="deskBg2">
+                     <img className="bigImg" src={item.image2} alt="underfined img" />
+                     <p>{item.description}</p>
+                   </div>
+                 </div> 
+      </Carousel.Item>
+      )
+               })
+              }
+            {/*    <Carousel.Item className="carusels2">
+                  <div className="defectBig">
+                   <span onClick={() => defectClose()}>X</span>
+                   <div className="deskBg">
+                     <img src={item.image1} alt="underfined img" />
+                   </div>
+                   <div className="deskBg2">
+                     <img className="bigImg" src={item.image2} alt="underfined img" />
+                     <p>{item.description}</p>
+                   </div>
+                 </div> 
+      </Carousel.Item>*/}
+    </Carousel>
+</>
+
+            //     <div>{cars.map((item) => {  
+            //      return <div className="defectBig">
+            //       <span onClick={() => defectClose()}>X</span>
+            //       <div className="deskBg">
+            //         <img src={item.image1} alt="underfined img" />
+            //       </div>
+            //       <div className="deskBg2">
+            //         <img className="bigImg" src={item.image2} alt="underfined img" />
+            //         <p>{item.description}</p>
+            //       </div>
+            //     </div>
+            //   })
+            //  }</div>
+             ) 
            }
               
                   
