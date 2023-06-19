@@ -84,11 +84,11 @@ const getAllSearch=()=>{
         <div className="headerBody1">
           <div className="headerBody">
             <h1>
-              Find Your <span>Perfect</span> Car
+            Найдите свой <span>идеальный</span> автомобиль
             </h1>
             <div className="header_box">
               <FormControl id="inp2" sx={{ m: 1, minWidth: 200 }}>
-                <InputLabel id="demo-select-small-label">Models</InputLabel>
+                <InputLabel id="demo-select-small-label">Модели</InputLabel>
                 <Select
                   labelId="demo-select-small-label"
                   id="demo-select-small"
@@ -113,7 +113,7 @@ const getAllSearch=()=>{
                 </Select>
               </FormControl>
               <FormControl id="inp2" sx={{ m: 1, minWidth: 200 }}>
-                <InputLabel id="demo-select-small-label">Series</InputLabel>
+                <InputLabel id="demo-select-small-label">Серия</InputLabel>
                 <Select
                   labelId="demo-select-small-label"
                   id="demo-select-small"
@@ -135,7 +135,7 @@ const getAllSearch=()=>{
                 </Select>
               </FormControl>
               <FormControl id="inp2" sx={{ m: 1, minWidth: 200 }}>
-                <InputLabel id="demo-select-small-label">Pasition</InputLabel>
+                <InputLabel id="demo-select-small-label">Позиция</InputLabel>
                 <Select
                   labelId="demo-select-small-label"
                   id="demo-select-small"
@@ -213,33 +213,33 @@ const getAllSearch=()=>{
       <Featured />
       <Popular />
       <div className="kotta">
-        <h1>Why choose us?</h1>
+        <h1>Почему выбрали нас?</h1>
         <div className="ushta">
           <div className="bir">
             <WiDayStormShowers className="bxs-balloon" />
-            <h2>Wide range of brands</h2>
+            <h2>Широкий ассортимент брендов</h2>
             <h4>
-              We can help with your financing plan, we can offer some tips and
-              tricks. Drive off with this dream car of yours regardless of your
-              credit history.
+            Мы можем помочь с вашим планом финансирования, мы можем предложить несколько советов и
+               трюки. Уезжайте на этой машине своей мечты независимо от ваших
+               кредитная история.
             </h4>
           </div>
           <div className="bir">
             <WiDayStormShowers className="bxs-balloon" />
-            <h2>Trusted by our clients</h2>
+            <h2>Нам доверяют наши клиенты</h2>
             <h4>
-              We can help with your financing plan, we can offer some tips and
-              tricks. Drive off with this dream car of yours regardless of your
-              credit history.
+            Мы можем помочь с вашим планом финансирования, мы можем предложить несколько советов и
+               трюки. Уезжайте на этой машине своей мечты независимо от ваших
+               кредитная история.
             </h4>
           </div>
           <div className="bir">
             <WiDayStormShowers className="bxs-balloon" />
-            <h2>Fast & easy financing</h2>
+            <h2>Быстрое и простое финансирование</h2>
             <h4>
-              We can help with your financing plan, we can offer some tips and
-              tricks. Drive off with this dream car of yours regardless of your
-              credit history.
+            Мы можем помочь с вашим планом финансирования, мы можем предложить несколько советов и
+               трюки. Уезжайте на этой машине своей мечты независимо от ваших
+               кредитная история.
             </h4>
           </div>
         </div>

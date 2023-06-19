@@ -220,66 +220,66 @@ document.querySelector('.visit_number').value=a.phone
                 <span>
                   <AiOutlineStar />
                 </span>{" "}
-                Add to favorites
+                Добавить в избранное
               </p>
             </div>
             <div className="oxirkotta">
               <div className="maky">
                 <table style={{ width: "100%", paddingTop: "30px" }}>
                   <tr className="maky1">
-                    <th>Make:</th>
+                    <th>Делать:</th>
                     <td>{data.position.series.model.name}</td>
                   </tr>
                   <tr className="maky1">
-                    <th>Model:</th>
+                    <th>Модель:</th>
                     <td>{data.position.series.name}</td>
                   </tr>
                   <tr className="maky1">
-                    <th>Color:</th>
+                    <th>Цвет:</th>
                     <td>{data.colour}</td>
                   </tr>
                   <tr className="maky1">
-                    <th>Drive Type:</th>
-                    <td>Front Wheel Drive</td>
+                    <th>Тип вождения:</th>
+                    <td>Передний привод</td>
                   </tr>
                   <tr className="maky1">
                     <th>TransColormission:</th>
                     <td>{data.gearbox.name}</td>
                   </tr>
                   <tr className="maky1">
-                    <th>Condition:</th>
+                    <th>Состояние:</th>
                     <td>{data.distance > 2 ? "NEW" : "B/Y"}</td>
                   </tr>
                   <tr className="maky1">
-                    <th>Year:</th>
+                    <th>Год:</th>
                     <td>{data.year}</td>
                   </tr>
                   <tr className="maky1">
-                    <th>Fuel Type:</th>
+                    <th>Тип топлива:</th>
                     <td>{data.fuel_sort.name}</td>
                   </tr>
                   <tr className="maky1">
-                    <th>Engine Size:</th>
+                    <th>Размер двигателя:</th>
                     <td>{data.engine}L</td>
                   </tr>
                   <tr className="maky1">
-                    <th>Cylinders:</th>
+                    <th>Цилиндры:</th>
                     <td>4</td>
                   </tr>
                   <tr className="maky1">
-                    <th>VIN:</th>
+                    <th>ВИН:</th>
                     <td>{data.id}</td>
                   </tr>
                 </table>
               </div>
               <div className="buttonz1">
-                <button className="spend">Send Massage</button>
+                <button className="spend">Отправить сообщение</button>
                 <button className="byt">
                   {" "}
                   <span>
                     <HiPhone />{" "}
                   </span>{" "}
-                  123 *** *** -reveal
+                  123 *** *** -раскрывать
                 </button>
                 {/* <button className="wat">
                   {" "}
@@ -293,13 +293,13 @@ document.querySelector('.visit_number').value=a.phone
           </div>
 
           <div className="bloksoz">
-            <h1>Description</h1>
+            <h1>Описание</h1>
             <p className="p">
-              How the adventure ended will be seen anon. Aouda was anxious,
-              though she said nothing. As for <br />
-              Passepartout, he thought Mr. Fogg’s manoeuvre simply glorious. The
-              captain had said “between eleven and <br />
-              twelve knots,” and the Henrietta confirmed his prediction.
+            Чем закончилось приключение, увидим позже. Ауда волновалась,
+               хотя она ничего не сказала. Что касается <br />
+               Паспарту, он счел маневр мистера Фогга просто великолепным. 
+               капитан сказал: «между одиннадцатью и<br />
+               двенадцать узлов», и «Генриетта» подтвердила его предсказание.
             </p>
             <p className="p1">
               If, then—for there were “ifs” still—the sea did not become too
@@ -505,8 +505,8 @@ document.querySelector('.visit_number').value=a.phone
                     <img src={item.image1} alt="underfined img" />
                   </div>
                   <div className="deskBg2">
-                    <img className="bigImg" src={item.image2} alt="underfined img" />
-                    <p>{item.description}</p>
+                    <img src={item.image2} alt="underfined img" />
+                    <h1>{item.description}</h1>
                   </div>
                 </div>
               })
