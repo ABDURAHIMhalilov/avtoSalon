@@ -232,7 +232,7 @@ export default function Loginpage() {
       <Navbar />
       <div className="katta12">
         <div className="accaunt">
-          <h2>Account</h2>
+          <h2>Аккаунт</h2>
           <div id="a1a" className="prof">
             <input type="file" />
             <FaUserAlt className="icon12" />
@@ -252,7 +252,7 @@ export default function Loginpage() {
                 document.querySelector(".all-button").style = "display:none";
               }}
             >
-              Favorites
+              Избранное
             </button>
             <button
               style={
@@ -265,7 +265,7 @@ export default function Loginpage() {
                 document.querySelector(".all-button").style = "display:flex";
               }}
             >
-              Account
+              Аккаунт
             </button>
             <button
               onClick={() => {
@@ -273,7 +273,7 @@ export default function Loginpage() {
                 window.location = "/";
               }}
             >
-              Sign Out
+              Выход
             </button>
             <div className="prof">
               <input type="file" />
@@ -292,7 +292,7 @@ export default function Loginpage() {
               setData(1);
             }}
           >
-            Account Details
+            Детали учетной записи
           </button>
           <button
             style={
@@ -304,7 +304,7 @@ export default function Loginpage() {
               setData(2);
             }}
           >
-            Change Password
+            Изменить пароль
           </button>
           <button
             style={
@@ -316,7 +316,7 @@ export default function Loginpage() {
               setData(4);
             }}
           >
-            Add adress
+            Добавить адрес
           </button>
         </div>
         <div className="katta">
@@ -325,25 +325,25 @@ export default function Loginpage() {
               <div className="accaunt-detailes">
                 <div className="form1">
                   <div className="inputla">
-                    <h2>Your contact details</h2>
+                    <h2>Ваши контактные данные</h2>
 
                     <div className="inputs1">
                       <div className="input1">
-                        <h2>Name*</h2>
+                        <h2>Имя*</h2>
                         <input type="text" className="username" id="username" />
-                        <h2>Phone</h2>
+                        <h2>Телефон</h2>
                         <input type="number" className="phone" id="phone" />
                       </div>
                       <div className="input1">
-                        <h2>Birthday*</h2>
+                        <h2>День рождения*</h2>
                         <input type="date" className="birthday" id="birthday" />
-                        <h2>Email</h2>
+                        <h2>Электронная почта</h2>
                         <input type="text" className="email" id="email" />
                       </div>
                     </div>
                     <div className="inputs1">
                       <div className="input1">
-                        <h2>Passport_number</h2>
+                        <h2>Номер паспорта</h2>
                         <input
                           type="number"
                           className="passportNum"
@@ -360,12 +360,12 @@ export default function Loginpage() {
                       </div>
                     </div>
                     <div className="inputs111">
-                      <button onClick={() => putUser()}>Save</button>
+                      <button onClick={() => putUser()}>Сохранять</button>
                     </div>
                   </div>
                 </div>
                 <div className="profil">
-                  <h2>Your photo</h2>
+                  <h2>Твое фото</h2>
                   <div className="profil1">
                     <input type="file" className="image" />
                     {user.image == null ? (
@@ -379,7 +379,7 @@ export default function Loginpage() {
                       />
                     )}
                   </div>
-                  <h2 className="bb1">Upload profile photo</h2>
+                  <h2 className="bb1">Загрузить фото профиля</h2>
                 </div>
               </div>
             </div>
@@ -389,18 +389,18 @@ export default function Loginpage() {
                 <div>
                   <div className="change-password">
                     <div className="change">
-                      <h2>Change password</h2>
+                      <h2>Изменить пароль</h2>
                       <div className="inpu1">
                         {/* <h2>Phone</h2> */}
                         {/* <input type="number" /> */}
-                        <h2>Old Password</h2>
+                        <h2>Старый пароль</h2>
                         <input className="oldPassword" type="text" />
-                        <h2>New Password</h2>
+                        <h2>Новый пароль</h2>
                         <input className="passwordChange" type="text" />
-                        <h2>Restart New Password</h2>
+                        <h2>Перезапустить новый пароль</h2>
                         <input className="restPassword" type="text" />
                       </div>
-                      <button onClick={() => postPassword()}>Save</button>
+                      <button onClick={() => postPassword()}>Сохранять</button>
                     </div>
                   </div>
                 </div>
@@ -408,12 +408,12 @@ export default function Loginpage() {
                 <div className="regionDv">
                   <div className="tableAdres">
                     <div className="minTableA">
-                      <h5>country</h5>
-                      <h5>region</h5>
-                      <h5>city</h5>
-                      <h5>district</h5>
-                      <h5>street</h5>
-                      <h5>Tahrirlash</h5>
+                      <h5>страна</h5>
+                      <h5>область</h5>
+                      <h5>город</h5>
+                      <h5>округ</h5>
+                      <h5>улица</h5>
+                      <h5>Редактирование</h5>
                     </div>
                     {adress.map((item) => {
                       return (
@@ -439,25 +439,25 @@ export default function Loginpage() {
                   </div>
                   <br />
                   <div className="divAdress">
-                    <h2>Manzil Qo'shish</h2>
+                    <h2>Добавить адрес</h2>
                     <br />
                     <p>
-                      <span>countryni kiriting</span>
-                      <span>regionni kiriting</span>
+                      <span>введите страну</span>
+                      <span>войти в регион</span>
                     </p>
                     <div className="regionAdd">
                       <input className="countrySlc" id="countrySlc" />
                       <input className="regionSlc" id="regionSlc" />
                     </div>
                     <p>
-                      <span>cityni kiriting</span>
-                      <span>districtni kiriting</span>
+                      <span>введите город</span>
+                      <span>войти в район</span>
                     </p>{" "}
                     <div className="regionAdd">
                       <input className="citySlc" id="citySlc" />
                       <input className="districtSlc" id="districtSlc" />
                     </div>
-                    <p>streetni kiriting </p>
+                    <p>войти на улицу </p>
                     <div className="regionAdd">
                       <input className="streetSlc" id="streetSlc" />
                     </div>
@@ -466,31 +466,31 @@ export default function Loginpage() {
 
                     <div className="adres2Big">
                   <div className="divAdress2">
-                  <h2>Manzil Tahrirlash</h2>
+                  <h2>Адрес Редактировать</h2>
                   <br />
                   <p>
-                    <span>countryni kiriting</span>
-                    <span>regionni kiriting</span>
+                    <span>введите страну</span>
+                    <span>войти в регион</span>
                   </p>
                   <div className="regionAdd">
                     <input className="countrySlc2" id="countrySlc2" />
                     <input className="regionSlc2" id="regionSlc2" />
                   </div>
                   <p>
-                    <span>cityni kiriting</span>
-                    <span>districtni kiriting</span>
+                    <span>введите город</span>
+                    <span>войти в район</span>
                   </p>{" "}
                   <div className="regionAdd">
                     <input className="citySlc2" id="citySlc2" />
                     <input className="districtSlc2" id="districtSlc2" />
                   </div>
-                  <p>streetni kiriting </p>
+                  <p>войти на улицу </p>
                   <div className="regionAdd">
                     <input className="streetSlc2" id="streetSlc2" />
                   </div>
                   <div className="btnddiv">
-                  <button onClick={() => closeditAdres()}>Close</button>
-                  <button onClick={() => editedAdd()}>Save</button>
+                  <button onClick={() => closeditAdres()}>Закрывать</button>
+                  <button onClick={() => editedAdd()}>Сохранять</button>
                   </div>
                   </div>
                   </div>
@@ -499,7 +499,7 @@ export default function Loginpage() {
                 <div className="ba">
                   <div className="kok">
                     <center>
-                      <h1>No Favorites Yet!</h1>
+                      <h1>Избранного пока нет!</h1>
                     </center>
                   </div>
                 </div>

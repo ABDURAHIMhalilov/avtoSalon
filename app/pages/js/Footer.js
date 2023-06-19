@@ -19,78 +19,78 @@ export default function Footer () {
             <div className='right_left'>
               <div className='ul ul2'>
                 <a href='#' className='li'>
-                  <span>•</span> Listings
+                  <span>•</span> Объявления
                 </a>
                 <a href='#' className='li'>
                   <span>•</span> FAQ
                 </a>
                 <a href='#' className='li'>
-                  <span>•</span> Listings
+                  <span>•</span> Объявления
                 </a>
               </div>
               <div className='ul'>
                 <a href='#' className='li'>
-                  <span>•</span> Listings
+                  <span>•</span> Объявления
                 </a>
                 <a href='#' className='li'>
                   <span>•</span> FAQ
                 </a>
                 <a href='#' className='li'>
-                  <span>•</span> Listings
+                  <span>•</span> Объявления
                 </a>
               </div>
             </div>
             <p className='footer_info'>
-              Award-winning, family owned dealership of new and pre-owned
-              vehicles with several locations across the city. Lowest prices and
-              the best customer service guaranteed.
+            Удостоенный наград семейный дилер новых и подержанных автомобилей
+               автомобили с несколькими точками по всему городу. Самые низкие цены и
+               гарантировано лучшее обслуживание клиентов.
             </p>
           </div>
         </div>
         <div className='f_right_right'>
           <p className='aaa'>
-            Award-winning, family owned dealership of new and pre-owned vehicles
-            with several locations across the city. Lowest prices and the best
-            customer service guaranteed.
+          Удостоенный наград семейный дилер новых и подержанных автомобилей
+               автомобили с несколькими точками по всему городу. Самые низкие цены и
+               гарантировано лучшее обслуживание клиентов.
           </p>
           <h2>
             (123) <span>456-78901</span>
           </h2>
           <p>support@vehica.com</p>
-          <p>West 12th Street</p>
-          <p>New York, NY, USA</p>
+          <p>Западная 12-я улица</p>
+          <p>Нью-Йорк, штат Нью-Йорк, США</p>
         </div>
         <div className='f_bot'>
           <div className='a_box a'>
             <a href='#' className='a_fff f_mobile'>
-              Home
+              Главная страница
             </a>
           </div>
           <div className='a_box a'>
             <a href='#' className='a_fff f_mobile'>
-              Search
+            Поиск
             </a>
           </div>
           <div className='a_box a'>
             <a href='#' className='a_fff f_mobile'>
-              Listing
+            Листинг
             </a>
           </div>
           <div className='a_box a'>
             <a href='#' className='a_fff f_mobile'>
-              Pages
+            Страницы
             </a>
           </div>
           <div className='a_box a'>
             <a href='#' className='a_fff f_mobile'>
-              More
+            Более
             </a>
           </div>
         </div>
       </div>
       <div className='footer_bottom'>
         <p className='privacy'>
-          Copyright © 2021. All rights reserved. <a href='#!'>Privacy Policy</a>
+        Copyright © 2021. Все права защищены. <a href='#!'> политика конфиденциальности</a>
         </p>
         <div className='feat_left'>
           <a href='#' className='iconBox icon2'>

@@ -14,12 +14,12 @@ export default function Team() {
   return (
     <div className="team">
       <div className="team_left">
-        <h1>Our Team</h1>
+        <h1>Наша команда</h1>
         <div className="left_body">
           <div className="left_box2">
             <div className="team_box">
               <BsCheckCircleFill />
-              <p>Praesent nibh luctus viverra</p>
+              <p>Это грустный мультфильм</p>
             </div>
             <div className="team_box">
               <BsCheckCircleFill />
@@ -27,21 +27,21 @@ export default function Team() {
             </div>
             <div className="team_box">
               <BsCheckCircleFill />
-              <p>Praesent nibh luctus viverra</p>
+              <p>Это грустный мультфильм</p>
             </div>
           </div>
           <div className="left_box1">
             <div className="team_box">
               <BsCheckCircleFill />
-              <p>Praesent nibh luctus viverra</p>
+              <p>Это грустный мультфильм</p>
             </div>
             <div className="team_box">
               <BsCheckCircleFill />
-              <p>Lorem, ipsum.</p>
+              <p>Лорем Ипсум.</p>
             </div>
           </div>
         </div>
-        <button className="team_btn">Learn More</button>
+        <button className="team_btn">Узнать больше</button>
       </div>
       <Swiper
         slidesPerView={3}
@@ -53,8 +53,8 @@ export default function Team() {
           <div className="Tcard_box">
             <div className="tel_box"></div>
             <div className="email_box"></div>
-            <h2>George Brown</h2>
-            <p>Customer Advisor</p>
+            <h2>Джордж Браун</h2>
+            <p>Советник клиентов</p>
             <a className="Tcard_email" href="#!">
               george@vehica.com
             </a>
@@ -69,7 +69,7 @@ export default function Team() {
             <div className="tel_box"></div>
             <div className="email_box"></div>
             <h2>George Brown</h2>
-            <p>Customer Advisor</p>
+            <p>Советник клиентов</p>
             <a className="Tcard_email" href="#!">
               george@vehica.com
             </a>

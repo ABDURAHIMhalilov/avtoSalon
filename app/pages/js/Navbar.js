@@ -54,22 +54,22 @@ export default function Navbar() {
         </div>
         <div className="a_box">
           <a href="/cars" className="a_fff a_mobile">
-            Search
+          Поиск
           </a>
         </div>
         <div className="a_box">
           <a href="#" className="a_fff a_mobile">
-            Listing
+          Листинг
           </a>
         </div>
         <div className="a_box">
           <a href="#" className="a_fff a_mobile">
-            Pages
+          Страницы
           </a>
         </div>
         <div className="a_box">
           <a href="#" className="a_fff a_mobile">
-            More
+          Более
           </a>
         </div>
       </div>
@@ -79,19 +79,19 @@ export default function Navbar() {
           <Image src={logo} width={200} height={"auto"} alt="" />
         </a>
         <a href="/" className="a_fff">
-          Home
+          Главная
         </a>
         <a href="/cars" className="a_fff">
-          Search
+        Поиск
         </a>
         <a href="/about" className="a_fff">
-          About
+        о нас
         </a>
         <a href="#" className="a_fff">
-          Pages
+        Страницы
         </a>
         <a href="#" className="a_fff">
-          More
+        Более
         </a>
       </div>
       
@@ -112,11 +112,11 @@ export default function Navbar() {
             <div className="loginIn">
               <AiOutlineUser className="user_icon" />
               <a href="/login" className="a_fff">
-                Login In
+              Войти в систему
               </a>
             </div>
             <a href="/login" className="a_fff">
-              Register
+            Регистранция
             </a>
           </div>
         </div>

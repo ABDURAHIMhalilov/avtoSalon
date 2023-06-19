@@ -238,7 +238,7 @@ pushdata.push(item)
         <div className='search_top_body'>
           <Box>
           <FormControl className='inpsearch'>
-      <InputLabel id='demo-simple-select-label'>Model</InputLabel>
+      <InputLabel id='demo-simple-select-label'>Модель</InputLabel>
       <Select
         labelId='demo-simple-select-label'
         id='demo-simple-select'
@@ -255,7 +255,7 @@ pushdata.push(item)
           </Box>
           <Box>
             <FormControl className='inpsearch'>
-              <InputLabel id='demo-simple-select-label'>Series</InputLabel>
+              <InputLabel id='demo-simple-select-label'>Серия</InputLabel>
               <Select
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
@@ -273,7 +273,7 @@ pushdata.push(item)
           </Box>
           <Box>
             <FormControl className='inpsearch'>
-              <InputLabel id='demo-simple-select-label'>Position</InputLabel>
+              <InputLabel id='demo-simple-select-label'>Позиция</InputLabel>
               <Select
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
@@ -290,7 +290,7 @@ pushdata.push(item)
           </Box>
           <Box>
             <FormControl className='inpsearch'>
-              <InputLabel id='demo-simple-select-label'>fuel_sort</InputLabel>
+              <InputLabel id='demo-simple-select-label'>тип топлива</InputLabel>
               <Select
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
@@ -307,7 +307,7 @@ pushdata.push(item)
           </Box>
           <Box>
             <FormControl className='inpsearch'>
-              <InputLabel id='demo-simple-select-label'>Gear Box</InputLabel>
+              <InputLabel id='demo-simple-select-label'>Коробка передач</InputLabel>
               <Select
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
@@ -326,20 +326,20 @@ pushdata.push(item)
             <input
               type='text'
               className='searchInp priceInp1'
-              placeholder='Min Price'
+              placeholder='Минимальная цена'
                onKeyUp={minChange}
               
             />
             <input
               type='text'
               className='searchInp priceInp2'
-              placeholder='Max Price'
+              placeholder='Максимальная цена'
               onKeyUp={maxChange}
             />
           </div>
           <Box>
             <FormControl className='inpsearch'>
-              <InputLabel id='demo-simple-select-label'>Garant</InputLabel>
+              <InputLabel id='demo-simple-select-label'>Гарантия</InputLabel>
               <Select
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
@@ -356,7 +356,7 @@ pushdata.push(item)
           </Box>
           <Box>
             <FormControl className='inpsearch'>
-              <InputLabel id='demo-simple-select-label'>Branch </InputLabel>
+              <InputLabel id='demo-simple-select-label'>Филиал </InputLabel>
               <Select
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
@@ -382,13 +382,13 @@ pushdata.push(item)
       max="2100" 
       minLength='4'
       onKeyUp={handleyear}
-      placeholder='Year'
+      placeholder='Год'
     />
             </FormControl>
           </Box>
         </div>
         <button className='btnOpen' onClick={openModal2}>
-          Filter
+        Фильтр
         </button>
         <div className='mobile_search'>
           <div className='mobile_top'>
@@ -398,7 +398,7 @@ pushdata.push(item)
           <div className='mobile_body'>
             <Box className='searchBox'>
             <FormControl className='inpsearch2'>
-      <InputLabel id='demo-simple-select-label'>Model</InputLabel>
+      <InputLabel id='demo-simple-select-label'>Модель</InputLabel>
       <Select
         labelId='demo-simple-select-label'
         id='demo-simple-select'
@@ -413,7 +413,7 @@ pushdata.push(item)
             </Box>
             <Box className='searchBox'>
             <FormControl className='inpsearch2'>
-              <InputLabel id='demo-simple-select-label'>Series</InputLabel>
+              <InputLabel id='demo-simple-select-label'>Серия</InputLabel>
               <Select
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
@@ -429,7 +429,7 @@ pushdata.push(item)
             </Box>
             <Box className='searchBox'>
             <FormControl className='inpsearch2'>
-              <InputLabel id='demo-simple-select-label'>Position </InputLabel>
+              <InputLabel id='demo-simple-select-label'>Позиция </InputLabel>
               <Select
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
@@ -445,7 +445,7 @@ pushdata.push(item)
             </Box>
             <Box className='searchBox'>
             <FormControl className='inpsearch2'>
-              <InputLabel id='demo-simple-select-label'>fuel_sort</InputLabel>
+              <InputLabel id='demo-simple-select-label'>Тип-Топлива</InputLabel>
               <Select
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
@@ -461,7 +461,7 @@ pushdata.push(item)
             </Box>
             <Box className='searchBox'>
             <FormControl className='inpsearch2'>
-              <InputLabel id='demo-simple-select-label'>Gear Box</InputLabel>
+              <InputLabel id='demo-simple-select-label'>Коробка передач</InputLabel>
               <Select
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
@@ -479,20 +479,20 @@ pushdata.push(item)
             <input
               type='text'
               className='searchInp priceInp1'
-              placeholder='Min Price'
+              placeholder='Минимальная цена'
                onKeyUp={minChange}
               
             />
             <input
               type='text'
               className='searchInp priceInp2'
-              placeholder='Max Price'
+              placeholder='Максимальная цена'
               onKeyUp={maxChange}
             />
             </div>
             <Box className='searchBox'>
             <FormControl className='inpsearch2'>
-              <InputLabel id='demo-simple-select-label'>Garant</InputLabel>
+              <InputLabel id='demo-simple-select-label'>Гарантия</InputLabel>
               <Select
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
@@ -508,7 +508,7 @@ pushdata.push(item)
             </Box>
             <Box className='searchBox'>
             <FormControl className='inpsearch2'>
-              <InputLabel id='demo-simple-select-label'>Branch </InputLabel>
+              <InputLabel id='demo-simple-select-label'>Филиал </InputLabel>
               <Select
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
@@ -530,19 +530,19 @@ pushdata.push(item)
       min="1900" 
       max="2100" 
       minLength='4'
-      placeholder="Year"
+      placeholder="Год"
       onKeyUp={handleyear}
     />
             </FormControl>
             </Box>
 
-            <button className='btnSearch'>Search</button>
+            <button className='btnSearch'>Поиск</button>
           </div>
         </div>
       </div>
       <div className='search_body'>
         <div className="body_top">
-          <h2> Results</h2>
+          <h2>Результаты</h2>
         </div>        
         <div className="result_wrapper">
           {makes.map((item,key) => {

@@ -77,7 +77,7 @@ const getAllSearch=()=>{
   return (
     <div>
       <Head>
-        <title>BaraCar-Hompage</title>
+        <title>Главная страница</title>
       </Head>
       <div className="HomeHeader">
         <Navbar />

@@ -89,7 +89,7 @@ export default function Login() {
                 setData(1);
               }}
             >
-              Login
+              Авторизоваться
             </button>
             <button
               style={
@@ -101,25 +101,25 @@ export default function Login() {
                 setData(2);
               }}
             >
-              Register
+              Регистранция
             </button>
           </div>
           <div className="asos_form">
             {data === 1 ? (
               <div className="login">
-                <h2>Log in to your account</h2>
-                <h3>Welcome back! Sign in to your account</h3>
+                <h2>Войдите в свой аккаунт</h2>
+                <h3>Добро пожаловать! Войдите в свой аккаунт</h3>
                 <div className="inputs">
                   <input
                     className="userNameEmail"
                     id='userNameEmail'
                     type="text"
-                    placeholder="Email or Username"
+                    placeholder="Электронная почта или имя пользователя"
                   />
                   <input
                     className="userPassword"
                     type="password"
-                    placeholder="Password"
+                    placeholder="Пароль"
                   />
                 </div>
                 <div className="checkbox">
@@ -128,27 +128,27 @@ export default function Login() {
                     <p>Remember</p>
                   </div> */}
                   <a className="forgot" href="#">
-                    Forgotten password?
+                  Забыли пароль?
                   </a>
                 </div>
                 <button onClick={() => userLogin()}>Login</button>
               </div>
             ) : (
               <div className="registratsiya">
-                <h2>Register</h2>
-                <h3>Create new account today.</h3>
+                <h2>Регистранция</h2>
+                <h3>Создайте новую учетную запись сегодня.</h3>
                 <div className="inputs">
                   <input
                     type="text"
                     className="Username"
-                    placeholder="Username*"
+                    placeholder="Имя*"
                   />
                   {/* <input type="text" className="Email" placeholder="Email*" /> */}
-                  <input type="text" className="Phone" placeholder="Phone*" />
+                  <input type="text" className="Phone" placeholder="Телефон*" />
                   <input
                     type="password"
                     className="Password"
-                    placeholder="Password*"
+                    placeholder="Пароль*"
                   />
                   {/* <div className="checkbox1">
                     <div className="check">
@@ -170,7 +170,7 @@ export default function Login() {
                     privacy policy
                   </a>
                 </div> */}
-                <button onClick={() => postUser()}>Register</button>
+                <button onClick={() => postUser()}>Регистранция</button>
               </div>
             )}
           </div>

@@ -75,7 +75,7 @@ export default function Popular() {
   return (
     <div className="popular">
       <div className="popular_top">
-        <h1>Popular Makes</h1>
+        <h1>Популярные марки</h1>
         <div className="pop_btns">
         { model.map((item,key)=>{
           if(key<4){

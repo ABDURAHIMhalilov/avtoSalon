@@ -49,8 +49,8 @@ export default function Featured() {
 
   return (
     <div className="featured">
-      <h5 className="featured_info">Handy picked</h5>
-      <h2 className="featured_title">Featured Listings</h2>
+      <h5 className="featured_info">Удобный выбор</h5>
+      <h2 className="featured_title">Избранные объявления</h2>
       <div className="featured_body">
         {cars.map((item, key) => {
           if (key == 0) {
@@ -114,7 +114,7 @@ export default function Featured() {
       </div>
       <div className="feat_bottom">
         <div className="feat_left">
-          <p>Follow Us</p>
+          <p>Подписывайтесь на нас</p>
           <a href="#" className="iconBox">
             <FaFacebookF className="icon" />
           </a>
@@ -125,12 +125,12 @@ export default function Featured() {
             <FaInstagram className="icon" />
           </a>
         </div>
-        <p className="feat_tit">Follow Us</p>
+        <p className="feat_tit">Подписывайтесь на нас</p>
         <button
           className="Btnbody feat_btn"
           onClick={() => (window.location = "/cars")}
         >
-          View News
+          Просмотр новостей
         </button>
       </div>
     </div>

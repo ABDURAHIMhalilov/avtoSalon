@@ -22,28 +22,27 @@ export default function About() {
         <div className="about_left">
           <h1>About Us</h1>
           <h4>
-            How the adventure ended will be seen anon. Aouda was anxious, though
-            she said nothing.
+          Чем закончилось приключение, увидим позже. Однако Ауда волновалась.
+             она ничего не сказала.
           </h4>
           <p className="about_info">
-            As for Passepartout, he thought Mr. Fogg’s manoeuvre simply
-            glorious. The captain had said “between eleven and twelve knots,”
-            and the Henrietta confirmed his prediction. How the adventure ended
-            will be seen anon. Aouda was anxious, though she said nothing. As
-            for Passepartout, he thought Mr. Fogg’s manoeuvre simply glorious.
-            The captain had said.
+          Что касается Паспарту, то он счел маневр мистера Фогга просто
+             славный. Капитан сказал: «между одиннадцатью и двенадцатью узлами».
+             и Генриетта подтвердила его предсказание. Чем закончилось приключение
+             будет видно анон. Ауда встревожилась, хотя ничего не сказала. Как
+             что касается Паспарту, то маневр мистера Фогга показался ему просто великолепным.
+             — сказал капитан.
           </p>
           <p className="about_border">
-            During the first days, they went along smoothly enough. The sea was
-            not very unpropitious, the wind seemed stationary in the north-east.
-          </p>
+          В первые дни они шли достаточно гладко. Море было
+             не очень неблагоприятный, ветер казался неподвижным в северо-восточном направлении.</p>
           <p className="about_info">
-            As for Passepartout, he thought Mr. Fogg’s manoeuvre simply
-            glorious. The captain had said “between eleven and twelve knots,”
-            and the Henrietta confirmed his prediction. How the adventure ended
-            will be seen anon. Aouda was anxious, though she said nothing. As
-            for Passepartout, he thought Mr. Fogg’s manoeuvre simply glorious.
-            The captain had said.
+          Что касается Паспарту, то он счел маневр мистера Фогга просто
+             славный. Капитан сказал: «между одиннадцатью и двенадцатью узлами».
+             и Генриетта подтвердила его предсказание. Чем закончилось приключение
+             будет видно анон. Ауда встревожилась, хотя ничего не сказала. Как
+             что касается Паспарту, то маневр мистера Фогга показался ему просто великолепным.
+             — сказал капитан.
           </p>
         </div>
         <Image src={office} alt="" className="aboutImage" />
@@ -52,17 +51,17 @@ export default function About() {
         <div className="seo_left">
           <Image src={us} alt="" />
           <div className="left_box">
-            <h2>Our Ceo Say</h2>
+            <h2>Наш генеральный директор Сэй</h2>
             <p>
-              Quality is never an accident; it is always the result of high
-              intention.
+            Качество никогда не бывает случайным; это всегда результат высокой
+               намерение.
             </p>
           </div>
         </div>
         <Image src={gr} alt="" className="seo_img" />
         <div className="seo_center">
-          <h3>Book a Test Drive!</h3>
-          <button className="center_btn">Contact Us</button>
+          <h3>Закажите тест-драйв!</h3>
+          <button className="center_btn">Связаться с нами</button>
         </div>
       </div>
       <Team />
@@ -86,7 +85,7 @@ export default function About() {
         </div>
       </div>
       <div className="question">
-        <h1>Frequently Asked Questions</h1>
+        <h1>Часто задаваемые вопросы</h1>
         <div className="question_body">
           <div className="question_left">
             <Accordion>
@@ -95,11 +94,27 @@ export default function About() {
                 expandIcon={<ExpandMoreIcon />}
                 aria-controls="panel2a-content"
               >
-                <Typography>Do you offer any sort of warranty?</Typography>
+                <Typography>Вы предлагаете какие-либо гарантии?</Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                  We can help with your financing plan, we can offer some tips and tricks. Drive off with this dream car of yours regardless of your credit history.
+                Мы можем помочь с вашим планом финансирования, мы можем предложить несколько советов и рекомендаций. Уезжайте на этой машине вашей мечты, независимо от вашей кредитной истории.
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion>
+              <AccordionSummary
+                expandIcon={<ExpandMoreIcon />}
+                aria-controls="panel2a-content"
+                id="panel2a-header"
+              >
+                <Typography>Аккордеон 2</Typography>
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                Клиент очень важен, за клиентом последует клиент.
+                   Suspendisse malesuada lake ex, пусть это будет очень лестно для лео политики
+                   потребности
                 </Typography>
               </AccordionDetails>
             </Accordion>
@@ -113,9 +128,9 @@ export default function About() {
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget.
+                Клиент очень важен, за клиентом последует клиент.
+                   Suspendisse malesuada lake ex, пусть это будет очень лестно для лео политики
+                   потребности
                 </Typography>
               </AccordionDetails>
             </Accordion>
@@ -129,25 +144,9 @@ export default function About() {
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget.
-                </Typography>
-              </AccordionDetails>
-            </Accordion>
-            <Accordion>
-              <AccordionSummary
-                expandIcon={<ExpandMoreIcon />}
-                aria-controls="panel2a-content"
-                id="panel2a-header"
-              >
-                <Typography>Accordion 2</Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget.
+                Клиент очень важен, за клиентом последует клиент.
+                   Suspendisse malesuada lake ex, пусть это будет очень лестно для лео политики
+                   потребности
                 </Typography>
               </AccordionDetails>
             </Accordion>
@@ -163,9 +162,9 @@ export default function About() {
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget.
+                Клиент очень важен, за клиентом последует клиент.
+                   Suspendisse malesuada lake ex, пусть это будет очень лестно для лео политики
+                   потребности
                 </Typography>
               </AccordionDetails>
             </Accordion>
@@ -179,9 +178,9 @@ export default function About() {
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget.
+                Клиент очень важен, за клиентом последует клиент.
+                   Suspendisse malesuada lake ex, пусть это будет очень лестно для лео политики
+                   потребности
                 </Typography>
               </AccordionDetails>
             </Accordion>
@@ -195,9 +194,9 @@ export default function About() {
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget.
+                Клиент очень важен, за клиентом последует клиент.
+                   Suspendisse malesuada lake ex, пусть это будет очень лестно для лео политики
+                   потребности
                 </Typography>
               </AccordionDetails>
             </Accordion>
@@ -211,15 +210,15 @@ export default function About() {
               </AccordionSummary>
               <AccordionDetails>
                 <Typography>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-                  eget.
+                Клиент очень важен, за клиентом последует клиент.
+                   Suspendisse malesuada lake ex, пусть это будет очень лестно для лео политики
+                   потребности
                 </Typography>
               </AccordionDetails>
             </Accordion>
           </div>
         </div>
-        <button className="question_btn">Learn More</button>
+        <button className="question_btn">Узнать больше</button>
       </div>
     </div>
   );

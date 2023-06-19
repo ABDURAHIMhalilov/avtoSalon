@@ -13,18 +13,18 @@ export default function Contact() {
   return (
     <div>
         <Head>
-        <title>BaraCar-Hompage</title>
+        <title>BaraCar-домашняя страница</title>
       </Head>
       <Navbar />
       <div className="contact">
         <div className="contact_left">
-          <h1>Contact Us</h1>
+          <h1>Связаться с нами</h1>
           <p className="contact_info">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
             temporibus nobis placeat vero sunt ut explicabo fugit unde cumque
             architecto.
           </p>
-          <p className="contact_address"> West 12th Street New York, NY, USA</p>
+          <p className="contact_address"> Западная 12-я улица Нью-Йорк, штат Нью-Йорк, США</p>
           <a className="contact_tel" href="tel: +998931513776">
             (123) <span> 456-78901</span>
           </a>
@@ -35,7 +35,7 @@ export default function Contact() {
             </a>
           </div>
           <div className="feat_left contact_icons">
-            <p>Follow Us</p>
+            <p>Подписывайтесь на нас</p>
             <a href="#" className="iconBox ">
               <FaFacebookF className="icon icon4" />
             </a>
@@ -49,22 +49,22 @@ export default function Contact() {
         </div>
         <div className="contact_right">
           <div className="inputs_top">
-            <input type="text" className="contact_inp" placeholder="Name" />
-            <input type="text" className="contact_inp" placeholder="Email*" />
-            <input type="text" className="contact_inp" placeholder="Phone" />
+            <input type="text" className="contact_inp" placeholder="Имя" />
+            <input type="text" className="contact_inp" placeholder="Электронная почта*" />
+            <input type="text" className="contact_inp" placeholder="Телефон" />
           </div>
           <textarea
             rows={10}
-            placeholder="Message*"
+            placeholder="Сообщение*"
             className="contact_textarea"
           ></textarea>
           <div className="inputs_bottom">
             <label className="container">
-              I accept the <a href="#!">privacy policyOne</a>
+            я принимаю <a href="#!"> политика конфиденциальностиOne</a>
               <input type="checkbox" />
               <span className="checkmark"></span>
             </label>
-            <button className="contact_btn">Send</button>
+            <button className="contact_btn">Отправлять</button>
           </div>
         </div>
       </div>
