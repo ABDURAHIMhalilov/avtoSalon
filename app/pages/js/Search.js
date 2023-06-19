@@ -8,17 +8,12 @@ import MenuItem from '@mui/material/MenuItem'
 import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
 import { IoIosCloseCircle } from 'react-icons/io'
-import car from "../images/6.jpg"
-import Image from "next/image"
 import Pagination from '@mui/material/Pagination';
 import axios from "axios";
 import url from './Host'
-import { isTemplateExpression } from 'typescript'
-
-import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 export default function Search() {
-  // const [position, setPosition] = React.useState('')
+ 
   const [model, setModel] = React.useState([])
   const [selectModel, setSelectModel] = React.useState("")
   const [series, setSeries] = React.useState([])

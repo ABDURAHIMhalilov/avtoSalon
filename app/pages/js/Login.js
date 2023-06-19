@@ -34,8 +34,9 @@ export default function Login() {
     console.log(staff);
     var usernamee = document.querySelector(".Phone").value;
     var data = new FormData();
-    data.append("username", document.querySelector(".userNameEmail").value);
-    data.append("phone", document.querySelector(".Phone").value);
+    // data.append("username", document.getElementById("userNameEmail").value);
+    data.append("username", document.getElementById("userNameEmail").value);
+    data.append("phone", usernamee);
     data.append("password", document.querySelector(".Password").value);
     data.append("is_staff", false);
     axios
@@ -111,6 +112,7 @@ export default function Login() {
                 <div className="inputs">
                   <input
                     className="userNameEmail"
+                    id='userNameEmail'
                     type="text"
                     placeholder="Email or Username"
                   />
