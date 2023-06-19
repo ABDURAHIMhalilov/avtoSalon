@@ -290,7 +290,7 @@ pushdata.push(item)
           </Box>
           <Box>
             <FormControl className='inpsearch'>
-              <InputLabel id='demo-simple-select-label'>тип топлива</InputLabel>
+              <InputLabel id='demo-simple-select-label'>Тип топливы</InputLabel>
               <Select
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
@@ -445,7 +445,7 @@ pushdata.push(item)
             </Box>
             <Box className='searchBox'>
             <FormControl className='inpsearch2'>
-              <InputLabel id='demo-simple-select-label'>Тип-Топлива</InputLabel>
+              <InputLabel id='demo-simple-select-label'>Тип Топливы</InputLabel>
               <Select
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
@@ -508,7 +508,7 @@ pushdata.push(item)
             </Box>
             <Box className='searchBox'>
             <FormControl className='inpsearch2'>
-              <InputLabel id='demo-simple-select-label'>Филиал </InputLabel>
+              <InputLabel id='demo-simple-select-label'>Филиал</InputLabel>
               <Select
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'

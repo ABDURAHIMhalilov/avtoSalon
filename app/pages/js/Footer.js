@@ -90,7 +90,7 @@ export default function Footer () {
       </div>
       <div className='footer_bottom'>
         <p className='privacy'>
-        Copyright © 2021. Все права защищены. <a href='#!'> политика конфиденциальности</a>
+        © 2023. Все права защищены. <a href='#!'> политика конфиденциальности</a>
         </p>
         <div className='feat_left'>
           <a href='#' className='iconBox icon2'>

@@ -113,7 +113,7 @@ const getAllSearch=()=>{
                 </Select>
               </FormControl>
               <FormControl id="inp2" sx={{ m: 1, minWidth: 200 }}>
-                <InputLabel id="demo-select-small-label">Серия</InputLabel>
+                <InputLabel id="demo-select-small-label">Серии</InputLabel>
                 <Select
                   labelId="demo-select-small-label"
                   id="demo-select-small"
@@ -135,7 +135,7 @@ const getAllSearch=()=>{
                 </Select>
               </FormControl>
               <FormControl id="inp2" sx={{ m: 1, minWidth: 200 }}>
-                <InputLabel id="demo-select-small-label">Позиция</InputLabel>
+                <InputLabel id="demo-select-small-label">Позиции</InputLabel>
                 <Select
                   labelId="demo-select-small-label"
                   id="demo-select-small"

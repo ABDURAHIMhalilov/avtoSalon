@@ -223,7 +223,6 @@ export default function Loginpage() {
         Authorization: "Bearer " + localStorage.getItem("Token_user"),
       },
     }).then(res => {
-      alert('O`zgartirildi')
     })
   }
 
@@ -329,7 +328,7 @@ export default function Loginpage() {
 
                     <div className="inputs1">
                       <div className="input1">
-                        <h2>Имя*</h2>
+                        <h2>Имя</h2>
                         <input type="text" className="username" id="username" />
                         <h2>Телефон</h2>
                         <input type="number" className="phone" id="phone" />
@@ -351,7 +350,7 @@ export default function Loginpage() {
                         />
                       </div>
                       <div className="input1">
-                        <h2>Passport_series</h2>
+                        <h2>Паспорт серия</h2>
                         <input
                           type="text"
                           className="passportSer"
@@ -360,7 +359,7 @@ export default function Loginpage() {
                       </div>
                     </div>
                     <div className="inputs111">
-                      <button onClick={() => putUser()}>Сохранять</button>
+                      <button onClick={() => putUser()}>Сохранить</button>
                     </div>
                   </div>
                 </div>
@@ -397,7 +396,7 @@ export default function Loginpage() {
                         <input className="oldPassword" type="text" />
                         <h2>Новый пароль</h2>
                         <input className="passwordChange" type="text" />
-                        <h2>Перезапустить новый пароль</h2>
+                        <h2>Подтвердить новый пароль</h2>
                         <input className="restPassword" type="text" />
                       </div>
                       <button onClick={() => postPassword()}>Сохранять</button>
@@ -443,7 +442,7 @@ export default function Loginpage() {
                     <br />
                     <p>
                       <span>введите страну</span>
-                      <span>войти в регион</span>
+                      <span>введите в регион</span>
                     </p>
                     <div className="regionAdd">
                       <input className="countrySlc" id="countrySlc" />
@@ -451,13 +450,13 @@ export default function Loginpage() {
                     </div>
                     <p>
                       <span>введите город</span>
-                      <span>войти в район</span>
+                      <span>введите в район</span>
                     </p>{" "}
                     <div className="regionAdd">
                       <input className="citySlc" id="citySlc" />
                       <input className="districtSlc" id="districtSlc" />
                     </div>
-                    <p>войти на улицу </p>
+                    <p>введите на улицу </p>
                     <div className="regionAdd">
                       <input className="streetSlc" id="streetSlc" />
                     </div>
@@ -470,7 +469,7 @@ export default function Loginpage() {
                   <br />
                   <p>
                     <span>введите страну</span>
-                    <span>войти в регион</span>
+                    <span>введите в регион</span>
                   </p>
                   <div className="regionAdd">
                     <input className="countrySlc2" id="countrySlc2" />
@@ -478,19 +477,19 @@ export default function Loginpage() {
                   </div>
                   <p>
                     <span>введите город</span>
-                    <span>войти в район</span>
+                    <span>введите в район</span>
                   </p>{" "}
                   <div className="regionAdd">
                     <input className="citySlc2" id="citySlc2" />
                     <input className="districtSlc2" id="districtSlc2" />
                   </div>
-                  <p>войти на улицу </p>
+                  <p>введите на улицу </p>
                   <div className="regionAdd">
                     <input className="streetSlc2" id="streetSlc2" />
                   </div>
                   <div className="btnddiv">
-                  <button onClick={() => closeditAdres()}>Закрывать</button>
-                  <button onClick={() => editedAdd()}>Сохранять</button>
+                  <button onClick={() => closeditAdres()}>Закрыть</button>
+                  <button onClick={() => editedAdd()}>Сохранить</button>
                   </div>
                   </div>
                   </div>
