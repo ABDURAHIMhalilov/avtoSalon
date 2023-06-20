@@ -81,7 +81,8 @@
   object-fit: cover;
 }
 .seo_center {
-  width: 280px;
+  min-width: 280px;
+  padding: 10px;
   height: 120px;
   background-color: #fff;
   position: absolute;
@@ -95,10 +96,10 @@
   box-shadow: 0 0 10px #ccc;
 }
 .seo_center h3 {
-  font-size: 24px;
+  font-size: 20px;
 }
 .center_btn {
-  width: 120px;
+  width: 220px;
   height: 40px;
   border-radius: 10px;
   margin-top: 10px;

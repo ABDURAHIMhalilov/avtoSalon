@@ -84,7 +84,9 @@ const getAllSearch=()=>{
         <div className="headerBody1">
           <div className="headerBody">
             <h1>
-            Найдите свой <span>идеальный</span> автомобиль
+            Найдите свой <span>идеальный</span>
+            <br />
+            автомобиль
             </h1>
             <div className="header_box">
               <FormControl id="inp2" sx={{ m: 1, minWidth: 200 }}>

@@ -142,8 +142,11 @@
     font-size: 18px !important;
     padding: 10px !important;
 }
+.footer_bottom .feat_left .iconBox {
+    width: 40px;
+}
 .feat_left {
-    width: 250px;
+    width: 300px;
     display: flex;
     align-items: center;
     justify-content: space-between;
