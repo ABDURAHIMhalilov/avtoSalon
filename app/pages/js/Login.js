@@ -18,6 +18,7 @@ export default function Login() {
   const [data, setData] = React.useState(1);
   const [staff, setStaff] = React.useState();
   const [user, setUser] = useState([]);
+  const [ state, setState ] = React.useState(localStorage.getItem('lang'));
 
   const plus = () => {
     setData(data + 1);
@@ -89,7 +90,7 @@ export default function Login() {
                 setData(1);
               }}
             >
-              Авторизоваться
+              {state==='ru'?("Авторизоваться"):("Tizimga kirish")}
             </button>
             <button
               style={
@@ -101,25 +102,25 @@ export default function Login() {
                 setData(2);
               }}
             >
-              Регистранция
+              {state==='ru'?("Регистрация"):("Ro'yxatdan o'tish")}
             </button>
           </div>
           <div className="asos_form">
             {data === 1 ? (
               <div className="login">
-                <h2>Войдите в свой аккаунт</h2>
-                <h3>Добро пожаловать! Войдите в свой аккаунт</h3>
+                <h2>{state==='ru'?("Войдите в свой аккаунт"):("Akkauntingizga kiring")}</h2>
+                <h3>{state==='ru'?("Добро пожаловать! Войдите в свой аккаунт"):("Xush kelibsiz! Akkauntingizga kiring")}</h3>
                 <div className="inputs">
                   <input
                     className="userNameEmail"
                     id='userNameEmail'
                     type="text"
-                    placeholder="Электронная почта или имя пользователя"
+                    placeholder={state==='ru'?("Электронная почта или имя пользователя*"):("Elektron pochta yoki foydalanuvchi nomi*")}
                   />
                   <input
                     className="userPassword"
                     type="password"
-                    placeholder="Пароль"
+                    placeholder={state==='ru'?("Пароль*"):("Parol*")}
                   />
                 </div>
                 <div className="checkbox">
@@ -128,27 +129,27 @@ export default function Login() {
                     <p>Remember</p>
                   </div> */}
                   <a className="forgot" href="#">
-                  Забыли пароль?
+                  {state==='ru'?("Забыли пароль?"):("Parolni unutdingizmi?")}
                   </a>
                 </div>
-                <button onClick={() => userLogin()}>Login</button>
+                <button onClick={() => userLogin()}>{state==='ru'?("Авторизоваться"):("Kirish")}</button>
               </div>
             ) : (
               <div className="registratsiya">
-                <h2>Регистранция</h2>
-                <h3>Создайте новую учетную запись сегодня.</h3>
+                <h2>{state==='ru'?("Регистрация"):("Ro'yxatdan o'tish")}</h2>
+                <h3>{state==='ru'?("Создайте новую учетную запись сегодня."):("Bugun yangi hisob yarating.")}</h3>
                 <div className="inputs">
                   <input
                     type="text"
                     className="Username"
-                    placeholder="Имя*"
+                    placeholder={state==='ru'?("имя*"):("ism*")}
                   />
                   {/* <input type="text" className="Email" placeholder="Email*" /> */}
-                  <input type="text" className="Phone" placeholder="Телефон*" />
+                  <input type="text" className="Phone" placeholder={state==='ru'?("Телефон*"):("Telefon*")} />
                   <input
                     type="password"
                     className="Password"
-                    placeholder="Пароль*"
+                    placeholder={state==='ru'?("Пароль*"):("parol*")}
                   />
                   {/* <div className="checkbox1">
                     <div className="check">
@@ -170,7 +171,7 @@ export default function Login() {
                     privacy policy
                   </a>
                 </div> */}
-                <button onClick={() => postUser()}>Регистранция</button>
+                <button onClick={() => postUser()}>{state==='ru'?("Регистрация"):("Ro'yxatdan o'tish")}</button>
               </div>
             )}
           </div>

@@ -56,27 +56,27 @@ export default function Navbar() {
         <MdClose className="close_btn" onClick={() => setCount(false)} />
         <div className="a_box">
           <a href="#" className="a_fff a_mobile">
-           Главная
+           {state==='ru'?("Главная"):("Bosh sahifa")}
           </a>
         </div>
         <div className="a_box">
           <a href="/cars" className="a_fff a_mobile">
-          Поиск
+          {state==='ru'?("Поиск"):("Qidiruv")}
+          </a>
+        </div>
+        <div className="a_box">
+          <a href="/about" className="a_fff a_mobile">
+          {state==='ru'?("О нас"):("Biz haqimizda")}
           </a>
         </div>
         <div className="a_box">
           <a href="#" className="a_fff a_mobile">
-          Листинг
+          {state==='ru'?("Страницы"):("Sahifalar")}
           </a>
         </div>
         <div className="a_box">
           <a href="#" className="a_fff a_mobile">
-          Страницы
-          </a>
-        </div>
-        <div className="a_box">
-          <a href="#" className="a_fff a_mobile">
-          Более
+          {state==='ru'?("Более"):("Ko'proq")}
           </a>
         </div>
       </div>
@@ -86,19 +86,19 @@ export default function Navbar() {
           <Image src={logo} width={200} height={"auto"} alt="" />
         </a>
         <a href="/" className="a_fff">
-          Главная
+          {state==='ru'?("Главная"):("Bosh sahifa")}
         </a>
         <a href="/cars" className="a_fff">
-        Поиск
+        {state==='ru'?("Поиск"):("Qidiruv")}
         </a>
         <a href="/about" className="a_fff">
-        о нас
+        {state==='ru'?("О нас"):("Biz haqimizda")}
         </a>
         <a href="#" className="a_fff">
-        Страницы
+        {state==='ru'?("Страницы"):("Sahifalar")}
         </a>
         <a href="#" className="a_fff">
-        Более
+        {state==='ru'?("Более"):("Ko'proq")}
         </a>
       </div>
       
@@ -119,11 +119,11 @@ export default function Navbar() {
             <div className="loginIn">
               <AiOutlineUser className="user_icon" />
               <a href="/login" className="a_fff">
-              Войти в систему
+              {state==='ru'?("Войти в систему"):("Tizimga kirish")}
               </a>
             </div>
             <a href="/login" className="a_fff">
-            Регистранция
+            {state==='ru'?("Регистрация"):("Ro'yxatdan o'tish")}
             </a>
           </div>
           
@@ -151,8 +151,8 @@ localStorage.setItem('lang', 'ru')
           Register
         </a>
       </div> */}
-      <HiUsers className="usersIcon" />
-      <div id="google_translate_element"></div>
+      {/* <HiUsers className="usersIcon" />
+      <div id="google_translate_element"></div> */}
     </div>
 
     

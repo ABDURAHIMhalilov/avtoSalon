@@ -1,3 +1,5 @@
+"use clint"
+
 import React, { useEffect } from "react";
 import Image from "next/image";
 import car from "../images/6.jpg";

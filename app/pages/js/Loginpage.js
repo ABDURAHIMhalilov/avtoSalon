@@ -18,8 +18,8 @@ export default function Loginpage() {
   const [data, setData] = React.useState(1);
   const [manzil, setManzil] = React.useState([]);
   const [adress, setAdress] = React.useState([]);
-  const [ adresput, setAdresput ] = React.useState([])
-  const [ state, setState ] = React.useState(localStorage.getItem('lang'))
+  const [ adresput, setAdresput ] = React.useState([]);
+  const [ state, setState ] = React.useState(localStorage.getItem('lang'));
   // const [ users, setUsers ] = JSON.parse(localStorage.getItem('onemen'))
   // const provinceData = ['Zhejiang', 'Jiangsu'];
   // const cityData = {
