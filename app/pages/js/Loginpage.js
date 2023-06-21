@@ -1,5 +1,6 @@
+
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { Component, useEffect, useState } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import "../css/Loginpage.css";
@@ -18,6 +19,7 @@ export default function Loginpage() {
   const [manzil, setManzil] = React.useState([]);
   const [adress, setAdress] = React.useState([]);
   const [ adresput, setAdresput ] = React.useState([])
+  const [ state, setState ] = React.useState(localStorage.getItem('lang'))
   // const [ users, setUsers ] = JSON.parse(localStorage.getItem('onemen'))
   // const provinceData = ['Zhejiang', 'Jiangsu'];
   // const cityData = {
@@ -33,6 +35,16 @@ export default function Loginpage() {
   // const onSecondCityChange = (value) => {
   //     setSecondCity(value);
   // };
+
+
+
+  function setLanguage() {
+    // var a=document.querySelector("#til").value
+    // localStorage.setItem("lang",a)
+    window.location.reload()
+  }
+  
+
 
   const plus = () => {
     setData(data + 1);
@@ -76,6 +88,9 @@ export default function Loginpage() {
       });
       setAdress(aa);
     });
+
+    document.querySelector("#til").value = state
+
   }, []);
 
   function putUser() {
@@ -86,7 +101,8 @@ export default function Loginpage() {
       data.append("image", document.querySelector(".image").files[0]);
     }
 
-    data.append(
+
+data.append(
       "passport_number",
       document.querySelector(".passportNum").value
     );
@@ -113,7 +129,7 @@ export default function Loginpage() {
         }, 100);
       })
       .catch((err) => {
-        alert(`Malumotni to'liq kiriting!`);
+        alert("Malumotni to'liq kiriting!");
       });
   }
 
@@ -208,7 +224,8 @@ export default function Loginpage() {
     document.querySelector('.adres2Big').style = 'display: none'
   }
 
-  function editedAdd() {
+
+function editedAdd() {
     var locals = localStorage.getItem('keyAddres')
     var locals2 = JSON.parse(localStorage.getItem('onemen'))
     var data = new FormData()
@@ -229,9 +246,12 @@ export default function Loginpage() {
   return (
     <div>
       <Navbar />
+          {/* {state==="ru"?(<img src="https://st.depositphotos.com/1575949/1356/v/450/depositphotos_13564006-stock-illustration-russia-flag-butto.jpg" alt="" />):(<img id="pere" src="https://img.freepik.com/premium-vector/uzbekistan-flag-button-round-flag-of-uzbekistan-vector-flag-symbol-colors-and-proportion-correctly_847658-237.jpg?w=826" alt="" />)} */}
+
+      
       <div className="katta12">
         <div className="accaunt">
-          <h2>Аккаунт</h2>
+          <h2>{state==='ru'?("Аккаунт"):("akkaunt")}</h2>
           <div id="a1a" className="prof">
             <input type="file" />
             <FaUserAlt className="icon12" />
@@ -251,7 +271,8 @@ export default function Loginpage() {
                 document.querySelector(".all-button").style = "display:none";
               }}
             >
-              Избранное
+              {state==='ru'?("Избранное"):("sevimlilar")}
+              
             </button>
             <button
               style={
@@ -264,7 +285,8 @@ export default function Loginpage() {
                 document.querySelector(".all-button").style = "display:flex";
               }}
             >
-              Аккаунт
+              {state==='ru'?("Аккаунт"):("Akkaunt")}
+              
             </button>
             <button
               onClick={() => {
@@ -272,7 +294,8 @@ export default function Loginpage() {
                 window.location = "/";
               }}
             >
-              Выход
+              {state==='ru'?("Выход"):("chiqish")}
+              
             </button>
             <div className="prof">
               <input type="file" />
@@ -291,7 +314,8 @@ export default function Loginpage() {
               setData(1);
             }}
           >
-            Детали учетной записи
+            {state==='ru'?("Детали учетной записи"):("Hisob tafsilotlari")}
+            
           </button>
           <button
             style={
@@ -303,7 +327,8 @@ export default function Loginpage() {
               setData(2);
             }}
           >
-            Изменить пароль
+            {state==='ru'?("Изменить пароль"):("Parolni o'zgartirish")}
+            
           </button>
           <button
             style={
@@ -315,34 +340,37 @@ export default function Loginpage() {
               setData(4);
             }}
           >
-            Добавить адрес
+            {state==='ru'?("Добавить адрес"):("Manzil qo'shish")}
+            
           </button>
-        </div>
+
+
+</div>
         <div className="katta">
           {data === 1 ? (
-            <div>
+            <div className="mnb">
               <div className="accaunt-detailes">
                 <div className="form1">
                   <div className="inputla">
-                    <h2>Ваши контактные данные</h2>
+                    <h2>{state==='ru'?("Ваши контактные данные"):("Sizning aloqa ma'lumotlaringiz")}</h2>
 
-                    <div className="inputs1">
+                    <div className="inputs1" id="asd">
                       <div className="input1">
-                        <h2>Имя</h2>
+                        <h2>{state==='ru'?("Имя"):("Ism")}</h2>
                         <input type="text" className="username" id="username" />
-                        <h2>Телефон</h2>
+                        <h2> {state==='ru'?("Телефон"):("Telefon")}</h2>
                         <input type="number" className="phone" id="phone" />
                       </div>
                       <div className="input1">
-                        <h2>День рождения*</h2>
+                        <h2>{state==='ru'?("День рождения*"):("Tug'ilgan kun*")}</h2>
                         <input type="date" className="birthday" id="birthday" />
-                        <h2>Электронная почта</h2>
+                        <h2>{state==='ru'?("Электронная почта"):("Elektron pochta")}</h2>
                         <input type="text" className="email" id="email" />
                       </div>
                     </div>
                     <div className="inputs1">
                       <div className="input1">
-                        <h2>Номер паспорта</h2>
+                        <h2>{state==='ru'?("Номер паспорта"):("Pasport raqami")}</h2>
                         <input
                           type="number"
                           className="passportNum"
@@ -350,7 +378,7 @@ export default function Loginpage() {
                         />
                       </div>
                       <div className="input1">
-                        <h2>Паспорт серия</h2>
+                        <h2>{state==='ru'?("Паспорт серия"):("Pasport seriya")}</h2>
                         <input
                           type="text"
                           className="passportSer"
@@ -359,12 +387,12 @@ export default function Loginpage() {
                       </div>
                     </div>
                     <div className="inputs111">
-                      <button onClick={() => putUser()}>Сохранить</button>
+                      <button onClick={() => putUser()}>{state==='ru'?("Сохранить"):("Saqlash")}</button>
                     </div>
                   </div>
                 </div>
                 <div className="profil">
-                  <h2>Твое фото</h2>
+                  <h2>{state==='ru'?("Твое фото"):("Sizning suratingiz")}</h2>
                   <div className="profil1">
                     <input type="file" className="image" />
                     {user.image == null ? (
@@ -378,41 +406,49 @@ export default function Loginpage() {
                       />
                     )}
                   </div>
-                  <h2 className="bb1">Загрузить фото профиля</h2>
+                  <h2 className="bb1">{state==='ru'?("Загрузить фото профиля"):("Profil rasmini yuklash")}</h2><h2 className="dele1">{state==='ru'?("Удалить аккаунт"):("Akkaunt o'chirish")}</h2>
                 </div>
-              </div>
+
+
+</div>
             </div>
+          
           ) : (
-            <div>
+            <div className="mnb">
               {data === 2 ? (
-                <div>
+                <div className="mnb">
                   <div className="change-password">
                     <div className="change">
-                      <h2>Изменить пароль</h2>
+                      <h2>{state==='ru'?("Изменить пароль"):("Parol o'zgartirish")}</h2>
                       <div className="inpu1">
                         {/* <h2>Phone</h2> */}
                         {/* <input type="number" /> */}
-                        <h2>Старый пароль</h2>
+                        <h2>{state==='ru'?("Старый пароль"):("Eski parol")}</h2>
                         <input className="oldPassword" type="text" />
-                        <h2>Новый пароль</h2>
+                        <h2> {state==='ru'?("Новый пароль"):("Yangi parol")}</h2>
                         <input className="passwordChange" type="text" />
-                        <h2>Подтвердить новый пароль</h2>
+                        <h2>{state==='ru'?("Подтвердить новый пароль"):("Yangi parolni tasdiqlash")}</h2>
                         <input className="restPassword" type="text" />
                       </div>
-                      <button onClick={() => postPassword()}>Сохранять</button>
+                      <button onClick={() => postPassword()}>{state==='ru'?("Сохранять"):("Saqlash")}</button>
                     </div>
                   </div>
                 </div>
               ) : data === 4 ? (
-                <div className="regionDv">
-                  <div className="tableAdres">
+                <div id="mlk" className="nmbv"><div className="regionDv">
+                  
+                  
+                  <div className="divAdress">
+                    <h2>{state==='ru'?("Добавить адрес"):("Manzil qo'shish")}</h2>
+                    <br />
+                    <div className="tableAdres">
                     <div className="minTableA">
-                      <h5>страна</h5>
-                      <h5>область</h5>
-                      <h5>город</h5>
-                      <h5>округ</h5>
-                      <h5>улица</h5>
-                      <h5>Редактирование</h5>
+                      <h5>{state==='ru'?("страна"):("mamlakat")}</h5>
+                      <h5>{state==='ru'?("область"):("viloyat")}</h5>
+                      <h5>{state==='ru'?("город"):("shahar")}</h5>
+                      <h5>{state==='ru'?("округ"):("tuman")}</h5>
+                      <h5>{state==='ru'?("улица"):("ko'cha")}</h5>
+                      <h5>{state==='ru'?("Редактирование"):("Tahrirlash")}</h5>
                     </div>
                     {adress.map((item) => {
                       return (
@@ -436,69 +472,95 @@ export default function Loginpage() {
                       );
                     })}
                   </div>
-                  <br />
-                  <div className="divAdress">
-                    <h2>Добавить адрес</h2>
-                    <br />
-                    <p>
-                      <span>введите страну</span>
-                      <span>введите в регион</span>
-                    </p>
+                    <div className="inpla11">
                     <div className="regionAdd">
+                      <div className="in11">
+                      <h2>{state==='ru'?("введите страну"):("mamlakatni kiriting")}</h2>
                       <input className="countrySlc" id="countrySlc" />
+                      </div>
+                      <div className="in11">
+                      <h2>{state==='ru'?("введите регион"):("regio'nni kiriting")}</h2>
                       <input className="regionSlc" id="regionSlc" />
+                      </div>
                     </div>
-                    <p>
-                      <span>введите город</span>
-                      <span>введите в район</span>
-                    </p>{" "}
+                    {" "}
                     <div className="regionAdd">
+                      <div className="in11">
+                      <h2>{state==='ru'?("введите город"):("shaharni kiriting")}</h2>
                       <input className="citySlc" id="citySlc" />
-                      <input className="districtSlc" id="districtSlc" />
+                      </div>
+                      <div className="in11">
+                      <h2>{state==='ru'?("введите район"):("rayo'nni kiriting")}</h2>
+
+
+<input className="districtSlc" id="districtSlc" />
+                      </div>
                     </div>
-                    <p>введите на улицу </p>
-                    <div className="regionAdd">
+                    </div>
+                    
+                    <div className="regionAdd" id="region1">
+                      <div className="in11">
+<h2>{state==='ru'?("введите улицу"):("ko'changizni kiriting")} </h2>
                       <input className="streetSlc" id="streetSlc" />
+                      </div>
                     </div>
+
+
+
                     <button onClick={() => postAdress()}>click</button>
                   </div>
 
                     <div className="adres2Big">
                   <div className="divAdress2">
-                  <h2>Адрес Редактировать</h2>
+                  <h2> {state==='ru'?("Редактировать Адрес"):("Manzilni Tahrirlash")}</h2>
                   <br />
                   <p>
-                    <span>введите страну</span>
-                    <span>введите в регион</span>
-                  </p>
+                    
+                    
+                  </p><div className="inpla11">
                   <div className="regionAdd">
-                    <input className="countrySlc2" id="countrySlc2" />
-                    <input className="regionSlc2" id="regionSlc2" />
-                  </div>
+                      <div className="in11">
+                      <h2>{state==='ru'?("введите страну"):("mamlakatni kiriting")}</h2>
+                      <input className="countrySlc2" id="countrySlc2" />
+                      </div>
+                      <div className="in11">
+                      <h2>{state==='ru'?("введите регион"):("regio'nni kiriting")}</h2>
+                      <input className="regionSlc2" id="regionSlc2" />
+                      </div>
+                    </div>
                   <p>
-                    <span>введите город</span>
-                    <span>введите в район</span>
+                    <span>введите город{state==='ru'?(""):("")}</span>
+                    <span>введите в район{state==='ru'?(""):("")}</span>
                   </p>{" "}
                   <div className="regionAdd">
-                    <input className="citySlc2" id="citySlc2" />
-                    <input className="districtSlc2" id="districtSlc2" />
-                  </div>
-                  <p>введите на улицу </p>
-                  <div className="regionAdd">
-                    <input className="streetSlc2" id="streetSlc2" />
-                  </div>
+                      <div className="in11">
+                      <h2>{state==='ru'?("введите город"):("shaharni kiriting")}</h2>
+                      <input className="citySlc2" id="citySlc2" />
+                      </div>
+                      <div className="in11">
+                      <h2>{state==='ru'?("введите район"):("rayo'nni kiriting")}</h2>
+                      <input className="districtSlc2" id="districtSlc2" />
+                      </div>
+                    </div>
+                    </div>
+                    <div className="regionAdd" id="region1">
+                      <div className="in11">
+<h2>{state==='ru'?("введите улицу"):("ko'changizni kiriting")} </h2>
+                      <input className="streetSlc2" id="streetSlc2" />
+                      </div>
+                    </div>
                   <div className="btnddiv">
-                  <button onClick={() => closeditAdres()}>Закрыть</button>
-                  <button onClick={() => editedAdd()}>Сохранить</button>
+                  <button onClick={() => closeditAdres()}>Закрыть{state==='ru'?(""):("")}</button>
+                  <button onClick={() => editedAdd()}>Сохранить{state==='ru'?(""):("")}</button>
                   </div>
                   </div>
                   </div>
-                </div>
+                </div></div>
               ) : (
                 <div className="ba">
                   <div className="kok">
                     <center>
-                      <h1>Избранного пока нет!</h1>
+                      <h1>Избранного пока нет!{state==='ru'?(""):("")}</h1>
                     </center>
                   </div>
                 </div>

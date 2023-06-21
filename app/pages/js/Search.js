@@ -574,6 +574,7 @@ export default function Search() {
       </div>
       <div className='search_body'>
         <div className="body_top">
+          
           <h2>Результаты</h2>
         </div>
         <div className="result_wrapper">
