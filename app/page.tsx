@@ -7,19 +7,20 @@ import Contact from './pages/js/Contact'
 import Login from './pages/js/Login'
 import Bmw8 from './pages/js/Bmw8'
 import Loginpage from './pages/js/Loginpage'
-
+import Team from './pages/js/Team'
+import Featured from './pages/js/Featured'
 
 
 export default function page() {
   return (
     <div>
 
-      {/* <Bmw8/> */}
+      {/* <Contact /> */}
       {/* <Home />
       <Footer /> */}
 
 
-      {/* <Login /> */}
+      {/* <Loginpage /> */}
       <Home />
       <Footer />
 
