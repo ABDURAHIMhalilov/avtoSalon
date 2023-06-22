@@ -34,37 +34,33 @@ export default function Navbar() {
         <MdClose className="close_btn" onClick={() => setCount(false)} />
         <div className="a_box">
           <a href="#" className="a_fff a_mobile">
-            Главная
-           {state==='ru'?("Главная"):("Bosh sahifa")}
-          {state==='ru'?("Главная"):("Bosh sahifa")}
+
+            {state === 'ru' ? ("Главная") : ("Bosh sahifa")}
+            
           </a>
         </div>
         <div className="a_box">
           <a href="/cars" className="a_fff a_mobile">
-            Поиск
-          {state==='ru'?("Поиск"):("Qidiruv")}
+
+            {state === 'ru' ? ("Поиск") : ("Qidiruv")}
           </a>
         </div>
         <div className="a_box">
           <a href="/about" className="a_fff a_mobile">
-          {state==='ru'?("О нас"):("Biz haqimizda")}
+            {state === 'ru' ? ("О нас") : ("Biz haqimizda")}
           </a>
         </div>
         <div className="a_box">
           <a href="#" className="a_fff a_mobile">
-            Листинг
-          {state==='ru'?("Страницы"):("Sahifalar")}
+
+            {state === 'ru' ? ("Страницы") : ("Sahifalar")}
           </a>
         </div>
+        
         <div className="a_box">
           <a href="#" className="a_fff a_mobile">
-            Страницы
-          </a>
-        </div>
-        <div className="a_box">
-          <a href="#" className="a_fff a_mobile">
-            Более
-          {state==='ru'?("Более"):("Ko'proq")}
+
+            {state === 'ru' ? ("Более") : ("Ko'proq")}
           </a>
         </div>
       </div>
@@ -74,29 +70,23 @@ export default function Navbar() {
           <Image className="vehicaimg" src={logo} width={200} height={"auto"} alt="" />
         </a>
         <a href="/" className="a_fff">
-          {state==='ru'?("Главная"):("Bosh sahifa")}
+          {state === 'ru' ? ("Главная") : ("Bosh sahifa")}
         </a>
-        <a href="/cars" className="a_fff">
-          Поиск
+
+
+
+        <a href="#" className="a_fff">
+
+          {state === 'ru' ? ("Поиск") : ("Qidiruv")}
         </a>
         <a href="/about" className="a_fff">
-          о нас
+          {state === 'ru' ? ("О нас") : ("Biz haqimizda")}
         </a>
         <a href="#" className="a_fff">
-          Страницы
+          {state === 'ru' ? ("Страницы") : ("Sahifalar")}
         </a>
         <a href="#" className="a_fff">
-          Более
-        {state==='ru'?("Поиск"):("Qidiruv")}
-        </a>
-        <a href="/about" className="a_fff">
-        {state==='ru'?("О нас"):("Biz haqimizda")}
-        </a>
-        <a href="#" className="a_fff">
-        {state==='ru'?("Страницы"):("Sahifalar")}
-        </a>
-        <a href="#" className="a_fff">
-        {state==='ru'?("Более"):("Ko'proq")}
+          {state === 'ru' ? ("Более") : ("Ko'proq")}
         </a>
       </div>
 
@@ -116,33 +106,39 @@ export default function Navbar() {
           <div className="navbar_right">
             <div className="loginIn">
               <AiOutlineUser className="user_icon" />
-              <a href="/login" className="a_fff">
+              {/* <a href="/login" className="a_fff" > */}
+                {state === 'ru' ? (
+              <a href="/login" style={{ width: '130px' }} className="a_fff" id="a_df">
                 Войти в систему
               </a>
+              ) : (
+                <a style={{ width: '110px' }} href="/login" className="a_fff" id="a_df">
+                  Tizimga kirish
+                </a>
+              )}
+              {/* </a> */}
+              {/* </a> */}
             </div>
-            <a href="/login" className="a_fff">
-              Регистранция
-              {state==='ru'?("Войти в систему"):("Tizimga kirish")}
-              </a>
-            </div>
+            {/* <a href="/login" className="a_fff"> */}
             <a href="/login" className="a_fff" id="a_sd">
-            {state==='ru'?("Регистрация"):("Ro'yxatdan o'tish")}
+              {state === 'ru' ? ("Регистрация") : ("Ro'yxatdan o'tish")}
             </a>
           </div>
+        </div>
       )}
       <div className="perevod" id="til" onClick={() => setLanguage()}>
-        
-    <img onClick={() => {
-    localStorage.setItem('lang', 'uz')
-  }} id="per" style={{width:"50px"}}  src="https://st4.depositphotos.com/8804418/21485/v/600/depositphotos_214857244-stock-illustration-uzbekistan-flag-glass-button-vector.jpg" alt="" />
-  <img onClick={() => {
+
+        <img onClick={() => {
+          localStorage.setItem('lang', 'uz')
+        }} id="per" style={{ width: "50px" }} src="https://st4.depositphotos.com/8804418/21485/v/600/depositphotos_214857244-stock-illustration-uzbekistan-flag-glass-button-vector.jpg" alt="" />
+        <img onClick={() => {
 
 
-localStorage.setItem('lang', 'ru')
-  }} id="pere" style={{width:"100px"}}  src="https://st4.depositphotos.com/15822962/24248/v/600/depositphotos_242484092-stock-video-animated-russian-flag-on-the.jpg" alt="" />
-       {/* {state==="ru"?( <img src="https://st.depositphotos.com/1575949/1356/v/450/depositphotos_13564006-stock-illustration-russia-flag-butto.jpg" alt="" />):( <img id="pere" src="https://img.freepik.com/premium-vector/uzbekistan-flag-button-round-flag-of-uzbekistan-vector-flag-symbol-colors-and-proportion-correctly_847658-237.jpg?w=826" alt="" />)} */}
-<AiOutlineUser className="user_icon" id="user1" />
-  </div>
+          localStorage.setItem('lang', 'ru')
+        }} id="pere" style={{ width: "100px" }} src="https://st4.depositphotos.com/15822962/24248/v/600/depositphotos_242484092-stock-video-animated-russian-flag-on-the.jpg" alt="" />
+        {/* {state==="ru"?( <img src="https://st.depositphotos.com/1575949/1356/v/450/depositphotos_13564006-stock-illustration-russia-flag-butto.jpg" alt="" />):( <img id="pere" src="https://img.freepik.com/premium-vector/uzbekistan-flag-button-round-flag-of-uzbekistan-vector-flag-symbol-colors-and-proportion-correctly_847658-237.jpg?w=826" alt="" />)} */}
+        <AiOutlineUser className="user_icon" id="user1" />
+      </div>
       {/* <div className='navbar_right'>
         <div className='loginIn'>
           <AiOutlineUser className='user_icon' />
