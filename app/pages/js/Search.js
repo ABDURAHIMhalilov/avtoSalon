@@ -34,6 +34,7 @@ export default function Search() {
   const [maxcount, setmaxcount] = React.useState('');
   const [page, setPage] = React.useState(1);
   const [countpag, setCountpag] = React.useState(1);
+  // const [  ]
 
   const abbasFilter = (model1, seria1, position1, gearBox1, fuelsort1, garant1, branch1, year1, mincount1, maxcount1) => {
     var pushdata = []
@@ -574,7 +575,9 @@ export default function Search() {
       </div>
       <div className='search_body'>
         <div className="body_top">
-          
+          {/* {
+            
+          } */}
           <h2>Результаты</h2>
         </div>
         <div className="result_wrapper">

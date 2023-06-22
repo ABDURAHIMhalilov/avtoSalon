@@ -73,7 +73,71 @@ export default function Popular() {
     }
 
   return (
-    <div className="popular">
+  <>
+  {
+        localStorage.getItem('lang') == "uz" ? (
+          <div className="popular">
+      <div className="popular_top">
+        <h1>Mashhur brendlar</h1>
+        <div className="pop_btns">
+        { model.map((item,key)=>{
+          if(key<4){
+         return  <a href="#!" onClick={()=>getData(item.id)} className="popular_btn">
+            {item.name}
+          </a>}
+        }) } 
+        
+        </div>
+      </div>  
+      <Swiper
+        spaceBetween={10}
+        navigation={true}
+        breakpoints={{
+          600: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+          },
+          991: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          1400: {
+            slidesPerView: 3,
+            spaceBetween: 40,
+          },
+          1900: {
+            slidesPerView: 4,
+            spaceBetween: 40,
+          },
+        }}
+        modules={[Navigation]}
+        className="mySwiper"
+      >
+        {cars.map((item, key) => {
+        if(key<10){ return (
+            <SwiperSlide key={key} onClick={()=>getData2(item)} className="swiperPopCard">
+              <div className="feat_card">
+          
+                     <img src={item.image[0]!=undefined?(item.image[0].image):("https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg")}
+                      alt="no img" />
+                <div className="featCard_bottom">
+                <h3 className="featCard_name">{item.name}</h3>
+                  <h4 className="featCard_price">${item.price}</h4>
+                  <div className="featCard_box">
+                    <p className="featCard_year">{item.year}</p>
+                    <p className="featCard_auto">{item.gearbox.name}</p>
+                    <p className="featCard_pet">{item.fuel_sort.name}</p>
+                  </div>
+                </div> 
+              </div>
+            </SwiperSlide>
+          );} 
+        })}
+
+      </Swiper>
+    </div>
+        ) : (
+          <div className="popular">
       <div className="popular_top">
         <h1>Популярные марки</h1>
         <div className="pop_btns">
@@ -133,5 +197,8 @@ export default function Popular() {
 
       </Swiper>
     </div>
+        )
+  }
+  </>
   );
 }

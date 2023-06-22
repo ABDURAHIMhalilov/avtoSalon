@@ -14,8 +14,8 @@ import url from "./Host";
 
 export default function Navbar() {
   const [count, setCount] = useState(false);
-  const [user, setUser] = useState((localStorage.getItem("onemen")?JSON.parse(localStorage.getItem("onemen")):false))
-  const [ state, setState ] = React.useState(localStorage.getItem('lang'))
+  const [user, setUser] = useState((localStorage.getItem("onemen") ? JSON.parse(localStorage.getItem("onemen")) : false))
+  const [state, setState] = React.useState(localStorage.getItem('lang'))
 
 
   // const googleTranslateElementInit = () => {
@@ -37,7 +37,7 @@ export default function Navbar() {
   //   window.googleTranslateElementInit = googleTranslateElementInit;
   // }, []);
 
-  
+
 
   function setLanguage() {
     // var a=document.querySelector("#til").value
@@ -48,7 +48,7 @@ export default function Navbar() {
 
   return (
     <div className="navbar">
-     
+
       <div
         className="modalMenu"
         style={count === true ? { display: "flex" } : { display: "none" }}
@@ -56,27 +56,27 @@ export default function Navbar() {
         <MdClose className="close_btn" onClick={() => setCount(false)} />
         <div className="a_box">
           <a href="#" className="a_fff a_mobile">
-           Главная
+            Главная
           </a>
         </div>
         <div className="a_box">
           <a href="/cars" className="a_fff a_mobile">
-          Поиск
+            Поиск
           </a>
         </div>
         <div className="a_box">
           <a href="#" className="a_fff a_mobile">
-          Листинг
+            Листинг
           </a>
         </div>
         <div className="a_box">
           <a href="#" className="a_fff a_mobile">
-          Страницы
+            Страницы
           </a>
         </div>
         <div className="a_box">
           <a href="#" className="a_fff a_mobile">
-          Более
+            Более
           </a>
         </div>
       </div>
@@ -89,19 +89,19 @@ export default function Navbar() {
           Главная
         </a>
         <a href="/cars" className="a_fff">
-        Поиск
+          Поиск
         </a>
         <a href="/about" className="a_fff">
-        о нас
+          о нас
         </a>
         <a href="#" className="a_fff">
-        Страницы
+          Страницы
         </a>
         <a href="#" className="a_fff">
-        Более
+          Более
         </a>
       </div>
-      
+
       {user ? (
         <div>
           <div className="navbar_right">
@@ -119,27 +119,25 @@ export default function Navbar() {
             <div className="loginIn">
               <AiOutlineUser className="user_icon" />
               <a href="/login" className="a_fff">
-              Войти в систему
+                Войти в систему
               </a>
             </div>
             <a href="/login" className="a_fff">
-            Регистранция
+              Регистранция
             </a>
           </div>
-          
+
         </div>
-        
+
       )}<div className="perevod" id="til" onClick={() => setLanguage()}>
-    <img onClick={() => {
-     localStorage.setItem('lang', 'uz')
-   }} id="per" style={{width:"50px"}}  src="https://st4.depositphotos.com/8804418/21485/v/600/depositphotos_214857244-stock-illustration-uzbekistan-flag-glass-button-vector.jpg" alt="" />
-   <img onClick={() => {
-
-
-localStorage.setItem('lang', 'ru')
-   }} id="pere" style={{width:"100px"}}  src="https://st4.depositphotos.com/15822962/24248/v/600/depositphotos_242484092-stock-video-animated-russian-flag-on-the.jpg" alt="" />
-       {/* {state==="ru"?( <img src="https://st.depositphotos.com/1575949/1356/v/450/depositphotos_13564006-stock-illustration-russia-flag-butto.jpg" alt="" />):( <img id="pere" src="https://img.freepik.com/premium-vector/uzbekistan-flag-button-round-flag-of-uzbekistan-vector-flag-symbol-colors-and-proportion-correctly_847658-237.jpg?w=826" alt="" />)} */}
-   </div>
+        <img onClick={() => {
+          localStorage.setItem('lang', 'uz')
+        }} id="per" style={{ width: "50px" }} src="https://st4.depositphotos.com/8804418/21485/v/600/depositphotos_214857244-stock-illustration-uzbekistan-flag-glass-button-vector.jpg" alt="" />
+        <img onClick={() => {
+          localStorage.setItem('lang', 'ru')
+        }} id="pere" style={{ width: "100px" }} src="https://st4.depositphotos.com/15822962/24248/v/600/depositphotos_242484092-stock-video-animated-russian-flag-on-the.jpg" alt="" />
+        {/* {state==="ru"?( <img src="https://st.depositphotos.com/1575949/1356/v/450/depositphotos_13564006-stock-illustration-russia-flag-butto.jpg" alt="" />):( <img id="pere" src="https://img.freepik.com/premium-vector/uzbekistan-flag-button-round-flag-of-uzbekistan-vector-flag-symbol-colors-and-proportion-correctly_847658-237.jpg?w=826" alt="" />)} */}
+      </div>
       {/* <div className='navbar_right'>
         <div className='loginIn'>
           <AiOutlineUser className='user_icon' />
@@ -151,10 +149,10 @@ localStorage.setItem('lang', 'ru')
           Register
         </a>
       </div> */}
-      <HiUsers className="usersIcon" />
-      <div id="google_translate_element"></div>
+      {/* <HiUsers className="usersIcon" />
+      <div id="google_translate_element"></div> */}
     </div>
 
-    
+
   );
 }

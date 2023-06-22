@@ -1,9 +1,170 @@
 .HomeHeader {
     width: 100%;
     height: 80vh;
-    background-image: url("../images/bg.jpg");
+    background: #0f141e;
+    display: flex;
+    justify-content: space-evenly;    
+    align-items: center;
+    position: relative;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+    margin-bottom: 200px;
+}
+.positionImg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 80vh;
+    background: url('./tlo.png');
+    /* background-size: 100%; */
+    z-index: 0;
+}
+.cardHeader2 h1 {
+    text-align: center;
+}
+@media(max-width: 1242px) {
+    .cardHeader h1{
+        font-size: 50px !important;
+    }
+    .cardHeader2 {
+        width: 80%;
+    }
+    .HomeHeader {
+        padding-top: 30px;
+    }
+    /* .cardHeader p { */
+        /* font-size: 20px; */
+    /* } */
+}
+@media(max-width: 1200px) {
+    .cardHeader{
+        width: 80% !important;
+        margin: auto;
+    }
+    .cardHeader button{
+        margin-left: 20%;
+    }
+    .cardHeader2 {
+        width: 80% !important;
+        margin: auto;
+    }
+    .cardHeader p,
+    .cardHeader h1{
+        width: 100% !important;
+    }
+}
+
+@media(max-width: 776px){
+    .cardHeader p{
+        font-size: 25px !important;
+        line-height: 30px;
+        margin-bottom: 20px;
+    }
+    .carImg {
+        width: 70% !important;
+        /* height: 2vh !important; */
+    }
+    .HomeHeader {
+        height: 100vh !important;
+        margin-bottom: 250px !important;
+    }
+}
+
+@media(max-width: 672px){
+    .cardHeader h1{
+        font-size: 30px !important;
+    }
+    .cardHeader p{
+        font-size: 20px !important;
+    }
+    .cardHeader button{
+        width: 100% !important;
+    }
+    .cardHeader2 h1{
+        font-size: 25px;
+    }
+}
+
+@media(max-width: 664px) {
+    .HomeHeader {
+        margin-bottom: 100px !important;
+    }
+    .carImg {
+        height: 300px !important;
+    }
+    .cardHeader2 button {
+        width: 100% !important;
+        margin-left: 2% !important;
+    }
+}
+
+@media(max-width: 399px){
+    .cardHeader h1{
+        width: 100% !important;
+        font-size: 20px !important;
+    }
+    .cardHeader p {
+        width: 100% !important;
+        font-size: 15px !important;
+        line-height: 20px !important;
+    }
+    .cardHeader {
+        width: 100% !important;
+    }
+    .cardHeader2 {
+        width: 97% !important;
+    }
+    .HomeHeader{
+        height: 80vh !important;
+    }
+}
+
+.cardHeader2 {
+    width: 600px;
+    background: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    z-index: 2;
+}
+.cardHeader {
+    width: 50%;
+    padding: 20px;
+}
+#inp2 {
+    width: 47%;
+}
+#inp2:nth-child(4) {
+    width: 96%;
+}
+.cardHeader h1{
+    width: 500px;
+    font-size: 60px;
+    color: white;
+}
+.cardHeader2 button,
+.cardHeader button {
+    width: 30%;
+    margin: auto;
+    height: 40px;
+    font-size: 20px;
+}
+.cardHeader p {
+    width: 70%;
+    line-height: 40px;
+    margin: 10px;
+    font-size: 26px;
+    z-index: 3 !important;
+    color: gray;
+}
+.carImg {
+    width: 45%;
+    min-height: 43vh;
+    background: url('../js/car-silver.png');
+    background-size: contain;
     background-repeat: no-repeat;
-    background-size: cover;
+    z-index: 3;
+    margin-top: 40px;
 }
 .headerBody1 {
     height: 40vh;
