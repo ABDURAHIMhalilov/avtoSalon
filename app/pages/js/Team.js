@@ -12,6 +12,7 @@ import { FaPhoneAlt } from "react-icons/fa";
 
 export default function Team() {
   return (
+    
     <div className="team">
       <div className="team_left">
         <h1>Наша команда</h1>
