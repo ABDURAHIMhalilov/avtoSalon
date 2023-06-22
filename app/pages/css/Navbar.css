@@ -79,12 +79,12 @@
     margin-left: 15px;
 }
 @media (max-width: 1200px) {
-    .navbar_left {
+    /* .navbar_left {
         width: 70%;
-    }
+    } */
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
     .navbar_left .a_fff,
     .navbar_right {
         width: auto;

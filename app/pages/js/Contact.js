@@ -1,5 +1,6 @@
+'use client'
 import React from "react";
-("use  client");
+
 import "../css/Contact.css";
 import Footer from "./Footer";
 import Navbar from "./Navbar";
@@ -9,22 +10,23 @@ import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import Head from "next/head";
 
+
 export default function Contact() {
+const [state, setstate] = React.useState(localStorage.getItem("lang"))
+
   return (
     <div>
         <Head>
-        <title>BaraCar-домашняя страница</title>
+        <title>{state==='ru'?("BaraCar-домашняя страница"):("BaraCar-Bosh sahifa")}</title>
       </Head>
       <Navbar />
       <div className="contact">
         <div className="contact_left">
-          <h1>Связаться с нами</h1>
+          <h1>{state==='ru'?("Связаться с нами"):("Biz bilan bog'lani")}</h1>
           <p className="contact_info">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati
-            temporibus nobis placeat vero sunt ut explicabo fugit unde cumque
-            architecto.
+            {state==='ru'?("Спасибо вам за вашу постоянную поддержку. Слепонет... мы находимся в нужном месте в нужное время... спасаясь от астрологииархитектор."):("Doimiy qo'llab-quvvatlaganingiz uchun tashakkur. Ko'ryo'q... biz kerakli vaqtda kerakli joyda turibmiz... astrologiyadan qochisharxitektor.")}
           </p>
-          <p className="contact_address"> Западная 12-я улица Нью-Йорк, штат Нью-Йорк, США</p>
+          <p className="contact_address">{state==='ru'?(" Западная 12-я улица Нью-Йорк, штат Нью-Йорк, США"):("G'arbiy 12-ko'cha Nyu-York, Nyu-York, AQSh")}</p>
           <a className="contact_tel" href="tel: +998931513776">
             (123) <span> 456-78901</span>
           </a>
@@ -35,7 +37,7 @@ export default function Contact() {
             </a>
           </div>
           <div className="feat_left contact_icons">
-            <p>Подписывайтесь на нас</p>
+            <p>{state==='ru'?("Подписывайтесь на нас"):("Bizga obuna bo'ling")}</p>
             <a href="#" className="iconBox ">
               <FaFacebookF className="icon icon4" />
             </a>
@@ -49,22 +51,22 @@ export default function Contact() {
         </div>
         <div className="contact_right">
           <div className="inputs_top">
-            <input type="text" className="contact_inp" placeholder="Имя" />
-            <input type="text" className="contact_inp" placeholder="Электронная почта*" />
-            <input type="text" className="contact_inp" placeholder="Телефон" />
+            <input type="text" className="contact_inp" placeholder= {state==='ru'?("Имя*"):("Ism*")}/>
+            <input type="text" className="contact_inp" placeholder= {state==='ru'?("Электронная почта*"):("Elektron pochta*")}/>
+            <input type="text" className="contact_inp" placeholder= {state==='ru'?("Телефон*"):("Telefon*")}/>
           </div>
           <textarea
             rows={10}
-            placeholder="Сообщение*"
+            placeholder={state==='ru'?("Сообщение*"):("Habar*")}
             className="contact_textarea"
           ></textarea>
           <div className="inputs_bottom">
             <label className="container">
-            я принимаю <a href="#!"> политика конфиденциальностиOne</a>
+            {state==='ru'?("я принимаю"):("men qabul qilaman")} <a href="#!"> {state==='ru'?("политика конфиденциальности"):("maxfiylik siyosati")}</a>
               <input type="checkbox" />
               <span className="checkmark"></span>
             </label>
-            <button className="contact_btn">Отправлять</button>
+            <button className="contact_btn">{state==='ru'?("Отправлять"):("yuborish")}</button>
           </div>
         </div>
       </div>

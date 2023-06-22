@@ -57,16 +57,24 @@ export default function Navbar() {
         <div className="a_box">
           <a href="#" className="a_fff a_mobile">
             Главная
+           {state==='ru'?("Главная"):("Bosh sahifa")}
           </a>
         </div>
         <div className="a_box">
           <a href="/cars" className="a_fff a_mobile">
             Поиск
+          {state==='ru'?("Поиск"):("Qidiruv")}
+          </a>
+        </div>
+        <div className="a_box">
+          <a href="/about" className="a_fff a_mobile">
+          {state==='ru'?("О нас"):("Biz haqimizda")}
           </a>
         </div>
         <div className="a_box">
           <a href="#" className="a_fff a_mobile">
             Листинг
+          {state==='ru'?("Страницы"):("Sahifalar")}
           </a>
         </div>
         <div className="a_box">
@@ -77,6 +85,7 @@ export default function Navbar() {
         <div className="a_box">
           <a href="#" className="a_fff a_mobile">
             Более
+          {state==='ru'?("Более"):("Ko'proq")}
           </a>
         </div>
       </div>
@@ -86,7 +95,7 @@ export default function Navbar() {
           <Image src={logo} width={200} height={"auto"} alt="" />
         </a>
         <a href="/" className="a_fff">
-          Главная
+          {state==='ru'?("Главная"):("Bosh sahifa")}
         </a>
         <a href="/cars" className="a_fff">
           Поиск
@@ -99,6 +108,16 @@ export default function Navbar() {
         </a>
         <a href="#" className="a_fff">
           Более
+        {state==='ru'?("Поиск"):("Qidiruv")}
+        </a>
+        <a href="/about" className="a_fff">
+        {state==='ru'?("О нас"):("Biz haqimizda")}
+        </a>
+        <a href="#" className="a_fff">
+        {state==='ru'?("Страницы"):("Sahifalar")}
+        </a>
+        <a href="#" className="a_fff">
+        {state==='ru'?("Более"):("Ko'proq")}
         </a>
       </div>
 
@@ -124,11 +143,13 @@ export default function Navbar() {
             </div>
             <a href="/login" className="a_fff">
               Регистранция
+              {state==='ru'?("Войти в систему"):("Tizimga kirish")}
+              </a>
+            </div>
+            <a href="/login" className="a_fff">
+            {state==='ru'?("Регистрация"):("Ro'yxatdan o'tish")}
             </a>
           </div>
-
-        </div>
-
       )}<div className="perevod" id="til" onClick={() => setLanguage()}>
         <img onClick={() => {
           localStorage.setItem('lang', 'uz')
