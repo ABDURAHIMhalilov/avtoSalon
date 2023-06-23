@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect } from 'react'
-import Navbar from './Navbar'
+import Navbar from '../Navbar'
 import '../css/Search.css'
 import Box from '@mui/material/Box'
 import InputLabel from '@mui/material/InputLabel'
@@ -10,7 +10,7 @@ import Select from '@mui/material/Select'
 import { IoIosCloseCircle } from 'react-icons/io'
 import Pagination from '@mui/material/Pagination';
 import axios from "axios";
-import url from './Host'
+import url from '../Host'
 import Stack from '@mui/material/Stack';
 export default function Search() {
 

@@ -507,7 +507,7 @@ function editedAdd() {
 
 
 
-                    <button onClick={() => postAdress()}>click</button>
+                    <button onClick={() => postAdress()}>{state==='ru'?("щелчок"):("bosing")}</button>
                   </div>
 
                     <div className="adres2Big">

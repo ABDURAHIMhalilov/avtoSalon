@@ -17,7 +17,7 @@
 
 @media(max-width:1300px) {
     .navbar_left {
-        width: 60%;
+        width: 55%;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -25,7 +25,7 @@
 }
 
 .navbar_right {
-    width: 280px;
+    width: 335px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -50,6 +50,10 @@
 #pere {
     width: 100px !important;
     margin-left: -20px;
+}
+#pere{
+    width: 71px !important;
+    margin-left: -10px;
 }
 
 .perevod {
@@ -101,11 +105,14 @@
 
 #a_sd {
     margin-left: 15px;
-    width: 140px;
+    width: 150px;
 }
 
 .a_box a {
     width: 85px;
+}
+.a_box a{
+    /* width: 85px; */
 }
 
 #a_df {
@@ -129,7 +136,6 @@
         margin-left: 0px;
     }
 }
-
 @media(max-width:420px) {
     #per {
         width: 30px !important;
@@ -137,6 +143,13 @@
 
     #pere {
         width: 60px !important;
+    }
+@media(max-width:420px){
+    #per{
+        width: 28px !important;
+    }
+    #pere{
+        width: 55px !important;
         margin-left: -10px;
         margin-right: -7px;
     }
@@ -219,3 +232,9 @@
     margin-top: 30px;
     justify-content: space-around;
 }
+.a_fff{
+    color: #fff;
+    transition: .2s;
+    font-weight: 500;
+    font-size: 18px;
+}}
