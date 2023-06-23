@@ -17,8 +17,10 @@
     width: 100%;
     min-height: 80vh;
     background: url('./tlo.png');
-    /* background-size: 100%; */
     z-index: 0;
+}
+#home2 {
+    padding-top: 60px;
 }
 .cardHeader2 h1 {
     text-align: center;
@@ -152,7 +154,7 @@
 .cardHeader p {
     width: 70%;
     line-height: 40px;
-    margin: 10px;
+    margin-top: 10px;
     font-size: 26px;
     z-index: 3 !important;
     color: gray;
@@ -299,4 +301,68 @@
     .bir {
         width: 100%;
     }
+}
+/* swiper */
+@media(max-width: 574px){
+    #swiper{
+        width: 100%;
+        display: none;
+    }
+    .swiper-slide {
+        width: 100% !important;
+    }
+    #swiper2 {
+        width: 100%;
+        display: flex !important;
+    }
+}
+
+@media(max-width: 386px){
+    #swiper2 swiper-slide img {
+        width: 20% !important;
+    }
+    #swiper2 {
+        width: 340px !important;
+        margin-left: 0 !important;
+        padding-left: -90px !important;
+    }
+    .team {
+        width: 100% !important;
+        padding: 30px;
+    }
+}
+
+@media(max-width: 348px) {
+    .team_card:nth-child(1) {
+     margin-left: -20px !important;
+    }
+    .team_card {
+        margin: 0 auto !important;
+    }
+    #swiper2 {
+        overflow: hidden !important;
+        width: 320px;
+    }
+}
+
+#swiper2 .team_card {
+    width: 320px !important;
+}
+
+#swiper2 {
+    display: none;
+    margin-left: -12px !important;
+    border-radius: 20px;
+    /* text-align: center; */
+}
+
+.mySwiper3 {
+    text-align: center;
+    margin: auto;
+}
+
+/* #swiper2 .swiper-slide */
+
+#swiper2 .swiper-slide .swiper-button-next, .swiper-button-prev {
+    margin-left: -33px !important;
 }

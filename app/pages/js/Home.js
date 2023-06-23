@@ -86,14 +86,17 @@ export default function Home() {
       {
         localStorage.getItem('lang') == "uz" ? (
           <div>
-
-            <div className="HomeHeader">
+            <div className="HomeHeader" id='home2'>
+            <br />
+<br />
+<br />
+<br />
               <br /><br />
               <div className="positionImg"></div>
               <div className="cardHeader">
                 <h1>Orzuyingizdagi
                   mashinani toping</h1>
-                <p>Biz sizga eng yaxshi mashinani topishda yordam bera olamiz. Bizning sharhlarimizni tekshiring, modellarni taqqoslang va sotiladigan avtomobillarni toping.</p>
+                <p>Biz sizga eng yaxshi mashinani topishda yordam bera olamiz.Sotiladigan avtomobillarni toping.</p>
                 <button> Batafsil </button>
               </div>
               <div className="cardHeader2">
@@ -170,8 +173,14 @@ export default function Home() {
                   <center><button>Qidirish</button></center>
                 </div>
               </div>
+            {/* <br /> */}
+            {/* <br /> */}
               <div className="carImg"></div>
             </div>
+            <br />
+            <br />
+            <br />
+            <br />
             <Featured />
             <Popular />
             <div className="kotta">

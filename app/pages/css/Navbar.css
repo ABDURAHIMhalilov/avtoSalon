@@ -7,13 +7,15 @@
     align-items: center;
     justify-content: space-between;
 }
+
 .navbar_left {
     width: 50%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
-@media(max-width:1300px){
+
+@media(max-width:1300px) {
     .navbar_left {
         width: 60%;
         display: flex;
@@ -21,12 +23,14 @@
         justify-content: space-between;
     }
 }
+
 .navbar_right {
     width: 280px;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
+
 .loginIn {
     display: flex;
     align-items: center;
@@ -34,109 +38,133 @@
     /* padding-right: 40px; */
     margin-left: 15px;
 }
+
 /* .perevod img{
     width: 50px;
   } */
-#per{
+#per {
     z-index: 10;
     /* margin-left: 60px; */
 }
-#pere{
+
+#pere {
     width: 100px !important;
     margin-left: -20px;
 }
-.perevod{
+
+.perevod {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .user_icon {
     color: #ff6505;
     margin-right: 8px;
     font-size: 20px;
 }
-.menuLeftIcon, 
+
+.menuLeftIcon,
 .usersIcon {
     color: #ff6505;
     font-size: 30px;
     cursor: pointer;
     display: none;
 }
+
 .modalMenu {
     width: 100% !important;
     height: 100vh;
-    background-color: #0f141e;
+    background-color: #000;
     position: fixed;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     display: none;
     align-items: start;
     flex-direction: column;
     padding-top: 50px;
     z-index: 99;
 }
+
 .db .modalMenu {
     display: block;
 }
+
 .close_btn {
     color: #ff6505;
     cursor: pointer;
     font-size: 30px;
     position: absolute;
-    right: 20px; top: 20px;
+    right: 20px;
+    top: 20px;
 }
-#a_sd{
+
+#a_sd {
     margin-left: 15px;
     width: 140px;
 }
-.a_box a{
+
+.a_box a {
     width: 85px;
 }
-#a_df{
+
+#a_df {
     /* width: 110px; */
 }
-#user1{
+
+#user1 {
     font-size: 35px;
     display: none;
 }
+
 @media (max-width: 1200px) {
     /* .navbar_left {
         width: 70%;
     } */
 }
-@media(max-width:600px){
-    #per{
+
+@media(max-width:600px) {
+    #per {
         z-index: 10;
         margin-left: 0px;
     }
 }
-@media(max-width:420px){
-    #per{
+
+@media(max-width:420px) {
+    #per {
         width: 30px !important;
     }
-    #pere{
+
+    #pere {
         width: 60px !important;
         margin-left: -10px;
         margin-right: -7px;
     }
-    .vehicaimg{
+
+    .vehicaimg {
         width: 150px;
         height: 25px;
     }
-    #user1{
+
+    #user1 {
         font-size: 25px;
     }
 }
-@media(max-width:330px){
-    .headerBody1{
+
+@media(max-width:330px) {
+    .headerBody1 {
         margin-left: -6px;
     }
 }
+
 @media (max-width: 1200px) {
+
     .navbar_left .a_fff,
     .navbar_right {
         width: auto;
         display: none;
     }
+
     .loginIn {
         display: flex;
         align-items: center;
@@ -144,23 +172,29 @@
         /* padding-right: 40px; */
         margin-left: 15px;
     }
-    #user1{
+
+    #user1 {
         display: flex;
     }
-    .navbar_right{
+
+    .navbar_right {
         width: 0px;
     }
+
     .navbar_left {
         width: auto;
     }
-    .menuLeftIcon, 
+
+    .menuLeftIcon,
     .usersIcon {
         display: flex;
     }
+
     .modalMenu {
         width: 50%;
         display: none;
     }
+
     .a_box {
         width: 100%;
         margin-top: 20px;
@@ -169,10 +203,19 @@
         border-bottom: 0.5px solid #999;
         transition: .2s;
     }
+
     .a_box:hover .a_mobile {
         color: #ff6505;
     }
+
     .a_mobile {
         padding-left: 60px;
     }
+}
+
+.perevod2 {
+    width: 100%;
+    display: flex;
+    margin-top: 30px;
+    justify-content: space-around;
 }
