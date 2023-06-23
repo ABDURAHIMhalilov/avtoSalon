@@ -1,5 +1,5 @@
 
-asosiy {
+.asosiy {
     display: flex;
     width: 100%;
     overflow: hidden;
@@ -8,17 +8,17 @@ asosiy {
 .all-button {
     display: flex;
     justify-content: space-around;
-    width: 320px;
+    width: 400px;
     margin-top: 30px;
 }
 
 .all-button button {
-    width: 140px;
+    width: 180px;
     font-size: 16px !important;
     font-weight: 700;
     color: #222732;
     /* line-height: 21px; */
-    font-size: 15px !important;
+    font-size: 20px !important;
     padding: 22px 5px;
     text-align: center;
     background: #fff;
@@ -46,18 +46,19 @@ asosiy {
 }
 
 .inputs input {
-    font-family: 'Muli', Arial, Helvetica, sans-serif !important;
+    font-family: 'Mulish', sans-serif !important;
     border-radius: 10px;
     box-shadow: 1px 1px 0 0 rgba(196, 196, 196, 0.24);
     border: solid 1px #e7edf3;
     height: 53px;
     margin-top: 20px;
-    padding: 0 27px;
+    padding: 0 25px;
     font-size: 15px;
     color: #2f3b48;
     width: 100%;
     box-shadow: 1px 1px 0 0 rgba(196, 196, 196, 0.24);
     outline: none;
+    
 }
 
 .inputs {
@@ -122,6 +123,25 @@ asosiy {
     .galochk {
         width: 200px;
     }
+    .all-button button {
+        width: 150px;
+        font-size: 16px !important;
+        font-weight: 700;
+        color: #222732;
+        /* line-height: 21px; */
+        font-size: 17px !important;
+        padding: 22px 5px;
+        text-align: center;
+        background: #fff;
+        border-radius: 10px;
+        border: solid 1px #e7edf3;
+    }
+    .all-button {
+        display: flex;
+        justify-content: space-around;
+        width: 310px;
+        margin-top: 30px;
+    }
 }
 
 @media(max-width:1000px) {
@@ -154,6 +174,8 @@ asosiy {
         background: #FFFFFF;
         border-radius: 45px;
         border: none;
+        font-family: 'Mulish', sans-serif !important;
+
     }
 }
 
@@ -187,6 +209,8 @@ asosiy {
         background: #FFFFFF;
         border-radius: 45px;
         border: none;
+        font-family: 'Mulish', sans-serif !important;
+
     }
 
     .asosiy {
@@ -265,6 +289,8 @@ asosiy {
     background: white;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 4px;
+      font-family: 'Mulish', sans-serif !important;
+
 }
 
 
@@ -276,6 +302,8 @@ asosiy {
     background: white;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 4px;
+    font-family: 'Mulish', sans-serif !important;
+
 }
 
 .vehica-checkbox input:checked+label:before {
@@ -284,7 +312,7 @@ asosiy {
 }
 
 .login button {
-    width: 152px;
+    width: 170px;
     height: 50px;
     background-color: #ff4605;
     font-size: 17px;

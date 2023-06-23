@@ -783,6 +783,7 @@
   margin: 0;
   box-shadow: 1px 1px 0 0 rgba(196, 196, 196, 0.24);
   border: 1px solid #e7edf3;
+  font-family: 'Mulish', sans-serif !important;
 }
 .inp2 {
   display: flex;
@@ -794,6 +795,8 @@
   min-width: 300px;
   width: 40%;
   margin-bottom: 20px;
+  font-family: 'Mulish', sans-serif !important;
+
 }
 .texta {
   width: 97%;
