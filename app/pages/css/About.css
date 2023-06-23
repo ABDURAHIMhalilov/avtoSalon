@@ -4,9 +4,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  overflow: hidden;
 }
+
+
 .about_left {
   width: 55%;
+  padding: 10px;
 }
 .about_left > h1 {
   font-size: 40px;
@@ -149,7 +153,7 @@
   border-radius: 20px;
 }
 .question_body {
-  width: 70%;
+  width: 800px;
   display: flex;
   margin: 0 auto;
   justify-content: space-between;

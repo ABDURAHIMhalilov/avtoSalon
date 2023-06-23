@@ -108,7 +108,7 @@
 
 @media (max-width: 1200px) {
   .team {
-    width: 90%;
+    width: 96%;
     flex-direction: column;
     align-items: start;
     padding-top: 30px;
@@ -128,8 +128,14 @@
   }
   .left_body {
     display: flex;
+    flex-wrap: wrap;
   }
   .left_box2 {
     margin-right: 50px;
   }
 } 
+@media(max-width:420px){
+  .team_box p{
+    width: 260px;
+  }
+}

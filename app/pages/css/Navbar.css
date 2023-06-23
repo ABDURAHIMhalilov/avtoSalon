@@ -15,14 +15,14 @@
 }
 @media(max-width:1300px){
     .navbar_left {
-        width: 60%;
+        width: 55%;
         display: flex;
         align-items: center;
         justify-content: space-between;
     }
 }
 .navbar_right {
-    width: 280px;
+    width: 335px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -42,8 +42,8 @@
     /* margin-left: 60px; */
 }
 #pere{
-    width: 100px !important;
-    margin-left: -20px;
+    width: 71px !important;
+    margin-left: -10px;
 }
 .perevod{
     display: flex;
@@ -86,10 +86,10 @@
 }
 #a_sd{
     margin-left: 15px;
-    width: 140px;
+    width: 150px;
 }
 .a_box a{
-    width: 85px;
+    /* width: 85px; */
 }
 #a_df{
     /* width: 110px; */
@@ -111,10 +111,10 @@
 }
 @media(max-width:420px){
     #per{
-        width: 30px !important;
+        width: 28px !important;
     }
     #pere{
-        width: 60px !important;
+        width: 55px !important;
         margin-left: -10px;
         margin-right: -7px;
     }
@@ -175,4 +175,10 @@
     .a_mobile {
         padding-left: 60px;
     }
+}
+.a_fff{
+    color: #fff;
+    transition: .2s;
+    font-weight: 500;
+    font-size: 18px;
 }
