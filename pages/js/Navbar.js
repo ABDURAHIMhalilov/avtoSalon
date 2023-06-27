@@ -94,6 +94,29 @@ useEffect(() => {
          }
         
         </div>
+        <div className="perevod2">
+
+          <img onClick={() => {
+            localStorage.setItem('lang', 'uz')
+          }} id="per" style={{ width: "50px" }} src="https://st4.depositphotos.com/8804418/21485/v/600/depositphotos_214857244-stock-illustration-uzbekistan-flag-glass-button-vector.jpg" alt="" />
+          
+          <img onClick={() => {
+            localStorage.setItem('lang', 'ru')
+          }} id="pere" style={{ width: "100px" }} src="https://st4.depositphotos.com/15822962/24248/v/600/depositphotos_242484092-stock-video-animated-russian-flag-on-the.jpg" alt="" />
+          {/* {state==="ru"?( <img src="https://st.depositphotos.com/1575949/1356/v/450/depositphotos_13564006-stock-illustration-russia-flag-butto.jpg" alt="" />):( <img id="pere" src="https://img.freepik.com/premium-vector/uzbekistan-flag-button-round-flag-of-uzbekistan-vector-flag-symbol-colors-and-proportion-correctly_847658-237.jpg?w=826" alt="" />)} */}
+         {
+          localStorage.getItem('onemen') ? (
+             <a href="/login">
+          <AiOutlineUser className="user_icon" id="user1" />
+         </a>
+          ) : (
+             <a href="/userpaage">
+          <AiOutlineUser className="user_icon" id="user1" />
+         </a>
+          )
+         }
+        
+        </div>
       </div>
       <BiMenuAltLeft className="menuLeftIcon" onClick={() => setCount(true)} />
 

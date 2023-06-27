@@ -1,4 +1,3 @@
-
 .navbar {
     width: 100%;
     height: auto;
@@ -13,9 +12,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-.input_year{
-    margin-top:auto !important;
 }
 @media(max-width:1300px){
     .navbar_left {
@@ -48,7 +44,6 @@
 #pere{
     width: 71px !important;
     margin-left: -10px;
-    z-index: 9;
 }
 .perevod{
     display: flex;
@@ -140,9 +135,6 @@
     .navbar_left .a_fff,
     .navbar_right {
         width: auto;
-        display: none !important;
-    }
-    .perevod2{
         display: none;
     }
     .loginIn {
@@ -160,7 +152,6 @@
     }
     .navbar_left {
         width: auto;
-        margin: auto !important;
     }
     .menuLeftIcon, 
     .usersIcon {
@@ -177,7 +168,6 @@
         padding-bottom: 20px;
         border-bottom: 0.5px solid #999;
         transition: .2s;
-        z-index: 9;
     }
     .a_box:hover .a_mobile {
         color: #ff6505;
@@ -191,5 +181,4 @@
     transition: .2s;
     font-weight: 500;
     font-size: 18px;
-    
 }
