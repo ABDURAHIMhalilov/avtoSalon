@@ -15,6 +15,8 @@ import Select from "@mui/material/Select";
 import axios from "axios";
 import Head from "next/head";
 import url from "./Host";
+import "../../app/globals.css"
+import "../../app/page.module.css"
 import CarMers from './car-silver.png'
 
 export default function Home() {
@@ -25,7 +27,7 @@ export default function Home() {
   const [models, setModels] = React.useState([]);
   const [series, setSeries] = React.useState([]);
   const [position, setPosition] = React.useState([]);
-  const [language, setLanguage] = localStorage.getItem('lang')
+  const [language, setLanguage] = React.useState([])
 
 
   const getAllSearch = () => {
@@ -39,6 +41,7 @@ export default function Home() {
   }
 
   useEffect(() => {
+    setLanguage( localStorage.getItem('lang'))
     axios.get(`${url}/api/models/`).then((res) => {
       setModels(res.data);
     });
@@ -84,16 +87,19 @@ export default function Home() {
       </Head>
       <Navbar />
       {
-        localStorage.getItem('lang') == "uz" ? (
+        language == "uz" ? (
           <div>
-
-            <div className="HomeHeader">
+            <div className="HomeHeader" id='home2'>
+            <br />
+<br />
+<br />
+<br />
               <br /><br />
               <div className="positionImg"></div>
               <div className="cardHeader">
                 <h1>Orzuyingizdagi
                   mashinani toping</h1>
-                <p>Biz sizga eng yaxshi mashinani topishda yordam bera olamiz. Bizning sharhlarimizni tekshiring, modellarni taqqoslang va sotiladigan avtomobillarni toping.</p>
+                <p>Biz sizga eng yaxshi mashinani topishda yordam bera olamiz.Sotiladigan avtomobillarni toping.</p>
                 <button> Batafsil </button>
               </div>
               <div className="cardHeader2">
@@ -170,8 +176,14 @@ export default function Home() {
                   <center><button>Qidirish</button></center>
                 </div>
               </div>
+            {/* <br /> */}
+            {/* <br /> */}
               <div className="carImg"></div>
             </div>
+            <br />
+            <br />
+            <br />
+            <br />
             <Featured />
             <Popular />
             <div className="kotta">

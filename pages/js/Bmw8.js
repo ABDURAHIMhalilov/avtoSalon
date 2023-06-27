@@ -26,13 +26,12 @@ import url from "./Host";
 import car from "../images/6.jpg";
 import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "../../app/globals.css"
 
 export default function Bmw8() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [user, setUser] = useState(
-    localStorage.getItem("onemen") != null
-      ? JSON.parse(localStorage.getItem("onemen"))
-      : false
+    false
   );
   const [branchs, setBranchs] = useState([]);
   const [getavto, setAvto] = useState([]);
@@ -67,7 +66,7 @@ export default function Bmw8() {
     formdata.append(
       "visit_time",
       document.querySelector("#visit_time").value +
-        document.querySelector(".visit_email").value
+      document.querySelector(".visit_email").value
     );
     formdata.append("branch", document.querySelector(".visit_brench").value);
     formdata.append("user", JSON.parse(localStorage.getItem("onemen")).id);
@@ -88,6 +87,9 @@ export default function Bmw8() {
       });
   }
   useEffect(() => {
+    setUser(localStorage.getItem("onemen") != null
+      ? JSON.parse(localStorage.getItem("onemen"))
+      : false)
     if (localStorage.getItem("onemen")) {
       var a = JSON.parse(localStorage.getItem("onemen"));
       document.querySelector(".visit_name").value = a.username;
@@ -137,38 +139,38 @@ export default function Bmw8() {
   }, []);
   function getData2(key) {
     localStorage.setItem("oneproduct", JSON.stringify(key));
-    window.location = "/onecar";
+    window.location = "/js/Bmw8";
   }
 
   return (
     <div>
-              {/* <span onClick={() => defectClose()}  className="caruselsspan">hello</span> */}
+      {/* <span onClick={() => defectClose()}  className="caruselsspan">hello</span> */}
       <div className="defectDiv">
         {cars.length == 0 ? (
           <div className="defectBig">
             <div className="deskBg">
               <center>
-                <h1>Нет информации об этом автомобиле!</h1>
+                <h1>{state === 'ru' ? ("Нет информации об этом автомобиле!") : ("Bu mashina haqida hech qanday ma'lumot yo'q!")}</h1>
               </center>
             </div>
             <div className="deskBg2"></div>
           </div>
         ) : (
           <>
-              {/* <span onClick={() => defectClose()}  className="caruselsspan">hello</span> */}
+            {/* <span onClick={() => defectClose()}  className="caruselsspan">hello</span> */}
             <Carousel className="carusels">
               {cars.map((item) => {
                 return (
                   <Carousel.Item className="carusels2">
                     <div className="imgDefect">
                       <div className="imgDefect2">
-                      <img src={item.image1} alt="" />
-                      <img src={item.image2} alt="" />
+                        <img src={item.image1} alt="" />
+                        <img src={item.image2} alt="" />
                       </div><br />
                       <center>
-                      <p>{item.description}</p>
-                      <br />
-                        </center>
+                        <p>{item.description}</p>
+                        <br />
+                      </center>
                     </div>
                     <div className="defectBig">
                       <img
@@ -185,8 +187,8 @@ export default function Bmw8() {
                         <h4 className="nameDefect">
                           {" "}
                           {data.position.series.model.name}{" "}
-                          {data.position.series.name} дефект
-                        <h5 onClick={() => defectClose()} className="helloClose">X</h5>
+                          {data.position.series.name} {state === 'ru' ? ("дефект") : ("nuqson")}
+                          <h5 onClick={() => defectClose()} className="helloClose">X</h5>
                         </h4>
 
                         <p>
@@ -323,95 +325,95 @@ export default function Bmw8() {
                 <span>
                   <AiOutlineStar />
                 </span>{" "}
-                Добавить в избранное
+                {state === 'ru' ? ("Добавить в избранное") : ("Sevimlilarga qo'shing")}
               </p>
             </div>
             <div className="oxirkotta">
               <div className="maky">
                 <table style={{ width: "100%", paddingTop: "30px" }}>
                   <tr className="maky1">
-                    <th>Делать:</th>
+                    <th>{state === 'ru' ? ("Делать:") : ("Qilish:")}</th>
                     <td>{data.position.series.model.name}</td>
                   </tr>
                   <tr className="maky1">
-                    <th>Модель:</th>
+                    <th>{state === 'ru' ? ("Модель:") : ("Model:")}</th>
                     <td>{data.position.series.name}</td>
                   </tr>
                   <tr className="maky1">
-                    <th>Цвет:</th>
+                    <th>{state === 'ru' ? ("Цвет:") : ("Rang:")}</th>
                     <td>{data.colour}</td>
                   </tr>
                   <tr className="maky1">
-                    <th>Тип вождения:</th>
-                    <td>Передний привод</td>
+                    <th>{state === 'ru' ? ("Тип вождения:") : ("haydash turi:")}</th>
+                    <td>{state === 'ru' ? ("Передний привод") : ("Old g'ildirakli haydovchi")}</td>
                   </tr>
                   <tr className="maky1">
-                    <th>TransColormission:</th>
+                    <th>{state === 'ru' ? ("ТрансЦветная миссия:") : ("Transcolor missiyasi:")}</th>
                     <td>{data.gearbox.name}</td>
                   </tr>
                   <tr className="maky1">
-                    <th>Состояние:</th>
+                    <th>{state === 'ru' ? ("Состояние:") : ("Davlat:")}</th>
                     <td>{data.distance > 2 ? "NEW" : "B/Y"}</td>
                   </tr>
                   <tr className="maky1">
-                    <th>Год:</th>
+                    <th>{state === 'ru' ? ("Год:") : ("Yil:")}</th>
                     <td>{data.year}</td>
                   </tr>
                   <tr className="maky1">
-                    <th>Тип топлива:</th>
+                    <th>{state === 'ru' ? ("Тип топлива:") : ("Yoqilg'i turi:")}</th>
                     <td>{data.fuel_sort.name}</td>
                   </tr>
                   <tr className="maky1">
-                    <th>Размер двигателя:</th>
+                    <th>{state === 'ru' ? ("Размер двигателя:") : ("Dvigatel hajmi:")}</th>
                     <td>{data.engine}L</td>
                   </tr>
                   <tr className="maky1">
-                    <th>Цилиндры:</th>
+                    <th>{state === 'ru' ? ("Цилиндры:") : ("Silindrlar:")}</th>
                     <td>4</td>
                   </tr>
                   <tr className="maky1">
-                    <th>ВИН:</th>
+                    <th>{state === 'ru' ? ("ВИН:") : ("VIN:")}</th>
                     <td>{data.id}</td>
                   </tr>
                 </table>
               </div>
               <div className="buttonz">
-            {cars.length === 0 ? (
-              "no defect"
-            ) : (
-              <a href="#page">
-                <button className="spend" onClick={() => defectOpen(data.id)}>
-                дефект
+                {cars.length === 0 ? (
+                  "no defect"
+                ) : (
+                  <a href="#page">
+                    <button className="spend" onClick={() => defectOpen(data.id)}>
+                      {state === 'ru' ? ("дефект") : ("nuqson")}
+                    </button>
+                  </a>
+                )}
+                {user ? (
+                  <button className="spend">
+                    <a
+                      style={{ textDecoration: "none", color: "#fff" }}
+                      href="#send"
+                    >
+                      {state === 'ru' ? ("Отправить сообщение") : ("xabar yubormoq")}{" "}
+                    </a>
+                  </button>
+                ) : (
+                  <button
+                    onClick={() => {
+                      window.location = "/js/Login";
+                    }}
+                    className="spend"
+                  >
+                    {state === 'ru' ? ("Отправить сообщение") : ("xabar yubormoq")}
+                  </button>
+                )}
+                <button className="byt">
+                  {" "}
+                  <span>
+                    <HiPhone />{" "}
+                  </span>{" "}
+                  {state === 'ru' ? ("123 *** *** -раскрывать") : ("123 *** *** - ochiq")}
                 </button>
-              </a>
-            )}
-            {user ? (
-              <button className="spend">
-                <a
-                  style={{ textDecoration: "none", color: "#fff" }}
-                  href="#send"
-                >
-                  Отправить сообщение{" "}
-                </a>
-              </button>
-            ) : (
-              <button
-                onClick={() => {
-                  window.location = "/login";
-                }}
-                className="spend"
-              >
-                Отправить сообщение
-              </button>
-            )}
-            <button className="byt">
-              {" "}
-              <span>
-                <HiPhone />{" "}
-              </span>{" "}
-              123 *** *** -раскрывать
-            </button>
-            {/* <button className="wat">
+                {/* <button className="wat">
               {" "}
               <span>
                 <BsWhatsapp />
@@ -419,40 +421,27 @@ export default function Bmw8() {
               Chat via WhatsApp
             </button> */}
 
-            <div className="pas">
-              <p>Идентификатор предложения № 9650</p>
-            </div>
-          </div>
+                <div className="pas">
+                  <p>{state === 'ru' ? ("Идентификатор предложения № 9650") : ("Taklif ID raqami 9650")}</p>
+                </div>
+              </div>
             </div>
           </div>
 
           <div className="bloksoz">
-            <h1>Описание</h1>
+            <h1>{state === 'ru' ? ("Описание") : ("Tavsif")}</h1>
             <p className="p">
-              Чем закончилось приключение, увидим позже. Ауда волновалась, хотя
-              она ничего не сказала. Что касается <br />
-              Паспарту, он счел маневр мистера Фогга просто великолепным.
-              капитан сказал: «между одиннадцатью и<br />
-              двенадцать узлов», и «Генриетта» подтвердила его предсказание.
+               {state === 'ru' ? ("Чем закончилось приключение, увидим позже. Ауда волновалась, хотяона ничего не сказала. Что касается") : ("Sarguzasht qanday tugaganini keyinroq ko'ramiz. Auda xavotirda ediu hech narsa demadi. Haqida")} <br />
+              {state === 'ru' ? ("Паспарту, он счел маневр мистера Фогга просто великолепным.капитан сказал: «между одиннадцатью и ") : ("Passepartut, u janob Fogning manevrini shunchaki ajoyib deb o'yladi.kapitan dedi: o'n bir va orasida")}<br />{state === 'ru' ? ("двенадцать узлов», и «Генриетта» подтвердила его предсказание.") : ("o'n ikki tugun va Genrietta uning bashoratini tasdiqladi.")}
             </p>
             <p className="p1">
-            Если бы тогда — а были еще «если» — море не стало бы слишком
-               шумный, если ветер не повернул на восток, если нет
-               авария произошла с лодкой или ее механизмами, Генриетта
-               может пересечь тройку...
+              {state === 'ru' ? ("Если бы тогда — а были еще «если» — море не стало бы слишкомшумный, если ветер не повернул на восток, если нетавария произошла с лодкой или ее механизмами, Генриеттаможет пересечь тройку...") : ("Agar o'shanda - va hali ham agar bo'lsa - dengiz ham bo'lmas edishamol sharqqa burilmagan bo'lsa, shovqinlibaxtsiz hodisa qayiq yoki uning mexanizmlari bilan sodir bo'ldi, Genriettauchdan o'tishi mumkin ...")}
             </p>
             <p className="iki">
-            Из Нью-Йорка в Ливерпуль за девять дней, между 12 и
-               21 декабря. Правда, когда дело дошло до
-               Правление Генриетты, добавленное к правлению Банка Англии, могло бы
-               создать мистеру Фоггу больше трудностей, чем он мог себе представить или мог
-               желание.
+              {state === 'ru' ? ("Из Нью-Йорка в Ливерпуль за девять дней, между 12 и21 декабря. Правда, когда дело дошло доПравление Генриетты, добавленное к правлению Банка Англии, могло бысоздать мистеру Фоггу больше трудностей, чем он мог себе представить или могжелание.") : ("Nyu-Yorkdan Liverpulga to'qqiz kun ichida, 12 va21 dekabr. Kelganida rostAngliya banki boshqaruviga qo'shilgan Genrietta hukmronligi mumkinjanob Fogg uchun u tasavvur qilgan yoki qila olmaganidan ko'ra ko'proq qiyinchiliklarni yaratingtilak.")}
             </p>
             <p className="iki1">
-            В первые дни они шли достаточно гладко. Море
-               не было очень неблагоприятным, ветер казался неподвижным в
-               на северо-восток, паруса были подняты, и «Генриетта» бороздила
-               по волнам, как настоящий трансатлантический пароход.
+              {state === 'ru' ? ("В первые дни они шли достаточно гладко. Морене было очень неблагоприятным, ветер казался неподвижным вна северо-восток, паруса были подняты, и «Генриетта» бороздилапо волнам, как настоящий трансатлантический пароход.") : ("Dastlabki kunlarda ular juda muammosiz o'tishdi. Dengiz juda noqulay edi, shamol shimoli-sharqda tinchlanayotganday tuyuldi, yelkanlar ko'tarildi va Genrietta haqiqiy transatlantik paroxod kabi to'lqinlar orasidan suzib ketdi.")}
             </p>
             <h4
               className="show"
@@ -462,7 +451,7 @@ export default function Bmw8() {
                 document.querySelector(".iki1").classList.toggle("hg1");
               }}
             >
-              Показать больше
+              {state === 'ru' ? ("Показать больше") : ("Ko'proq ko'rsatish")}
             </h4>
           </div>
 
@@ -479,18 +468,16 @@ export default function Bmw8() {
             </div>
             <div className="card122">
               <div className="laaa">
-                <h2>История автомобиля</h2>
+                <h2>{state === 'ru' ? ("История автомобиля") : ("Avtomobil tarixi")}</h2>
                 <button>Скачать отчет</button>
                 <h2 className="mnb">Carfax PayPal</h2>
                 <h2 className="nm">
-                Прежде чем вы решите купить автомобиль, <br /> прочтите его историю для
-                   бесплатно.
+                  {state === 'ru' ? ("Прежде чем вы решите купить автомобиль,") : ("Avtomobil sotib olishga qaror qilishdan oldin,")} <br />{state === 'ru' ? (" прочтите его историю длябесплатно.") : ("uning hikoyasini bepul o'qing.")}
                 </h2>
               </div>
               <div className="vaa">
                 <h2>
-                Прежде чем вы решите купить автомобиль, <br /> прочтите его историю для
-                   бесплатно.
+                  {state === 'ru' ? ("Прежде чем вы решите купить автомобиль,") : ("Avtomobil sotib olishga qaror qilishdan oldin,")} <br />{state === 'ru' ? (" прочтите его историю длябесплатно.") : ("uning hikoyasini bepul o'qing.")}
                 </h2>
               </div>
               <div className="maa1">
@@ -503,7 +490,8 @@ export default function Bmw8() {
           </div>
 
           <div className="lkjh">
-            <h1>видео</h1>
+            <h1>{state === 'ru' ? ("видео") : ("video")}</h1>
+            
             <iframe
               className="iframe"
               width="1280"
@@ -518,29 +506,29 @@ export default function Bmw8() {
             <div id="vc" className="bv">
               <div className="dum">
                 <div className="dumalo"></div>
-                <h2>Бесключевой запуск</h2>
+                <h2>{state === 'ru' ? ("Бесключевой запуск") : ("Kalitsiz ishga tushirish")}</h2>
               </div>
               <div className="dum">
                 <div className="dumalo"></div>
-                <h2>Кожаные сиденья</h2>
+                <h2>{state === 'ru' ? ("Кожаные сиденья") : ("Charm o'rindiqlar")}</h2>
               </div>
               <div className="dum">
                 <div className="dumalo"></div>
-                <h2>Навигационная система</h2>
+                <h2>{state === 'ru' ? ("Навигационная система") : ("Navigatsiya tizimi")}</h2>
               </div>
             </div>
             <div className="bv">
               <div className="dum">
                 <div className="dumalo"></div>
-                <h2>Камера заднего вида</h2>
+                <h2>{state === 'ru' ? ("Камера заднего вида") : ("Orqa ko'rinish kamerasi")}</h2>
               </div>
               <div className="dum">
                 <div className="dumalo"></div>
-                <h2>Боковые подушки безопасности</h2>
+                <h2>{state === 'ru' ? ("Боковые подушки безопасности") : ("Yon xavfsizlik yostiqchalari")}</h2>
               </div>
               <div className="dum">
                 <div className="dumalo"></div>
-                <h2>Контроль тяги</h2>
+                <h2>{state === 'ru' ? ("Контроль тяги") : ("Traktsiyani nazorat qilish")}</h2>
               </div>
             </div>
           </div>
@@ -571,53 +559,53 @@ export default function Bmw8() {
               <span>
                 <AiOutlineStar />
               </span>{" "}
-              Добавить в избранное
+              {state === 'ru' ? ("Добавить в избранное") : ("Sevimlilarga qo'shing")}
             </p>
           </div>
           <div className="maky">
             <table style={{ width: "100%", paddingTop: "30px" }}>
               <tr className="maky1">
-                <th>Делать:</th>
+                <th>{state === 'ru' ? ("Делать:") : ("Qilish:")}</th>
                 <td>{data.position.series.model.name}</td>
               </tr>
               <tr className="maky1">
-                <th>Модель:</th>
+                <th>{state === 'ru' ? ("Модель:") : ("Model:")}</th>
                 <td>{data.position.series.name}</td>
               </tr>
               <tr className="maky1">
-                <th>Цвет:</th>
+                <th>{state === 'ru' ? ("Цвет:") : ("Rang:")}</th>
                 <td>{data.colour}</td>
               </tr>
               <tr className="maky1">
-                <th>Тип вождения:</th>
-                <td>Передний привод</td>
+                <th>{state === 'ru' ? ("Тип вождения:") : ("Haydash turi:")}</th>
+                <td>{state === 'ru' ? ("Передний привод") : ("Old g'ildirakli haydovchi")}</td>
               </tr>
               <tr className="maky1">
-                <th>TransColormission:</th>
+                <th>{state === 'ru' ? ("TransColormission:") : ("Rangni o'zgartirish:")}</th>
                 <td>{data.gearbox.name}</td>
               </tr>
               <tr className="maky1">
-                <th>Состояние:</th>
+                <th>{state === 'ru' ? ("Состояние:") : ("Davlat:")}</th>
                 <td>{data.distance > 2 ? "NEW" : "B/Y"}</td>
               </tr>
               <tr className="maky1">
-                <th>Год:</th>
+                <th>{state === 'ru' ? ("Год:") : ("Yil:")}</th>
                 <td>{data.year}</td>
               </tr>
               <tr className="maky1">
-                <th>Тип топлива:</th>
+                <th>{state === 'ru' ? ("Тип топлива:") : ("Yoqilg'i turi:")}</th>
                 <td>{data.fuel_sort.name}</td>
               </tr>
               <tr className="maky1">
-                <th>Размер двигателя:</th>
+                <th>{state === 'ru' ? ("Размер двигателя:") : ("Dvigatel hajmi:")}</th>
                 <td>{data.engine}L</td>
               </tr>
               <tr className="maky1">
-                <th>Цилиндры:</th>
+                <th>{state === 'ru' ? ("Цилиндры:") : ("Silindrlar:")}</th>
                 <td>4</td>
               </tr>
               <tr className="maky1">
-                <th>VIN:</th>
+                <th>{state === 'ru' ? ("VIN:") : ("G'alaba qozonish:")}</th>
                 <td>{data.id}</td>
               </tr>
             </table>
@@ -628,7 +616,7 @@ export default function Bmw8() {
             ) : (
               <a href="#page">
                 <button className="spend" onClick={() => defectOpen(data.id)}>
-                Дефект
+                  {state === 'ru' ? ("Дефект") : ("Kamchilik")}
                 </button>
               </a>
             )}
@@ -638,17 +626,17 @@ export default function Bmw8() {
                   style={{ textDecoration: "none", color: "#fff" }}
                   href="#send"
                 >
-                  Отправить сообщение{" "}
+                  {state === 'ru' ? ("Отправить сообщение") : ("Xabar yubormoq")}{" "}
                 </a>
               </button>
             ) : (
               <button
                 onClick={() => {
-                  window.location = "/login";
+                  window.location = "/js/Login";
                 }}
                 className="spend"
               >
-                Отправить сообщение
+                {state === 'ru' ? ("Отправить сообщение") : ("Xabar yubormoq")}
               </button>
             )}
             <button className="byt">
@@ -656,7 +644,7 @@ export default function Bmw8() {
               <span>
                 <HiPhone />{" "}
               </span>{" "}
-              123 *** *** -раскрывать
+              {state === 'ru' ? ("123 *** *** -раскрывать") : ("123 *** *** - ochiq")}
             </button>
             {/* <button className="wat">
               {" "}
@@ -667,7 +655,7 @@ export default function Bmw8() {
             </button> */}
 
             <div className="pas">
-              <p>Идентификатор предложения № 9650</p>
+              <p>{state === 'ru' ? ("Идентификатор предложения № 9650") : ("Taklif ID raqami 9650")}</p>
             </div>
           </div>
         </div>
@@ -676,7 +664,7 @@ export default function Bmw8() {
         <div className="mnbc" id="send">
           <div className="bnm">
             <div className="gfbvdc">
-              <h2>Отправить сообщение</h2>
+              <h2>{state === 'ru' ? ("Отправить сообщение") : ("Xabar yubormoq")}</h2>
               <div className="inps1">
                 <div className="inp2">
                   <input
@@ -717,16 +705,16 @@ export default function Bmw8() {
                       postData();
                     }}
                   >
-                    Отправить сообщение
+                    {state === 'ru' ? ("Отправить сообщение") : ("Xabar yubormoq")}
                   </button>
                 ) : (
                   <button
                     onClick={() => {
                       alert("Siz ro`yhatdan o`tmagansiz");
-                      window.location = "/login";
+                      window.location = "/js/Login";
                     }}
                   >
-                    Отправить сообщение
+                    {state === 'ru' ? ("Отправить сообщение") : ("Xabar yubormoq")}
                   </button>
                 )}
               </div>
@@ -735,14 +723,14 @@ export default function Bmw8() {
               <div className="asda">
                 <div className="carf1">
                   <div className="c1">
-                    <h2>Ральф Дэвин</h2>
-                    <h3>Советник клиентов</h3>
+                    <h2>{state === 'ru' ? ("Ральф Дэвин") : ("Ralf Devin")}</h2>
+                    <h3>{state === 'ru' ? ("Советник клиентов") : ("Mijoz maslahatchisi")}</h3>
                     <p>
                       {" "}
                       <span>
                         <MdLocationOn />
                       </span>
-                      70 Вашингтон-стрит
+                      {state === 'ru' ? ("70 Вашингтон-стрит") : ("Vashington ko'chasi, 70")}
                     </p>
                   </div>
                   <img
@@ -756,13 +744,13 @@ export default function Bmw8() {
                   <span>
                     <AiOutlineMail />
                   </span>
-                  ralph@vehica.com
+                  {state === 'ru' ? ("ralph@vehica.com") : ("ralph@venika.com")}
                 </p>
                 <button>
                   <span>
                     <HiPhone />
                   </span>
-                  123*** ***-раскрывать
+                  {state === 'ru' ? ("123*** ***-раскрывать") : ("123*** ***-oshkor qilish")}
                 </button>
               </div>
             </div>
@@ -806,8 +794,8 @@ export default function Bmw8() {
                     <hr />
                     <div className="miles">
                       <div className="mnb2">{item.year}</div>
-                      <div className="mile">160,000 мили</div>
-                      <div className="au">Aвтоматический</div>
+                      <div className="mile">{ state === "ru"?("160,000 мили"):("160 000 milya")}</div>
+                      <div className="au">{state === "ru"?("Aвтоматический"):("Avtomatik")}</div>
                     </div>
                   </div>
                 </SwiperSlide>
@@ -853,8 +841,8 @@ export default function Bmw8() {
                     <hr />
                     <div className="miles">
                       <div className="mnb2">{item.year}</div>
-                      <div className="mile">160,000 мили</div>
-                      <div className="au">Aвтоматический</div>
+                      <div className="mile">{ state === "ru"?("160,000 мили"):("160 000 milya")}</div>
+                      <div className="au">{state === "ru"?("Aвтоматический"):("Avtomatik")}</div>
                     </div>
                   </div>
                 </SwiperSlide>
@@ -900,8 +888,8 @@ export default function Bmw8() {
                     <hr />
                     <div className="miles">
                       <div className="mnb2">{item.year}</div>
-                      <div className="mile">160,000 мили</div>
-                      <div className="au">Aвтоматический</div>
+                      <div className="mile">{ state === "ru"?("160,000 мили"):("160 000 milya")}</div>
+                      <div className="au">{state === "ru"?("Aвтоматический"):("Avtomatik")}</div>
                     </div>
                   </div>
                 </SwiperSlide>
@@ -944,8 +932,8 @@ export default function Bmw8() {
                     <div className="miles">
                       <hr />
                       <div className="mnb2">{item.year}</div>
-                      <div className="mile">160,000 мили</div>
-                      <div className="au">Aвтоматический</div>
+                      <div className="mile">{ state === "ru"?("160,000 мили"):("160 000 milya")}</div>
+                      <div className="au">{state === "ru"?("Aвтоматический"):("Avtomatik")}</div>
                     </div>
                   </div>
                 </SwiperSlide>
@@ -956,5 +944,5 @@ export default function Bmw8() {
       </div>
       {/* <Footer/> */}
     </div>
-   );
+  );
 }

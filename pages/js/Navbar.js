@@ -10,19 +10,27 @@ import { MdClose } from "react-icons/md";
 import "../css/Navbar.css";
 import axios from "axios";
 import url from "./Host";
+import Link from "next/link";
+import "../../app/globals.css"
 // import uz from '../images/uzbekistan_round_button_with_iso_code_64.png'
 
 export default function Navbar() {
   const [count, setCount] = useState(false);
-  const [user, setUser] = useState((localStorage.getItem("onemen") ? JSON.parse(localStorage.getItem("onemen")) : false))
-  const [state, setState] = React.useState(localStorage.getItem('lang'))
+  const [user, setUser] = useState(false)
+  const [state, setState] = useState("")
 
+useEffect(() => {
+      setUser((localStorage.getItem("onemen") ? JSON.parse(localStorage.getItem("onemen")) : false))
+      setState(localStorage.getItem('lang')?localStorage.getItem('lang'):"ru")
+}, [])
 
-  function setLanguage() {
+  function setLanguage() { 
+    window.location.reload()
     // var a=document.querySelector("#til").value
     // localStorage.setItem("lang",a)
-    window.location.reload()
+    
   }
+  
 
 
   return (
@@ -33,61 +41,85 @@ export default function Navbar() {
       >
         <MdClose className="close_btn" onClick={() => setCount(false)} />
         <div className="a_box">
-          <a href="#" className="a_fff a_mobile">
+          <Link href="#" className="a_fff a_mobile">
 
             {state === 'ru' ? ("Главная") : ("Bosh sahifa")}
             
-          </a>
+          </Link>
         </div>
         <div className="a_box">
-          <a href="/search" className="a_fff a_mobile">
+          <Link href="/js/Search" className="a_fff a_mobile">
 
             {state === 'ru' ? ("Поиск") : ("Qidiruv")}
-          </a>
+          </Link>
         </div>
         <div className="a_box">
-          <a href="/about" className="a_fff a_mobile">
+          <Link href="/js/About" className="a_fff a_mobile">
             {state === 'ru' ? ("О нас") : ("Biz haqimizda")}
-          </a>
+          </Link>
         </div>
         <div className="a_box">
-          <a href="#" className="a_fff a_mobile">
+          <Link href="#" className="a_fff a_mobile">
 
             {state === 'ru' ? ("Страницы") : ("Sahifalar")}
-          </a>
+          </Link>
         </div>
-        
+
         <div className="a_box">
-          <a href="#" className="a_fff a_mobile">
+          <Link href="#" className="a_fff a_mobile">
 
             {state === 'ru' ? ("Более") : ("Ko'proq")}
-          </a>
+          </Link>
+        </div>
+        <div className="perevod2">
+
+          <img onClick={() => {
+            localStorage.setItem('lang', 'uz')
+          }} id="per" style={{ width: "50px" }} src="https://st4.depositphotos.com/8804418/21485/v/600/depositphotos_214857244-stock-illustration-uzbekistan-flag-glass-button-vector.jpg" alt="" />
+          
+          <img onClick={() => {
+            localStorage.setItem('lang', 'ru')
+          }} id="pere" style={{ width: "100px" }} src="https://st4.depositphotos.com/15822962/24248/v/600/depositphotos_242484092-stock-video-animated-russian-flag-on-the.jpg" alt="" />
+          {/* {state==="ru"?( <img src="https://st.depositphotos.com/1575949/1356/v/450/depositphotos_13564006-stock-illustration-russia-flag-butto.jpg" alt="" />):( <img id="pere" src="https://img.freepik.com/premium-vector/uzbekistan-flag-button-round-flag-of-uzbekistan-vector-flag-symbol-colors-and-proportion-correctly_847658-237.jpg?w=826" alt="" />)} */}
+         {
+          user ? (
+             <Link href="/js/Login">
+          <AiOutlineUser className="user_icon" id="user1" />
+         </Link>
+          ) : ( 
+             <Link href="/userpaage">
+          <AiOutlineUser className="user_icon" id="user1" />
+         </Link>
+          )
+         }
+        
         </div>
       </div>
       <BiMenuAltLeft className="menuLeftIcon" onClick={() => setCount(true)} />
+
       <div className="navbar_left">
-        <a href="/" className="logo">
+        <Link href="/" className="logo">
           <Image className="vehicaimg" src={logo} width={200} height={"auto"} alt="" />
-        </a>
-        <a href="/" className="a_fff">
+        </Link>
+        <Link href="/" className="a_fff">
           {state === 'ru' ? ("Главная") : ("Bosh sahifa")}
-        </a>
+        </Link>
 
 
 
-        <a href="/search" className="a_fff">
+        <Link href="/js/Search" className="a_fff">
 
           {state === 'ru' ? ("Поиск") : ("Qidiruv")}
-        </a>
-        <a href="/about" className="a_fff">
+        </Link>
+        <Link href="/js/About" className="a_fff">
           {state === 'ru' ? ("О нас") : ("Biz haqimizda")}
-        </a>
-        <a href="#" className="a_fff">
+        </Link>
+        <Link href="#" className="a_fff">
           {state === 'ru' ? ("Страницы") : ("Sahifalar")}
-        </a>
-        <a href="#" className="a_fff">
+        </Link>
+        <Link href="#" className="a_fff">
           {state === 'ru' ? ("Более") : ("Ko'proq")}
-        </a>
+        </Link>
       </div>
 
       {user ? (
@@ -95,9 +127,9 @@ export default function Navbar() {
           <div className="navbar_right">
             <div className="loginIn">
               <AiOutlineUser className="user_icon" />
-              <a href="/userpage" className="a_fff">
+              <Link href="/userpage" className="a_fff">
                 {user.username}
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -106,23 +138,22 @@ export default function Navbar() {
           <div className="navbar_right">
             <div className="loginIn">
               <AiOutlineUser className="user_icon" />
-              {/* <a href="/login" className="a_fff" > */}
                 {state === 'ru' ? (
-              <a href="/login" style={{ width: '155px' }} className="a_fff" id="a_df">
+              <Link href="/js/Login" style={{ width: '155px' }} className="a_fff" id="a_df">
                 Войти в систему
-              </a>
+              </Link>
               ) : (
-                <a style={{ width: '129px' }} href="/login" className="a_fff" id="a_df">
+                <Link style={{ width: '129px' }} href="/js/Login" className="a_fff" id="a_df">
                   Tizimga kirish
-                </a>
+                </Link>
               )}
               {/* </a> */}
               {/* </a> */}
             </div>
             {/* <a href="/login" className="a_fff"> */}
-            <a href="/login" className="a_fff" id="a_sd">
+            <Link href="/js/Login" className="a_fff" id="a_sd">
               {state === 'ru' ? ("Регистрация") : ("Ro'yxatdan o'tish")}
-            </a>
+            </Link>
           </div>
         </div>
       )}
@@ -136,22 +167,8 @@ export default function Navbar() {
 
           localStorage.setItem('lang', 'ru')
         }} id="pere" style={{ width: "71px" }} src="https://st4.depositphotos.com/15822962/24248/v/600/depositphotos_242484092-stock-video-animated-russian-flag-on-the.jpg" alt="" />
-        {/* {state==="ru"?( <img src="https://st.depositphotos.com/1575949/1356/v/450/depositphotos_13564006-stock-illustration-russia-flag-butto.jpg" alt="" />):( <img id="pere" src="https://img.freepik.com/premium-vector/uzbekistan-flag-button-round-flag-of-uzbekistan-vector-flag-symbol-colors-and-proportion-correctly_847658-237.jpg?w=826" alt="" />)} */}
         <AiOutlineUser className="user_icon" id="user1" />
       </div>
-      {/* <div className='navbar_right'>
-        <div className='loginIn'>
-          <AiOutlineUser className='user_icon' />
-          <a href='/login' className='a_fff'>
-            Login In
-          </a>
-        </div>  
-        <a href='/login' className='a_fff'>
-          Register
-        </a>
-      </div> */}
-      {/* <HiUsers className="usersIcon" />
-      <div id="google_translate_element"></div> */}
     </div>
 
 

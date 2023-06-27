@@ -1,21 +1,25 @@
 "use client";
-import React from "react";
-import Navbar from "../Navbar";
-import "../../css/About.css"
+import React, { useEffect } from "react";
+import Navbar from "./Navbar";
+import "../css/About.css"
 import Image from "next/image";
-import office from "../../images/office.jpg";
-import us from "../../images/us.png";
-import gr from "../../images/gr.jpg";
-import Team from "../Team";
-import img1 from "../../images/galery.jpg";
+import office from "../images/office.jpg";
+import us from "../images/us.png";
+import gr from "../images/gr.jpg";
+import Team from "./Team";
+import img1 from "../images/galery.jpg";
 import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import "../../app/globals.css"
 
 export default function About() {
-  const [ state, setState ] = React.useState(localStorage.getItem('lang'));
+  const [ state, setState ] = React.useState();
+  useEffect(()=>{
+    setState(localStorage.getItem('lang'))
+  })
   return (
     <div>
       <Navbar />

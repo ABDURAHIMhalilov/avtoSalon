@@ -9,14 +9,17 @@ import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import axios from "axios";
 import url from "./Host";
+import "../../app/globals.css"
 
 export default function Featured() {
   const [cars, setCars] = React.useState([]);
-  const [images, setImages] = React.    useState([]);
+  const [images, setImages] = React.useState([]);
+  const [state, setState] = React.useState()
 
   const [price, setPrice] = React.useState([]);
 
   useEffect(() => {
+    setState(localStorage.getItem('lang')?localStorage.getItem('lang'):"ru")
     axios.get(`${url}/api/cars_get/`).then((res) => {
     
        axios.get(`${url}/api/images/`)
@@ -52,7 +55,7 @@ export default function Featured() {
   return (
     <>
 {
-     localStorage.getItem('lang') == "uz" ? (
+     state == "uz" ? (
       <div className="featured">
       <h5 className="featured_info">Qulay tanlov</h5>
       <h2 className="featured_title">Tanlangan reklamalar</h2>

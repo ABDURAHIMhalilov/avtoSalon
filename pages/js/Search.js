@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect } from 'react'
-import Navbar from '../Navbar'
+import Navbar from './Navbar'
+import Footer from './Footer'
 import '../css/Search.css'
 import Box from '@mui/material/Box'
 import InputLabel from '@mui/material/InputLabel'
@@ -10,8 +11,9 @@ import Select from '@mui/material/Select'
 import { IoIosCloseCircle } from 'react-icons/io'
 import Pagination from '@mui/material/Pagination';
 import axios from "axios";
-import url from '../Host'
+import url from './Host'
 import Stack from '@mui/material/Stack';
+import "../../app/globals.css"
 export default function Search() {
 
   const [model, setModel] = React.useState([])
@@ -34,11 +36,12 @@ export default function Search() {
   const [maxcount, setmaxcount] = React.useState('');
   const [page, setPage] = React.useState(1);
   const [countpag, setCountpag] = React.useState(1);
+  const [languange, setlanguange] = React.useState()
   // const [  ]
 
   const abbasFilter = (model1, seria1, position1, gearBox1, fuelsort1, garant1, branch1, year1, mincount1, maxcount1) => {
     var pushdata = []
-    axios.get(`${url}/api/cars_get/`).then(res => {
+    axios.get(`${url}/api/uz/cars_get/`).then(res => {
       axios.get(`${url}/api/images/`)
         .then((res1) => {
           for (let i = 0; i < res.data.length; i++) {
@@ -99,7 +102,7 @@ export default function Search() {
     console.log(event.target.value, "kkkk");
     abbasFilter(event.target.value, "", "", selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount)
     setSelectModel(event.target.value);
-    axios.get(`${url}/api/series_get/`).then(res => {
+    axios.get(`${url}/api/uz/series_get/`).then(res => {
       const search = res.data.filter(item => item.model.id === event.target.value)
       setSeries(search)
       setSelectSeries("")
@@ -112,7 +115,7 @@ export default function Search() {
     setSelectSeries(event.target.value);
     console.log(event.target.value, "kkkk");
 
-    axios.get(`${url}/api/position_get/`).then(res2 => {
+    axios.get(`${url}/api/uz/position_get/`).then(res2 => {
       const search2 = res2.data.filter(item => item.series.id === event.target.value)
       setSelectPosition("")
       if (event.target.value = "") {
@@ -187,7 +190,8 @@ export default function Search() {
     document.querySelector('.mobile_search').classList.remove('db')
   }
   useEffect(() => {
-    axios.get(`${url}/api/cars_get/`).then(res => {
+    setlanguange(localStorage.getItem("lang"))
+    axios.get(`${url}/api/uz/cars_get/`).then(res => {
       axios.get(`${url}/api/images/`)
         .then((res1) => {
           for (let i = 0; i < res.data.length; i++) {
@@ -209,19 +213,19 @@ export default function Search() {
       console.log(err, "salom");
     })
 
-    axios.get(`${url}/api/models/`).then(res => {
+    axios.get(`${url}/api/uz/models/`).then(res => {
       setModel(res.data)
-      axios.get(`${url}/api/series_get/`).then(res2 => {
+      axios.get(`${url}/api/uz/series_get/`).then(res2 => {
         setSeries(res2.data)
-        axios.get(`${url}/api/position_get/`).then(res3 => {
+        axios.get(`${url}/api/uz/position_get/`).then(res3 => {
           setPosition(res3.data)
-          axios.get(`${url}/api/fuel_sort/`).then(res4 => {
+          axios.get(`${url}/api/uz/fuel_sort/`).then(res4 => {
             setFuelsort(res4.data)
-            axios.get(`${url}/api/gear_box/`).then(res5 => {
+            axios.get(`${url}/api/uz/gear_box/`).then(res5 => {
               setGearBox(res5.data)
-              axios.get(`${url}/api/garant/`).then(res6 => {
+              axios.get(`${url}/api/uz/garant/`).then(res6 => {
                 setgarant(res6.data)
-                axios.get(`${url}/api/branch/`).then(res7 => {
+                axios.get(`${url}/api/uz/branch/`).then(res7 => {
                   setBranch(res7.data)
                 })
               })
@@ -241,7 +245,7 @@ export default function Search() {
         <div className='search_top_body'>
           <Box>
             <FormControl className='inpsearch'>
-              <InputLabel id='demo-simple-select-label'>Модель</InputLabel>
+              <InputLabel id='demo-simple-select-label'>{languange==="ru"?("Модель"):("Model")}</InputLabel>
               <Select
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
@@ -258,7 +262,7 @@ export default function Search() {
           </Box>
           <Box>
             <FormControl className='inpsearch'>
-              <InputLabel id='demo-simple-select-label'>Серия</InputLabel>
+              <InputLabel id='demo-simple-select-label'>{languange==="ru"?("Серия"):("Seriya")}</InputLabel>
               <Select
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
@@ -276,7 +280,7 @@ export default function Search() {
           </Box>
           <Box>
             <FormControl className='inpsearch'>
-              <InputLabel id='demo-simple-select-label'>Позиция</InputLabel>
+              <InputLabel id='demo-simple-select-label'>{languange==="ru"?("Позиция"):("Pozitsiya")}</InputLabel>
               <Select
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
@@ -284,7 +288,7 @@ export default function Search() {
                 label='Position'
                 onChange={handlePosition}
               >
-                <MenuItem value="">None</MenuItem>
+                <MenuItem value=""></MenuItem>
                 {position.map(item => {
                   return <MenuItem value={item.id}>{item.name}</MenuItem>
                 })}
@@ -293,7 +297,7 @@ export default function Search() {
           </Box>
           <Box>
             <FormControl className='inpsearch'>
-              <InputLabel id='demo-simple-select-label'>Тип топливы</InputLabel>
+              <InputLabel id='demo-simple-select-label'>{languange==="ru"?("Тип топливы"):("Yoqilg'i turi")}</InputLabel>
               <Select
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
@@ -310,7 +314,7 @@ export default function Search() {
           </Box>
           <Box>
             <FormControl className='inpsearch'>
-              <InputLabel id='demo-simple-select-label'>Коробка передач</InputLabel>
+              <InputLabel id='demo-simple-select-label'>{languange==="ru"?("Коробка передач"):("Uzatish qutisi")}</InputLabel>
               <Select
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
@@ -329,20 +333,20 @@ export default function Search() {
             <input
               type='text'
               className='searchInp priceInp1'
-              placeholder='Минимальная цена'
+              placeholder={languange==="ru"?("Минимальная цена"):("Minimal narx")}
               onKeyUp={minChange}
 
             />
             <input
               type='text'
               className='searchInp priceInp2'
-              placeholder='Максимальная цена'
+              placeholder={languange==="ru"?("Максимальная цена"):("Maksimal narx")}
               onKeyUp={maxChange}
             />
           </div>
           <Box>
             <FormControl className='inpsearch'>
-              <InputLabel id='demo-simple-select-label'>Гарантия</InputLabel>
+              <InputLabel id='demo-simple-select-label'>{languange==="ru"?("Гарантия"):("Kafolat")}</InputLabel>
               <Select
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
@@ -359,7 +363,7 @@ export default function Search() {
           </Box>
           <Box>
             <FormControl className='inpsearch'>
-              <InputLabel id='demo-simple-select-label'>Филиал </InputLabel>
+              <InputLabel id='demo-simple-select-label'>{languange==="ru"?("Филиал"):("Filial")} </InputLabel>
               <Select
                 labelId='demo-simple-select-label'
                 id='demo-simple-select'
@@ -385,23 +389,23 @@ export default function Search() {
                 max="2100"
                 minLength='4'
                 onKeyUp={handleyear}
-                placeholder='Год'
+                placeholder={languange==="ru"?("Год"):("Yil")}
               />
             </FormControl>
           </Box>
         </div>
         <button className='btnOpen' onClick={openModal2}>
-          Фильтр
+          {languange==="ru"?("Фильтр"):("Filtr")}
         </button>
         <div className='mobile_search'>
           <div className='mobile_top'>
-            <h2>Filters</h2>
+            <h2>{languange==="ru"?("Filters"):("Filtrlar")}</h2>
             <IoIosCloseCircle className='closeModalMob' onClick={closeModal2} />
           </div>
           <div className='mobile_body'>
             <Box className='searchBox'>
               <FormControl className='inpsearch2'>
-                <InputLabel id='demo-simple-select-label'>Модель</InputLabel>
+                <InputLabel id='demo-simple-select-label'>{languange==="ru"?("Модель"):("Model")}</InputLabel>
                 <Select
                   labelId='demo-simple-select-label'
                   id='demo-simple-select'
@@ -416,7 +420,7 @@ export default function Search() {
             </Box>
             <Box className='searchBox'>
               <FormControl className='inpsearch2'>
-                <InputLabel id='demo-simple-select-label'>Серия</InputLabel>
+                <InputLabel id='demo-simple-select-label'>{languange==="ru"?("Серия"):("Seriya")}</InputLabel>
                 <Select
                   labelId='demo-simple-select-label'
                   id='demo-simple-select'
@@ -432,7 +436,7 @@ export default function Search() {
             </Box>
             <Box className='searchBox'>
               <FormControl className='inpsearch2'>
-                <InputLabel id='demo-simple-select-label'>Позиция </InputLabel>
+                <InputLabel id='demo-simple-select-label'>{languange==="ru"?("Позиция"):("Lavozim")} </InputLabel>
                 <Select
                   labelId='demo-simple-select-label'
                   id='demo-simple-select'
@@ -448,7 +452,7 @@ export default function Search() {
             </Box>
             <Box className='searchBox'>
               <FormControl className='inpsearch2'>
-                <InputLabel id='demo-simple-select-label'>Тип Топливы</InputLabel>
+                <InputLabel id='demo-simple-select-label'>{languange==="ru"?("Тип Топливы"):("Yoqilg'i turi")}</InputLabel>
                 <Select
                   labelId='demo-simple-select-label'
                   id='demo-simple-select'
@@ -464,7 +468,7 @@ export default function Search() {
             </Box>
             <Box className='searchBox'>
               <FormControl className='inpsearch2'>
-                <InputLabel id='demo-simple-select-label'>Коробка передач</InputLabel>
+                <InputLabel id='demo-simple-select-label'>{languange==="ru"?("Коробка передач"):("Uzatish qutisi")}</InputLabel>
                 <Select
                   labelId='demo-simple-select-label'
                   id='demo-simple-select'
@@ -482,20 +486,20 @@ export default function Search() {
               <input
                 type='text'
                 className='searchInp priceInp1'
-                placeholder='Минимальная цена'
+                placeholder={languange==="ru"?("Минимальная цена"):("Minimal narx")}
                 onKeyUp={minChange}
 
               />
               <input
                 type='text'
                 className='searchInp priceInp2'
-                placeholder='Максимальная цена'
+                placeholder={languange==="ru"?("Максимальная цена"):("Maksimal narx")}
                 onKeyUp={maxChange}
               />
             </div>
             <Box className='searchBox'>
               <FormControl className='inpsearch2'>
-                <InputLabel id='demo-simple-select-label'>Гарантия</InputLabel>
+                <InputLabel id='demo-simple-select-label'>{languange==="ru"?("Гарантия"):("Kafolat")}</InputLabel>
                 <Select
                   labelId='demo-simple-select-label'
                   id='demo-simple-select'
@@ -511,7 +515,7 @@ export default function Search() {
             </Box>
             <Box className='searchBox'>
               <FormControl className='inpsearch2'>
-                <InputLabel id='demo-simple-select-label'>Филиал</InputLabel>
+                <InputLabel id='demo-simple-select-label'>{languange==="ru"?("Филиал"):("Filial")}</InputLabel>
                 <Select
                   labelId='demo-simple-select-label'
                   id='demo-simple-select'
@@ -527,7 +531,7 @@ export default function Search() {
             </Box>
             <Box className='searchBox'>
               <FormControl className='inpsearch2'>
-                <InputLabel id='demo-simple-select-label'>Филиал</InputLabel>
+                <InputLabel id='demo-simple-select-label'>{languange==="ru"?("Филиал"):("Filial")}</InputLabel>
                 <Select
                   labelId='demo-simple-select-label'
                   id='demo-simple-select'
@@ -549,27 +553,15 @@ export default function Search() {
                   min="1900"
                   max="2100"
                   minLength='4'
-                  placeholder="Год"
-                  onKeyUp={handleyear}
-                />
-              </FormControl>
-            </Box>
-            <Box className='searchBox'>
-              <FormControl className='inpsearch2'>
-                <input
-                  className='searchInp input_year'
-                  type="text"
-                  min="1900"
-                  max="2100"
-                  minLength='4'
-                  placeholder="Год"
+                  placeholder={languange==="ru"?("Год"):("Yil")}
                   onKeyUp={handleyear}
                 />
               </FormControl>
             </Box>
 
 
-            <button className='btnSearch'>Поиск</button>
+
+            <button className='btnSearch'>{languange==="ru"?("Поиск"):("Qidirmoq")}</button>
           </div>
         </div>
       </div>
@@ -578,7 +570,7 @@ export default function Search() {
           {/* {
             
           } */}
-          <h2>Результаты</h2>
+          <h2>{languange==="ru"?("Результаты"):("Natijalar")}</h2>
         </div>
         <div className="result_wrapper">
           {makes.map((item, key) => {
@@ -612,6 +604,7 @@ export default function Search() {
           <Pagination count={countpag} page={page} onChange={handleChange} color="secondary" />
         </Stack>
       </div>
+    <Footer/>
     </div>
   )
 }

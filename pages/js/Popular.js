@@ -9,14 +9,17 @@ import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import axios from "axios";
 import url from "./Host";
+import "../../app/globals.css"
 
 export default function Popular() {
   const [cars, setCars] = React.useState([]);
   const [model, setModel] = React.useState([]);
   const [images, setImages] = React.useState([])
+  const [state,setState] = React.useState([])
 
 
   useEffect(() => {
+    setState(localStorage.getItem('lang')?localStorage.getItem('lang'):"ru")
     axios.get(`${url}/api/cars_get/`).then((res) => {
       axios.get(`${url}/api/images/`)
       .then((res1) => {
@@ -75,7 +78,7 @@ export default function Popular() {
   return (
   <>
   {
-        localStorage.getItem('lang') == "uz" ? (
+        state == "uz" ? (
           <div className="popular">
       <div className="popular_top">
         <h1>Mashhur brendlar</h1>

@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React, {useState,useEffect} from 'react'
 import Image from 'next/image'
 import logo from '../images/logo.png'
 import '../css/Footer.css'
@@ -7,13 +7,18 @@ import { FaFacebookF } from "react-icons/fa"
 import { FaTwitter } from "react-icons/fa"
 import { FaInstagram } from "react-icons/fa"
 import "../css/Featured.css"
+import "../../app/globals.css"
 
 export default function Footer () {
   // const [language, setLanguage ] = React.useState("ru")
+  const [state, setstate] = useState()
+  useEffect(() => {
+    setstate(localStorage.getItem('lang')?localStorage.getItem('lang'):"ru")
+  }, [])
   return (
     <>
       {
-            localStorage.getItem('lang') === "uz" ? (
+             state=== "uz" ? (
             
                <div className='footer'>
           <div className='footer_body'>

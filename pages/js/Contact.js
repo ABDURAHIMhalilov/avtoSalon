@@ -1,5 +1,5 @@
 'use client'
-import React from "react";
+import React ,{useEffect} from "react";
 
 import "../css/Contact.css";
 import Footer from "./Footer";
@@ -9,11 +9,15 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import Head from "next/head";
+import "../../app/globals.css"
 
 
 export default function Contact() {
-const [state, setstate] = React.useState(localStorage.getItem("lang"))
+const [state, setstate] = React.useState()
 
+useEffect(() => {
+setstate(localStorage.getItem("lang"))
+}, [])
   return (
     <div>
         <Head>

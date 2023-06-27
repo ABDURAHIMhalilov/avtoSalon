@@ -6,6 +6,7 @@ import Footer from "./Footer";
 import "../css/Login.css";
 import axios from "axios";
 import url from "./Host";
+import "../../app/globals.css"
 // import img from "./img/logo.png"
 // import galochka from "./img/Group 62.png"
 // import google from "./img/Group 61.png"
@@ -18,9 +19,10 @@ export default function Login() {
   const [data, setData] = React.useState(1);
   const [staff, setStaff] = React.useState();
   const [user, setUser] = useState([]);
-  const [ state, setState ] = React.useState(localStorage.getItem('lang'));
+  const [ state, setState ] = React.useState();
 
   const plus = () => {
+    setState(localStorage.getItem('lang'))
     setData(data + 1);
   };
   const minus = () => {
@@ -31,6 +33,7 @@ export default function Login() {
   function agerr(id) {
     setStaff(id);
   }
+
   function postUser() {
     console.log(staff);
     var usernamee = document.querySelector(".Phone").value;
@@ -83,7 +86,7 @@ export default function Login() {
             <button
               style={
                 data === 1
-                  ? { background: "#ff4605", border: "1px solid gray;" }
+                  ? { background: "#ff4605", border: "1px solid gray;", color:"white" }
                   : { background: "white" }
               }
               onClick={() => {
@@ -95,7 +98,7 @@ export default function Login() {
             <button
               style={
                 data === 2
-                  ? { background: "#ff4605", border: "10px solid gray ;" }
+                  ? { background: "#ff4605", border: "10px solid gray ;", color:"white" }
                   : { background: "white" }
               }
               onClick={() => {

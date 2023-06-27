@@ -11,6 +11,7 @@ import axios from "axios";
 import Image from "next/image";
 import { FiEdit } from "react-icons/fi";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import "../../app/globals.css"
 // import { Select, Space } from "antd";
 
 export default function Loginpage() {
@@ -19,7 +20,7 @@ export default function Loginpage() {
   const [manzil, setManzil] = React.useState([]);
   const [adress, setAdress] = React.useState([]);
   const [ adresput, setAdresput ] = React.useState([]);
-  const [ state, setState ] = React.useState(localStorage.getItem('lang'));
+  const [ state, setState ] = React.useState();
   // const [ users, setUsers ] = JSON.parse(localStorage.getItem('onemen'))
   // const provinceData = ['Zhejiang', 'Jiangsu'];
   // const cityData = {
@@ -39,6 +40,7 @@ export default function Loginpage() {
 
 
   function setLanguage() {
+    setState(localStorage.getItem('lang'))
     // var a=document.querySelector("#til").value
     // localStorage.setItem("lang",a)
     window.location.reload()
