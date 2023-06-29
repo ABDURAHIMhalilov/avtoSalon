@@ -24,6 +24,9 @@ export default function Login() {
   useEffect(()=>{
     setState(localStorage.getItem('lang'))
   },[])
+
+  
+
   const plus = () => {
     setData(data + 1);
   };
