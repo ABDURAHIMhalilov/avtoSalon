@@ -37,10 +37,12 @@ export default function Loginpage() {
   //     setSecondCity(value);
   // };
 
-
+useEffect(()=>{
+  setState(localStorage.getItem('lang'))
+},[])
 
   function setLanguage() {
-    setState(localStorage.getItem('lang'))
+    
     // var a=document.querySelector("#til").value
     // localStorage.setItem("lang",a)
     window.location.reload()
@@ -253,7 +255,7 @@ function editedAdd() {
       
       <div className="katta12">
         <div className="accaunt">
-          <h2>{state==='ru'?("Аккаунт"):("akkaunt")}</h2>
+          <h2>{state==='ru'?("Аккаунт"):("Akkaunt")}</h2>
           <div id="a1a" className="prof">
             <input type="file" />
             <FaUserAlt className="icon12" />
@@ -273,7 +275,7 @@ function editedAdd() {
                 document.querySelector(".all-button").style = "display:none";
               }}
             >
-              {state==='ru'?("Избранное"):("sevimlilar")}
+              {state==='ru'?("Избранное"):("Sevimlilar")}
               
             </button>
             <button
@@ -296,7 +298,7 @@ function editedAdd() {
                 window.location = "/";
               }}
             >
-              {state==='ru'?("Выход"):("chiqish")}
+              {state==='ru'?("Выход"):("Chiqish")}
               
             </button>
             <div className="prof">

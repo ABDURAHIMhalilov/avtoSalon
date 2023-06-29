@@ -21,8 +21,10 @@ export default function Login() {
   const [user, setUser] = useState([]);
   const [ state, setState ] = React.useState();
 
-  const plus = () => {
+  useEffect(()=>{
     setState(localStorage.getItem('lang'))
+  },[])
+  const plus = () => {
     setData(data + 1);
   };
   const minus = () => {

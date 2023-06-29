@@ -45,6 +45,10 @@
     width: 71px !important;
     margin-left: -10px;
 }
+.navbar{
+    position: relative;
+    z-index: 7;
+}
 .perevod{
     display: flex;
     justify-content: center;
@@ -135,6 +139,9 @@
     .navbar_left .a_fff,
     .navbar_right {
         width: auto;
+        display: none;
+    }
+    .perevod2{
         display: none;
     }
     .loginIn {
