@@ -312,7 +312,7 @@ export default function Search() {
               </Select>
             </FormControl>
           </Box>
-          <Box>
+          <Box className="inp11">
             <FormControl className='inpsearch'>
               <InputLabel id='demo-simple-select-label'>{languange==="ru"?("Коробка передач"):("Uzatish qutisi")}</InputLabel>
               <Select
@@ -333,18 +333,18 @@ export default function Search() {
             <input
               type='text'
               className='searchInp priceInp1'
-              placeholder={languange==="ru"?("Минимальная цена"):("Minimal narx")}
+              placeholder={languange==="ru"?("Мин. цена"):("Minimal narx")}
               onKeyUp={minChange}
 
             />
             <input
               type='text'
               className='searchInp priceInp2'
-              placeholder={languange==="ru"?("Максимальная цена"):("Maksimal narx")}
+              placeholder={languange==="ru"?("Макс. цена"):("Maksimal narx")}
               onKeyUp={maxChange}
             />
           </div>
-          <Box>
+          <Box className="inp10">
             <FormControl className='inpsearch'>
               <InputLabel id='demo-simple-select-label'>{languange==="ru"?("Гарантия"):("Kafolat")}</InputLabel>
               <Select
@@ -379,7 +379,7 @@ export default function Search() {
           </Box>
           <Box>
           </Box>
-          <Box>
+          <Box className="inp9">
             <FormControl className='inpsearch'>
 
               <input
@@ -393,6 +393,8 @@ export default function Search() {
               />
             </FormControl>
           </Box>
+
+          
         </div>
         <button className='btnOpen' onClick={openModal2}>
           {languange==="ru"?("Фильтр"):("Filtr")}
@@ -486,14 +488,14 @@ export default function Search() {
               <input
                 type='text'
                 className='searchInp priceInp1'
-                placeholder={languange==="ru"?("Минимальная цена"):("Minimal narx")}
+                placeholder={languange==="ru"?("Мин. цена"):("Minimal narx")}
                 onKeyUp={minChange}
 
               />
               <input
                 type='text'
                 className='searchInp priceInp2'
-                placeholder={languange==="ru"?("Максимальная цена"):("Maksimal narx")}
+                placeholder={languange==="ru"?("Макс. цена"):("Maksimal narx")}
                 onKeyUp={maxChange}
               />
             </div>
@@ -529,24 +531,9 @@ export default function Search() {
                 </Select>
               </FormControl>
             </Box>
-            <Box className='searchBox'>
-              <FormControl className='inpsearch2'>
-                <InputLabel id='demo-simple-select-label'>{languange==="ru"?("Филиал"):("Filial")}</InputLabel>
-                <Select
-                  labelId='demo-simple-select-label'
-                  id='demo-simple-select'
-                  value={selectBranch}
-                  // label='Drive'
-                  onChange={handleBranch}
-                >
-                  {branch.map(item => {
-                    return <MenuItem value={item.id}>{item.name}</MenuItem>
-                  })}
-                </Select>
-              </FormControl>
-            </Box>
-            <Box className='searchBox'>
-              <FormControl className='inpsearch2'>
+            
+            
+              <FormControl className='inpsearch2' id="inp1">
                 <input
                   className='searchInp input_year'
                   type="text"
@@ -557,7 +544,7 @@ export default function Search() {
                   onKeyUp={handleyear}
                 />
               </FormControl>
-            </Box>
+           
 
 
 
@@ -582,11 +569,11 @@ export default function Search() {
                     <img src={item.image[0] != undefined ? (item.image[0].image) : ("https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg")}
                       alt="no img" />
                     <div className='featCard_bottom'>
-                      <div className='feat-cardorab'><h3 className='featCard_name'>{item.name}</h3><del>{item.sale == 0 ? ("") : (`${item.price}.sum`)}</del></div>
+                      <div className='feat-cardorab'><h3 className='featCard_name'>{item.name}</h3><del>{item.sale == 0 ? ("") : (`${item.price}$`)}</del></div>
                       <h4 className='featCard_price'>{
                         item.sale == 0 ? (item.price) : (`${item.price - ((item.price * item.sale / 100).toFixed(0))}`)
 
-                      }.sum</h4>
+                      }$</h4>
                       <div className='featCard_box'>
                         <p className='featCard_year'>{item.year}</p>
                         <p className='featCard_auto'>{item.gearbox.name}</p>

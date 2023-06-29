@@ -1,14 +1,16 @@
 .search_top {
     width: 100%;
     padding: 20px 10vw;
-    background-color: #e7e9ee;
+    background-color: #f2f5fb;
+    display: flex;
 }
-
+*{
+    box-sizing: border-box;
+}
 .search_top_body {
-    width: 100%;
+    width: 14000px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
     flex-wrap: wrap;
 }
 
@@ -16,8 +18,11 @@
     width: 260px;
     background-color: #fff;
     margin-top: 10px;
+    border-radius: 10px;
 }
-
+.feat_card2 img{
+    width: 100% !important;
+}
 .searchInp {
     width: 260px;
     height: 55px;
@@ -30,26 +35,27 @@
     font-size: 16px;
     margin-top: 10px;
 }
-
 .boxPrice {
     width: 260px;
     display: flex;
     justify-content: space-between;
+    margin-left: 20px;
 }
 .input_year{
     width: 260px;
-    height: 50px;
+    height: 55px;
     border-radius: 5px 0 0 5px;
     margin-top: auto;
+    border-radius: 10px;
 }
 .priceInp1 {
     width: 49.5%;
-    border-radius: 5px 0 0 5px;
+    border-radius: 10px 0 0 10px;
 }
 
 .priceInp2 {
     width: 49.5%;
-    border-radius: 0 5px 5px 0;
+    border-radius: 0 10px 10px 0;
 }
 
 .mobile_search {
@@ -62,8 +68,11 @@
     padding: 20px 5%;
     z-index: 99;
     display: none;
+    overflow-y: scroll;
 }
-
+#inp1{
+    padding-bottom: 50px;
+}
 .mobile_top {
     display: flex;
     align-items: center;
@@ -171,7 +180,7 @@
 
 .feat_card2 {
     width: 23%;
-    height: 350px;
+    min-height: 350px;
     position: relative;
     cursor: pointer;
     bottom: 0;
@@ -185,9 +194,7 @@
 .featCard_bottom {
     width: 100%;
     background-color: #fff;
-    position: absolute;
-    bottom: 0;
-    left: 0;
+    
     color: #2c2c2c;
     padding: 10px 20px;
 }
@@ -219,8 +226,10 @@
 
 .featCard_price {
     margin-top: 5px;
-    font-size: 20px;
+    font-size: 22px;
+    font-weight: 900;
     text-align: right;
+    color: #ff4605;
 }
 
 .featCard_year {
@@ -272,12 +281,17 @@
     display: none;
     color: #99a1b2;
 }
-
+.css-0{
+    margin-left: 20px;
+}
 .result_wrapper {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    /* justify-content: space-between; */
+    justify-content: center;
+}
+.css-1yk1gt9-MuiInputBase-root-MuiOutlinedInput-root-MuiSelect-root{
+    border-radius: 10px !important;
 }
 
 .css-19micn4-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
@@ -295,7 +309,7 @@
     margin-top: 5% !important;
 }
 
-@media (max-width: 1320px) {
+/* @media (max-width: 1320px) {
     .inpsearch,
     .boxPrice,
     .searchInp {
@@ -316,7 +330,7 @@
     .feat_card2 {
         width: 31%;
     }
-}
+} */
 @media (max-width: 1500px) {
     .feat_card2 {
         width: 30%;
@@ -325,17 +339,37 @@
 @media (max-width: 1075px) {
     .feat_card2 {
         width: 28%;
-        height: 300px;
+        min-height: 300px;
     }
 }
 
 @media (max-width: 991px) {
     .search_top_body {
-        display: none;
+        display: none !important;
+    }
+    .search_body {
+        width: 100%;
+        padding: 0px;
+    }
+    .css-0{
+        margin-left: 0px;
+    }
+    .priceInp1, .priceInp2{
+        width: 49%;
+    }
+    .boxprice2{
+        width: 48.8% !important;
+    }
+    .input_year{
+        width: 100% !important;
+        margin-top: 10px;
+    }
+    .boxPrice{
+        margin-left: 0px;
     }
     .feat_card2 {
         width: 45%;
-        height: 350px;
+        min-height: auto;
     }
     .top_box p {
         display: none;
@@ -347,8 +381,8 @@
 }
 @media (max-width: 600px) {
     .feat_card2 {
-        width: 100%;
-        height: 350px;
+        width: 80%;
+        
     }
     .body_top {
         flex-direction: column;
@@ -359,7 +393,7 @@
     }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 600px) {
     .mobile_body {
         flex-direction: column;
     }
@@ -367,7 +401,23 @@
     .searchInp2,    
     .boxprice2,
     .searchBox {
-        width: 260px !important;
+        width: 100% !important;
+    }
+}
+
+@media(max-width:380px){
+    .feat_card2 {
+        width: 100%;
+    }
+}
+@media(max-width:1399px){
+    .search_top_body {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        /* justify-content: space-between; */
+        justify-content: center;
+        flex-wrap: wrap;
     }
 }
 
@@ -385,4 +435,55 @@
 }
 .feat-cardorab del{
 opacity: 0.6;
+}
+@media(max-width:1749px){
+    .inp9{
+        margin-left: 20px !important;
+    }
+    .search_top_body {
+        width: 1400px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .inp11{
+        margin-left: 40px;
+    }
+}
+
+@media(max-width:1460px){
+    .inp9{
+        margin-left: 20px !important;
+    }
+    .search_top_body {
+        width: 1120px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .inp11{
+        margin-left: 2%;
+    }
+}
+@media(max-width:1399px){
+    .inp11{
+        margin-left: 20px;
+    }
+}
+@media(max-width:1424px){
+    .inp9{
+        margin-left: 0px !important;
+    }
+}
+
+.inp9{
+    margin-left: 0px;
+
+}
+@media(max-width:1049px){
+    .inp10{
+        margin-left: 40px;
+    }
 }

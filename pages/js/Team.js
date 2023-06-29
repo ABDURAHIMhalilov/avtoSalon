@@ -64,6 +64,7 @@ export default function Team() {
               </div>
             </div>
             <button className="team_btn">{state==="ru"?("Узнать больше"):("Qo'shimcha")}</button>
+            
           </div>
           
 

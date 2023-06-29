@@ -20,7 +20,7 @@ export default function Featured() {
 
   useEffect(() => {
     setState(localStorage.getItem('lang')?localStorage.getItem('lang'):"ru")
-    axios.get(`${url}/api/cars_get/`).then((res) => {
+    axios.get(`${url}/api/${localStorage.getItem('lang')?localStorage.getItem('lang'):"ru"}/cars_get/`).then((res) => {
     
        axios.get(`${url}/api/images/`)
       .then((res1) => {
@@ -31,9 +31,10 @@ export default function Featured() {
           res.data[i].image.push(res1.data[j])
         }
       }}
+      console.log(res.data);
     setTimeout(() => {
        setCars(res.data) 
-    }, 10);
+    }, 30);
     
     
     })
@@ -49,7 +50,7 @@ export default function Featured() {
   function getData2(key) {
     console.log(key);
     localStorage.setItem("oneproduct", JSON.stringify(key));
-    window.location = "/onecar";
+    window.location = "/js/Bmw8";
   }
 
   return (
