@@ -38,10 +38,10 @@ export default function Bmw8() {
   const [cars, setCars] = useState([]);
   const [state,setstate] = useState([])
 
-  var [data, setData] = useState(
-    JSON.parse(localStorage.getItem("oneproduct")!=null? `${localStorage.getItem("oneproduct")}`: "[]"
-    )
-  );
+  // var [data, setData] = useState(
+  //   JSON.parse(localStorage.getItem("oneproduct")!=null? `${localStorage.getItem("oneproduct")}`: "[]"
+  //   )
+  // );
 
   function defectOpen() {
     document.querySelector(".defectDiv").style = "display: block;";
@@ -233,18 +233,18 @@ export default function Bmw8() {
         <div className="dfc">
           <div className="swip">
             <div className="hf1">
-              <h1>{data.name}</h1>
+              {/* <h1>{data.name}</h1> */}
             </div>
             <div className="lk1">
-              <p>{data.year}</p>
+              {/* <p>{data.year}</p> */}
               <ul className="l2">
                 <li>
                   {" "}
-                  <p>{data.gearbox.name}</p>
+                  {/* <p>{data.gearbox.name}</p> */}
                 </li>
                 <li className="lip">
                   {" "}
-                  <p>{data.fuel_sort.name}</p>
+                  {/* <p>{data.fuel_sort.name}</p> */}
                 </li>
               </ul>
             </div>
@@ -257,7 +257,7 @@ export default function Bmw8() {
               modules={[FreeMode, Navigation, Thumbs]}
               className="mySwiper2"
             >
-              {data.image.map((item2) => {
+              {/* {data.image.map((item2) => {
                 if (data.id === item2.car) {
                   return (
                     <SwiperSlide>
@@ -279,7 +279,7 @@ export default function Bmw8() {
                     </SwiperSlide>
                   );
                 }
-              })}
+              })} */}
             </Swiper>
             <Swiper
               onSwiper={setThumbsSwiper}
@@ -291,7 +291,7 @@ export default function Bmw8() {
               modules={[FreeMode, Navigation, Thumbs]}
               className="mySwiper"
             >
-              {data.image.map((item2) => {
+              {/* {data.image.map((item2) => {
                 if (data.id === item2.car) {
                   return (
                     <SwiperSlide>
@@ -313,12 +313,12 @@ export default function Bmw8() {
                     </SwiperSlide>
                   );
                 }
-              })}
+              })} */}
             </Swiper>
           </div>
           <div className="ypn1">
             <div className="dollars">
-              <h1>${data.price}</h1>
+              {/* <h1>${data.price}</h1> */}
               <p>
                 {" "}
                 <span>
@@ -332,15 +332,15 @@ export default function Bmw8() {
                 <table style={{ width: "100%", paddingTop: "30px" }}>
                   <tr className="maky1">
                     <th>{state === 'ru' ? ("Делать:") : ("Qilish:")}</th>
-                    <td>{data.position.series.model.name}</td>
+                    {/* <td>{data.position.series.model.name}</td> */}
                   </tr>
                   <tr className="maky1">
                     <th>{state === 'ru' ? ("Модель:") : ("Model:")}</th>
-                    <td>{data.position.series.name}</td>
+                    {/* <td>{data.position.series.name}</td> */}
                   </tr>
                   <tr className="maky1">
                     <th>{state === 'ru' ? ("Цвет:") : ("Rang:")}</th>
-                    <td>{data.colour}</td>
+                    {/* <td>{data.colour}</td> */}
                   </tr>
                   <tr className="maky1">
                     <th>{state === 'ru' ? ("Тип вождения:") : ("haydash turi:")}</th>
@@ -348,23 +348,23 @@ export default function Bmw8() {
                   </tr>
                   <tr className="maky1">
                     <th>{state === 'ru' ? ("ТрансЦветная миссия:") : ("Transcolor missiyasi:")}</th>
-                    <td>{data.gearbox.name}</td>
+                    {/* <td>{data.gearbox.name}</td> */}
                   </tr>
                   <tr className="maky1">
                     <th>{state === 'ru' ? ("Состояние:") : ("Davlat:")}</th>
-                    <td>{data.distance > 2 ? "NEW" : "B/Y"}</td>
+                    {/* <td>{data.distance > 2 ? "NEW" : "B/Y"}</td> */}
                   </tr>
                   <tr className="maky1">
                     <th>{state === 'ru' ? ("Год:") : ("Yil:")}</th>
-                    <td>{data.year}</td>
+                    {/* <td>{data.year}</td> */}
                   </tr>
                   <tr className="maky1">
                     <th>{state === 'ru' ? ("Тип топлива:") : ("Yoqilg'i turi:")}</th>
-                    <td>{data.fuel_sort.name}</td>
+                    {/* <td>{data.fuel_sort.name}</td> */}
                   </tr>
                   <tr className="maky1">
                     <th>{state === 'ru' ? ("Размер двигателя:") : ("Dvigatel hajmi:")}</th>
-                    <td>{data.engine}L</td>
+                    {/* <td>{data.engine}L</td> */}
                   </tr>
                   <tr className="maky1">
                     <th>{state === 'ru' ? ("Цилиндры:") : ("Silindrlar:")}</th>
@@ -372,7 +372,7 @@ export default function Bmw8() {
                   </tr>
                   <tr className="maky1">
                     <th>{state === 'ru' ? ("ВИН:") : ("VIN:")}</th>
-                    <td>{data.id}</td>
+                    {/* <td>{data.id}</td> */}
                   </tr>
                 </table>
               </div>
@@ -381,9 +381,9 @@ export default function Bmw8() {
                   "no defect"
                 ) : (
                   <a href="#page">
-                    <button className="spend" onClick={() => defectOpen(data.id)}>
+                    {/* <button className="spend" onClick={() => defectOpen(data.id)}>
                       {state === 'ru' ? ("дефект") : ("nuqson")}
-                    </button>
+                    </button> */}
                   </a>
                 )}
                 {user ? (
@@ -536,23 +536,23 @@ export default function Bmw8() {
         <div className="ypn">
           <div className="hf">
             <h1>
-              {data.position.series.model.name} &nbsp;
+              {/* {data.position.series.model.name} &nbsp;
               {data.position.series.name}&nbsp;
-              {data.colour}
+              {data.colour} */}
             </h1>
           </div>
           <div className="lk">
-            <p>{data.year}</p>
+            {/* <p>{data.year}</p> */}
             <ul className="l1">
               <li className="lip">
                 {" "}
-                <p>{data.fuel_sort.name}</p>
+                {/* <p>{data.fuel_sort.name}</p> */}
               </li>
             </ul>
           </div>
           <hr className="asdda" />
           <div className="dollars">
-            <h1>${data.price}</h1>
+            {/* <h1>${data.price}</h1> */}
             <p>
               {" "}
               <span>
@@ -565,15 +565,15 @@ export default function Bmw8() {
             <table style={{ width: "100%", paddingTop: "30px" }}>
               <tr className="maky1">
                 <th>{state === 'ru' ? ("Делать:") : ("Qilish:")}</th>
-                <td>{data.position.series.model.name}</td>
+                {/* <td>{data.position.series.model.name}</td> */}
               </tr>
               <tr className="maky1">
                 <th>{state === 'ru' ? ("Модель:") : ("Model:")}</th>
-                <td>{data.position.series.name}</td>
+                {/* <td>{data.position.series.name}</td> */}
               </tr>
               <tr className="maky1">
                 <th>{state === 'ru' ? ("Цвет:") : ("Rang:")}</th>
-                <td>{data.colour}</td>
+                {/* <td>{data.colour}</td> */}
               </tr>
               <tr className="maky1">
                 <th>{state === 'ru' ? ("Тип вождения:") : ("Haydash turi:")}</th>
@@ -581,23 +581,23 @@ export default function Bmw8() {
               </tr>
               <tr className="maky1">
                 <th>{state === 'ru' ? ("TransColormission:") : ("Rangni o'zgartirish:")}</th>
-                <td>{data.gearbox.name}</td>
+                {/* <td>{data.gearbox.name}</td> */}
               </tr>
               <tr className="maky1">
                 <th>{state === 'ru' ? ("Состояние:") : ("Davlat:")}</th>
-                <td>{data.distance > 2 ? "NEW" : "B/Y"}</td>
+                {/* <td>{data.distance > 2 ? "NEW" : "B/Y"}</td> */}
               </tr>
               <tr className="maky1">
                 <th>{state === 'ru' ? ("Год:") : ("Yil:")}</th>
-                <td>{data.year}</td>
+                {/* <td>{data.year}</td> */}
               </tr>
               <tr className="maky1">
                 <th>{state === 'ru' ? ("Тип топлива:") : ("Yoqilg'i turi:")}</th>
-                <td>{data.fuel_sort.name}</td>
+                {/* <td>{data.fuel_sort.name}</td> */}
               </tr>
               <tr className="maky1">
                 <th>{state === 'ru' ? ("Размер двигателя:") : ("Dvigatel hajmi:")}</th>
-                <td>{data.engine}L</td>
+                {/* <td>{data.engine}L</td> */}
               </tr>
               <tr className="maky1">
                 <th>{state === 'ru' ? ("Цилиндры:") : ("Silindrlar:")}</th>
@@ -605,7 +605,7 @@ export default function Bmw8() {
               </tr>
               <tr className="maky1">
                 <th>{state === 'ru' ? ("VIN:") : ("G'alaba qozonish:")}</th>
-                <td>{data.id}</td>
+                {/* <td>{data.id}</td> */}
               </tr>
             </table>
           </div>
@@ -614,9 +614,9 @@ export default function Bmw8() {
               "no defect"
             ) : (
               <a href="#page">
-                <button className="spend" onClick={() => defectOpen(data.id)}>
+                {/* <button className="spend" onClick={() => defectOpen(data.id)}>
                   {state === 'ru' ? ("Дефект") : ("Kamchilik")}
-                </button>
+                </button> */}
               </a>
             )}
             {user ? (
@@ -669,12 +669,12 @@ export default function Bmw8() {
                   <input
                     placeholder="Имя"
                     className="visit_name"
-                    type="text"
+                    type="text" 
                   />
                   <input
                     placeholder="Email*"
                     className="visit_email"
-                    type="date"
+                    type="date" id="mnbh"
                   />
                   <input
                     placeholder="Телефон"
@@ -686,7 +686,7 @@ export default function Bmw8() {
               </div>
               <textarea
                 placeholder="Cообщение*"
-                className="texta visit_deck"
+                className="texta visit_deck" id="mnbh"
               ></textarea>
               <select className="visit_brench">
                 {branchs.map((item) => {

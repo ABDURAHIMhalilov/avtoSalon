@@ -113,6 +113,10 @@
     #per{
         width: 28px !important;
     }
+    .navbar_left {
+        margin: 0px;
+        width: 0px !important;
+    }
     #pere{
         width: 55px !important;
         margin-left: -10px;
