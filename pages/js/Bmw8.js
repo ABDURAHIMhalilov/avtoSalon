@@ -36,6 +36,7 @@ export default function Bmw8() {
   const [branchs, setBranchs] = useState([]);
   const [getavto, setAvto] = useState([]);
   const [cars, setCars] = useState([]);
+  const [state,setstate] = useState([])
 
   var [data, setData] = useState(
     JSON.parse(localStorage.getItem("oneproduct")!=null? `${localStorage.getItem("oneproduct")}`: "[]"
@@ -84,6 +85,7 @@ export default function Bmw8() {
       });
   }
   useEffect(() => {
+    setstate(localStorage.getItem("lang"))
     setUser(localStorage.getItem("onemen") != null
       ? JSON.parse(localStorage.getItem("onemen"))
       : false)

@@ -92,7 +92,7 @@ export default function Search() {
   function getData2(key) {
     console.log(key);
     localStorage.setItem("oneproduct", JSON.stringify(key))
-    window.location = "/onecar"
+    window.location = "/js/Bmw8"
   }
 
   const handleChange = (event) => {

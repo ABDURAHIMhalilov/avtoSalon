@@ -27,7 +27,7 @@ export default function Home() {
   const [models, setModels] = React.useState([]);
   const [series, setSeries] = React.useState([]);
   const [position, setPosition] = React.useState([]);
-  const [language, setLanguage] = React.useState([])
+  const [language, setLanguage] = React.useState(localStorage.getItem('lang'))
 
 
   const getAllSearch = () => {
@@ -40,8 +40,9 @@ export default function Home() {
     window.location = "/cars"
   }
 
+
+
   useEffect(() => {
-    setLanguage( localStorage.getItem('lang'))
     axios.get(`${url}/api/models/`).then((res) => {
       setModels(res.data);
     });

@@ -106,11 +106,11 @@ useEffect(() => {
           {/* {state==="ru"?( <img src="https://st.depositphotos.com/1575949/1356/v/450/depositphotos_13564006-stock-illustration-russia-flag-butto.jpg" alt="" />):( <img id="pere" src="https://img.freepik.com/premium-vector/uzbekistan-flag-button-round-flag-of-uzbekistan-vector-flag-symbol-colors-and-proportion-correctly_847658-237.jpg?w=826" alt="" />)} */}
          {
           user ? (
-             <a href="/login">
+             <a href="/js/Login">
           <AiOutlineUser className="user_icon" id="user1" />
          </a>
           ) : (
-             <a href="/userpaage">
+             <a href="/js/Loginpage">
           <AiOutlineUser className="user_icon" id="user1" />
          </a>
           )
@@ -150,7 +150,7 @@ useEffect(() => {
           <div className="navbar_right">
             <div className="loginIn">
               <AiOutlineUser className="user_icon" />
-              <Link href="/userpage" className="a_fff">
+              <Link href="/js/Loginpage" className="a_fff">
                 {user.username}
               </Link>
             </div>
@@ -166,7 +166,7 @@ useEffect(() => {
                 Войти в систему
               </Link>
               ) : (
-                <Link style={{ width: '129px' }} href="/js/Login" className="a_fff" id="a_df">
+                <Link  style={{ width: '129px' }} href="/js/Login" className="a_fff" id="a_df">
                   Tizimga kirish
                 </Link>
               )}
@@ -174,7 +174,7 @@ useEffect(() => {
               {/* </a> */}
             </div>
             {/* <a href="/login" className="a_fff"> */}
-            <Link href="/js/Login" className="a_fff" id="a_sd">
+            <Link  href="/js/Login" className="a_fff" id="a_sd">
               {state === 'ru' ? ("Регистрация") : ("Ro'yxatdan o'tish")}
             </Link>
           </div>
