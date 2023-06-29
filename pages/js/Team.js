@@ -72,7 +72,7 @@ export default function Team() {
         spaceBetween={30}
         loop={false}
         // navigation={true}
-        navigation={{
+        pagination={{
           clickable: true,
         }}
         modules={[Navigation, Pagination]}
