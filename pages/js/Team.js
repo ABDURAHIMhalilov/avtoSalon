@@ -15,7 +15,9 @@ import ralfimg from "../images/p1-1-336x284.jpg"
 import { MdEmail } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 import "swiper/css/navigation";
-import { Pagination,Navigation } from "swiper";
+import { Pagination,Navigation, A11y } from "swiper";
+
+
 
 import "../../app/globals.css"
 import "../../app/page.module.css"
@@ -62,9 +64,6 @@ export default function Team() {
               </div>
             </div>
             <button className="team_btn">{state==="ru"?("Узнать больше"):("Qo'shimcha")}</button>
-            <BottomNavigation>
-    <BottomNavigationAction /> 
-</BottomNavigation>
           </div>
           
 
@@ -74,12 +73,10 @@ export default function Team() {
         id="swiper2"
         slidesPerView={"auto"}
         spaceBetween={30}
-        loop={false}
-        // navigation={true}
         pagination={{
           clickable: true,
         }}
-        modules={[Navigation, Pagination]}
+        modules={[Navigation, Pagination, A11y]}
         className="mySwiper"
         breakpoints={{
           0: {
@@ -104,7 +101,7 @@ export default function Team() {
           }
         }}
       >
-          
+
         <SwiperSlide className="team_card1">
               <Image src={emilyimg} alt="" />
               <div className="Tcard_box1">
@@ -225,6 +222,8 @@ export default function Team() {
                 </a>
               </div>
             </SwiperSlide>
+           
+             
       </Swiper>
 
 

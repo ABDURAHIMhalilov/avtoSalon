@@ -365,3 +365,6 @@
     width: 100%;
   }
 }
+.navbutton{
+  position: absolute;
+}
