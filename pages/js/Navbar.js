@@ -150,7 +150,7 @@ useEffect(() => {
           <div className="navbar_right">
             <div className="loginIn">
               <AiOutlineUser className="user_icon" />
-              <Link href="/userpage" className="a_fff">
+              <Link href="/js/Loginpage" className="a_fff">
                 {user.username}
               </Link>
             </div>
