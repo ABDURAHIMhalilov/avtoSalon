@@ -38,10 +38,7 @@ export default function Bmw8() {
   const [cars, setCars] = useState([]);
 
   var [data, setData] = useState(
-    JSON.parse(
-      localStorage.getItem("oneproduct")
-        ? `${localStorage.getItem("oneproduct")}`
-        : "[]"
+    JSON.parse(localStorage.getItem("oneproduct")!=null? `${localStorage.getItem("oneproduct")}`: "[]"
     )
   );
 
