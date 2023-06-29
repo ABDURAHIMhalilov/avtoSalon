@@ -16,6 +16,7 @@ import { MdEmail } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 import "swiper/css/navigation";
 import { Pagination,Navigation } from "swiper";
+
 import "../../app/globals.css"
 import "../../app/page.module.css"
 // import { Navigation } from "swiper";
@@ -61,6 +62,9 @@ export default function Team() {
               </div>
             </div>
             <button className="team_btn">{state==="ru"?("Узнать больше"):("Qo'shimcha")}</button>
+            <BottomNavigation>
+    <BottomNavigationAction /> 
+</BottomNavigation>
           </div>
           
 

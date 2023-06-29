@@ -27,7 +27,7 @@ export default function Home() {
   const [models, setModels] = React.useState([]);
   const [series, setSeries] = React.useState([]);
   const [position, setPosition] = React.useState([]);
-  const [language, setLanguage] = React.useState((localStorage.getItem('lang')))
+  const [language, setLanguage] = React.useState(localStorage.getItem('lang'))
 
 
   const getAllSearch = () => {
