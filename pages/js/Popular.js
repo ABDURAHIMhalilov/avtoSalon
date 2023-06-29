@@ -20,7 +20,7 @@ export default function Popular() {
 
   useEffect(() => {
     setState(localStorage.getItem('lang')?localStorage.getItem('lang'):"ru")
-    axios.get(`${url}/api/cars_get/`).then((res) => {
+    axios.get(`${url}/api/${localStorage.getItem('lang')?localStorage.getItem('lang'):"ru"}/cars_get/`).then((res) => {
       axios.get(`${url}/api/images/`)
       .then((res1) => {
        for (let i = 0; i < res.data.length; i++) {
