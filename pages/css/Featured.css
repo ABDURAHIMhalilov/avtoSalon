@@ -19,7 +19,7 @@
 }
 .featured_left {
     width: 48%;
-    height: 40vw;
+    /* height: 40vw; */
     position: relative;
     cursor: pointer;
     overflow: hidden;
@@ -36,7 +36,7 @@
 }
 .featured_img {
     width: 100%;
-    height: 80%;
+    height: 80% !important;
     min-height:150px;
     transition: .8s;
 }
@@ -300,6 +300,10 @@
     }
 }
 
+@media (max-width:2270px) {
+    
+}
+
 .feat_p{
     width: 30%;
     height: 40px;
@@ -315,4 +319,7 @@
     top: -560px;
     background: #ff6505 !important;
     right: -40px;
+}
+.featured_img_size{
+    overflow: hidden;
 }

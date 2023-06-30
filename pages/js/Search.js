@@ -41,7 +41,7 @@ export default function Search() {
 
   const abbasFilter = (model1, seria1, position1, gearBox1, fuelsort1, garant1, branch1, year1, mincount1, maxcount1) => {
     var pushdata = []
-    axios.get(`${url}/api/uz/cars_get/`).then(res => {
+    axios.get(`${url}/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/cars_get/`).then(res => {
       axios.get(`${url}/api/images/`)
         .then((res1) => {
           for (let i = 0; i < res.data.length; i++) {
@@ -115,7 +115,7 @@ export default function Search() {
     setSelectSeries(event.target.value);
     console.log(event.target.value, "kkkk");
 
-    axios.get(`${url}/api/uz/position_get/`).then(res2 => {
+    axios.get(`${url}/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/position_get/`).then(res2 => {
       const search2 = res2.data.filter(item => item.series.id === event.target.value)
       setSelectPosition("")
       if (event.target.value = "") {
@@ -180,7 +180,7 @@ export default function Search() {
   function getData(key) {
     console.log(key);
     localStorage.setItem("oneproduct", JSON.stringify(key))
-    window.location = "/onecar"
+    window.location = "/js/Bmw8"
   }
 
   const openModal2 = () => {
@@ -191,7 +191,7 @@ export default function Search() {
   }
   useEffect(() => {
     setlanguange(localStorage.getItem("lang"))
-    axios.get(`${url}/api/uz/cars_get/`).then(res => {
+    axios.get(`${url}/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/cars_get/`).then(res => {
       axios.get(`${url}/api/images/`)
         .then((res1) => {
           for (let i = 0; i < res.data.length; i++) {
@@ -213,19 +213,19 @@ export default function Search() {
       console.log(err, "salom");
     })
 
-    axios.get(`${url}/api/uz/models/`).then(res => {
+    axios.get(`${url}/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/models/`).then(res => {
       setModel(res.data)
-      axios.get(`${url}/api/uz/series_get/`).then(res2 => {
+      axios.get(`${url}/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/series_get/`).then(res2 => {
         setSeries(res2.data)
-        axios.get(`${url}/api/uz/position_get/`).then(res3 => {
+        axios.get(`${url}/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/position_get/`).then(res3 => {
           setPosition(res3.data)
-          axios.get(`${url}/api/uz/fuel_sort/`).then(res4 => {
+          axios.get(`${url}/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/fuel_sort/`).then(res4 => {
             setFuelsort(res4.data)
-            axios.get(`${url}/api/uz/gear_box/`).then(res5 => {
+            axios.get(`${url}/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/gear_box/`).then(res5 => {
               setGearBox(res5.data)
-              axios.get(`${url}/api/uz/garant/`).then(res6 => {
+              axios.get(`${url}/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/garant/`).then(res6 => {
                 setgarant(res6.data)
-                axios.get(`${url}/api/uz/branch/`).then(res7 => {
+                axios.get(`${url}/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/branch/`).then(res7 => {
                   setBranch(res7.data)
                 })
               })
@@ -564,8 +564,15 @@ export default function Search() {
             if (key > page - 2 && key < page * 10) {
               return (
                 <div key={key} onClick={() => getData(item)} className='feat_card2'>
-                  <div>
-                    <h1 className="salesale">{item.sale == 0 ? ("") : (`${item.sale}%`)}</h1>
+                    
+                    {/* <h1 className="salesale"></h1> */}
+                    <div id="corner-ribbon">
+	<div  style={item.sale == 0 ? { display: "none" }:{ display: "flex" }}>
+    <div>
+      <div><h2 className='sa'>{item.sale == 0 ? ("") : (`${item.sale}%`)}</h2></div>
+    </div>
+  </div>
+</div>
                     <img src={item.image[0] != undefined ? (item.image[0].image) : ("https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg")}
                       alt="no img" />
                     <div className='featCard_bottom'>
@@ -580,7 +587,7 @@ export default function Search() {
                         <p className='featCard_pet'>{item.fuel_sort.name}</p>
                       </div>
                     </div>
-                  </div>
+                  
                 </div>
               )
             }
