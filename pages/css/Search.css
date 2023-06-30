@@ -163,8 +163,12 @@
 .body_top {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     margin-top: 2%;
+}
+.body_top h2{
+    font-size: 30px;
+    font-weight: 900;
 }
 
 .top_box {
@@ -231,7 +235,7 @@
     height: 25px;
     overflow: hidden;
     font-weight: 400;
-    font-size: 16px;
+    font-size: 18px;
 }
 
 .featCard_price {
@@ -243,8 +247,8 @@
 }
 
 .featCard_year {
-    background-color: #ff6505;
-    padding: 2px 8px;
+    background-color: #ff4605;
+    padding: 5px 10px;
     border-radius: 5px;
     color: #fff !important;
     opacity: 1 !important;
@@ -354,6 +358,8 @@
     }
 } */
 
+
+
 @media(max-width:800px){
     #corner-ribbon > div > div {
         background: transparent;
@@ -415,10 +421,10 @@
     }
 }
 @media (max-width: 600px) {
-    .feat_card2 {
+    /* .feat_card2 {
         width: 80%;
         
-    }
+    } */
     .body_top {
         flex-direction: column;
     }
@@ -440,11 +446,11 @@
     }
 }
 
-@media(max-width:380px){
+/* @media(max-width:380px){
     .feat_card2 {
         width: 100%;
     }
-}
+} */
 @media(max-width:1399px){
     .search_top_body {
         width: 100%;

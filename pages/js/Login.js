@@ -5,7 +5,6 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import "../css/Login.css";
 import axios from "axios";
-import url from "./Host";
 import "../../app/globals.css"
 // import img from "./img/logo.png"
 // import galochka from "./img/Group 62.png"
@@ -49,7 +48,7 @@ export default function Login() {
     data.append("password", document.querySelector(".Password").value);
     data.append("is_staff", false);
     axios
-      .post(`${url}/auth/register/`, data)
+      .post(`https://api.baracar.uz/auth/register/`, data)
       .then((res) => {
         localStorage.setItem("Token_user", res.data.access);
         alert("success");
@@ -65,7 +64,7 @@ export default function Login() {
     var usernamee = document.querySelector(".userNameEmail").value;
     datta.append("phone", usernamee);
     datta.append("password", document.querySelector(".userPassword").value);
-    axios.post(`${url}/auth/login/`, datta)
+    axios.post(`https://api.baracar.uz/auth/login/`, datta)
       .then((res) => {
         // res.data.map(item => {
         // if (res.data.username === asd && res.data.password === asd2) {
