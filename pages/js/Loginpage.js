@@ -6,7 +6,6 @@ import Footer from "./Footer";
 import "../css/Loginpage.css";
 import { FaUserAlt } from "react-icons/fa";
 import { AiOutlineCamera } from "react-icons/ai";
-import url from "./Host";
 import axios from "axios";
 import Image from "next/image";
 import { FiEdit } from "react-icons/fi";
@@ -61,7 +60,7 @@ useEffect(()=>{
   useEffect(() => {
     var usernameUs = localStorage.getItem("username");
     axios
-      .get(`${url}/auth/users/`, {
+      .get(`https://api.baracar.uz/auth/users/`, {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("Token_user"),
         },
@@ -83,7 +82,7 @@ useEffect(()=>{
 
     var users = JSON.parse(localStorage.getItem("onemen"));
 
-    axios.get(`${url}/auth/adress/`).then((res) => {
+    axios.get(`https://api.baracar.uz/auth/adress/`).then((res) => {
       var aa = [];
       res.data.map((item) => {
         if (item.user == users.id) {
@@ -117,7 +116,7 @@ data.append(
     data.append("phone", document.querySelector(".phone").value);
     data.append("username", document.querySelector(".username").value);
     axios
-      .put(`${url}/auth/users/${user.id}/`, data, {
+      .put(`https://api.baracar.uz/auth/users/${user.id}/`, data, {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("Token_user"),
         },
@@ -146,7 +145,7 @@ data.append(
     data.append("street", document.querySelector(".streetSlc").value);
     data.append("user", user.id);
     axios
-      .post(`${url}/auth/adress/`, data, {
+      .post(`https://api.baracar.uz/auth/adress/`, data, {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("Token_user"),
         },
@@ -180,7 +179,7 @@ data.append(
       document.querySelector(".restPassword").value
     );
     axios
-      .put(`${url}/auth/change_password/`, psData, {
+      .put(`https://api.baracar.uz/auth/change_password/`, psData, {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("Token_user"),
         },
@@ -196,7 +195,7 @@ data.append(
 
   function deleteAdress(key) {
     axios
-      .delete(`${url}/auth/adress/${key}/`, {
+      .delete(`https://api.baracar.uz/auth/adress/${key}/`, {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("Token_user"),
         },
@@ -214,7 +213,7 @@ data.append(
     localStorage.setItem('keyAddres', key)
     console.log(key);
     document.querySelector('.adres2Big').style = 'display: flex'
-    axios.get(`${url}/auth/adress/${key}/`).then(res => {
+    axios.get(`https://api.baracar.uz/auth/adress/${key}/`).then(res => {
       setAdresput(res.data)
       document.querySelector('#countrySlc2').value = res.data.country
       document.querySelector('#regionSlc2').value = res.data.region
@@ -239,7 +238,7 @@ function editedAdd() {
     data.append('district', document.querySelector('.districtSlc2').value)
     data.append('street', document.querySelector('.streetSlc2').value)
     data.append('user', locals2.id)
-    axios.put(`${url}/auth/adress/${locals}/`, data,  {
+    axios.put(`https://api.baracar.uz/auth/adress/${locals}/`, data,  {
       headers: {
         Authorization: "Bearer " + localStorage.getItem("Token_user"),
       },
