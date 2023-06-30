@@ -180,7 +180,7 @@ export default function Search() {
   function getData(key) {
     console.log(key);
     localStorage.setItem("oneproduct", JSON.stringify(key))
-    window.location = "/onecar"
+    window.location = "/js/Bmw8"
   }
 
   const openModal2 = () => {
@@ -564,8 +564,15 @@ export default function Search() {
             if (key > page - 2 && key < page * 10) {
               return (
                 <div key={key} onClick={() => getData(item)} className='feat_card2'>
-                  <div>
-                    <h1 className="salesale">{item.sale == 0 ? ("") : (`${item.sale}%`)}</h1>
+                    
+                    {/* <h1 className="salesale"></h1> */}
+                    <div id="corner-ribbon">
+	<div  style={item.sale == 0 ? { display: "none" }:{ display: "flex" }}>
+    <div>
+      <div><h2 className='sa'>{item.sale == 0 ? ("") : (`${item.sale}%`)}</h2></div>
+    </div>
+  </div>
+</div>
                     <img src={item.image[0] != undefined ? (item.image[0].image) : ("https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg")}
                       alt="no img" />
                     <div className='featCard_bottom'>
@@ -580,7 +587,7 @@ export default function Search() {
                         <p className='featCard_pet'>{item.fuel_sort.name}</p>
                       </div>
                     </div>
-                  </div>
+                  
                 </div>
               )
             }
