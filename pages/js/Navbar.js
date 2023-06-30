@@ -9,7 +9,6 @@ import { BiMenuAltLeft } from "react-icons/bi";
 import { MdClose } from "react-icons/md";
 import "../css/Navbar.css";
 import axios from "axios";
-import url from "./Host";
 import Link from "next/link";
 import '@/app/globals.css'
 // import "../../app/globals.css"

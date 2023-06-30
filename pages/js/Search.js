@@ -11,7 +11,6 @@ import Select from '@mui/material/Select'
 import { IoIosCloseCircle } from 'react-icons/io'
 import Pagination from '@mui/material/Pagination';
 import axios from "axios";
-import url from './Host'
 import Stack from '@mui/material/Stack';
 import "../../app/globals.css"
 export default function Search() {
@@ -41,8 +40,8 @@ export default function Search() {
 
   const abbasFilter = (model1, seria1, position1, gearBox1, fuelsort1, garant1, branch1, year1, mincount1, maxcount1) => {
     var pushdata = []
-    axios.get(`${url}/api/uz/cars_get/`).then(res => {
-      axios.get(`${url}/api/images/`)
+    axios.get(`https://api.baracar.uz/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/cars_get/`).then(res => {
+      axios.get(`https://api.baracar.uz/api/images/`)
         .then((res1) => {
           for (let i = 0; i < res.data.length; i++) {
             res.data[i].image = []
@@ -102,7 +101,7 @@ export default function Search() {
     console.log(event.target.value, "kkkk");
     abbasFilter(event.target.value, "", "", selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount)
     setSelectModel(event.target.value);
-    axios.get(`${url}/api/uz/series_get/`).then(res => {
+    axios.get(`https://api.baracar.uz/api/uz/series_get/`).then(res => {
       const search = res.data.filter(item => item.model.id === event.target.value)
       setSeries(search)
       setSelectSeries("")
@@ -115,7 +114,7 @@ export default function Search() {
     setSelectSeries(event.target.value);
     console.log(event.target.value, "kkkk");
 
-    axios.get(`${url}/api/uz/position_get/`).then(res2 => {
+    axios.get(`https://api.baracar.uz/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/position_get/`).then(res2 => {
       const search2 = res2.data.filter(item => item.series.id === event.target.value)
       setSelectPosition("")
       if (event.target.value = "") {
@@ -191,8 +190,8 @@ export default function Search() {
   }
   useEffect(() => {
     setlanguange(localStorage.getItem("lang"))
-    axios.get(`${url}/api/uz/cars_get/`).then(res => {
-      axios.get(`${url}/api/images/`)
+    axios.get(`https://api.baracar.uz/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/cars_get/`).then(res => {
+      axios.get(`https://api.baracar.uz/api/images/`)
         .then((res1) => {
           for (let i = 0; i < res.data.length; i++) {
             res.data[i].image = []
@@ -213,19 +212,19 @@ export default function Search() {
       console.log(err, "salom");
     })
 
-    axios.get(`${url}/api/uz/models/`).then(res => {
+    axios.get(`https://api.baracar.uz/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/models/`).then(res => {
       setModel(res.data)
-      axios.get(`${url}/api/uz/series_get/`).then(res2 => {
+      axios.get(`https://api.baracar.uz/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/series_get/`).then(res2 => {
         setSeries(res2.data)
-        axios.get(`${url}/api/uz/position_get/`).then(res3 => {
+        axios.get(`https://api.baracar.uz/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/position_get/`).then(res3 => {
           setPosition(res3.data)
-          axios.get(`${url}/api/uz/fuel_sort/`).then(res4 => {
+          axios.get(`https://api.baracar.uz/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/fuel_sort/`).then(res4 => {
             setFuelsort(res4.data)
-            axios.get(`${url}/api/uz/gear_box/`).then(res5 => {
+            axios.get(`https://api.baracar.uz/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/gear_box/`).then(res5 => {
               setGearBox(res5.data)
-              axios.get(`${url}/api/uz/garant/`).then(res6 => {
+              axios.get(`https://api.baracar.uz/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/garant/`).then(res6 => {
                 setgarant(res6.data)
-                axios.get(`${url}/api/uz/branch/`).then(res7 => {
+                axios.get(`https://api.baracar.uz/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/branch/`).then(res7 => {
                   setBranch(res7.data)
                 })
               })

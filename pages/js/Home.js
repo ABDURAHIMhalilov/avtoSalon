@@ -14,7 +14,7 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import axios from "axios";
 import Head from "next/head";
-import url from "./Host";
+
 import "../../app/globals.css"
 import "../../app/page.module.css"
 import CarMers from './car-silver.png'
@@ -27,9 +27,12 @@ export default function Home() {
   const [models, setModels] = React.useState([]);
   const [series, setSeries] = React.useState([]);
   const [position, setPosition] = React.useState([]);
-  const [language, setLanguage] = React.useState(localStorage.getItem('lang'))
-
-
+  const [language, setLanguage] = React.useState('')
+  const [p, setP] = React.useState("");
+useEffect(()=>{
+  setLanguage(localStorage.getItem('lang')?localStorage.getItem('lang'):'ru')
+  setP(1)
+})
   const getAllSearch = () => {
     var data = {
       model: select,
@@ -43,7 +46,7 @@ export default function Home() {
 
 
   useEffect(() => {
-    axios.get(`${url}/api/models/`).then((res) => {
+    axios.get(`https://api.baracar.uz/api/models/`).then((res) => {
       setModels(res.data);
     });
   }, []);
@@ -52,7 +55,7 @@ export default function Home() {
     setSelectPosition("")
     setPosition([])
     var seriesData = [];
-    axios.get(`${url}/api/series/`).then((res) => {
+    axios.get(`https://api.baracar.uz/api/series/`).then((res) => {
       for (let i = 0; i < res.data.length; i++) {
           if (res.data[i].model === event.target.value * 1){seriesData.push(res.data[i]);}
       }
@@ -65,7 +68,7 @@ export default function Home() {
     setSelectPosition("")
     var seriesData = [];
 
-    axios.get(`${url}/api/position/`).then((res) => {
+    axios.get(`https://api.baracar.uz/api/position/`).then((res) => {
       for (let i = 0; i < res.data.length; i++) {
        if (res.data[i].series === event.target.value * 1) seriesData.push(res.data[i]);
       }
@@ -78,7 +81,8 @@ export default function Home() {
   }
 
   return (
-    <>
+  <div>
+    {p===1?(  <>
       <Head>
         <title>Главная страница</title>
       </Head>
@@ -473,6 +477,7 @@ export default function Home() {
         )
       }
 
-    </>
+    </>):''}
+  </div>
   );
 }

@@ -8,7 +8,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import axios from "axios";
-import url from "./Host";
+
 import "../../app/globals.css"
 
 export default function Featured() {
@@ -20,9 +20,9 @@ export default function Featured() {
 
   useEffect(() => {
     setState(localStorage.getItem('lang')?localStorage.getItem('lang'):"ru")
-    axios.get(`${url}/api/${localStorage.getItem('lang')?localStorage.getItem('lang'):"ru"}/cars_get/`).then((res) => {
+    axios.get(`https://api.baracar.uz/api/${localStorage.getItem('lang')?localStorage.getItem('lang'):"ru"}/cars_get/`).then((res) => {
     
-       axios.get(`${url}/api/images/`)
+       axios.get(`https://api.baracar.uz/api/images/`)
       .then((res1) => {
        for (let i = 0; i < res.data.length; i++) {
         res.data[i].image=[]
@@ -70,9 +70,9 @@ export default function Featured() {
                   getData2(cars[0]);
                 }}
               >
-             {item.image.length>0?(<Image width={100} height={100}
+             <div className="featured_img_size">{item.image.length>0?(<Image width={100} height={100}
      src={item.image[0].image}  alt="a" className="featured_img" />):(<Image width={100} height={100}
-     src={car}  alt="a" className="featured_img" />)}
+     src={car}  alt="a" className="featured_img" />)}</div>
                 <div className="featured_bottom">
                   <h3 className="featured_name">{item.name}</h3>
                   <div className="featured_box">
@@ -97,9 +97,9 @@ export default function Featured() {
                   getData2(item);
                 }}
               >
-                {item.image.length>0?(<Image width={100}  height={100}
+                <div className="featured_img_size">{item.image.length>0?(<Image width={100}  height={100}
      src={item.image[0].image}  alt="a" className="featured_img" />):(<Image width={100}  height={100}
-     src={car}  alt="a" className="featured_img" />)}
+     src={car}  alt="a" className="featured_img" />)}</div>
                 <div className="featCard_bottom">
                   <h3 className="featCard_name">{item.name}</h3>
                   <h4 className="featCard_price">{item.price}.sum</h4>
@@ -157,9 +157,9 @@ export default function Featured() {
              getData2(cars[0]);
            }}
          >
-        {item.image.length>0?(<Image width={100} height={100}
+        <div className="featured_img_size">{item.image.length>0?(<Image width={100} height={100}
 src={item.image[0].image}  alt="a" className="featured_img" />):(<Image width={100} height={100}
-src={car}  alt="a" className="featured_img" />)}
+src={car}  alt="a" className="featured_img" />)}</div>
            <div className="featured_bottom">
              <h3 className="featured_name">{item.name}</h3>
              <div className="featured_box">
@@ -184,9 +184,9 @@ src={car}  alt="a" className="featured_img" />)}
              getData2(item);
            }}
          >
-           {item.image.length>0?(<Image width={100}  height={100}
+           <div className="featured_img_size">{item.image.length>0?(<Image width={100}  height={100}
 src={item.image[0].image}  alt="a" className="featured_img" />):(<Image width={100}  height={100}
-src={car}  alt="a" className="featured_img" />)}
+src={car}  alt="a" className="featured_img" />)}</div>
            <div className="featCard_bottom">
              <h3 className="featCard_name">{item.name}</h3>
              <h4 className="featCard_price">{item.price}.sum</h4>

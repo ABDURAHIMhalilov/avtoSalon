@@ -334,7 +334,7 @@
 }
 .dollars span {
   position: relative;
-  top: 3px;
+  /* top: 3px; */
 }
 .dollars p:hover {
   color: #ff4605;
@@ -356,7 +356,7 @@
 }
 .dollars1 span {
   position: relative;
-  top: 3px;
+  /* top: 3px; */
 }
 .dollars1 p:hover {
   color: #ff4605;

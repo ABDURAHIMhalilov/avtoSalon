@@ -8,7 +8,6 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import axios from "axios";
-import url from "./Host";
 import "../../app/globals.css"
 
 export default function Popular() {
@@ -20,8 +19,8 @@ export default function Popular() {
 
   useEffect(() => {
     setState(localStorage.getItem('lang')?localStorage.getItem('lang'):"ru")
-    axios.get(`${url}/api/${localStorage.getItem('lang')?localStorage.getItem('lang'):"ru"}/cars_get/`).then((res) => {
-      axios.get(`${url}/api/images/`)
+    axios.get(`https://api.baracar.uz/api/${localStorage.getItem('lang')?localStorage.getItem('lang'):"ru"}/cars_get/`).then((res) => {
+      axios.get(`https://api.baracar.uz/api/images/`)
       .then((res1) => {
        for (let i = 0; i < res.data.length; i++) {
         res.data[i].image=[]
@@ -36,7 +35,7 @@ export default function Popular() {
     
     
     })
-      axios.get(`${url}/api/series_get/`).then((res) => {
+      axios.get(`https://api.baracar.uz/api/${localStorage.getItem('lang')?localStorage.getItem('lang'):"ru"}/series_get/`).then((res) => {
         setModel(res.data);  
       });
    
@@ -45,9 +44,9 @@ export default function Popular() {
   }, []);
   const getData=(key)=>{
     var pust=[]
-    axios.get(`${url}/api/cars_get/`).then((res) => {
+    axios.get(`https://api.baracar.uz/api/${localStorage.getItem('lang')?localStorage.getItem('lang'):"ru"}/cars_get/`).then((res) => {
       console.log(res.data,key);
-      axios.get(`${url}/api/images/`)
+      axios.get(`https://api.baracar.uz/api/images/`)
       .then((res1) => {
        for (let i = 0; i < res.data.length; i++) {
         res.data[i].image=[]
@@ -96,25 +95,33 @@ export default function Popular() {
         spaceBetween={10}
         navigation={true}
         breakpoints={{
-          600: {
+          0:{
+            slidesPerView: 1,
+            spaceBetween: 50,
+          },
+          650: {
             slidesPerView: 2,
-            spaceBetween: 0,
+            spaceBetween: 20,
           },
           991: {
             slidesPerView: 2,
-            spaceBetween: 0,
+            spaceBetween: 20,
           },
-          1400: {
+          1100: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          1300: {
             slidesPerView: 3,
-            spaceBetween: 0,
+            spaceBetween: 20,
           },
-          2300: {
-            slidesPerView: 3,
-            spaceBetween: 0,
+          1750: {
+            slidesPerView: 4,
+            spaceBetween: 20,
           },
-          2800: {
+          1950: {
             slidesPerView: 5,
-            spaceBetween: 0,
+            spaceBetween: 20,
           },
         }}
         modules={[Navigation]}
@@ -161,21 +168,33 @@ export default function Popular() {
         spaceBetween={10}
         navigation={true}
         breakpoints={{
-          600: {
+          0:{
+            slidesPerView: 1,
+            spaceBetween: 50,
+          },
+          650: {
             slidesPerView: 2,
-            spaceBetween: 10,
+            spaceBetween: 20,
           },
           991: {
             slidesPerView: 2,
             spaceBetween: 20,
           },
-          1400: {
-            slidesPerView: 3,
-            spaceBetween: 40,
+          1100: {
+            slidesPerView: 2,
+            spaceBetween: 20,
           },
-          1900: {
+          1300: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          1750: {
             slidesPerView: 4,
-            spaceBetween: 40,
+            spaceBetween: 20,
+          },
+          1950: {
+            slidesPerView: 5,
+            spaceBetween: 20,
           },
         }}
         modules={[Navigation]}
