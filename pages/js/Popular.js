@@ -96,26 +96,34 @@ export default function Popular() {
         spaceBetween={10}
         navigation={true}
         breakpoints={{
-          600: {
+          0:{
             slidesPerView: 1,
-            spaceBetween: 10,
+            spaceBetween: 50,
+          },
+          650: {
+            slidesPerView: 2,
+            spaceBetween: 20,
           },
           991: {
             slidesPerView: 2,
-            spaceBetween: 10,
+            spaceBetween: 20,
           },
-          1400: {
+          1100: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          1300: {
             slidesPerView: 3,
-            spaceBetween: 10,
+            spaceBetween: 20,
           },
-          // 2300: {
-          //   slidesPerView: 3,
-          //   spaceBetween: 10,
-          // },
-          // 2800: {
-          //   slidesPerView: 4,
-          //   spaceBetween: 10,
-          // },
+          1750: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+          },
+          1950: {
+            slidesPerView: 5,
+            spaceBetween: 20,
+          },
         }}
         modules={[Navigation]}
         className="mySwiper"

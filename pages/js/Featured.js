@@ -70,9 +70,9 @@ export default function Featured() {
                   getData2(cars[0]);
                 }}
               >
-             {item.image.length>0?(<Image width={100} height={100}
+             <div className="featured_img_size">{item.image.length>0?(<Image width={100} height={100}
      src={item.image[0].image}  alt="a" className="featured_img" />):(<Image width={100} height={100}
-     src={car}  alt="a" className="featured_img" />)}
+     src={car}  alt="a" className="featured_img" />)}</div>
                 <div className="featured_bottom">
                   <h3 className="featured_name">{item.name}</h3>
                   <div className="featured_box">
@@ -97,9 +97,9 @@ export default function Featured() {
                   getData2(item);
                 }}
               >
-                {item.image.length>0?(<Image width={100}  height={100}
+                <div className="featured_img_size">{item.image.length>0?(<Image width={100}  height={100}
      src={item.image[0].image}  alt="a" className="featured_img" />):(<Image width={100}  height={100}
-     src={car}  alt="a" className="featured_img" />)}
+     src={car}  alt="a" className="featured_img" />)}</div>
                 <div className="featCard_bottom">
                   <h3 className="featCard_name">{item.name}</h3>
                   <h4 className="featCard_price">{item.price}.sum</h4>
@@ -157,9 +157,9 @@ export default function Featured() {
              getData2(cars[0]);
            }}
          >
-        {item.image.length>0?(<Image width={100} height={100}
+        <div className="featured_img_size">{item.image.length>0?(<Image width={100} height={100}
 src={item.image[0].image}  alt="a" className="featured_img" />):(<Image width={100} height={100}
-src={car}  alt="a" className="featured_img" />)}
+src={car}  alt="a" className="featured_img" />)}</div>
            <div className="featured_bottom">
              <h3 className="featured_name">{item.name}</h3>
              <div className="featured_box">
@@ -184,9 +184,9 @@ src={car}  alt="a" className="featured_img" />)}
              getData2(item);
            }}
          >
-           {item.image.length>0?(<Image width={100}  height={100}
+           <div className="featured_img_size">{item.image.length>0?(<Image width={100}  height={100}
 src={item.image[0].image}  alt="a" className="featured_img" />):(<Image width={100}  height={100}
-src={car}  alt="a" className="featured_img" />)}
+src={car}  alt="a" className="featured_img" />)}</div>
            <div className="featCard_bottom">
              <h3 className="featCard_name">{item.name}</h3>
              <h4 className="featCard_price">{item.price}.sum</h4>
