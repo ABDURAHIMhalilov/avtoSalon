@@ -51,7 +51,7 @@ const [p,setP]=useState(2)
     document.querySelector(".defectDiv").style = "display: none";
     document.querySelector(".mySwiper").style = "display: block";
     document.querySelector(".mySwiper2").style = "display: block";
-    document.querySelector(".mySwiper2").style = "display: none";
+    // document.querySelector(".mySwiper2").style = "display: none";
     document.querySelector('body').style = 'height: auto;'
   }
 
@@ -89,46 +89,47 @@ const [p,setP]=useState(2)
     setUser(localStorage.getItem("onemen") != null
       ? JSON.parse(localStorage.getItem("onemen"))
       : false)
-    if (localStorage.getItem("onemen")) {
-      var a = JSON.parse(localStorage.getItem("onemen"));
-      document.querySelector(".visit_name").value = a.username;
-      document.querySelector(".visit_email").value = a.email;
-      document.querySelector(".visit_number").value = a.phone;
-    }
+  
     axios.get(`${url}/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/branch/`).then((res) => {
         setBranchs(res.data);
       });
     axios.get(`${url}/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/cars_get/`).then((res) => {
       axios.get(`${url}/api/images/`).then((res1) => {
-        for (let i = 0; i < res.data.length; i++) {
+
+        for(let i=0; i < res.data.length; i++) {
           res.data[i].image = [];
           for (let j = 0; j < res1.data.length; j++) {
             if (res.data[i].id == res1.data[j].car) {
               res.data[i].image.push(res1.data[j]);
             }}}
-        res.data = res.data.filter((item) => data.id != item.id);
-        res.data = res.data.filter(
-          (item) => data1.position.series.id == item.position.series.id
-        );});
+            res.data=res.data.filter((item)=> data1.id != item.id);
+            res.data=res.data.filter((item)=> data1.position.series.id==item.position.series.id);
         setTimeout(() => {
-         setAvto(res.data); 
+          setAvto(res.data);
+         console.log(res.data,"ddd"); 
         }, 100);
-         
-// console.log(res.data,"ddd");
-      });
-    setP(1)
+     
+     
+      });});
+   
     axios.get(`${url}/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/defect_get/`).then((res) => {
       var initialProducts = [];
       for (let i = 0; i < res.data.length; i++) {
-        if (res.data[i].car === data.id) {
+        if (res.data[i].car === data1.id) {
           initialProducts.push(res.data[i]);
         }
       }
-      console.log(initialProducts);
       setCars(initialProducts);
-    });
-
-    console.log(getavto);
+    }); 
+    setP(1) 
+ setTimeout(() => {
+  if (localStorage.getItem("onemen")) {
+    var a = JSON.parse(localStorage.getItem("onemen"));
+    document.querySelector(".visit_name").value = a.username;
+    document.querySelector(".visit_email").value = a.email;
+    document.querySelector(".visit_number").value = a.phone;
+  }
+ }, 20);
   }, []);
   function getData2(key) {
     localStorage.setItem("oneproduct", JSON.stringify(key));
@@ -771,13 +772,11 @@ const [p,setP]=useState(2)
                   }}
                 >
                   <div className="audi4">
-                    {/* <img
-                      src={
-                        item.image.length>0?item.image[0].image
-                          : "https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg"
-                      }
+                   
+                    <img
+                      src={getavto[key].image!=undefined?item.image[0].image:"https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg"}
                       alt="underfined img"
-                    /> */}
+                    />
                     <h3>
                       {item.name}
                       <br />
@@ -817,14 +816,14 @@ const [p,setP]=useState(2)
                   }}
                 >
                   <div className="audi4">
-                    {/* <img
+                    <img
                       src={
                         item.image[0]!= undefined
                           ?item.image[0].image
                           : "https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg"
                       }
                       alt="underfined img"
-                    /> */}
+                    />
                     <h3>
                       {item.name}
                       <br />
@@ -864,14 +863,14 @@ const [p,setP]=useState(2)
                   }}
                 >
                   <div className="audi4">
-                    {/* <img
+                    <img
                       src={
                         item.image[0] != undefined
                           ? item.image[0].image
                           : "https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg"
                       }
                       alt="underfined img"
-                    /> */}
+                    />
                     <h3>
                       {item.name}
                       <br />
@@ -911,14 +910,14 @@ const [p,setP]=useState(2)
                   }}
                 >
                   <div className="audi4">
-                    {/* <img
+                    <img
                       src={
                         item.image[0] != undefined
                           ? item.image[0].image
                           : "https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg"
                       }
                       alt="underfined img"
-                    /> */}
+                    />
                     <h3>{item.name}</h3>
                     <br />
                     <h2>${item.price}</h2>
@@ -936,7 +935,7 @@ const [p,setP]=useState(2)
         </Swiper>
       </div>
 
-      {/* <Footer/> */}
+      <Footer/>
     </div>):""}
 
  </div>

@@ -43,8 +43,8 @@ export default function Login() {
     console.log(staff);
     var usernamee = document.querySelector(".Phone").value;
     var data = new FormData();
-    // data.append("username", document.getElementById("userNameEmail").value);
-    data.append("username", document.getElementById("userNameEmail").value);
+    data.append("username", document.querySelector(".Username").value);
+    data.append("username", document.querySelector(".Username").value);
     data.append("phone", usernamee);
     data.append("password", document.querySelector(".Password").value);
     data.append("is_staff", false);
@@ -53,7 +53,7 @@ export default function Login() {
       .then((res) => {
         localStorage.setItem("Token_user", res.data.access);
         alert("success");
-        window.location = "/userpage";
+        window.location = "/js/Loginpage";
         localStorage.setItem("username", usernamee);
       })
       .catch((err) => {
@@ -73,7 +73,7 @@ export default function Login() {
         console.log(res.data);
         localStorage.setItem('username', usernamee)
         JSON.stringify(localStorage.setItem("Token_user", res.data.access))
-        window.location = "/userpage";
+        window.location = "/js/Loginpage";
         // } else {
         //   alert('To`g`ri kelmadi')
         // }
