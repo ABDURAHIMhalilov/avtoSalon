@@ -1,7 +1,7 @@
 .navbar {
     width: 100%;
     height: auto;
-    padding: 10px 2%;
+    padding: 10px 2% !important;
     background-color: #000000;
     display: flex;
     align-items: center;

@@ -411,7 +411,7 @@ export default function Bmw8() {
                   <span>
                     <HiPhone />{" "}
                   </span>{" "}
-                  {state === 'ru' ? ("123 *** *** -раскрывать") : ("123 *** *** - ochiq")}
+                  {state === 'ru' ? ("123 *** *** -раскрывать") : ("123 *** *** - aloqa")}
                 </button>
                 {/* <button className="wat">
               {" "}
@@ -469,8 +469,8 @@ export default function Bmw8() {
             <div className="card122">
               <div className="laaa">
                 <h2>{state === 'ru' ? ("История автомобиля") : ("Avtomobil tarixi")}</h2>
-                <button>Скачать отчет</button>
-                <h2 className="mnb">Carfax PayPal</h2>
+                <button>{state === 'ru ' ? ('Безплатно прочитатъ') : ('Bepul o"qish')}</button>
+                {/* <h2 className="mnb">Carfax PayPal</h2> */}
                 <h2 className="nm">
                   {state === 'ru' ? ("Прежде чем вы решите купить автомобиль,") : ("Avtomobil sotib olishga qaror qilishdan oldin,")} <br />{state === 'ru' ? (" прочтите его историю длябесплатно.") : ("uning hikoyasini bepul o'qing.")}
                 </h2>
@@ -644,7 +644,7 @@ export default function Bmw8() {
               <span>
                 <HiPhone />{" "}
               </span>{" "}
-              {state === 'ru' ? ("123 *** *** -раскрывать") : ("123 *** *** - ochiq")}
+              {state === 'ru' ? ("123 *** *** -раскрывать") : ("123 *** *** - aloqa")}
             </button>
             {/* <button className="wat">
               {" "}
