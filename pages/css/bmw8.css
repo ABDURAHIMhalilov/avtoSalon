@@ -771,9 +771,11 @@
   width: 450px;
   border-radius: 20px;
   background-color: white;
-  padding-top: 20px;
+  padding: 20px;
+  overflow: hidden;
   display: block;
   height: 300px;
+  /* padding-bottom: 20px; */
 }
 
 .inps1 input {
@@ -857,6 +859,7 @@
   height: 50px;
   width: 230px;
   font-size: 20px;
+  border-radius: 10px;
 }
 .carf1 {
   display: flex;
@@ -876,7 +879,8 @@
 
 .carf2 {
   margin-top: 30px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
+  padding-bottom: 30px;
 }
 .carf2 span {
   color: #ff4605;
@@ -897,7 +901,7 @@
   width: 80%;
   margin-left: 10%;
   border: 1px solid #ff4605;
-  margin-top: 10px;
+  border-radius: 10px;
   height: 50px;
   font-size: 20px;
 }

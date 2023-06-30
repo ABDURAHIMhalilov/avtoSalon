@@ -52,11 +52,9 @@ export default function Home() {
     setSelectPosition("")
     setPosition([])
     var seriesData = [];
-    axios.get(`${url}/api/series_get/`).then((res) => {
+    axios.get(`${url}/api/series/`).then((res) => {
       for (let i = 0; i < res.data.length; i++) {
-        if (!(res.data[i].model == null)) {
-          if (res.data[i].model.id === event.target.value * 1) seriesData.push(res.data[i]);
-        }
+          if (res.data[i].model === event.target.value * 1){seriesData.push(res.data[i]);}
       }
 
       setSeries(seriesData);
@@ -67,11 +65,9 @@ export default function Home() {
     setSelectPosition("")
     var seriesData = [];
 
-    axios.get(`${url}/api/position_get/`).then((res) => {
+    axios.get(`${url}/api/position/`).then((res) => {
       for (let i = 0; i < res.data.length; i++) {
-        if (!(res.data[i].series == null)) {
-          if (res.data[i].series.id === event.target.value * 1) seriesData.push(res.data[i]);
-        }
+       if (res.data[i].series === event.target.value * 1) seriesData.push(res.data[i]);
       }
 
       setPosition(seriesData);
@@ -126,7 +122,7 @@ export default function Home() {
 
                             value={item.id}
                           >
-                            {item.name}
+                            {item.name_uz}
                           </MenuItem>
                         );
                       })}
@@ -148,7 +144,7 @@ export default function Home() {
                             key={key}
                             value={item.id}
                           >
-                            {item.name}
+                            {item.name_uz}
                           </MenuItem>
                         );
                       })}
@@ -168,7 +164,7 @@ export default function Home() {
                       {position.map((item, key) => {
                         return (
                           <MenuItem key={key} value={item.id}>
-                            {item.name}
+                            {item.name_uz}
                           </MenuItem>
                         );
                       })}
@@ -255,7 +251,7 @@ export default function Home() {
 
                             value={item.id}
                           >
-                            {item.name}
+                            {item.name_ru}
                           </MenuItem>
                         );
                       })}
@@ -277,7 +273,7 @@ export default function Home() {
                             key={key}
                             value={item.id}
                           >
-                            {item.name}
+                            {item.name_ru}
                           </MenuItem>
                         );
                       })}
@@ -297,7 +293,7 @@ export default function Home() {
                       {position.map((item, key) => {
                         return (
                           <MenuItem key={key} value={item.id}>
-                            {item.name}
+                            {item.name_ru}
                           </MenuItem>
                         );
                       })}

@@ -39,21 +39,40 @@
     background-color: rgba(255, 98, 0, 0.1);
     color: #ff6505;
 }
+.featCard_bottom {
+    width: 85%;
+    margin-top: -9px;
+}
+.swiper-button-prev:after{
+    margin-left: 100px;
+}
 
 .swiper {
     width: 100%;
-    height: 52vh;
+    min-height: 52vh;
     margin-top: 5%;
+}
+
+.feat_card img{
+    width:85% !important;
+    height: 240px !important;
+}
+.swiper-button-next.swiper-button-disabled, .swiper-button-prev.swiper-button-disabled{
+    pointer-events: auto;
 }
 
 .swiper-slide {
     font-size: 18px;
-    height: 80% !important;
+    width: 600px;
+    height: 100% !important;
     /* Center slide text vertically */
     display: flex;
     justify-content: center;
     align-items: center;
 }
+.swiper-slide >.swiperPopCard{
+    
+} 
 
 .swiperPopCard > .feat_card {
     width: 100%;

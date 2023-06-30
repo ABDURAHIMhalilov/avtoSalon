@@ -20,7 +20,7 @@ export default function Popular() {
 
   useEffect(() => {
     setState(localStorage.getItem('lang')?localStorage.getItem('lang'):"ru")
-    axios.get(`${url}/api/cars_get/`).then((res) => {
+    axios.get(`${url}/api/${localStorage.getItem('lang')?localStorage.getItem('lang'):"ru"}/cars_get/`).then((res) => {
       axios.get(`${url}/api/images/`)
       .then((res1) => {
        for (let i = 0; i < res.data.length; i++) {
@@ -98,19 +98,23 @@ export default function Popular() {
         breakpoints={{
           600: {
             slidesPerView: 2,
-            spaceBetween: 10,
+            spaceBetween: 0,
           },
           991: {
             slidesPerView: 2,
-            spaceBetween: 20,
+            spaceBetween: 0,
           },
           1400: {
             slidesPerView: 3,
-            spaceBetween: 40,
+            spaceBetween: 0,
           },
-          1900: {
-            slidesPerView: 4,
-            spaceBetween: 40,
+          2300: {
+            slidesPerView: 3,
+            spaceBetween: 0,
+          },
+          2800: {
+            slidesPerView: 5,
+            spaceBetween: 0,
           },
         }}
         modules={[Navigation]}

@@ -26,7 +26,8 @@ import url from "./Host";
 import car from "../images/6.jpg";
 import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../../app/globals.css"
+// import "../../app/globals.css"
+import '@/app/globals.css'
 
 export default function Bmw8() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -392,7 +393,7 @@ export default function Bmw8() {
                       style={{ textDecoration: "none", color: "#fff" }}
                       href="#send"
                     >
-                      {state === 'ru' ? ("Отправить сообщение") : ("xabar yubormoq")}{" "}
+                      {state === 'ru' ? ("Отправить сообщение") : ("Xabar yuborish")}{" "}
                     </a>
                   </button>
                 ) : (
@@ -402,7 +403,7 @@ export default function Bmw8() {
                     }}
                     className="spend"
                   >
-                    {state === 'ru' ? ("Отправить сообщение") : ("xabar yubormoq")}
+                    {state === 'ru' ? ("Отправить сообщение") : ("Xabar yuborish")}
                   </button>
                 )}
                 <button className="byt">
@@ -420,9 +421,9 @@ export default function Bmw8() {
               Chat via WhatsApp
             </button> */}
 
-                <div className="pas">
+                {/* <div className="pas">
                   <p>{state === 'ru' ? ("Идентификатор предложения № 9650") : ("Taklif ID raqami 9650")}</p>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -625,7 +626,7 @@ export default function Bmw8() {
                   style={{ textDecoration: "none", color: "#fff" }}
                   href="#send"
                 >
-                  {state === 'ru' ? ("Отправить сообщение") : ("Xabar yubormoq")}{" "}
+                  {state === 'ru' ? ("Отправить сообщение") : ("Xabar yuborish")}{" "}
                 </a>
               </button>
             ) : (
@@ -635,7 +636,7 @@ export default function Bmw8() {
                 }}
                 className="spend"
               >
-                {state === 'ru' ? ("Отправить сообщение") : ("Xabar yubormoq")}
+                {state === 'ru' ? ("Отправить сообщение") : ("Xabar yuborish")}
               </button>
             )}
             <button className="byt">
@@ -653,9 +654,9 @@ export default function Bmw8() {
               Chat via WhatsApp
             </button> */}
 
-            <div className="pas">
+            {/* <div className="pas">
               <p>{state === 'ru' ? ("Идентификатор предложения № 9650") : ("Taklif ID raqami 9650")}</p>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -663,7 +664,7 @@ export default function Bmw8() {
         <div className="mnbc" id="send">
           <div className="bnm">
             <div className="gfbvdc">
-              <h2>{state === 'ru' ? ("Отправить сообщение") : ("Xabar yubormoq")}</h2>
+              <h2>{state === 'ru' ? ("Отправить сообщение") : ("Xabar yuborish")}</h2>
               <div className="inps1">
                 <div className="inp2">
                   <input
@@ -704,7 +705,7 @@ export default function Bmw8() {
                       postData();
                     }}
                   >
-                    {state === 'ru' ? ("Отправить сообщение") : ("Xabar yubormoq")}
+                    {state === 'ru' ? ("Отправить сообщение") : ("Xabar yuborish")}
                   </button>
                 ) : (
                   <button
@@ -713,7 +714,7 @@ export default function Bmw8() {
                       window.location = "/js/Login";
                     }}
                   >
-                    {state === 'ru' ? ("Отправить сообщение") : ("Xabar yubormoq")}
+                    {state === 'ru' ? ("Отправить сообщение") : ("Xabar yuborish")}
                   </button>
                 )}
               </div>
@@ -749,7 +750,7 @@ export default function Bmw8() {
                   <span>
                     <HiPhone />
                   </span>
-                  {state === 'ru' ? ("123*** ***-раскрывать") : ("123*** ***-oshkor qilish")}
+                  {state === 'ru' ? ("123*** ***-обращаться") : ("123*** ***-murojaat")}
                 </button>
               </div>
             </div>
@@ -941,7 +942,7 @@ export default function Bmw8() {
           })}
         </Swiper>
       </div>
-      {/* <Footer/> */}
+      <Footer/>
     </div>
   );
 }
