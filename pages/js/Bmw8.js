@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -26,7 +25,8 @@ import url from "./Host";
 import car from "../images/6.jpg";
 import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../../app/globals.css"
+// import "../../app/globals.css"
+import '@/app/globals.css'
 
 export default function Bmw8() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -37,11 +37,8 @@ export default function Bmw8() {
   const [getavto, setAvto] = useState([]);
   const [cars, setCars] = useState([]);
   const [state,setstate] = useState([])
-
-  // var [data, setData] = useState(
-  //   JSON.parse(localStorage.getItem("oneproduct")!=null? `${localStorage.getItem("oneproduct")}`: "[]"
-  //   )
-  // );
+const [p,setP]=useState(2)
+  var [data, setData] = useState([]);
 
   function defectOpen() {
     document.querySelector(".defectDiv").style = "display: block;";
@@ -85,6 +82,9 @@ export default function Bmw8() {
       });
   }
   useEffect(() => {
+    setData(JSON.parse(localStorage.getItem("oneproduct")!=null? `${localStorage.getItem("oneproduct")}`: "[]"))
+    var data1=JSON.parse(localStorage.getItem("oneproduct")!=null?`${localStorage.getItem("oneproduct")}`: "[]")
+    console.log(data1);
     setstate(localStorage.getItem("lang"))
     setUser(localStorage.getItem("onemen") != null
       ? JSON.parse(localStorage.getItem("onemen"))
@@ -95,35 +95,29 @@ export default function Bmw8() {
       document.querySelector(".visit_email").value = a.email;
       document.querySelector(".visit_number").value = a.phone;
     }
-    axios
-      .get(`${url}/api/branch/`, {
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("Token_user"),
-        },
-      })
-      .then((res) => {
+    axios.get(`${url}/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/branch/`).then((res) => {
         setBranchs(res.data);
       });
-    axios.get(`${url}/api/cars_get/`).then((res) => {
+    axios.get(`${url}/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/cars_get/`).then((res) => {
       axios.get(`${url}/api/images/`).then((res1) => {
         for (let i = 0; i < res.data.length; i++) {
           res.data[i].image = [];
           for (let j = 0; j < res1.data.length; j++) {
             if (res.data[i].id == res1.data[j].car) {
               res.data[i].image.push(res1.data[j]);
-            }
-          }
-        }
+            }}}
         res.data = res.data.filter((item) => data.id != item.id);
         res.data = res.data.filter(
-          (item) => data.position.series.id == item.position.series.id
-        );
-
-        setAvto(res.data);
+          (item) => data1.position.series.id == item.position.series.id
+        );});
+        setTimeout(() => {
+         setAvto(res.data); 
+        }, 100);
+         
+// console.log(res.data,"ddd");
       });
-    });
-
-    axios.get(`${url}/api/defect_get/`).then((res) => {
+    setP(1)
+    axios.get(`${url}/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/defect_get/`).then((res) => {
       var initialProducts = [];
       for (let i = 0; i < res.data.length; i++) {
         if (res.data[i].car === data.id) {
@@ -142,7 +136,8 @@ export default function Bmw8() {
   }
 
   return (
-    <div>
+ <div>
+{p===1?(   <div>
       {/* <span onClick={() => defectClose()}  className="caruselsspan">hello</span> */}
       <div className="defectDiv">
         {cars.length == 0 ? (
@@ -233,18 +228,18 @@ export default function Bmw8() {
         <div className="dfc">
           <div className="swip">
             <div className="hf1">
-              {/* <h1>{data.name}</h1> */}
+              <h1>{data.name}</h1>
             </div>
             <div className="lk1">
-              {/* <p>{data.year}</p> */}
+              <p>{data.year}</p>
               <ul className="l2">
                 <li>
                   {" "}
-                  {/* <p>{data.gearbox.name}</p> */}
+                  <p>{data.gearbox.name}</p>
                 </li>
                 <li className="lip">
                   {" "}
-                  {/* <p>{data.fuel_sort.name}</p> */}
+                  <p>{data.fuel_sort.name}</p>
                 </li>
               </ul>
             </div>
@@ -257,7 +252,7 @@ export default function Bmw8() {
               modules={[FreeMode, Navigation, Thumbs]}
               className="mySwiper2"
             >
-              {/* {data.image.map((item2) => {
+              {data.image.map((item2) => {
                 if (data.id === item2.car) {
                   return (
                     <SwiperSlide>
@@ -279,7 +274,7 @@ export default function Bmw8() {
                     </SwiperSlide>
                   );
                 }
-              })} */}
+              })}
             </Swiper>
             <Swiper
               onSwiper={setThumbsSwiper}
@@ -291,7 +286,7 @@ export default function Bmw8() {
               modules={[FreeMode, Navigation, Thumbs]}
               className="mySwiper"
             >
-              {/* {data.image.map((item2) => {
+              {data.image.map((item2) => {
                 if (data.id === item2.car) {
                   return (
                     <SwiperSlide>
@@ -313,12 +308,12 @@ export default function Bmw8() {
                     </SwiperSlide>
                   );
                 }
-              })} */}
+              })}
             </Swiper>
           </div>
           <div className="ypn1">
             <div className="dollars">
-              {/* <h1>${data.price}</h1> */}
+              <h1>${data.price}</h1>
               <p>
                 {" "}
                 <span>
@@ -332,15 +327,15 @@ export default function Bmw8() {
                 <table style={{ width: "100%", paddingTop: "30px" }}>
                   <tr className="maky1">
                     <th>{state === 'ru' ? ("Делать:") : ("Qilish:")}</th>
-                    {/* <td>{data.position.series.model.name}</td> */}
+                    <td>{data.position.series.model.name}</td>
                   </tr>
                   <tr className="maky1">
                     <th>{state === 'ru' ? ("Модель:") : ("Model:")}</th>
-                    {/* <td>{data.position.series.name}</td> */}
+                    <td>{data.position.series.name}</td>
                   </tr>
                   <tr className="maky1">
                     <th>{state === 'ru' ? ("Цвет:") : ("Rang:")}</th>
-                    {/* <td>{data.colour}</td> */}
+                    <td>{data.colour}</td>
                   </tr>
                   <tr className="maky1">
                     <th>{state === 'ru' ? ("Тип вождения:") : ("haydash turi:")}</th>
@@ -348,23 +343,23 @@ export default function Bmw8() {
                   </tr>
                   <tr className="maky1">
                     <th>{state === 'ru' ? ("ТрансЦветная миссия:") : ("Transcolor missiyasi:")}</th>
-                    {/* <td>{data.gearbox.name}</td> */}
+                    <td>{data.gearbox.name}</td>
                   </tr>
                   <tr className="maky1">
                     <th>{state === 'ru' ? ("Состояние:") : ("Davlat:")}</th>
-                    {/* <td>{data.distance > 2 ? "NEW" : "B/Y"}</td> */}
+                    <td>{data.distance > 2 ? "NEW" : "B/Y"}</td>
                   </tr>
                   <tr className="maky1">
                     <th>{state === 'ru' ? ("Год:") : ("Yil:")}</th>
-                    {/* <td>{data.year}</td> */}
+                    <td>{data.year}</td>
                   </tr>
                   <tr className="maky1">
                     <th>{state === 'ru' ? ("Тип топлива:") : ("Yoqilg'i turi:")}</th>
-                    {/* <td>{data.fuel_sort.name}</td> */}
+                    <td>{data.fuel_sort.name}</td>
                   </tr>
                   <tr className="maky1">
                     <th>{state === 'ru' ? ("Размер двигателя:") : ("Dvigatel hajmi:")}</th>
-                    {/* <td>{data.engine}L</td> */}
+                    <td>{data.engine}L</td>
                   </tr>
                   <tr className="maky1">
                     <th>{state === 'ru' ? ("Цилиндры:") : ("Silindrlar:")}</th>
@@ -372,7 +367,7 @@ export default function Bmw8() {
                   </tr>
                   <tr className="maky1">
                     <th>{state === 'ru' ? ("ВИН:") : ("VIN:")}</th>
-                    {/* <td>{data.id}</td> */}
+                    <td>{data.id}</td>
                   </tr>
                 </table>
               </div>
@@ -381,9 +376,9 @@ export default function Bmw8() {
                   "no defect"
                 ) : (
                   <a href="#page">
-                    {/* <button className="spend" onClick={() => defectOpen(data.id)}>
+                    <button className="spend" onClick={() => defectOpen(data.id)}>
                       {state === 'ru' ? ("дефект") : ("nuqson")}
-                    </button> */}
+                    </button>
                   </a>
                 )}
                 {user ? (
@@ -392,7 +387,7 @@ export default function Bmw8() {
                       style={{ textDecoration: "none", color: "#fff" }}
                       href="#send"
                     >
-                      {state === 'ru' ? ("Отправить сообщение") : ("xabar yubormoq")}{" "}
+                      {state === 'ru' ? ("Отправить сообщение") : ("Xabar yuborish")}{" "}
                     </a>
                   </button>
                 ) : (
@@ -402,7 +397,7 @@ export default function Bmw8() {
                     }}
                     className="spend"
                   >
-                    {state === 'ru' ? ("Отправить сообщение") : ("xabar yubormoq")}
+                    {state === 'ru' ? ("Отправить сообщение") : ("Xabar yuborish")}
                   </button>
                 )}
                 <button className="byt">
@@ -412,17 +407,17 @@ export default function Bmw8() {
                   </span>{" "}
                   {state === 'ru' ? ("123 *** *** -раскрывать") : ("123 *** *** - ochiq")}
                 </button>
-                {/* <button className="wat">
+                <button className="wat">
               {" "}
               <span>
                 <BsWhatsapp />
               </span>{" "}
               Chat via WhatsApp
-            </button> */}
+            </button>
 
-                <div className="pas">
+                {/* <div className="pas">
                   <p>{state === 'ru' ? ("Идентификатор предложения № 9650") : ("Taklif ID raqami 9650")}</p>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
@@ -536,23 +531,23 @@ export default function Bmw8() {
         <div className="ypn">
           <div className="hf">
             <h1>
-              {/* {data.position.series.model.name} &nbsp;
+              {data.position.series.model.name} &nbsp;
               {data.position.series.name}&nbsp;
-              {data.colour} */}
+              {data.colour}
             </h1>
           </div>
           <div className="lk">
-            {/* <p>{data.year}</p> */}
+            <p>{data.year}</p>
             <ul className="l1">
               <li className="lip">
                 {" "}
-                {/* <p>{data.fuel_sort.name}</p> */}
+                <p>{data.fuel_sort.name}</p>
               </li>
             </ul>
           </div>
           <hr className="asdda" />
           <div className="dollars">
-            {/* <h1>${data.price}</h1> */}
+            <h1>${data.price}</h1>
             <p>
               {" "}
               <span>
@@ -565,15 +560,15 @@ export default function Bmw8() {
             <table style={{ width: "100%", paddingTop: "30px" }}>
               <tr className="maky1">
                 <th>{state === 'ru' ? ("Делать:") : ("Qilish:")}</th>
-                {/* <td>{data.position.series.model.name}</td> */}
+                <td>{data.position.series.model.name}</td>
               </tr>
               <tr className="maky1">
                 <th>{state === 'ru' ? ("Модель:") : ("Model:")}</th>
-                {/* <td>{data.position.series.name}</td> */}
+                <td>{data.position.series.name}</td>
               </tr>
               <tr className="maky1">
                 <th>{state === 'ru' ? ("Цвет:") : ("Rang:")}</th>
-                {/* <td>{data.colour}</td> */}
+                <td>{data.colour}</td>
               </tr>
               <tr className="maky1">
                 <th>{state === 'ru' ? ("Тип вождения:") : ("Haydash turi:")}</th>
@@ -581,23 +576,23 @@ export default function Bmw8() {
               </tr>
               <tr className="maky1">
                 <th>{state === 'ru' ? ("TransColormission:") : ("Rangni o'zgartirish:")}</th>
-                {/* <td>{data.gearbox.name}</td> */}
+                <td>{data.gearbox.name}</td>
               </tr>
               <tr className="maky1">
                 <th>{state === 'ru' ? ("Состояние:") : ("Davlat:")}</th>
-                {/* <td>{data.distance > 2 ? "NEW" : "B/Y"}</td> */}
+                <td>{data.distance > 2 ? "NEW" : "B/Y"}</td>
               </tr>
               <tr className="maky1">
                 <th>{state === 'ru' ? ("Год:") : ("Yil:")}</th>
-                {/* <td>{data.year}</td> */}
+                <td>{data.year}</td>
               </tr>
               <tr className="maky1">
                 <th>{state === 'ru' ? ("Тип топлива:") : ("Yoqilg'i turi:")}</th>
-                {/* <td>{data.fuel_sort.name}</td> */}
+                <td>{data.fuel_sort.name}</td>
               </tr>
               <tr className="maky1">
                 <th>{state === 'ru' ? ("Размер двигателя:") : ("Dvigatel hajmi:")}</th>
-                {/* <td>{data.engine}L</td> */}
+                <td>{data.engine}L</td>
               </tr>
               <tr className="maky1">
                 <th>{state === 'ru' ? ("Цилиндры:") : ("Silindrlar:")}</th>
@@ -605,7 +600,7 @@ export default function Bmw8() {
               </tr>
               <tr className="maky1">
                 <th>{state === 'ru' ? ("VIN:") : ("G'alaba qozonish:")}</th>
-                {/* <td>{data.id}</td> */}
+                <td>{data.id}</td>
               </tr>
             </table>
           </div>
@@ -614,9 +609,9 @@ export default function Bmw8() {
               "no defect"
             ) : (
               <a href="#page">
-                {/* <button className="spend" onClick={() => defectOpen(data.id)}>
+                <button className="spend" onClick={() => defectOpen(data.id)}>
                   {state === 'ru' ? ("Дефект") : ("Kamchilik")}
-                </button> */}
+                </button>
               </a>
             )}
             {user ? (
@@ -625,7 +620,7 @@ export default function Bmw8() {
                   style={{ textDecoration: "none", color: "#fff" }}
                   href="#send"
                 >
-                  {state === 'ru' ? ("Отправить сообщение") : ("Xabar yubormoq")}{" "}
+                  {state === 'ru' ? ("Отправить сообщение") : ("Xabar yuborish")}{" "}
                 </a>
               </button>
             ) : (
@@ -635,7 +630,7 @@ export default function Bmw8() {
                 }}
                 className="spend"
               >
-                {state === 'ru' ? ("Отправить сообщение") : ("Xabar yubormoq")}
+                {state === 'ru' ? ("Отправить сообщение") : ("Xabar yuborish")}
               </button>
             )}
             <button className="byt">
@@ -645,17 +640,17 @@ export default function Bmw8() {
               </span>{" "}
               {state === 'ru' ? ("123 *** *** -раскрывать") : ("123 *** *** - ochiq")}
             </button>
-            {/* <button className="wat">
+            <button className="wat">
               {" "}
               <span>
                 <BsWhatsapp />
               </span>{" "}
               Chat via WhatsApp
-            </button> */}
+            </button>
 
-            <div className="pas">
+            {/* <div className="pas">
               <p>{state === 'ru' ? ("Идентификатор предложения № 9650") : ("Taklif ID raqami 9650")}</p>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -663,7 +658,7 @@ export default function Bmw8() {
         <div className="mnbc" id="send">
           <div className="bnm">
             <div className="gfbvdc">
-              <h2>{state === 'ru' ? ("Отправить сообщение") : ("Xabar yubormoq")}</h2>
+              <h2>{state === 'ru' ? ("Отправить сообщение") : ("Xabar yuborish")}</h2>
               <div className="inps1">
                 <div className="inp2">
                   <input
@@ -704,7 +699,7 @@ export default function Bmw8() {
                       postData();
                     }}
                   >
-                    {state === 'ru' ? ("Отправить сообщение") : ("Xabar yubormoq")}
+                    {state === 'ru' ? ("Отправить сообщение") : ("Xabar yuborish")}
                   </button>
                 ) : (
                   <button
@@ -713,7 +708,7 @@ export default function Bmw8() {
                       window.location = "/js/Login";
                     }}
                   >
-                    {state === 'ru' ? ("Отправить сообщение") : ("Xabar yubormoq")}
+                    {state === 'ru' ? ("Отправить сообщение") : ("Xabar yuborish")}
                   </button>
                 )}
               </div>
@@ -749,7 +744,7 @@ export default function Bmw8() {
                   <span>
                     <HiPhone />
                   </span>
-                  {state === 'ru' ? ("123*** ***-раскрывать") : ("123*** ***-oshkor qilish")}
+                  {state === 'ru' ? ("123*** ***-обращаться") : ("123*** ***-murojaat")}
                 </button>
               </div>
             </div>
@@ -776,14 +771,13 @@ export default function Bmw8() {
                   }}
                 >
                   <div className="audi4">
-                    <img
+                    {/* <img
                       src={
-                        item.image[0] != undefined
-                          ? item.image[0].image
+                        item.image.length>0?item.image[0].image
                           : "https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg"
                       }
                       alt="underfined img"
-                    />
+                    /> */}
                     <h3>
                       {item.name}
                       <br />
@@ -823,14 +817,14 @@ export default function Bmw8() {
                   }}
                 >
                   <div className="audi4">
-                    <img
+                    {/* <img
                       src={
-                        item.image[0] != undefined
-                          ? item.image[0].image
+                        item.image[0]!= undefined
+                          ?item.image[0].image
                           : "https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg"
                       }
                       alt="underfined img"
-                    />
+                    /> */}
                     <h3>
                       {item.name}
                       <br />
@@ -870,14 +864,14 @@ export default function Bmw8() {
                   }}
                 >
                   <div className="audi4">
-                    <img
+                    {/* <img
                       src={
                         item.image[0] != undefined
                           ? item.image[0].image
                           : "https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg"
                       }
                       alt="underfined img"
-                    />
+                    /> */}
                     <h3>
                       {item.name}
                       <br />
@@ -917,14 +911,14 @@ export default function Bmw8() {
                   }}
                 >
                   <div className="audi4">
-                    <img
+                    {/* <img
                       src={
                         item.image[0] != undefined
                           ? item.image[0].image
                           : "https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg"
                       }
                       alt="underfined img"
-                    />
+                    /> */}
                     <h3>{item.name}</h3>
                     <br />
                     <h2>${item.price}</h2>
@@ -941,7 +935,11 @@ export default function Bmw8() {
           })}
         </Swiper>
       </div>
+
       {/* <Footer/> */}
-    </div>
+    </div>):""}
+
+ </div>
+
   );
 }

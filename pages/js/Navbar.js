@@ -11,7 +11,8 @@ import "../css/Navbar.css";
 import axios from "axios";
 import url from "./Host";
 import Link from "next/link";
-import "../../app/globals.css"
+import '@/app/globals.css'
+// import "../../app/globals.css"
 // import uz from '../images/uzbekistan_round_button_with_iso_code_64.png'
 
 export default function Navbar() {
