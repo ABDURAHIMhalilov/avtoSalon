@@ -21,7 +21,6 @@ import { AiOutlineMail } from "react-icons/ai";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import axios from "axios";
-import url from "./Host";
 import car from "../images/6.jpg";
 import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -54,21 +53,24 @@ const [p,setP]=useState(2)
     // document.querySelector(".mySwiper2").style = "display: none";
     document.querySelector('body').style = 'height: auto;'
   }
+  const handleChange=(e)=>{
+console.log(e.target.value);
+  }
 
   function postData() {
     var formdata = new FormData();
 
     formdata.append(
       "visit_time",
-      document.querySelector("#visit_time").value +
-      document.querySelector(".visit_email").value
+        document.querySelector(".visit_email").value+document.querySelector("#visit_time").value 
+    
     );
     formdata.append("branch", document.querySelector(".visit_brench").value);
     formdata.append("user", JSON.parse(localStorage.getItem("onemen")).id);
     formdata.append("car", JSON.parse(localStorage.getItem("oneproduct")).id);
     formdata.append("is_active", false);
     axios
-      .post(`${url}/api/order/`, formdata, {
+      .post(`https://api.baracar.uz/api/order/`, formdata, {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("Token_user"),
         },
@@ -90,11 +92,11 @@ const [p,setP]=useState(2)
       ? JSON.parse(localStorage.getItem("onemen"))
       : false)
   
-    axios.get(`${url}/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/branch/`).then((res) => {
+    axios.get(`https://api.baracar.uz/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/branch/`).then((res) => {
         setBranchs(res.data);
       });
-    axios.get(`${url}/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/cars_get/`).then((res) => {
-      axios.get(`${url}/api/images/`).then((res1) => {
+    axios.get(`https://api.baracar.uz/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/cars_get/`).then((res) => {
+      axios.get(`https://api.baracar.uz/api/images/`).then((res1) => {
 
         for(let i=0; i < res.data.length; i++) {
           res.data[i].image = [];
@@ -112,7 +114,7 @@ const [p,setP]=useState(2)
      
       });});
    
-    axios.get(`${url}/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/defect_get/`).then((res) => {
+    axios.get(`https://api.baracar.uz/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/defect_get/`).then((res) => {
       var initialProducts = [];
       for (let i = 0; i < res.data.length; i++) {
         if (res.data[i].car === data1.id) {
@@ -139,7 +141,6 @@ const [p,setP]=useState(2)
   return (
  <div>
 {p===1?(   <div>
-      {/* <span onClick={() => defectClose()}  className="caruselsspan">hello</span> */}
       <div className="defectDiv">
         {cars.length == 0 ? (
           <div className="defectBig">
@@ -152,7 +153,6 @@ const [p,setP]=useState(2)
           </div>
         ) : (
           <>
-            {/* <span onClick={() => defectClose()}  className="caruselsspan">hello</span> */}
             <Carousel className="carusels">
               {cars.map((item) => {
                 return (
@@ -194,34 +194,9 @@ const [p,setP]=useState(2)
                   </Carousel.Item>
                 );
               })}
-              {/*    <Carousel.Item className="carusels2">
-                 <div className="defectBig">
-                  <span onClick={() => defectClose()}>X</span>
-                  <div className="deskBg">
-                    <img src={item.image1} alt="underfined img" />
-                  </div>
-                  <div className="deskBg2">
-                    <img className="bigImg" src={item.image2} alt="underfined img" />
-                    <p>{item.description}</p>
-                  </div>
-                </div> 
-     </Carousel.Item>*/}
+        
             </Carousel>
           </>
-
-          //     <div>{cars.map((item) => {
-          //      return <div className="defectBig">
-          //       <span onClick={() => defectClose()}>X</span>
-          //       <div className="deskBg">
-          //         <img src={item.image1} alt="underfined img" />
-          //       </div>
-          //       <div className="deskBg2">
-          //         <img className="bigImg" src={item.image2} alt="underfined img" />
-          //         <p>{item.description}</p>
-          //       </div>
-          //     </div>
-          //   })
-          //  }</div>
         )}
       </div>
       <Navbar />
@@ -684,7 +659,7 @@ const [p,setP]=useState(2)
                 placeholder="Cообщение*"
                 className="texta visit_deck" id="mnbh"
               ></textarea>
-              <select className="visit_brench">
+              <select onChange={handleChange} className="visit_brench">
                 {branchs.map((item) => {
                   return (
                     <option value={item.id}>

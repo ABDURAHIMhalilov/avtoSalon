@@ -8,7 +8,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import axios from "axios";
-import url from "./Host";
+
 import "../../app/globals.css"
 
 export default function Featured() {
@@ -20,9 +20,9 @@ export default function Featured() {
 
   useEffect(() => {
     setState(localStorage.getItem('lang')?localStorage.getItem('lang'):"ru")
-    axios.get(`${url}/api/${localStorage.getItem('lang')?localStorage.getItem('lang'):"ru"}/cars_get/`).then((res) => {
+    axios.get(`https://api.baracar.uz/api/${localStorage.getItem('lang')?localStorage.getItem('lang'):"ru"}/cars_get/`).then((res) => {
     
-       axios.get(`${url}/api/images/`)
+       axios.get(`https://api.baracar.uz/api/images/`)
       .then((res1) => {
        for (let i = 0; i < res.data.length; i++) {
         res.data[i].image=[]
