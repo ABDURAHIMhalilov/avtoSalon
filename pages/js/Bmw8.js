@@ -682,13 +682,14 @@ export default function Bmw8() {
                     type="text"
                     className="visit_number"
                   />
-                  <input placeholder="время посещения" id="visit_time" type="time" />
+                  <input placeholder="время посещения"class="mnbh" id="visit_time" type="time" />
                 </div>
               </div>
               <textarea
                 placeholder="Cообщение*"
-                className="texta visit_deck" id="mnbh"
+                className="texta visit_deck" 
               ></textarea>
+              <div className="select21">
               <select className="visit_brench">
                 {branchs.map((item) => {
                   return (
@@ -697,7 +698,7 @@ export default function Bmw8() {
                     </option>
                   );
                 })}
-              </select>
+              </select></div>
               <div className="buy">
                 {user ? (
                   <button
