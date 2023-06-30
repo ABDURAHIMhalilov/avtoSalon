@@ -23,6 +23,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/pages/js/Bmw8.js", "app/pages/js/Featured.js", "app/pages/js/Home.js","**/*.js", ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/pages/js/Bmw8.js", "app/pages/js/Featured.js", "app/pages/js/Home.js","**/*.js", "pages/js/Bmw8.jsx", ],
   "exclude": ["node_modules"]
 }
