@@ -177,10 +177,6 @@ export default function Home() {
             {/* <br /> */}
               <div className="carImg"></div>
             </div>
-            <br />
-            <br />
-            <br />
-            <br />
             <Featured />
             <Popular />
             <div className="kotta">
@@ -302,7 +298,7 @@ export default function Home() {
                   <center><button>поиск</button></center>
                 </div>
               </div>
-              <div className="carImg"></div>
+              <div className="carImg" id='carImg2'></div>
               {/* <div className="headerBody1">
               <div className="headerBody">
                 <h1>
