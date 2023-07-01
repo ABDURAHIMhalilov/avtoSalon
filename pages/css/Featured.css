@@ -226,9 +226,15 @@
 }
 
 @media (max-width: 991px) {
+    /* .featured_right .feat_card:nth-child(1){
+        display: none !important;
+    }
+    .featured_right .feat_card:nth-child(2){
+        display: none !important;
+    } */
     .featured_left,
     .featured_right {
-        display: none;
+        display: none !important;
     }
     .mobileFeat_card {
         width: 100%;
@@ -309,7 +315,7 @@
     height: 230px !important;
 } */
 .featured_img{
-    height: 535px !important;
+    height: 580px !important;
 }
 
 @media (max-width:1350px) {
@@ -351,4 +357,18 @@
     overflow: hidden;
     position: relative;
     z-index: -10;
+}
+@media (max-width:1250px) {
+    .featured_left{
+    width: 100%;
+    }
+    .featured_right{
+        display: flex;
+    }
+    .featured_right .feat_card:nth-child(3){
+        display: none !important;
+    }
+    .featured_right .feat_card:nth-child(4){
+        display: none !important;
+    }
 }
