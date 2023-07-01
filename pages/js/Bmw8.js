@@ -16,8 +16,9 @@ import { BsWhatsapp } from "react-icons/bs";
 import { BsFacebook } from "react-icons/bs";
 import { AiOutlineTwitter } from "react-icons/ai";
 import { AiOutlineCheckCircle } from "react-icons/ai";
-import { MdLocationOn } from "react-icons/md";
+import { MdLocationOn,MdOutlineClose } from "react-icons/md";
 import { AiOutlineMail } from "react-icons/ai";
+
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import axios from "axios";
@@ -26,6 +27,7 @@ import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import "../../app/globals.css"
 import '@/app/globals.css'
+import { CarpenterSharp } from "@mui/icons-material";
 
 export default function Bmw8() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -83,6 +85,8 @@ console.log(e.target.value);
         alert("to`liqroq ma`lumot yuboring");
       });
   }
+
+
   useEffect(() => {
     setData(JSON.parse(localStorage.getItem("oneproduct")!=null? `${localStorage.getItem("oneproduct")}`: "[]"))
     var data1=JSON.parse(localStorage.getItem("oneproduct")!=null?`${localStorage.getItem("oneproduct")}`: "[]")
@@ -138,6 +142,7 @@ console.log(e.target.value);
     window.location = "/js/Bmw8";
   }
 
+
   return (
  <div>
 {p===1?(   <div>
@@ -147,16 +152,19 @@ console.log(e.target.value);
             <div className="deskBg">
               <center>
                 <h1>{state === 'ru' ? ("Нет информации об этом автомобиле!") : ("Bu mashina haqida hech qanday ma'lumot yo'q!")}</h1>
-              </center>
+              </center> 
             </div>
             <div className="deskBg2"></div>
           </div>
         ) : (
           <>
-            <Carousel className="carusels">
-              {cars.map((item) => {
+           <h5 onClick={() => defectClose()} className="helloClose"><MdOutlineClose style={{color:'white'}}/></h5>
+            <Carousel  className="carusels">
+           
+              {cars.map((item,key) => {
                 return (
                   <Carousel.Item className="carusels2">
+                    <h5 className="hellonumber" ><span className="fractionnumber" >{key+1}</span>/{cars.length}</h5>
                     <div className="imgDefect">
                       <div className="imgDefect2">
                         <img src={item.image1} alt="" />
@@ -183,7 +191,7 @@ console.log(e.target.value);
                           {" "}
                           {data.position.series.model.name}{" "}
                           {data.position.series.name} {state === 'ru' ? ("дефект") : ("nuqson")}
-                          <h5 onClick={() => defectClose()} className="helloClose">X</h5>
+                          {/* <h5 onClick={() => defectClose()} className="helloClose"><MdOutlineClose style={{color:'white'}}/></h5> */}
                         </h4>
 
                         <p>
@@ -192,6 +200,7 @@ console.log(e.target.value);
                       </div>
                     </div>
                   </Carousel.Item>
+                
                 );
               })}
         

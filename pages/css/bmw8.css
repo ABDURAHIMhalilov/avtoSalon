@@ -21,11 +21,11 @@
   width: 100%;
   border-radius: 12px;
 }
-@media (max-width: 900px) {
+ @media (max-width: 900px) {
   .dollars1 p {
     display: none !important;
   }
-}
+} 
 .swip .mySwiper {
   height: 20%;
   box-sizing: border-box;
@@ -34,7 +34,7 @@
 
 .swip .mySwiper .swiper-slide {
   width: 40%;
-  /* height: 100%; */
+  height: 100%;
   opacity: 0.4;
 }
 
@@ -59,7 +59,7 @@
 }
 .s2img {
   width: 100% !important;
-  /* height: 100% !important; */
+  height: 100% !important;
   border-radius: 12px !important;
 }
 
@@ -262,8 +262,8 @@
   .maky1 {
     width: 50%;
   }
-}
-@media (max-width: 1047px) {
+} 
+ @media (max-width: 1047px) {
   .oxirkotta {
     display: flex !important;
     justify-content: flex-start !important;
@@ -274,7 +274,7 @@
     margin-left: 0px;
     width: 100%;
   }
-}
+} 
 
 .pas p {
   color: #222732;
@@ -282,14 +282,14 @@
   margin-top: 30px;
 }
 
-@media (max-width: 1050px) {
+ @media (max-width: 1050px) {
   .oxirkotta button {
     width: 100%;
   }
   .oxirkotta {
     background-color: #fff;
   }
-}
+} 
 .lll {
   list-style: none;
 }
@@ -494,7 +494,7 @@
   cursor: pointer;
 }
 
-@media (max-width: 600px) {
+ @media (max-width: 600px) {
   .mySwiper {
     display: none !important;
   }
@@ -512,7 +512,7 @@
     width: 100%;
     margin-top: 0px;
   }
-}
+} */
 .buttonz1 {
   display: block;
 }
@@ -537,7 +537,7 @@
   .maky {
     padding: 10px !important;
   }
-}
+} */
 .card122 {
   /* width: 80%; */
   display: flex;
@@ -693,8 +693,8 @@
   .img12212 {
     display: none !important;
   }
-}
-@media (max-width: 650px) {
+} 
+ @media (max-width: 650px) {
   .lkj {
     display: block !important;
     width: 100%;
@@ -717,7 +717,7 @@
     margin-left: 0px;
     margin-top: 10px;
   }
-}
+} 
 .nm {
   display: none;
 }
@@ -926,7 +926,7 @@
   font-size: 20px;
 }
 
-@media (max-width: 1100px) {
+ @media (max-width: 1100px) {
   .bnm {
     margin-top: 50px;
     display: block;
@@ -940,8 +940,8 @@
     display: block;
     width: 100%;
     /* min-width: 300px; */
-  }
-}
+   }
+} 
 
 .asda {
   align-items: center;
@@ -1153,7 +1153,7 @@
   width: 150px;
 }
 
-@media (max-width: 1300px) {
+ @media (max-width: 1300px) {
   .konechswip {
     display: none;
   }
@@ -1185,7 +1185,7 @@
   .audi4 img {
     height: 250px;
   }
-}
+} 
 
 .gfbvdc select {
   width: 97%;
@@ -1203,20 +1203,19 @@
   position: absolute;
   top: 0;
   left: 0;
-  background: #fff;
+  background: black;
   z-index: 9999999999999999999 !important;
   display: none;
 }
 
 .defectBig {
   width: 100%;
-  min-height: 100vh;
-  background: #fff;
+  /* min-height: 520px; */
+  /* background: #fff; */
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
-  padding-left: 5%;
-  padding-top: 60px;
+  /* padding-left: 5%;
+  padding-top: 60px; */
 }
 
 .deskBg {
@@ -1224,22 +1223,31 @@
 }
 
 .deskBgimg {
-  width: 40%;
-  height: 400px;
+  width: 70%;
+  /* height: 800px; */
+  height: 850px;
 }
 
 .deskBg2 {
-  width: 45%;
+  width: 30%;
+  background-color: rgb(26, 26, 26);
+  padding: 30px;
+  padding-left: 32px;
+  padding-top: 20px;
+  /* height: 800px; */
+  height: 850px;
 }
 
 .deskBg2 p {
-  margin-left: 5px;
   font-size: 20px;
+  margin-top: 100px;
+  color: white;
 }
 
 .bigImg {
-  width: 40%;
-  margin-left: 10px;
+  width: 100%;
+  height: 260px;
+  border-radius: 5px;
 }
 
 .defectBig span {
@@ -1261,6 +1269,9 @@
 .carousel-control-prev-icon {
   color: red !important;
   /* box-shadow:  0 0 10px red; */
+  position: absolute;
+  left: 4%;
+  top: 40%;
   background: #000;
   width: 50px !important;
   height: 50px !important;
@@ -1270,6 +1281,9 @@
 
 .carousel-control-next-icon {
   color: red !important;
+  position: absolute;
+  right: 4%;
+  top: 40%;
   /* box-shadow:  0 0 10px red; */
   background: #000;
   width: 50px !important;
@@ -1283,11 +1297,12 @@
   /* min-height: 50vh; */
 }
 .carusels2 {
-  width: 80% !important;
+  width: 90% !important;
   min-height: 100vh;
-  margin-left: 10% !important;
+  margin-left: 5.5% !important;
   /* box-shadow: inset 0 0 10px black; */
   /* background: #000 !important; */
+  margin-top: 7%;
 }
 .carusels2 h3 {
   font-size: 60px;
@@ -1311,18 +1326,45 @@
   color: white;
   background: #000;
 }
+.carousel-indicators{
+display:none !important;
+}
+.fraction{
+  width: 100%;
+  padding-left: 150px;
+  padding-right: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+    position: absolute;
+    top: 75px;
+}
 
 .helloClose {
   position: absolute;
-  top: 0;
-  right: 100px;
+  top: 6%;
+  right: 2%;
   cursor: pointer;
   font-size: 40px;
+  z-index: 100000000000;
+  color: white;
+}
+.hellonumber{
+  position: absolute;
+  top: 5px;
+  left: 10px;
+cursor: pointer;
+font-size: 30px;
+z-index: 100000000000;
+color:white;
+box-shadow: 0px 0px 10px 0px black;
+
 }
 
 .nameDefect {
-  font-size: 30px;
-  margin-bottom: 60px;
+  font-size: 28px;
+  margin-top: 10px;
+  color: white;
 }
 
 .defectBig span {
@@ -1348,7 +1390,8 @@
   padding-bottom: 60px;
 }
 
-@media (max-width: 1364px) {
+
+/* @media (max-width: 1364px) {
   .imgDefect {
     width: 100%;
     display: block;
@@ -1362,9 +1405,9 @@
   .defectBig {
     display: none;
   }
-}
+} */
 
-@media (max-width: 636px) {
+/* @media (max-width: 636px) {
   .imgDefect2 {
     display: block;
     margin-bottom: 0px !important;
@@ -1378,7 +1421,7 @@
     margin: 0 auto;
     margin-top: 20px;
   }
-}
+} */
 @media(max-width:700px){
   .inp2 input {
     min-width: 100%;
@@ -1395,5 +1438,184 @@
   }
   .bnm{
     width: 100%;
+  }
+} 
+
+@media (max-width:1400px) {
+  
+.deskBgimg{
+  height: 400px;
+}
+.deskBg2{
+  height: 400px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+}
+.desBg2 p{
+  margin-top: 20px;
+}
+.bigImg{
+  height: 140px;
+}
+.carusels2{
+  width: 90% !important;
+}
+.carusels2{
+  margin-top: 10%;
+}
+.carousel-control-prev-icon{
+  position: absolute;
+  top: 240px;
+  width: 20% !important;
+}
+.carousel-control-next-icon{
+  position: absolute;
+  top: 240px;
+  width: 20% !important;
+}
+.nameDefect{
+  font-size:15px ;
+}
+.deskBg2 p{
+  font-size: 12px;
+  margin-top: 20px;
+}
+.helloClose{
+font-size: 20px;
+position: absolute;
+top: 4%;
+right: 2%;
+}
+.carusels2{
+  margin-top: 3%;
+}
+}
+@media (max-width:809px) {
+  /* .defectDiv{
+    width: 180vw !important;
+  } */
+  .deskBgimg{
+    width: 100% !important;
+    height: auto;
+  }
+  .deskBg2{
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+  }
+  .bigImg{
+    width: ;
+    height: auto;
+  }
+  .helloClose{
+  font-size: 25px !important;
+  }
+  .carusels2{
+    margin-top: 4%;
+  }
+  .carousel-control-prev-icon{
+    position: absolute;
+    top: 200px;
+    width: 20% !important;
+  }
+  .carousel-control-next-icon{
+    position: absolute;
+    top: 200px;
+    width: 20% !important;
+  }
+}
+@media (max-width:600px) {
+  .deskBgimg{
+    width: 100% !important;
+    height: auto !important;
+  }
+  .hellonumber{
+    color: white;
+  }
+  .carusels2{
+    width: 90% !important;
+    margin-left:5% !important;
+  }
+  .nameDefect{
+    font-size: 25px;
+  }
+  .deskBg2 p{
+    margin-top: 30px;
+    font-size: 20px;
+  }
+  .deskBg2{
+    width: 100%;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 20px;
+    height: auto !important;
+  }
+  .carousel-control-prev-icon{
+    position: absolute;
+    top: 500px;
+  }
+  .carousel-control-next-icon{
+    position: absolute;
+    top: 500px;
+  }
+  .defectBig{
+    margin-top: 1px;
+    display: flex !important;
+    flex-direction: column-reverse;
+  }
+  .bigImg{
+    height: 300px;
+  }
+  .helloClose {
+    position: absolute;
+    top: 4%;
+    cursor: pointer;
+    font-size: 35px;
+    z-index: 100000000000;
+    color: white;
+  }
+}
+
+@media (max-width:500px) {
+  .bigImg{
+    height: 200px;
+  }
+  .deskBgimg{
+    height: auto !important;
+    margin-top: 0 !important;
+  }
+  .deskBg2{
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  }
+  .deskBg2 p{
+    font-size: 12px;
+  }
+  .nameDefect{
+    font-size: 20px;
+  }
+  .carousel-control-prev-icon{
+    position: absolute;
+    top: 300px;
+  }
+  .carousel-control-next-icon{
+    position: absolute;
+    top: 300px;
+  }
+} 
+
+@media (max-width:1200px) {
+  .bigImg{
+    height: 150px;
+  }
+  .deskBgimg{
+    height: 500px;
+  }
+  .deskBg2{
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
   }
 }
