@@ -36,7 +36,6 @@ export default function Search() {
   const [page, setPage] = React.useState(1);
   const [countpag, setCountpag] = React.useState(1);
   const [languange, setlanguange] = React.useState()
-  // const [  ]
 
   const abbasFilter = (model1, seria1, position1, gearBox1, fuelsort1, garant1, branch1, year1, mincount1, maxcount1) => {
     var pushdata = []
@@ -57,6 +56,8 @@ export default function Search() {
             if (
               (model1 != "" ? (item.position.series.model.id === model1) : (true))
               &&
+              // (parseInt(sessionStorage.getItem("model")) != "" ? (item.position.series.model.id === parseInt(sessionStorage.getItem("model"))) : (true))
+              // &&
               (seria1 != "" ? (item.position.series.id === seria1) : (true))
               &&
               (position1 != "" ? (item.position.id === position1) : (true))
@@ -98,10 +99,10 @@ export default function Search() {
     setPage(event.target.value)
   };
   const handleModel = (event) => {
-    console.log(event.target.value, "kkkk");
+    sessionStorage.setItem("model",event.target.value)
     abbasFilter(event.target.value, "", "", selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount)
     setSelectModel(event.target.value);
-    axios.get(`https://api.baracar.uz/api/uz/series_get/`).then(res => {
+    axios.get(`https://api.baracar.uz/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/series_get/`).then(res => {
       const search = res.data.filter(item => item.model.id === event.target.value)
       setSeries(search)
       setSelectSeries("")
@@ -112,7 +113,7 @@ export default function Search() {
   }
   const handleSeries = (event) => {
     setSelectSeries(event.target.value);
-    console.log(event.target.value, "kkkk");
+    sessionStorage.setItem("series",event.target.value)
 
     axios.get(`https://api.baracar.uz/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/position_get/`).then(res2 => {
       const search2 = res2.data.filter(item => item.series.id === event.target.value)
@@ -131,6 +132,7 @@ export default function Search() {
   }
   const handlePosition = (event) => {
     setSelectPosition(event.target.value);
+    sessionStorage.setItem("position",event.target.value)
     abbasFilter(selectModel, selectSeries, event.target.value, selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount)
 
   }
@@ -189,7 +191,13 @@ export default function Search() {
     document.querySelector('.mobile_search').classList.remove('db')
   }
   useEffect(() => {
+setSelectModel(parseInt(sessionStorage.getItem("model")))
+setSelectSeries(parseInt(sessionStorage.getItem("series")))
+setSelectPosition(parseInt(sessionStorage.getItem("position")))
     setlanguange(localStorage.getItem("lang"))
+var dataAA =parseInt(sessionStorage.getItem("model"))
+var dataAA2 =parseInt(sessionStorage.getItem("series"))
+var dataAA3 =parseInt(sessionStorage.getItem("position"))
     axios.get(`https://api.baracar.uz/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/cars_get/`).then(res => {
       axios.get(`https://api.baracar.uz/api/images/`)
         .then((res1) => {
@@ -215,9 +223,24 @@ export default function Search() {
     axios.get(`https://api.baracar.uz/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/models/`).then(res => {
       setModel(res.data)
       axios.get(`https://api.baracar.uz/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/series_get/`).then(res2 => {
-        setSeries(res2.data)
+        if (dataAA<1) {
+          setSeries(res2.data)
+        }else{
+          const search = res2.data.filter(item => item.model.id === parseInt(sessionStorage.getItem("model")))
+          setSeries(search)
+          setSelectSeries(sessionStorage.getItem("series"))
+
+          setPosition([])
+        }
         axios.get(`https://api.baracar.uz/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/position_get/`).then(res3 => {
           setPosition(res3.data)
+          if (dataAA2<1) {
+            setPosition(res3.data)
+          }else{
+            const search2 = res3.data.filter(item => item.series.id === parseInt(sessionStorage.getItem("series")))
+  
+              setPosition(search2)
+          }
           axios.get(`https://api.baracar.uz/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/fuel_sort/`).then(res4 => {
             setFuelsort(res4.data)
             axios.get(`https://api.baracar.uz/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/gear_box/`).then(res5 => {
@@ -233,8 +256,18 @@ export default function Search() {
         })
       })
     })
-
-
+   
+    var model = parseInt(sessionStorage.getItem("model"));
+    var series = parseInt(sessionStorage.getItem("series"));
+    var position = parseInt(sessionStorage.getItem("position"));
+    
+    if (dataAA2 < 1) {
+      abbasFilter(model, selectSeries, selectPosition, selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount);
+    } else if (dataAA3 < 1) {
+      abbasFilter(model, series, selectPosition, selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount);
+    } else {
+      abbasFilter(model, series, position, selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount);
+    }
   }, [])
 
   return (
@@ -287,7 +320,7 @@ export default function Search() {
                 label='Position'
                 onChange={handlePosition}
               >
-                <MenuItem value=""></MenuItem>
+                <MenuItem value="">None</MenuItem>
                 {position.map(item => {
                   return <MenuItem value={item.id}>{item.name}</MenuItem>
                 })}

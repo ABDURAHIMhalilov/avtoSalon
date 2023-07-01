@@ -32,13 +32,25 @@ export default function Home() {
   const [p1, setP1] = React.useState(0);
 
   const getAllSearch = () => {
-    var data = {
-      model: select,
-      series: selectSeries,
-      position: selectPosition,
-    };
-    localStorage.setItem("search", JSON.stringify(data));
-    window.location = "/cars";
+    // var data = {
+    //   model: select,
+    //   series: selectSeries,
+    //   position: selectPosition,
+    // };
+    // sessionStorage.setItem("search", JSON.stringify(data));
+    sessionStorage.setItem("model",select)
+    if (selectSeries.length<1) {
+      sessionStorage.setItem("series",0)
+    }else{
+      sessionStorage.setItem("series",selectSeries)
+    }
+    if (selectPosition.length<1) {
+      sessionStorage.setItem("position",0)
+    }else{
+      sessionStorage.setItem("position",selectPosition)
+    }
+
+    window.location = "/js/Search";
   };
   useEffect(() => {
     setLanguage(
@@ -84,7 +96,6 @@ export default function Home() {
   };
 
   return (
-
     <div>
       {p1 === 1 ? (
         <>
@@ -108,7 +119,9 @@ export default function Home() {
                     Biz sizga eng yaxshi mashinani topishda yordam bera
                     olamiz.Sotiladigan avtomobillarni toping.
                   </p>
-                  <button> Batafsil </button>
+                  <a href="js/About">
+                    <button> Batafsil </button>
+                  </a>
                 </div>
                 <div className="cardHeader2">
                   <h1>Mashina turini tanlang</h1>
@@ -169,7 +182,7 @@ export default function Home() {
                         value={selectPosition}
                         onChange={postPosition}
                       >
-                        <MenuItem value="">None</MenuItem>
+                        <MenuItem value={0}>None</MenuItem>
                         {position.map((item, key) => {
                           return (
                             <MenuItem key={key} value={item.id}>
@@ -180,14 +193,13 @@ export default function Home() {
                       </Select>
                     </FormControl>
                     <center>
-                      <button>Qidirish</button>
+                      <button onClick={()=>getAllSearch()}>Qidirish</button>
                     </center>
                   </div>
                 </div>
                 {/* <br /> */}
                 {/* <br /> */}
                 <div className="carImg"></div>
-
               </div>
               <Featured />
               <Popular />
@@ -240,7 +252,9 @@ export default function Home() {
                     Мы поможем вам найти лучший автомобиль. Ознакомьтесь с
                     нашими обзорами продажи.
                   </p>
-                  <button> О нас </button>
+                  <a href="js/About">
+                    <button> О нас </button>
+                  </a>
                 </div>
                 <div className="cardHeader2">
                   <h1>Выберите тип машины</h1>
@@ -312,7 +326,7 @@ export default function Home() {
                       </Select>
                     </FormControl>
                     <center>
-                      <button>поиск</button>
+                      <button onClick={()=>getAllSearch()}>поиск</button>
                     </center>
                   </div>
                 </div>

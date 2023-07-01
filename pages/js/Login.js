@@ -5,7 +5,7 @@ import Navbar from "./Navbar";
 import Footer from "./Footer";
 import "../css/Login.css";
 import axios from "axios";
-import "../../app/globals.css"
+import "../../app/globals.css";
 // import img from "./img/logo.png"
 // import galochka from "./img/Group 62.png"
 // import google from "./img/Group 61.png"
@@ -18,13 +18,11 @@ export default function Login() {
   const [data, setData] = React.useState(1);
   const [staff, setStaff] = React.useState();
   const [user, setUser] = useState([]);
-  const [ state, setState ] = React.useState();
+  const [state, setState] = React.useState();
 
-  useEffect(()=>{
-    setState(localStorage.getItem('lang'))
-  },[])
-
-  
+  useEffect(() => {
+    setState(localStorage.getItem("lang"));
+  }, []);
 
   const plus = () => {
     setData(data + 1);
@@ -56,7 +54,7 @@ export default function Login() {
         localStorage.setItem("username", usernamee);
       })
       .catch((err) => {
-        alert(err);
+        alert("Ma'lumotni to'liq kiriting");
       });
   }
   function userLogin() {
@@ -64,19 +62,23 @@ export default function Login() {
     var usernamee = document.querySelector(".userNameEmail").value;
     datta.append("phone", usernamee);
     datta.append("password", document.querySelector(".userPassword").value);
-    axios.post(`https://api.baracar.uz/auth/login/`, datta)
+    axios
+      .post(`https://api.baracar.uz/auth/login/`, datta)
       .then((res) => {
         // res.data.map(item => {
         // if (res.data.username === asd && res.data.password === asd2) {
         // alert("zo`r");
         console.log(res.data);
-        localStorage.setItem('username', usernamee)
-        JSON.stringify(localStorage.setItem("Token_user", res.data.access))
+        localStorage.setItem("username", usernamee);
+        JSON.stringify(localStorage.setItem("Token_user", res.data.access));
         window.location = "/js/Loginpage";
         // } else {
         //   alert('To`g`ri kelmadi')
         // }
         // })
+      })
+      .catch((err) => {
+        alert("Ma'lumot to'g'ri kelmadi");
       });
   }
 
@@ -90,44 +92,64 @@ export default function Login() {
             <button
               style={
                 data === 1
-                  ? { background: "#ff4605", border: "1px solid gray;", color:"white" }
+                  ? {
+                      background: "#ff4605",
+                      border: "1px solid gray;",
+                      color: "white",
+                    }
                   : { background: "white" }
               }
               onClick={() => {
                 setData(1);
               }}
             >
-              {state==='ru'?("Авторизоваться"):("Tizimga kirish")}
+              {state === "ru" ? "Авторизоваться" : "Tizimga kirish"}
             </button>
             <button
               style={
                 data === 2
-                  ? { background: "#ff4605", border: "10px solid gray ;", color:"white" }
+                  ? {
+                      background: "#ff4605",
+                      border: "10px solid gray ;",
+                      color: "white",
+                    }
                   : { background: "white" }
               }
               onClick={() => {
                 setData(2);
               }}
             >
-              {state==='ru'?("Регистрация"):("Ro'yxatdan o'tish")}
+              {state === "ru" ? "Регистрация" : "Ro'yxatdan o'tish"}
             </button>
           </div>
           <div className="asos_form">
             {data === 1 ? (
               <div className="login">
-                <h2>{state==='ru'?("Войдите в свой аккаунт"):("Akkauntingizga kiring")}</h2>
-                <h3>{state==='ru'?("Добро пожаловать! Войдите в свой аккаунт"):("Xush kelibsiz! Akkauntingizga kiring")}</h3>
+                <h2>
+                  {state === "ru"
+                    ? "Войдите в свой аккаунт"
+                    : "Akkauntingizga kiring"}
+                </h2>
+                <h3>
+                  {state === "ru"
+                    ? "Добро пожаловать! Войдите в свой аккаунт"
+                    : "Xush kelibsiz! Akkauntingizga kiring"}
+                </h3>
                 <div className="inputs">
                   <input
                     className="userNameEmail"
-                    id='userNameEmail'
+                    id="userNameEmail"
                     type="text"
-                    placeholder={state==='ru'?("Электронная почта или имя пользователя*"):("Elektron pochta yoki foydalanuvchi nomi*")}
+                    placeholder={
+                      state === "ru"
+                        ? "Электронная почта или имя пользователя*"
+                        : "Elektron pochta yoki foydalanuvchi nomi*"
+                    }
                   />
                   <input
                     className="userPassword"
                     type="password"
-                    placeholder={state==='ru'?("Пароль*"):("Parol*")}
+                    placeholder={state === "ru" ? "Пароль*" : "Parol*"}
                   />
                 </div>
                 <div className="checkbox">
@@ -136,27 +158,39 @@ export default function Login() {
                     <p>Remember</p>
                   </div> */}
                   <a className="forgot" href="#">
-                  {state==='ru'?("Забыли пароль?"):("Parolni unutdingizmi?")}
+                    {state === "ru"
+                      ? "Забыли пароль?"
+                      : "Parolni unutdingizmi?"}
                   </a>
                 </div>
-                <button onClick={() => userLogin()}>{state==='ru'?("Авторизоваться"):("Kirish")}</button>
+                <button onClick={() => userLogin()}>
+                  {state === "ru" ? "Авторизоваться" : "Kirish"}
+                </button>
               </div>
             ) : (
               <div className="registratsiya">
-                <h2>{state==='ru'?("Регистрация"):("Ro'yxatdan o'tish")}</h2>
-                <h3>{state==='ru'?("Создайте новую учетную запись сегодня."):("Bugun yangi hisob yarating.")}</h3>
+                <h2>{state === "ru" ? "Регистрация" : "Ro'yxatdan o'tish"}</h2>
+                <h3>
+                  {state === "ru"
+                    ? "Создайте новую учетную запись сегодня."
+                    : "Bugun yangi hisob yarating."}
+                </h3>
                 <div className="inputs">
                   <input
                     type="text"
                     className="Username"
-                    placeholder={state==='ru'?("имя*"):("ism*")}
+                    placeholder={state === "ru" ? "имя*" : "ism*"}
                   />
                   {/* <input type="text" className="Email" placeholder="Email*" /> */}
-                  <input type="text" className="Phone" placeholder={state==='ru'?("Телефон*"):("Telefon*")} />
+                  <input
+                    type="text"
+                    className="Phone"
+                    placeholder={state === "ru" ? "Телефон*" : "Telefon*"}
+                  />
                   <input
                     type="password"
                     className="Password"
-                    placeholder={state==='ru'?("Пароль*"):("parol*")}
+                    placeholder={state === "ru" ? "Пароль*" : "parol*"}
                   />
                   {/* <div className="checkbox1">
                     <div className="check">
@@ -178,13 +212,16 @@ export default function Login() {
                     privacy policy
                   </a>
                 </div> */}
-                <button onClick={() => postUser()}>{state==='ru'?("Регистрация"):("Ro'yxatdan o'tish")}</button>
+                <button onClick={() => postUser()}>
+                  {state === "ru" ? "Регистрация" : "Ro'yxatdan o'tish"}
+                </button>
               </div>
             )}
           </div>
         </div>
       </center>
-      {/* <Footer /> */}
+      <br />
+      <Footer />
     </div>
   );
 }
