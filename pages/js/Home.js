@@ -28,11 +28,8 @@ export default function Home() {
   const [series, setSeries] = React.useState([]);
   const [position, setPosition] = React.useState([]);
   const [language, setLanguage] = React.useState('')
-  const [p, setP] = React.useState("");
-useEffect(()=>{
-  setLanguage(localStorage.getItem('lang')?localStorage.getItem('lang'):'ru')
-  setP(1)
-})
+  const [p1, setP1] = React.useState(0);
+
   const getAllSearch = () => {
     var data = {
       model: select,
@@ -42,13 +39,17 @@ useEffect(()=>{
     localStorage.setItem("search", JSON.stringify(data))
     window.location = "/cars"
   }
-
-
-
-  useEffect(() => {
+ useEffect(()=>{ 
+    setLanguage(localStorage.getItem('lang')?localStorage.getItem('lang'):'ru')
+    setP1(1)
     axios.get(`https://api.baracar.uz/api/models/`).then((res) => {
-      setModels(res.data);
+    setModels(res.data);
+     setP1(1)
     });
+setTimeout(() => {
+  setP1(1)
+  }, 100);
+    
   }, []);
   const getSeries = (event) => {
     setSelect(event.target.value);
@@ -82,7 +83,7 @@ useEffect(()=>{
 
   return (
   <div>
-    {p===1?(  <>
+    {p1===1?(<>
       <Head>
         <title>Главная страница</title>
       </Head>

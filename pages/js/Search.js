@@ -577,9 +577,7 @@ export default function Search() {
                     <div className='featCard_bottom'>
                       <div className='feat-cardorab'><h3 className='featCard_name'>{item.name}</h3><del>{item.sale == 0 ? ("") : (`${item.price}$`)}</del></div>
                       <h4 className='featCard_price'>{
-                        item.sale == 0 ? (item.price) : (`${item.price - ((item.price * item.sale / 100).toFixed(0))}`)
-
-                      }$</h4>
+                        item.sale == 0 ? (item.price) : (`${item.price - ((item.price * item.sale / 100).toFixed(0))}`)}$</h4>
                       <div className='featCard_box'>
                         <p className='featCard_year'>{item.year}</p>
                         <p className='featCard_auto'>{item.gearbox.name}</p>
