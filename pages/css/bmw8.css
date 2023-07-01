@@ -35,9 +35,12 @@
 .swip .mySwiper .swiper-slide {
   width: 40%;
   height: 140px !important;
+  margin-left: 20px;
   opacity: 0.4;
 }
-
+.swip111{
+  margin-left: -20px;
+}
 .swip .mySwiper .swiper-slide-thumb-active {
   opacity: 1;
 }
@@ -87,7 +90,7 @@
   background-size: 10px;
   background-repeat: no-repeat;
   box-shadow: 0px 0px 10px black !important;
-  margin-right: 100%;
+  margin-right: -10%;
   transition: 0.5s;
 }
 .swip .swiper-button-prev {
@@ -100,7 +103,7 @@
   box-shadow: 0px 0px 10px black !important;
   background-size: cover;
   background-repeat: no-repeat;
-  margin-left: 100%;
+  margin-left: -10%;
   transition: 0.5s;
 }
 .swip:hover .swiper-button-prev {
@@ -325,7 +328,7 @@
   line-height: 44px;
 }
 .dollars {
-  margin-top: 30px;
+  margin-top: 90px;
 }
 .dollars p {
   color: #a7a8a8;
@@ -383,6 +386,7 @@
   background-color: #eff3fa;
   padding: 10px;
   display: flex;
+  padding-top: 30px;
   justify-content: space-around;
   border-radius: 20px;
 }

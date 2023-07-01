@@ -27,8 +27,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // import "../../app/globals.css"
 
 import '@/app/globals.css'
-import Popular from '../js/Popular'
 
+import "../css/Popular.css"
 
 export default function Bmw8() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -284,7 +284,7 @@ export default function Bmw8() {
                     } else {
                       return (
                         <SwiperSlide>
-                          <img
+                          <img className="swip111"
                             className="s2img"
                             src={item2.image}
                             alt={item2.image}
@@ -903,7 +903,7 @@ export default function Bmw8() {
             </div>
           </div>
 
-          <div className="konechswip">
+          {/* <div className="konechswip">
             <Swiper
               slidesPerView={4}
               spaceBetween={30}
@@ -922,6 +922,13 @@ export default function Bmw8() {
                       }}
                     >
                       <div className="audi4">
+                      <div id="corner-ribbon" style={{position:'absolute',top:'0px',right:'170px'}}>
+              <div  style={item.sale == 0 ? { display: "none" }:{ display: "flex" }}>
+                <div>
+                  <div><h2 className='sa'>{item.sale == 0 ? ("") : (`${item.sale}%`)} </h2></div>
+                </div>
+              </div>
+            </div>
                         <img
                           src={
                             getavto[key].image != undefined
@@ -952,9 +959,9 @@ export default function Bmw8() {
                 }
               })}
             </Swiper>
-          </div>
+          </div> */}
 
-          <div className="konechswip1">
+          {/* <div className="konechswip1">
             <Swiper
               slidesPerView={3}
               spaceBetween={30}
@@ -1102,8 +1109,76 @@ export default function Bmw8() {
                 }
               })}
             </Swiper>
-          </div>
-      <Popular/>
+          </div> */}
+
+<div className="popular">
+       
+      <Swiper
+        spaceBetween={0}
+        navigation={true}
+        breakpoints={{
+          0:{
+            slidesPerView: 1,
+            spaceBetween: 50,
+          },
+          650: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          991: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          1100: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          1300: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+          },
+          1750: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+          },
+          1950: {
+            slidesPerView: 5,
+            spaceBetween: 20,
+          },
+        }}
+        modules={[Navigation]}
+        className="mySwiper"
+      >
+        {getavto.map((item, key) => {
+        if(key<12){ return (
+            <SwiperSlide key={key} onClick={()=>getData2(item)} className="swiperPopCard">
+              <div className="feat_card">
+              <div id="corner-ribbon" style={{position:'absolute',top:'0px',right:'170px'}}>
+              <div  style={item.sale == 0 ? { display: "none" }:{ display: "flex" }}>
+                <div>
+                  <div><h2 className='sa'>{item.sale == 0 ? ("") : (`${item.sale}%`)} </h2></div>
+                </div>
+              </div>
+            </div>
+                     <img src={getavto[key].image!=undefined?item.image[0].image:("https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg")}
+                      alt="no img" />
+                <div className="featCard_bottom">
+                <h3 className="featCard_name">{item.name}</h3>
+                  <h4 className="featCard_price">${item.price}</h4>
+                  <div className="featCard_box">
+                    <p className="featCard_year">{item.year}</p>
+                    <p className="featCard_auto">{item.gearbox.name}</p>
+                    <p className="featCard_pet">{item.fuel_sort.name}</p>
+                  </div>
+                </div> 
+              </div>
+            </SwiperSlide>
+          );} 
+        })}
+
+      </Swiper>
+    </div>
+      
       <Footer/>
     </div>) : (
         <div class="loader">

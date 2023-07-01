@@ -62,7 +62,9 @@
     min-height: 52vh;
     margin-top: 5%;
 }
-
+.swiper-slide{
+    margin-right: 0px !important;
+}
 .feat_card img{
     width:100% !important;
     height: 220px !important;
