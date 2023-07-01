@@ -257,16 +257,17 @@ var dataAA3 =parseInt(sessionStorage.getItem("position"))
       })
     })
    
-if (dataAA2<1) {
-  abbasFilter(parseInt(sessionStorage.getItem("model")), selectSeries, selectPosition, selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount)
-}else{
-  abbasFilter(parseInt(sessionStorage.getItem("model")), parseInt(sessionStorage.getItem("series")), selectPosition, selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount)
-  if (dataAA3<1) {
-    abbasFilter(parseInt(sessionStorage.getItem("model")), parseInt(sessionStorage.getItem("series")), selectPosition, selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount)
-  }else{
-    abbasFilter(parseInt(sessionStorage.getItem("model")), parseInt(sessionStorage.getItem("series")),parseInt(sessionStorage.getItem("position")), selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount)
-  }
-}
+    var model = parseInt(sessionStorage.getItem("model"));
+    var series = parseInt(sessionStorage.getItem("series"));
+    var position = parseInt(sessionStorage.getItem("position"));
+    
+    if (dataAA2 < 1) {
+      abbasFilter(model, selectSeries, selectPosition, selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount);
+    } else if (dataAA3 < 1) {
+      abbasFilter(model, series, selectPosition, selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount);
+    } else {
+      abbasFilter(model, series, position, selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount);
+    }
   }, [])
 
   return (

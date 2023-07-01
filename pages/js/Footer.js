@@ -19,8 +19,7 @@ export default function Footer () {
     <>
       {
              state=== "uz" ? (
-            
-               <div className='footer'>
+               <div className='footer' style={{marginTop:'30px'}}>
           <div className='footer_body'>
             <div className='ff'>
               <a href='/' className='logo'>
