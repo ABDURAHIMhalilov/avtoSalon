@@ -63,7 +63,7 @@
     margin-top: 5%;
 }
 .swiper-slide{
-    margin-right: 0px !important;
+    /* margin-right: 0px !important; */
 }
 .feat_card img{
     width:100% !important;
@@ -172,7 +172,7 @@
         top: 200px;
     }
     .swiperPopCard > .feat_card{
-        margin-left: 0px;
+        margin-left: 5px;
     }
 
 }

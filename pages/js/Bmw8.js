@@ -266,7 +266,7 @@ export default function Bmw8() {
                     } else {
                       return (
                         <SwiperSlide>
-                          <img className="swip111"
+                          <img 
                             className="s2img"
                             src={item2.image}
                             alt={item2.image}
@@ -290,7 +290,7 @@ export default function Bmw8() {
                     if (data.id === item2.car) {
                       return (
                         <SwiperSlide>
-                          <img
+                          <img id="swip111"
                             className="s2img"
                             src={item2.image}
                             alt={item2.image}
@@ -326,7 +326,7 @@ export default function Bmw8() {
                 </div>
                 <div className="oxirkotta">
                   <div className="maky">
-                    <table style={{ width: "100%", paddingTop: "30px" }}>
+                    <table className="tab1" style={{ width: "100%", paddingTop: "30px",minWidth:"450px" }}>
                       <tr className="maky1">
                         <th>{state === "ru" ? "Делать:" : "Qilish:"}</th>
                         <td>{data.position.series.model.name}</td>
