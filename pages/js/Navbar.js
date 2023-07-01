@@ -37,7 +37,12 @@ useEffect(() => {
     // localStorage.setItem("lang",a)
     
   }
-  
+  function aa (item) {
+    sessionStorage.setItem("series",item.id)
+    sessionStorage.setItem("model",item.model.id)
+    sessionStorage.setItem("position",0)
+    window.location = "/js/Search";
+  }
 
 
   return (
@@ -130,8 +135,8 @@ useEffect(() => {
     <ul>
    {data.map((item,key)=>{
   if(key<6){
-    return <li>
-    {item.model.name}{" "}{item.name}
+    return <li onClick={()=>aa(item)}>
+    {item.model.name}{" "}{item.name} 
   </li>
   }
    })}  

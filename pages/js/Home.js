@@ -32,13 +32,16 @@ export default function Home() {
   const [p1, setP1] = React.useState(0);
 
   const getAllSearch = () => {
-    var data = {
-      model: select,
-      series: selectSeries,
-      position: selectPosition,
-    };
-    localStorage.setItem("search", JSON.stringify(data));
-    window.location = "/cars";
+    // var data = {
+    //   model: select,
+    //   series: selectSeries,
+    //   position: selectPosition,
+    // };
+    // sessionStorage.setItem("search", JSON.stringify(data));
+    sessionStorage.setItem("model",select)
+    sessionStorage.setItem("series",selectSeries)
+    sessionStorage.setItem("position",selectPosition)
+    window.location = "/js/Search";
   };
   useEffect(() => {
     setLanguage(
@@ -181,7 +184,7 @@ export default function Home() {
                       </Select>
                     </FormControl>
                     <center>
-                      <button>Qidirish</button>
+                      <button onClick={()=>getAllSearch()}>Qidirish</button>
                     </center>
                   </div>
                 </div>
@@ -314,7 +317,7 @@ export default function Home() {
                       </Select>
                     </FormControl>
                     <center>
-                      <button>поиск</button>
+                      <button onClick={()=>getAllSearch()}>поиск</button>
                     </center>
                   </div>
                 </div>
