@@ -48,7 +48,7 @@ export default function Home() {
     });
 setTimeout(() => {
   setP1(1)
-  }, 100);
+  }, 10);
     
   }, []);
   const getSeries = (event) => {

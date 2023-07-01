@@ -118,10 +118,39 @@ useEffect(() => {
         <Link href="/js/About" className="a_fff">
           {state === 'ru' ? ("О нас") : ("Biz haqimizda")}
         </Link>
-        <Link href="#" className="a_fff">
-          {state === 'ru' ? ("Страницы") : ("Sahifalar")}
+        <Link href="#" className="a_fff  togle12">
+        <div class="dots" onclick={()=>{this.classList.toggle('active');}}>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="shadow cut"></div>
+  <div class="container cut">
+    <div class="drop cut2"></div>
+  </div>
+  <div class="list">
+    <ul>
+      <li>
+        Mark as read
+      </li>
+      <li>
+        Flag as important
+      </li>
+      <li>
+        Save for later
+      </li>
+      <li>
+        Move to trash
+      </li>
+      <li>
+        Mark as spam
+      </li>
+    </ul>
+  </div>
+  <div class="dot"></div>
+</div>
+<div class="cursor"
+     onclick={()=>{document.querySelector('.dots').classList.toggle('active')}}></div>
         </Link>
-        <Link href="#" className="a_fff">
+        <Link href="/js/Contact" className="a_fff">
           {state === 'ru' ? ("Более") : ("Ko'proq")}
         </Link>
       </div>

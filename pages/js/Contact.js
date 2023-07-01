@@ -74,12 +74,13 @@ setstate(localStorage.getItem("lang"))
           </div>
         </div>
       </div>
-      <div className="iframe">
+      <div className="iframe" style={{marginBottom:'20px'}} >
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2997.724080796138!2d69.36349267638798!3d41.29310917131201!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef5f1f3347f27%3A0x9a5455de3245cf1f!2z0KjQutC-0LvQsCDihJYyODI!5e0!3m2!1sru!2s!4v1685612426244!5m2!1sru!2s"
           loading="lazy"
         ></iframe>
       </div>
+      <Footer/>
     </div>
   );
 }
