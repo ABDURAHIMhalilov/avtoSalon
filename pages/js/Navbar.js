@@ -143,7 +143,7 @@ useEffect(() => {
         <Link href="/js/About" className="a_fff">
           {state === 'ru' ? ("О нас") : ("Biz haqimizda")}
         </Link>
-        <Link   href="/js/OurTeam" className="a_fff">
+        <Link href="/js/OurTeam" className="a_fff">
         {state === 'ru' ? ("Страницы") : ("Sahifalar")}
         </Link>
        
