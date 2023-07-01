@@ -9,6 +9,7 @@
     flex-wrap: wrap;
     padding-bottom: 20px;
     margin-bottom: 200px;
+    padding-top: 60px;
 }
 .positionImg {
     position: absolute;
@@ -20,7 +21,7 @@
     z-index: 0;
 }
 #home2 {
-    padding-top: 60px;
+    padding-top: 100px;
 }
 .cardHeader2 h1 {
     text-align: center;
