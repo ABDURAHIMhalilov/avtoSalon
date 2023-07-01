@@ -406,7 +406,11 @@ export default function Bmw8() {
                   </div>
                   <div className="buttonz">
                     {cars.length === 0 ? (
-                      "Bu avtomobil haqida nuqsonlar yo'q"
+                      state === "uz" ? (
+                        "Bu avtomobilda hech qanday nuqson yo'q"
+                      ) : (
+                        "В этой машине нет ничего плохого"
+                      )
                     ) : (
                       <a href="#page">
                         <button
