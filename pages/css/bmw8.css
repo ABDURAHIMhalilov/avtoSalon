@@ -381,6 +381,7 @@
 }
 .maky {
   background-color: #eff3fa;
+  padding: 10px;
   display: flex;
   justify-content: space-around;
   border-radius: 20px;
