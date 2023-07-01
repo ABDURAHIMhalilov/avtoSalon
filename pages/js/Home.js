@@ -39,8 +39,17 @@ export default function Home() {
     // };
     // sessionStorage.setItem("search", JSON.stringify(data));
     sessionStorage.setItem("model",select)
-    sessionStorage.setItem("series",selectSeries)
-    sessionStorage.setItem("position",selectPosition)
+    if (selectSeries.length<1) {
+      sessionStorage.setItem("series",0)
+    }else{
+      sessionStorage.setItem("series",selectSeries)
+    }
+    if (selectPosition.length<1) {
+      sessionStorage.setItem("position",0)
+    }else{
+      sessionStorage.setItem("position",selectPosition)
+    }
+
     window.location = "/js/Search";
   };
   useEffect(() => {
@@ -173,7 +182,7 @@ export default function Home() {
                         value={selectPosition}
                         onChange={postPosition}
                       >
-                        <MenuItem value="">None</MenuItem>
+                        <MenuItem value={0}>None</MenuItem>
                         {position.map((item, key) => {
                           return (
                             <MenuItem key={key} value={item.id}>
