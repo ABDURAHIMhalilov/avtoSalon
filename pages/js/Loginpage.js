@@ -572,7 +572,7 @@ function editedAdd() {
           )}
         </div>
 
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </div>
   );

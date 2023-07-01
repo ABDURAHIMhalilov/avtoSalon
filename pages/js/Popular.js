@@ -131,6 +131,13 @@ export default function Popular() {
         if(key<10){ return (
             <SwiperSlide key={key} onClick={()=>getData2(item)} className="swiperPopCard">
               <div className="feat_card">
+              <div id="corner-ribbon" style={{position:'absolute',top:'0px',right:'170px'}}>
+              <div  style={item.sale == 0 ? { display: "none" }:{ display: "flex" }}>
+                <div>
+                  <div><h2 className='sa'>{item.sale == 0 ? ("") : (`${item.sale}%`)} </h2></div>
+                </div>
+              </div>
+            </div>
           
                      <img src={item.image[0]!=undefined?(item.image[0].image):("https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg")}
                       alt="no img" />
@@ -185,7 +192,7 @@ export default function Popular() {
             spaceBetween: 20,
           },
           1300: {
-            slidesPerView: 3,
+            slidesPerView: 4,
             spaceBetween: 20,
           },
           1750: {
@@ -204,7 +211,13 @@ export default function Popular() {
         if(key<10){ return (
             <SwiperSlide key={key} onClick={()=>getData2(item)} className="swiperPopCard">
               <div className="feat_card">
-          
+              <div id="corner-ribbon" style={{position:'absolute',top:'0px',right:'170px'}}>
+              <div  style={item.sale == 0 ? { display: "none" }:{ display: "flex" }}>
+                <div>
+                  <div><h2 className='sa'>{item.sale == 0 ? ("") : (`${item.sale}%`)} </h2></div>
+                </div>
+              </div>
+            </div>
                      <img src={item.image[0]!=undefined?(item.image[0].image):("https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg")}
                       alt="no img" />
                 <div className="featCard_bottom">

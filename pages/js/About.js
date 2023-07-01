@@ -14,6 +14,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import "../../app/globals.css"
+import Footer from "./Footer";
 
 export default function About() {
   const [ state, setState ] = React.useState();
@@ -75,7 +76,7 @@ export default function About() {
           </div>
         </div>
       </div>
-      <div className="question">
+      <div className="question" style={{marginBottom:'20px'}}>
         <h1>{state==='ru'?("Часто задаваемые вопросы"):("Tez-tez so'raladigan savollar")}</h1>
         <div className="question_body">
           <div className="question_left">
@@ -197,6 +198,7 @@ export default function About() {
         </div>
         <button className="question_btn">{state==='ru'?("Узнать больше"):("Ko'proq bilib oling")}</button>
       </div>
+      <Footer/>
     </div>
   );
 }

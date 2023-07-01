@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import Navbar from "./Navbar";
 import Image from "next/image";
+// import "../css/Home.css";
 import "../css/Home.css";
 import { FiSearch } from "react-icons/fi";
 import Featured from "./Featured";
@@ -15,296 +16,322 @@ import Select from "@mui/material/Select";
 import axios from "axios";
 import Head from "next/head";
 
-import "../../app/globals.css"
-import "../../app/page.module.css"
-import CarMers from './car-silver.png'
+import "../../app/globals.css";
+import "../../app/page.module.css";
+import CarMers from "./car-silver.png";
 
 export default function Home() {
   const [select, setSelect] = React.useState("");
-  const [selectSeries, setSelectSeries] = React.useState("")
-  const [selectPosition, setSelectPosition] = React.useState("")
+  const [selectSeries, setSelectSeries] = React.useState("");
+  const [selectPosition, setSelectPosition] = React.useState("");
 
   const [models, setModels] = React.useState([]);
   const [series, setSeries] = React.useState([]);
   const [position, setPosition] = React.useState([]);
-  const [language, setLanguage] = React.useState('')
+  const [language, setLanguage] = React.useState("");
   const [p1, setP1] = React.useState(0);
 
   const getAllSearch = () => {
-    var data = {
-      model: select,
-      series: selectSeries,
-      position: selectPosition
+    // var data = {
+    //   model: select,
+    //   series: selectSeries,
+    //   position: selectPosition,
+    // };
+    // sessionStorage.setItem("search", JSON.stringify(data));
+    sessionStorage.setItem("model",select)
+    if (selectSeries.length<1) {
+      sessionStorage.setItem("series",0)
+    }else{
+      sessionStorage.setItem("series",selectSeries)
     }
-    localStorage.setItem("search", JSON.stringify(data))
-    window.location = "/cars"
-  }
- useEffect(()=>{ 
-    setLanguage(localStorage.getItem('lang')?localStorage.getItem('lang'):'ru')
-    setP1(1)
+    if (selectPosition.length<1) {
+      sessionStorage.setItem("position",0)
+    }else{
+      sessionStorage.setItem("position",selectPosition)
+    }
+
+    window.location = "/js/Search";
+  };
+  useEffect(() => {
+    setLanguage(
+      localStorage.getItem("lang") ? localStorage.getItem("lang") : "ru"
+    );
     axios.get(`https://api.baracar.uz/api/models/`).then((res) => {
-    setModels(res.data);
-     setP1(1)
+      setModels(res.data);
+      setP1(1);
     });
-setTimeout(() => {
-  setP1(1)
-  }, 100);
-    
+    setTimeout(() => {}, 1000);
   }, []);
   const getSeries = (event) => {
     setSelect(event.target.value);
-    setSelectPosition("")
-    setPosition([])
+    setSelectPosition("");
+    setPosition([]);
     var seriesData = [];
     axios.get(`https://api.baracar.uz/api/series/`).then((res) => {
       for (let i = 0; i < res.data.length; i++) {
-          if (res.data[i].model === event.target.value * 1){seriesData.push(res.data[i]);}
+        if (res.data[i].model === event.target.value * 1) {
+          seriesData.push(res.data[i]);
+        }
       }
 
       setSeries(seriesData);
     });
   };
   const getPosition = (event) => {
-    setSelectSeries(event.target.value)
-    setSelectPosition("")
+    setSelectSeries(event.target.value);
+    setSelectPosition("");
     var seriesData = [];
 
     axios.get(`https://api.baracar.uz/api/position/`).then((res) => {
       for (let i = 0; i < res.data.length; i++) {
-       if (res.data[i].series === event.target.value * 1) seriesData.push(res.data[i]);
+        if (res.data[i].series === event.target.value * 1)
+          seriesData.push(res.data[i]);
       }
 
       setPosition(seriesData);
     });
   };
   const postPosition = (event) => {
-    setSelectPosition(event.target.value)
-  }
+    setSelectPosition(event.target.value);
+  };
 
   return (
-  <div>
-    {p1===1?(<>
-      <Head>
-        <title>Главная страница</title>
-      </Head>
-      <Navbar />
-      {
-        language == "uz" ? (
-          <div>
-            <div className="HomeHeader" id='home2'>
-            <br />
-<br />
-<br />
-<br />
-              <br /><br />
-              <div className="positionImg"></div>
-              <div className="cardHeader">
-                <h1>Orzuyingizdagi
-                  mashinani toping</h1>
-                <p>Biz sizga eng yaxshi mashinani topishda yordam bera olamiz.Sotiladigan avtomobillarni toping.</p>
-                <button> Batafsil </button>
+    <div>
+      {p1 === 1 ? (
+        <>
+          <Head>
+            <title>Главная страница</title>
+          </Head>
+          <Navbar />
+          {language == "uz" ? (
+            <div>
+              <div className="HomeHeader" id="home2">
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <div className="positionImg"></div>
+                <div className="cardHeader">
+                  <h1>Orzuyingizdagi mashinani toping</h1>
+                  <p>
+                    Biz sizga eng yaxshi mashinani topishda yordam bera
+                    olamiz.Sotiladigan avtomobillarni toping.
+                  </p>
+                  <a href="js/About">
+                    <button> Batafsil </button>
+                  </a>
+                </div>
+                <div className="cardHeader2">
+                  <h1>Mashina turini tanlang</h1>
+                  <div className="cardHeader22">
+                    <FormControl id="inp2" sx={{ m: 1, minWidth: 200 }}>
+                      <InputLabel id="demo-select-small-label">
+                        Madel
+                      </InputLabel>
+                      <Select
+                        labelId="demo-select-small-label"
+                        id="demo-select-small"
+                        label="Models"
+                        value={select}
+                        onChange={getSeries}
+                      >
+                        <MenuItem value="">
+                          <em>None</em>
+                        </MenuItem>
+                        {models.map((item, key) => {
+                          return (
+                            <MenuItem key={key} value={item.id}>
+                              {item.name_uz}
+                            </MenuItem>
+                          );
+                        })}
+                      </Select>
+                    </FormControl>
+                    <FormControl id="inp2" sx={{ m: 1, minWidth: 200 }}>
+                      <InputLabel id="demo-select-small-label">
+                        Seriya
+                      </InputLabel>
+                      <Select
+                        labelId="demo-select-small-label"
+                        id="demo-select-small"
+                        label="Position"
+                        value={selectSeries}
+                        onChange={getPosition}
+                      >
+                        <MenuItem value="">None</MenuItem>
+                        {series.map((item, key) => {
+                          return (
+                            <MenuItem key={key} value={item.id}>
+                              {item.name_uz}
+                            </MenuItem>
+                          );
+                        })}
+                      </Select>
+                    </FormControl>
+                    <br />
+                    <FormControl id="inp2" sx={{ m: 1, minWidth: 200 }}>
+                      <InputLabel id="demo-select-small-label">
+                        Pozitsiya
+                      </InputLabel>
+                      <Select
+                        labelId="demo-select-small-label"
+                        id="demo-select-small"
+                        label="Pasition"
+                        value={selectPosition}
+                        onChange={postPosition}
+                      >
+                        <MenuItem value={0}>None</MenuItem>
+                        {position.map((item, key) => {
+                          return (
+                            <MenuItem key={key} value={item.id}>
+                              {item.name_uz}
+                            </MenuItem>
+                          );
+                        })}
+                      </Select>
+                    </FormControl>
+                    <center>
+                      <button onClick={()=>getAllSearch()}>Qidirish</button>
+                    </center>
+                  </div>
+                </div>
+                {/* <br /> */}
+                {/* <br /> */}
+                <div className="carImg"></div>
               </div>
-              <div className="cardHeader2">
-                <h1>Mashina turini tanlang</h1>
-                <div className="cardHeader22">
-
-                  <FormControl id="inp2" sx={{ m: 1, minWidth: 200 }}>
-                    <InputLabel id="demo-select-small-label">Madel</InputLabel>
-                    <Select
-                      labelId="demo-select-small-label"
-                      id="demo-select-small"
-                      label="Models"
-                      value={select}
-                      onChange={getSeries}
-                    >
-                      <MenuItem value="">
-                        <em>None</em>
-                      </MenuItem>
-                      {models.map((item, key) => {
-                        return (
-                          <MenuItem
-                            key={key}
-
-                            value={item.id}
-                          >
-                            {item.name_uz}
-                          </MenuItem>
-                        );
-                      })}
-                    </Select>
-                  </FormControl>
-                  <FormControl id="inp2" sx={{ m: 1, minWidth: 200 }}>
-                    <InputLabel id="demo-select-small-label">Seriya</InputLabel>
-                    <Select
-                      labelId="demo-select-small-label"
-                      id="demo-select-small"
-                      label="Position"
-                      value={selectSeries}
-                      onChange={getPosition}
-                    >
-                      <MenuItem value="">None</MenuItem>
-                      {series.map((item, key) => {
-                        return (
-                          <MenuItem
-                            key={key}
-                            value={item.id}
-                          >
-                            {item.name_uz}
-                          </MenuItem>
-                        );
-                      })}
-                    </Select>
-                  </FormControl>
-                  <br />
-                  <FormControl id="inp2" sx={{ m: 1, minWidth: 200 }}>
-                    <InputLabel id="demo-select-small-label">Pozitsiya</InputLabel>
-                    <Select
-                      labelId="demo-select-small-label"
-                      id="demo-select-small"
-                      label="Pasition"
-                      value={selectPosition}
-                      onChange={postPosition}
-                    >
-                      <MenuItem value="">None</MenuItem>
-                      {position.map((item, key) => {
-                        return (
-                          <MenuItem key={key} value={item.id}>
-                            {item.name_uz}
-                          </MenuItem>
-                        );
-                      })}
-                    </Select>
-                  </FormControl>
-                  <center><button>Qidirish</button></center>
+              <Featured />
+              <Popular />
+              <div className="kotta">
+                <h1>Nima uchun bizni tanlaysiz?</h1>
+                <div className="ushta">
+                  <div className="bir">
+                    <WiDayStormShowers className="bxs-balloon" />
+                    <h2>Brendlarning keng assortimenti</h2>
+                    <h4>
+                      Biz sizning moliyalashtirish rejangizga yordam bera
+                      olamiz, ba'zi maslahatlar va takliflarni taklif qilishimiz
+                      mumkin . Nima bo'lishidan qat'iy nazar, bu orzu qilingan
+                      mashinada haydang kredit tarixi.
+                    </h4>
+                  </div>
+                  <div className="bir">
+                    <WiDayStormShowers className="bxs-balloon" />
+                    <h2>Biz mijozlarimiz tomonidan ishonchli</h2>
+                    <h4>
+                      Biz sizning moliyalashtirish rejangizga yordam bera
+                      olamiz, ba'zi maslahatlar va takliflarni taklif qilishimiz
+                      mumkin nayranglar. Nima bo'lishidan qat'iy nazar, bu orzu
+                      qilingan mashinada haydang kredit tarixi.
+                    </h4>
+                  </div>
+                  <div className="bir">
+                    <WiDayStormShowers className="bxs-balloon" />
+                    <h2>Tez va oson moliyalashtirish</h2>
+                    <h4>
+                      Biz sizning moliyalashtirish rejangizga yordam bera
+                      olamiz, ba'zi maslahatlar va takliflarni taklif qilishimiz
+                      mumkin nayranglar. Nima bo'lishidan qat'iy nazar, bu orzu
+                      qilingan mashinada haydang kredit tarixi.
+                    </h4>
+                  </div>
                 </div>
               </div>
-            {/* <br /> */}
-            {/* <br /> */}
-              <div className="carImg"></div>
+              <Team />
             </div>
-            <Featured />
-            <Popular />
-            <div className="kotta">
-              <h1>Nima uchun bizni tanlaysiz?</h1>
-              <div className="ushta">
-                <div className="bir">
-                  <WiDayStormShowers className="bxs-balloon" />
-                  <h2>Brendlarning keng assortimenti</h2>
-                  <h4>
-                    Biz sizning moliyalashtirish rejangizga yordam bera olamiz, ba'zi maslahatlar va takliflarni taklif qilishimiz mumkin
-                    . Nima bo'lishidan qat'iy nazar, bu orzu qilingan mashinada haydang
-                    kredit tarixi.
-                  </h4>
+          ) : (
+            <div>
+              <div className="HomeHeader">
+                <br />
+                <br />
+                <div className="positionImg"></div>
+                <div className="cardHeader">
+                  <h1>Найди свой машина мечты</h1>
+                  <p>
+                    Мы поможем вам найти лучший автомобиль. Ознакомьтесь с
+                    нашими обзорами продажи.
+                  </p>
+                  <a href="js/About">
+                    <button> О нас </button>
+                  </a>
                 </div>
-                <div className="bir">
-                  <WiDayStormShowers className="bxs-balloon" />
-                  <h2>Biz mijozlarimiz tomonidan ishonchli</h2>
-                  <h4>
-                    Biz sizning moliyalashtirish rejangizga yordam bera olamiz, ba'zi maslahatlar va takliflarni taklif qilishimiz mumkin
-                    nayranglar. Nima bo'lishidan qat'iy nazar, bu orzu qilingan mashinada haydang
-                    kredit tarixi.
-                  </h4>
+                <div className="cardHeader2">
+                  <h1>Выберите тип машины</h1>
+                  <div className="cardHeader22">
+                    <FormControl id="inp2" sx={{ m: 1, minWidth: 200 }}>
+                      <InputLabel id="demo-select-small-label">
+                        Модели
+                      </InputLabel>
+                      <Select
+                        labelId="demo-select-small-label"
+                        id="demo-select-small"
+                        label="Models"
+                        value={select}
+                        onChange={getSeries}
+                      >
+                        <MenuItem value="">
+                          <em>None</em>
+                        </MenuItem>
+                        {models.map((item, key) => {
+                          return (
+                            <MenuItem key={key} value={item.id}>
+                              {item.name_ru}
+                            </MenuItem>
+                          );
+                        })}
+                      </Select>
+                    </FormControl>
+                    <FormControl id="inp2" sx={{ m: 1, minWidth: 200 }}>
+                      <InputLabel id="demo-select-small-label">
+                        Серии
+                      </InputLabel>
+                      <Select
+                        labelId="demo-select-small-label"
+                        id="demo-select-small"
+                        label="Position"
+                        value={selectSeries}
+                        onChange={getPosition}
+                      >
+                        <MenuItem value="">None</MenuItem>
+                        {series.map((item, key) => {
+                          return (
+                            <MenuItem key={key} value={item.id}>
+                              {item.name_ru}
+                            </MenuItem>
+                          );
+                        })}
+                      </Select>
+                    </FormControl>
+                    <br />
+                    <FormControl id="inp2" sx={{ m: 1, minWidth: 200 }}>
+                      <InputLabel id="demo-select-small-label">
+                        Позиции
+                      </InputLabel>
+                      <Select
+                        labelId="demo-select-small-label"
+                        id="demo-select-small"
+                        label="Pasition"
+                        value={selectPosition}
+                        onChange={postPosition}
+                      >
+                        <MenuItem value="">None</MenuItem>
+                        {position.map((item, key) => {
+                          return (
+                            <MenuItem key={key} value={item.id}>
+                              {item.name_ru}
+                            </MenuItem>
+                          );
+                        })}
+                      </Select>
+                    </FormControl>
+                    <center>
+                      <button onClick={()=>getAllSearch()}>поиск</button>
+                    </center>
+                  </div>
                 </div>
-                <div className="bir">
-                  <WiDayStormShowers className="bxs-balloon" />
-                  <h2>Tez va oson moliyalashtirish</h2>
-                  <h4>
-                    Biz sizning moliyalashtirish rejangizga yordam bera olamiz, ba'zi maslahatlar va takliflarni taklif qilishimiz mumkin
-                    nayranglar. Nima bo'lishidan qat'iy nazar, bu orzu qilingan mashinada haydang
-                    kredit tarixi.
-                  </h4>
-                </div>
-              </div>
-            </div>
-            <Team />
-          </div>
-        ) : (
-          <div>
-            <div className="HomeHeader">
-              <br /><br />
-              <div className="positionImg"></div>
-              <div className="cardHeader">
-                <h1>Найди свой
-                  машина мечты</h1>
-                <p>Мы поможем вам найти лучший автомобиль. Ознакомьтесь с нашими обзорами продажи.</p>
-                <button> О нас </button>
-              </div>
-              <div className="cardHeader2">
-                <h1>Выберите тип машины</h1>
-                <div className="cardHeader22">
-
-                  <FormControl id="inp2" sx={{ m: 1, minWidth: 200 }}>
-                    <InputLabel id="demo-select-small-label">Модели</InputLabel>
-                    <Select
-                      labelId="demo-select-small-label"
-                      id="demo-select-small"
-                      label="Models"
-                      value={select}
-                      onChange={getSeries}
-                    >
-                      <MenuItem value="">
-                        <em>None</em>
-                      </MenuItem>
-                      {models.map((item, key) => {
-                        return (
-                          <MenuItem
-                            key={key}
-
-                            value={item.id}
-                          >
-                            {item.name_ru}
-                          </MenuItem>
-                        );
-                      })}
-                    </Select>
-                  </FormControl>
-                  <FormControl id="inp2" sx={{ m: 1, minWidth: 200 }}>
-                    <InputLabel id="demo-select-small-label">Серии</InputLabel>
-                    <Select
-                      labelId="demo-select-small-label"
-                      id="demo-select-small"
-                      label="Position"
-                      value={selectSeries}
-                      onChange={getPosition}
-                    >
-                      <MenuItem value="">None</MenuItem>
-                      {series.map((item, key) => {
-                        return (
-                          <MenuItem
-                            key={key}
-                            value={item.id}
-                          >
-                            {item.name_ru}
-                          </MenuItem>
-                        );
-                      })}
-                    </Select>
-                  </FormControl>
-                  <br />
-                  <FormControl id="inp2" sx={{ m: 1, minWidth: 200 }}>
-                    <InputLabel id="demo-select-small-label">Позиции</InputLabel>
-                    <Select
-                      labelId="demo-select-small-label"
-                      id="demo-select-small"
-                      label="Pasition"
-                      value={selectPosition}
-                      onChange={postPosition}
-                    >
-                      <MenuItem value="">None</MenuItem>
-                      {position.map((item, key) => {
-                        return (
-                          <MenuItem key={key} value={item.id}>
-                            {item.name_ru}
-                          </MenuItem>
-                        );
-                      })}
-                    </Select>
-                  </FormControl>
-                  <center><button>поиск</button></center>
-                </div>
-              </div>
-              <div className="carImg" id='carImg2'></div>
-              {/* <div className="headerBody1">
+                <div className="carImg" id="carImg2"></div>
+                {/* <div className="headerBody1">
               <div className="headerBody">
                 <h1>
                   Найдите свой <span>идеальный</span>
@@ -434,47 +461,103 @@ setTimeout(() => {
                 </div>
               </div>
             </div> */}
-            </div>
-            <Featured />
-            <Popular />
-            <div className="kotta">
-              <h1>Почему выбрали нас?</h1>
-              <div className="ushta">
-                <div className="bir">
-                  <WiDayStormShowers className="bxs-balloon" />
-                  <h2>Широкий ассортимент брендов</h2>
-                  <h4>
-                    Мы можем помочь с вашим планом финансирования, мы можем предложить несколько советов и
-                    трюки. Уезжайте на этой машине своей мечты независимо от ваших
-                    кредитная история.
-                  </h4>
-                </div>
-                <div className="bir">
-                  <WiDayStormShowers className="bxs-balloon" />
-                  <h2>Нам доверяют наши клиенты</h2>
-                  <h4>
-                    Мы можем помочь с вашим планом финансирования, мы можем предложить несколько советов и
-                    трюки. Уезжайте на этой машине своей мечты независимо от ваших
-                    кредитная история.
-                  </h4>
-                </div>
-                <div className="bir">
-                  <WiDayStormShowers className="bxs-balloon" />
-                  <h2>Быстрое и простое финансирование</h2>
-                  <h4>
-                    Мы можем помочь с вашим планом финансирования, мы можем предложить несколько советов и
-                    трюки. Уезжайте на этой машине своей мечты независимо от ваших
-                    кредитная история.
-                  </h4>
+              </div>
+              <Featured />
+              <Popular />
+              <div className="kotta">
+                <h1>Почему выбрали нас?</h1>
+                <div className="ushta">
+                  <div className="bir">
+                    <WiDayStormShowers className="bxs-balloon" />
+                    <h2>Широкий ассортимент брендов</h2>
+                    <h4>
+                      Мы можем помочь с вашим планом финансирования, мы можем
+                      предложить несколько советов и трюки. Уезжайте на этой
+                      машине своей мечты независимо от ваших кредитная история.
+                    </h4>
+                  </div>
+                  <div className="bir">
+                    <WiDayStormShowers className="bxs-balloon" />
+                    <h2>Нам доверяют наши клиенты</h2>
+                    <h4>
+                      Мы можем помочь с вашим планом финансирования, мы можем
+                      предложить несколько советов и трюки. Уезжайте на этой
+                      машине своей мечты независимо от ваших кредитная история.
+                    </h4>
+                  </div>
+                  <div className="bir">
+                    <WiDayStormShowers className="bxs-balloon" />
+                    <h2>Быстрое и простое финансирование</h2>
+                    <h4>
+                      Мы можем помочь с вашим планом финансирования, мы можем
+                      предложить несколько советов и трюки. Уезжайте на этой
+                      машине своей мечты независимо от ваших кредитная история.
+                    </h4>
+                  </div>
                 </div>
               </div>
+              <Team />
             </div>
-            <Team />
-          </div>
-        )
-      }
-
-    </>):''}
-  </div>
+          )}
+        </>
+      ) : (
+        <div class="loader">
+          <svg
+            class="car"
+            width="102"
+            height="40"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <g
+              transform="translate(2 1)"
+              stroke="#002742"
+              fill="none"
+              fill-rule="evenodd"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                class="car__body"
+                d="M47.293 2.375C52.927.792 54.017.805 54.017.805c2.613-.445 6.838-.337 9.42.237l8.381 1.863c2.59.576 6.164 2.606 7.98 4.531l6.348 6.732 6.245 1.877c3.098.508 5.609 3.431 5.609 6.507v4.206c0 .29-2.536 4.189-5.687 4.189H36.808c-2.655 0-4.34-2.1-3.688-4.67 0 0 3.71-19.944 14.173-23.902zM36.5 15.5h54.01"
+                stroke-width="3"
+              />
+              <ellipse
+                class="car__wheel--left"
+                stroke-width="3.2"
+                fill="#FFF"
+                cx="83.493"
+                cy="30.25"
+                rx="6.922"
+                ry="6.808"
+              />
+              <ellipse
+                class="car__wheel--right"
+                stroke-width="3.2"
+                fill="#FFF"
+                cx="46.511"
+                cy="30.25"
+                rx="6.922"
+                ry="6.808"
+              />
+              <path
+                class="car__line car__line--top"
+                d="M22.5 16.5H2.475"
+                stroke-width="3"
+              />
+              <path
+                class="car__line car__line--middle"
+                d="M20.5 23.5H.4755"
+                stroke-width="3"
+              />
+              <path
+                class="car__line car__line--bottom"
+                d="M25.5 9.5h-19"
+                stroke-width="3"
+              />
+            </g>
+          </svg>
+        </div>
+      )}
+    </div>
   );
 }
