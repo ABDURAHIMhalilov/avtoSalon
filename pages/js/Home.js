@@ -84,7 +84,6 @@ export default function Home() {
   };
 
   return (
-
     <div>
       {p1 === 1 ? (
         <>
@@ -108,7 +107,9 @@ export default function Home() {
                     Biz sizga eng yaxshi mashinani topishda yordam bera
                     olamiz.Sotiladigan avtomobillarni toping.
                   </p>
-                  <button> Batafsil </button>
+                  <a href="js/About">
+                    <button> Batafsil </button>
+                  </a>
                 </div>
                 <div className="cardHeader2">
                   <h1>Mashina turini tanlang</h1>
@@ -187,7 +188,6 @@ export default function Home() {
                 {/* <br /> */}
                 {/* <br /> */}
                 <div className="carImg"></div>
-
               </div>
               <Featured />
               <Popular />
@@ -240,7 +240,9 @@ export default function Home() {
                     Мы поможем вам найти лучший автомобиль. Ознакомьтесь с
                     нашими обзорами продажи.
                   </p>
-                  <button> О нас </button>
+                  <a href="js/About">
+                    <button> О нас </button>
+                  </a>
                 </div>
                 <div className="cardHeader2">
                   <h1>Выберите тип машины</h1>
