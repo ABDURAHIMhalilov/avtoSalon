@@ -476,6 +476,8 @@
 }
 .feat-cardorab del{
 opacity: 0.6;
+border-top:2px solid red;
+line-height:0px;
 }
 @media(max-width:1749px){
     .inp9{

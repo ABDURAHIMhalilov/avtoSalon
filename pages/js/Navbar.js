@@ -18,10 +18,17 @@ export default function Navbar() {
   const [count, setCount] = useState(false);
   const [user, setUser] = useState(false)
   const [state, setState] = useState("")
+  const [modal1, setModal1] = useState(0)
+  const [data, setData] = useState([])
+
 
 useEffect(() => {
+
       setUser((localStorage.getItem("onemen") ? JSON.parse(localStorage.getItem("onemen")) : false))
       setState(localStorage.getItem('lang')?localStorage.getItem('lang'):"ru")
+      axios.get(`https://api.baracar.uz/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/series_get/`).then(res=>{
+        setData(res.data)
+      })
 }, [])
 
   function setLanguage() { 
@@ -67,7 +74,6 @@ useEffect(() => {
 
         <div className="a_box">
           <Link href="#" className="a_fff a_mobile">
-
             {state === 'ru' ? ("Более") : ("Ko'proq")}
           </Link>
         </div>
@@ -87,7 +93,7 @@ useEffect(() => {
           <AiOutlineUser className="user_icon" id="user1" />
          </Link>
           ) : ( 
-             <Link href="/userpaage">
+             <Link href="/js/Loginpage">
           <AiOutlineUser className="user_icon" id="user1" />
          </Link>
           )
@@ -110,46 +116,36 @@ useEffect(() => {
         </Link>
 
 
-
-        <Link href="/js/Search" className="a_fff">
-
-          {state === 'ru' ? ("Поиск") : ("Qidiruv")}
-        </Link>
-        <Link href="/js/About" className="a_fff">
-          {state === 'ru' ? ("О нас") : ("Biz haqimizda")}
-        </Link>
-        <Link href="#" className="a_fff  togle12">
-        <div class="dots" onclick={()=>{this.classList.toggle('active');}}>
-  <div class="dot"></div>
-  <div class="dot"></div>
+        {modal1===0?(<Link onMouseEnter={()=>{setModal1(1)}}  href="/js/Search" className="a_fff">
+        {state === 'ru' ? ("Поиск") : ("Qidiruv")}
+        </Link>):( <Link href="/js/Search" onMouseLeave={()=>{setModal1(0)}} onMouseEnter={()=>{setModal1(1)}} className="a_fff  togle12">
+<div class="dots active" >      
+{state === 'ru' ? ("Поиск") : ("Qidiruv")}
   <div class="shadow cut"></div>
   <div class="container cut">
     <div class="drop cut2"></div>
   </div>
   <div class="list">
     <ul>
-      <li>
-        Mark as read
-      </li>
-      <li>
-        Flag as important
-      </li>
-      <li>
-        Save for later
-      </li>
-      <li>
-        Move to trash
-      </li>
-      <li>
-        Mark as spam
-      </li>
+   {data.map((item,key)=>{
+  if(key<6){
+    return <li>
+    {item.model.name}{" "}{item.name}
+  </li>
+  }
+   })}  
     </ul>
   </div>
-  <div class="dot"></div>
+
 </div>
-<div class="cursor"
-     onclick={()=>{document.querySelector('.dots').classList.toggle('active')}}></div>
+        </Link>)}
+        <Link href="/js/About" className="a_fff">
+          {state === 'ru' ? ("О нас") : ("Biz haqimizda")}
         </Link>
+        <Link onMouseEnter={()=>{setModal1(1)}}  href="/js/Contact" className="a_fff">
+        {state === 'ru' ? ("Страницы") : ("Sahifalar")}
+        </Link>
+       
         <Link href="/js/Contact" className="a_fff">
           {state === 'ru' ? ("Более") : ("Ko'proq")}
         </Link>
