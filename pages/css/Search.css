@@ -366,7 +366,7 @@
         height: 200px;
         width: 200px;
         position: absolute;
-        z-index: 10;
+        z-index: 1;
         top: -60px;
         left: 60px !important;
         overflow: hidden;
@@ -555,7 +555,7 @@ body {
         height: 200px;
         width: 200px;
         position: absolute;
-        z-index: 10;
+        z-index: 1;
         top: -60px;
         left: 80px;
         overflow: hidden;

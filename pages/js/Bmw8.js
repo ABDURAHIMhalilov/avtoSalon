@@ -26,6 +26,7 @@ import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import "../../app/globals.css"
 import '@/app/globals.css'
+import Popular from '../js/Popular'
 
 export default function Bmw8() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -732,7 +733,7 @@ console.log(e.target.value);
         </div>
       </div>
 
-      <div className="konechswip">
+      {/* <div className="konechswip">
         <Swiper
           slidesPerView={4}
           spaceBetween={30}
@@ -774,9 +775,9 @@ console.log(e.target.value);
             }
           })}
         </Swiper>
-      </div>
+      </div> */}
 
-      <div className="konechswip1">
+      {/* <div className="konechswip1">
         <Swiper
           slidesPerView={3}
           spaceBetween={30}
@@ -821,9 +822,9 @@ console.log(e.target.value);
             }
           })}
         </Swiper>
-      </div>
+      </div> */}
 
-      <div className="konechswip2">
+      {/* <div className="konechswip2">
         <Swiper
           slidesPerView={2}
           spaceBetween={30}
@@ -868,9 +869,9 @@ console.log(e.target.value);
             }
           })}
         </Swiper>
-      </div>
+      </div> */}
 
-      <div className="konechswip3">
+      {/* <div className="konechswip3">
         <Swiper
           slidesPerView={1}
           spaceBetween={30}
@@ -912,7 +913,9 @@ console.log(e.target.value);
             }
           })}
         </Swiper>
-      </div>
+      </div> */}
+
+      <Popular/>
 
       <Footer/>
     </div>):""}

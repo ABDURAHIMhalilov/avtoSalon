@@ -34,7 +34,7 @@
 
 .swip .mySwiper .swiper-slide {
   width: 40%;
-  /* height: 100%; */
+  height: 140px !important;
   opacity: 0.4;
 }
 
@@ -59,7 +59,7 @@
 }
 .s2img {
   width: 100% !important;
-  /* height: 100% !important; */
+  height: 100% !important;
   border-radius: 12px !important;
 }
 
@@ -400,13 +400,6 @@
   text-align: right !important;
   /* border: 1px solid red */
 }
-
-@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@200&family=Roboto+Slab&display=swap");
-
-* {
-  font-family: "Mulish", sans-serif !important;
-  font-family: "Roboto Slab", serif !important;
-}
 .buttonz {
   display: block;
 }
@@ -473,18 +466,11 @@
   line-height: 20px;
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Mulish:wght@200&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@200&family=Roboto+Slab&display=swap");
-
-* {
-  font-family: "Mulish", sans-serif;
-}
 
 .bloksoz p {
   line-height: 30px;
   margin-top: 30px;
-  font-family: "Mulish", sans-serif !important;
-}
+  font-family: 'Rubik', sans-serif !important;}
 .bloksoz {
   margin-top: 50px;
 }
@@ -492,12 +478,6 @@
   text-decoration: underline;
   color: #ff4605;
   cursor: pointer;
-}
-
-@media (max-width: 600px) {
-  .mySwiper {
-    display: none !important;
-  }
 }
 
 @media (max-width: 1000px) {
@@ -512,6 +492,9 @@
     width: 100%;
     margin-top: 0px;
   }
+}
+.swiper-button-next:after, .swiper-button-prev:after{
+  display: none !important;
 }
 .buttonz1 {
   display: block;
@@ -794,8 +777,7 @@
   margin: 0;
   box-shadow: 1px 1px 0 0 rgba(196, 196, 196, 0.24);
   border: 1px solid #e7edf3;
-  font-family: 'Mulish', sans-serif !important;
-}
+  font-family: 'Rubik', sans-serif !important;}
 .inp2 {
   display: flex;
   /* justify-content: space-between; */
@@ -807,8 +789,7 @@
   min-width: 49%;
   width: 40%;
   margin-bottom: 20px;
-  font-family: 'Mulish', sans-serif !important;
-
+  font-family: 'Rubik', sans-serif !important;
 }
 .select21{
     width: 100%;
@@ -1021,14 +1002,28 @@
   width: 100%;
   border-radius: 20px;
 }
-
+body{
+  background: white !important;
+}
 .konechswip .swiper {
-  width: 100%;
+  width: 1300px;
   height: 100%;
   margin-top: 50px;
   cursor: pointer;
 }
-
+.popular_top{
+  display: none !important;
+}
+.popular{
+  background: white !important;
+  margin-bottom: 50px;
+}
+.featCard_name{
+  margin-top: 15px !important;
+}
+.feat_card{
+  margin-bottom: 100px !important;
+}
 .konechswip .swiper-slide {
   text-align: center;
   font-size: 18px;
@@ -1074,7 +1069,7 @@
 }
 
 .konechswip2 .swiper {
-  width: 100%;
+  width: 1300px;
   height: 100%;
   margin-top: 50px;
   cursor: pointer;
@@ -1107,9 +1102,10 @@
 }
 .audi4 {
   background-color: #222732;
-  width: 400px;
+  width: 340px;
   min-height: 420px;
   border-radius: 10px;
+  margin-bottom: 50px;
 }
 .audi4 h3 {
   margin-right: 20%;
@@ -1170,7 +1166,7 @@
   }
 }
 
-@media (max-width: 800px) {
+/* @media (max-width: 800px) {
   .konechswip2 {
     display: none;
   }
@@ -1185,7 +1181,7 @@
   .audi4 img {
     height: 250px;
   }
-}
+} */
 
 .gfbvdc select {
   width: 97%;
@@ -1384,8 +1380,7 @@
     min-width: 100%;
     width: 40%;
     margin-bottom: 20px;
-    font-family: 'Mulish', sans-serif !important;
-  
+    font-family: 'Rubik', sans-serif !important;  
   }
   .mnbh{
     margin-left: 0px !important;

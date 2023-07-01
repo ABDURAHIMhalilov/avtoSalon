@@ -83,6 +83,7 @@ setTimeout(() => {
 
   return (
   <div>
+    
     {p1===1?(<>
       <Head>
         <title>Главная страница</title>

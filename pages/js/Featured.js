@@ -69,10 +69,18 @@ export default function Featured() {
                 onClick={() => {
                   getData2(cars[0]);
                 }}
-              >
+              ><div id="corner-ribbon" style={{position:'absolute',top:'0px',right:'170px'}}>
+              <div  style={item.sale == 0 ? { display: "none" }:{ display: "flex" }}>
+                <div>
+                  <div><h2 className='sa'>{item.sale == 0 ? ("") : (`${item.sale}%`)} </h2></div>
+                </div>
+              </div>
+            </div>
              <div className="featured_img_size">{item.image.length>0?(<Image width={100} height={100}
      src={item.image[0].image}  alt="a" className="featured_img" />):(<Image width={100} height={100}
-     src={car}  alt="a" className="featured_img" />)}</div>
+     src={car}  alt="a" className="featured_img" />)}
+     
+     </div>
                 <div className="featured_bottom">
                   <h3 className="featured_name">{item.name}</h3>
                   <div className="featured_box">
@@ -96,10 +104,17 @@ export default function Featured() {
                 onClick={() => {
                   getData2(item);
                 }}
-              >
+              ><div id="corner-ribbon" style={{position:'absolute',top:'0px',right:'170px'}}>
+              <div  style={item.sale == 0 ? { display: "none" }:{ display: "flex" }}>
+                <div>
+                  <div><h2 className='sa'>{item.sale == 0 ? ("") : (`${item.sale}%`)} </h2></div>
+                </div>
+              </div>
+            </div>
                 <div className="featured_img_size">{item.image.length>0?(<Image width={100}  height={100}
      src={item.image[0].image}  alt="a" className="featured_img" />):(<Image width={100}  height={100}
-     src={car}  alt="a" className="featured_img" />)}</div>
+     src={car}  alt="a" className="featured_img" />)}
+     </div>
                 <div className="featCard_bottom">
                   <h3 className="featCard_name">{item.name}</h3>
                   <h4 className="featCard_price">{item.price}.sum</h4>

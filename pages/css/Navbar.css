@@ -38,7 +38,7 @@
 }
 }
 .navbar_right {
-    width: 335px;
+    width: 345px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -82,10 +82,20 @@
     cursor: pointer;
     display: none;
 }
-.modalMenu {
-    width: 100% !important;
+.black{
+    width: 100vw;
     height: 100vh;
-    background-color: #0f141e;
+    background-color: rgba(0, 0, 0, 0.628);
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    display: none;
+    z-index: 11;
+}
+.modalMenu {
+    width: 50% !important;
+    height: 100vh;
+    background-color: black;
     position: fixed;
     top: 0; left: 0;
     display: none;
@@ -93,7 +103,9 @@
     flex-direction: column;
     padding-top: 50px;
     z-index: 99;
+    min-width: 330px;
 }
+
 .db .modalMenu {
     display: block;
 }
@@ -106,7 +118,7 @@
 }
 #a_sd{
     margin-left: 15px;
-    width: 150px;
+    width: 160px;
 }
 .a_box a{
     /* width: 85px; */
@@ -134,14 +146,14 @@
         width: 0px !important;
     } */
     #pere{
-        width: 55px !important;
+        /* width: 55px !important; */
         margin-left: -10px;
         margin-right: -7px;
     }
-    .vehicaimg{
+    /* .vehicaimg{
         width: 150px;
         height: 25px;
-    }
+    } */
     #user1{
         font-size: 25px;
     }
@@ -162,6 +174,18 @@
     }
     .perevod #pere{
         display: none;
+    }
+    .perevod2{
+        display: flex;
+        align-items: center;
+    }
+    .perevod2 #user1{
+        display: none !important;
+    }
+    .perevod2 #per{
+        width: 37px !important;
+        position: relative;
+        z-index: 10;
     }
     .loginIn {
         display: flex;
@@ -198,7 +222,11 @@
         color: #ff6505;
     }
     .a_mobile {
-        padding-left: 60px;
+        padding-left: 5%;
+    }
+    .perevod2{
+        margin-left: 5%;
+        margin-top: 10px;
     }
 }
 .a_fff{
@@ -324,4 +352,19 @@
     position: absolute;
     top: 25px;
     width: 80px;
+  }
+  @media(max-width:600px){
+    .modalMenu {
+        width: 100% !important;
+        height: 100vh;
+        background-color: black;
+        position: fixed;
+        top: 0; left: 0;
+        display: none;
+        align-items: start;
+        flex-direction: column;
+        padding-top: 50px;
+        z-index: 99;
+        min-width: 330px;
+    }
   }

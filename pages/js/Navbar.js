@@ -35,10 +35,12 @@ useEffect(() => {
 
   return (
     <div className="navbar">
+      <div className="black" style={count === true ? { display: "flex" } : { display: "none" }}></div>
       <div
         className="modalMenu"
         style={count === true ? { display: "flex" } : { display: "none" }}
       >
+        
         <MdClose className="close_btn" onClick={() => setCount(false)} />
         <div className="a_box">
           <Link href="#" className="a_fff a_mobile">
