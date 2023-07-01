@@ -35,12 +35,7 @@
 
 .swip .mySwiper .swiper-slide {
   width: 40%;
-<<<<<<< HEAD
   height: 100%;
-=======
-  height: 140px !important;
-  margin-left: 20px;
->>>>>>> 90e5791a1b6329a19afe51d566513d2dfd91722d
   opacity: 0.4;
 }
 #swip111{
@@ -289,11 +284,7 @@
   margin-top: 30px;
 }
 
-<<<<<<< HEAD
  @media (max-width: 1050px) {
-=======
-@media (max-width: 1047px) {
->>>>>>> 90e5791a1b6329a19afe51d566513d2dfd91722d
   .oxirkotta button {
     width: 100%;
   }
@@ -493,15 +484,12 @@
   cursor: pointer;
 }
 
-<<<<<<< HEAD
  @media (max-width: 600px) {
   .mySwiper {
     display: none !important;
   }
 }
 
-=======
->>>>>>> 90e5791a1b6329a19afe51d566513d2dfd91722d
 @media (max-width: 1000px) {
   .maky {
     width: 100%;
@@ -514,14 +502,7 @@
     width: 100%;
     margin-top: 0px;
   }
-<<<<<<< HEAD
 } */
-=======
-}
-.swiper-button-next:after, .swiper-button-prev:after{
-  display: none !important;
-}
->>>>>>> 90e5791a1b6329a19afe51d566513d2dfd91722d
 .buttonz1 {
   display: block;
 }
@@ -549,21 +530,7 @@
   .maky {
     padding: 10px !important;
   }
-<<<<<<< HEAD
 } */
-=======
-  .tab1{
-    font-size: 15px;
-  }
-  .nm{
-    margin-left: 40px;
-    margin-top: 20px;
-  }
-  .laaa{
-    padding-left: 0px !important;
-  }
-}
->>>>>>> 90e5791a1b6329a19afe51d566513d2dfd91722d
 .card122 {
   /* width: 80%; */
   display: flex;
@@ -1235,11 +1202,7 @@ body{
   .audi4 img {
     height: 250px;
   }
-<<<<<<< HEAD
-} 
-=======
 } */
->>>>>>> 90e5791a1b6329a19afe51d566513d2dfd91722d
 
 .gfbvdc select {
   width: 97%;
@@ -1249,10 +1212,10 @@ body{
   border: none;
   padding-left: 10px;
   border-radius: 10px;
-}
+} 
 
 .defectDiv {
-  width: 100%;
+  width: 100vw;
   height: 200vh;
   position: absolute;
   top: 0;
@@ -1475,14 +1438,7 @@ box-shadow: 0px 0px 10px 0px black;
     margin: 0 auto;
     margin-top: 20px;
   }
-<<<<<<< HEAD
 } */
-=======
-  .tab1{
-    min-width: auto !important;
-  }
-}
->>>>>>> 90e5791a1b6329a19afe51d566513d2dfd91722d
 @media(max-width:700px){
   .inp2 input {
     min-width: 100%;
@@ -1499,7 +1455,6 @@ box-shadow: 0px 0px 10px 0px black;
   .bnm{
     width: 100%;
   }
-<<<<<<< HEAD
 } 
 
 @media (max-width:1400px) {
@@ -1557,7 +1512,6 @@ right: 2%;
     width: 180vw !important;
   } */
   .deskBgimg{
-    width: 100% !important;
     height: auto;
   }
   .deskBg2{
@@ -1566,7 +1520,6 @@ right: 2%;
     padding-top: 5px;
   }
   .bigImg{
-    width: ;
     height: auto;
   }
   .helloClose{
@@ -1639,9 +1592,9 @@ right: 2%;
 }
 
 @media (max-width:500px) {
-  .bigImg{
+  /* .bigImg{
     height: 200px;
-  }
+  } */
   .deskBgimg{
     height: auto !important;
     margin-top: 0 !important;
@@ -1668,107 +1621,9 @@ right: 2%;
 } 
 
 @media (max-width:1200px) {
-  .bigImg{
-    height: 150px;
-  }
-  .deskBgimg{
-    height: 500px;
-  }
   .deskBg2{
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 5px;
   }
 }
-=======
-}
-.loader {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.car__body {
-  -webkit-animation: shake 0.2s ease-in-out infinite alternate;
-          animation: shake 0.2s ease-in-out infinite alternate;
-}
-.car__line {
-  transform-origin: center right;
-  stroke-dasharray: 22;
-  -webkit-animation: line 0.8s ease-in-out infinite;
-          animation: line 0.8s ease-in-out infinite;
-  -webkit-animation-fill-mode: both;
-          animation-fill-mode: both;
-}
-.car__line--top {
-  -webkit-animation-delay: 0s;
-          animation-delay: 0s;
-}
-.car__line--middle {
-  -webkit-animation-delay: 0.2s;
-          animation-delay: 0.2s;
-}
-.car__line--bottom {
-  -webkit-animation-delay: 0.4s;
-          animation-delay: 0.4s;
-}
-
-@-webkit-keyframes shake {
-  0% {
-    transform: translateY(-1%);
-  }
-  100% {
-    transform: translateY(3%);
-  }
-}
-
-@keyframes shake {
-  0% {
-    transform: translateY(-1%);
-  }
-  100% {
-    transform: translateY(3%);
-  }
-}
-@-webkit-keyframes line {
-  0% {
-    stroke-dashoffset: 22;
-  }
-  25% {
-    stroke-dashoffset: 22;
-  }
-  50% {
-    stroke-dashoffset: 0;
-  }
-  51% {
-    stroke-dashoffset: 0;
-  }
-  80% {
-    stroke-dashoffset: -22;
-  }
-  100% {
-    stroke-dashoffset: -22;
-  }
-}
-@keyframes line {
-  0% {
-    stroke-dashoffset: 22;
-  }
-  25% {
-    stroke-dashoffset: 22;
-  }
-  50% {
-    stroke-dashoffset: 0;
-  }
-  51% {
-    stroke-dashoffset: 0;
-  }
-  80% {
-    stroke-dashoffset: -22;
-  }
-  100% {
-    stroke-dashoffset: -22;
-  }
-}
->>>>>>> 90e5791a1b6329a19afe51d566513d2dfd91722d
