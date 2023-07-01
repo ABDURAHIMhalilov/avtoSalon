@@ -85,33 +85,14 @@ export default function Bmw8() {
       });
   }
   useEffect(() => {
-    setData(
-      JSON.parse(
-        localStorage.getItem("oneproduct") != null
-          ? `${localStorage.getItem("oneproduct")}`
-          : "[]"
-      )
-    );
-    var data1 = JSON.parse(
-      localStorage.getItem("oneproduct") != null
-        ? `${localStorage.getItem("oneproduct")}`
-        : "[]"
-    );
-    console.log(data1);
-    setstate(localStorage.getItem("lang"));
-    setUser(
-      localStorage.getItem("onemen") != null
-        ? JSON.parse(localStorage.getItem("onemen"))
-        : false
-    );
+    setData(JSON.parse(localStorage.getItem("oneproduct")!=null? `${localStorage.getItem("oneproduct")}`: "[]"))
+    var data1=JSON.parse(localStorage.getItem("oneproduct")!=null?`${localStorage.getItem("oneproduct")}`: "[]")
+    setstate(localStorage.getItem("lang"))
+    setUser(localStorage.getItem("onemen") != null
+      ? JSON.parse(localStorage.getItem("onemen"))
+      : false)
+    axios.get(`https://api.baracar.uz/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/branch/`).then((res) => {
 
-    axios
-      .get(
-        `https://api.baracar.uz/api/${
-          localStorage.getItem("lang") ? localStorage.getItem("lang") : "ru"
-        }/branch/`
-      )
-      .then((res) => {
         setBranchs(res.data);
       });
     axios
@@ -156,15 +137,16 @@ export default function Bmw8() {
         }
         setCars(initialProducts);
       });
-    setP(1);
-    setTimeout(() => {
-      if (localStorage.getItem("onemen")) {
-        var a = JSON.parse(localStorage.getItem("onemen"));
-        document.querySelector(".visit_name").value = a.username;
-        document.querySelector(".visit_email").value = a.email;
-        document.querySelector(".visit_number").value = a.phone;
-      }
-    }, 20);
+    setP(1) 
+ setTimeout(() => {
+  if (localStorage.getItem("onemen")) {
+    var a = JSON.parse(localStorage.getItem("onemen"));
+    document.querySelector(".visit_name").value = a.username;
+    document.querySelector(".visit_email").value = a.email;
+    document.querySelector(".visit_number").value = a.phone;
+  }
+ }, 1000);
+
   }, []);
   function getData2(key) {
     localStorage.setItem("oneproduct", JSON.stringify(key));
