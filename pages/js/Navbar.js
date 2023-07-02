@@ -48,7 +48,7 @@ export default function Navbar() {
   function aa(item) {
     sessionStorage.setItem("series", item.id);
     sessionStorage.setItem("model", item.model.id);
-    sessionStorage.setItem("position", 9999);
+    sessionStorage.setItem("position", 0);
     window.location = "/js/Search";
   }
 
@@ -233,7 +233,6 @@ export default function Navbar() {
         >
           {state === "ru" ? "Cвязь" : "Bo'lanish"}
         </h3>
-        <AiOutlineUser className="user_icon" id="user1" />
       </div>
 
       {user ? (
