@@ -1187,7 +1187,7 @@ body{
   }
 }
 
-@media (max-width: 800px) {
+/* @media (max-width: 800px) {
   .konechswip2 {
     display: none;
   }
@@ -1202,7 +1202,7 @@ body{
   .audi4 img {
     height: 250px;
   }
-} 
+} */
 
 .gfbvdc select {
   width: 97%;
@@ -1263,7 +1263,7 @@ body{
 
 .bigImg {
   width: 100%;
-  height: auto;
+  height: 260px;
   border-radius: 5px;
 }
 
@@ -1358,6 +1358,9 @@ display:none !important;
 }
 
 .helloClose {
+  position: absolute;
+  top: 6%;
+  right: 2%;
   cursor: pointer;
   font-size: 3vw;
   z-index: 100000000000;
@@ -1462,10 +1465,10 @@ box-shadow: 0px 0px 10px 0px black;
 @media (max-width:1400px) {
   
 .deskBgimg{
-  height: auto;
+  height: 400px;
 }
 .deskBg2{
-  height: auto;
+  height: 400px;
   padding-left: 10px;
   padding-right: 10px;
   padding-top: 10px;
@@ -1474,7 +1477,7 @@ box-shadow: 0px 0px 10px 0px black;
   margin-top: 20px;
 }
 .bigImg{
-  height: auto;
+  height: 140px;
 }
 .carusels2{
   width: 92% !important;
@@ -1499,7 +1502,9 @@ box-shadow: 0px 0px 10px 0px black;
 }
 .helloClose{
 font-size: 20px;
-
+position: absolute;
+top: 4%;
+right: 2%;
 }
 
 }
@@ -1507,6 +1512,9 @@ font-size: 20px;
   /* .defectDiv{
     width: 180vw !important;
   } */
+  .deskBgimg{
+    height: auto;
+  }
   .deskBg2{
     padding-left: 10px;
     padding-right: 10px;
@@ -1575,6 +1583,9 @@ font-size: 20px;
     display: flex !important;
     flex-direction: column-reverse;
   }
+  .bigImg{
+    height: 300px;
+  }
   .helloClose {
     position: absolute;
     right: 1%;
@@ -1609,7 +1620,7 @@ font-size: 20px;
   }
   /* .carousel-control-prev-icon{
     position: absolute;
-    top: 100px;
+    top: 300px;
   }
   .carousel-control-next-icon{
     position: absolute;
