@@ -256,7 +256,7 @@ export default function Bmw8() {
                     if (data.id === item2.car) {
                       return (
                         <SwiperSlide>
-                          <img
+                          <img id="s2img1"
                             className="s2img"
                             src={item2.image}
                             alt={item2.image}
