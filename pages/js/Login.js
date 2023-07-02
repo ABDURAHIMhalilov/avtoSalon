@@ -54,7 +54,11 @@ export default function Login() {
         localStorage.setItem("username", usernamee);
       })
       .catch((err) => {
-        alert("Ma'lumotni to'liq kiriting");
+        if (localStorage.getItem("lang") == "uz") {
+          alert("Ma'lumotni to'liq kiriting");
+        } else {
+          alert("Введите информацию полностью");
+        }
       });
   }
   function userLogin() {
@@ -78,7 +82,11 @@ export default function Login() {
         // })
       })
       .catch((err) => {
-        alert("Ma'lumot to'g'ri kelmadi");
+        if (localStorage.getItem("lang") == "uz") {
+          alert("Ma'lumot to'g'ri kelmadi");
+        } else {
+          alert("Информация была не верна");
+        }
       });
   }
 

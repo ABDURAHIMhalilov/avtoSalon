@@ -39,12 +39,6 @@ export default function Loginpage() {
     setState(localStorage.getItem("lang"));
   }, []);
 
-  function setLanguage() {
-    // var a=document.querySelector("#til").value
-    // localStorage.setItem("lang",a)
-    window.location.reload();
-  }
-
   const plus = () => {
     setData(data + 1);
   };
@@ -87,7 +81,6 @@ export default function Loginpage() {
       });
       setAdress(aa);
     });
-
     document.querySelector("#til").value = state;
   }, []);
 
@@ -98,7 +91,6 @@ export default function Loginpage() {
     if (document.querySelector(".image").files[0]) {
       data.append("image", document.querySelector(".image").files[0]);
     }
-
     data.append(
       "passport_number",
       document.querySelector(".passportNum").value
@@ -513,7 +505,7 @@ export default function Loginpage() {
                           <div className="in11">
                             <h2>
                               {state === "ru"
-                                ? "введите регион"
+                                ? "введите область"
                                 : "Viloyatni kiriting"}
                             </h2>
                             <input className="regionSlc" id="regionSlc" />
@@ -531,7 +523,7 @@ export default function Loginpage() {
                           <div className="in11">
                             <h2>
                               {state === "ru"
-                                ? "введите район"
+                                ? "введите округ"
                                 : "Tumanni kiriting"}
                             </h2>
 
@@ -552,7 +544,7 @@ export default function Loginpage() {
                       </div>
 
                       <button onClick={() => postAdress()}>
-                        {state === "ru" ? "щелчок" : "bosing"}
+                        {state === "ru" ? "Добавлять" : "Qo'shish"}
                       </button>
                     </div>
 
