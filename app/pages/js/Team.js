@@ -232,7 +232,7 @@ export default function Team() {
                   <div className="tel_box"></div>
                   <div className="email_box"></div>
                   <h2>George Brown</h2>
-                  <p>Customer Advisor</p>
+                  <p>консультант по работе с клиентами</p>
                   <a className="Tcard_email" href="#!">
                     george@vehica.com
                   </a>
@@ -247,7 +247,7 @@ export default function Team() {
                   <div className="tel_box"></div>
                   <div className="email_box"></div>
                   <h2>George Brown</h2>
-                  <p>Customer Advisor</p>
+                  <p>консультант по работе с клиентами</p>
                   <a className="Tcard_email" href="#!">
                     george@vehica.com
                   </a>
@@ -263,7 +263,7 @@ export default function Team() {
                   <div className="tel_box"></div>
                   <div className="email_box"></div>
                   <h2>George Brown</h2>
-                  <p>Customer Advisor</p>
+                  <p>консультант по работе с клиентами</p>
                   <a className="Tcard_email" href="#!">
                     george@vehica.com
                   </a>

@@ -23,7 +23,7 @@
 }
 @media(max-width:1300px){
     .navbar_left {
-        width: 60%;
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -164,6 +164,15 @@
     }
 }
 @media (max-width: 1200px) {
+    .mediaUser {
+        width: 20%;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        position: absolute;
+        right: 10px;
+        color: white;
+    }
     .navbar_left .a_fff,
     .navbar_right {
         width: auto;
@@ -231,6 +240,12 @@
         margin-top: 10px;
     }
 }
+
+@media(max-width: 626px) {
+    .mediaUser {
+        display: none;
+    }
+} 
 .a_fff{
     color: #fff;
     transition: .2s;
@@ -240,10 +255,9 @@
 
 }
 
-
-
-
-
+.mediaUser {
+    display: none;
+}
 
 .togle12 .dots {
     display: flex;

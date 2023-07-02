@@ -24,12 +24,16 @@
   .swiper-slide {
     text-align: center;
     font-size: 18px;
-    background: #fff;
+    /* background: #fff; */
   
     /* Center slide text vertically */
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .galereya{
+    display: none;
+    width: 100%;
   }
   
   .swiper-slide img {
@@ -42,6 +46,7 @@
   body {
     background: #000;
     color: #000;
+    overflow: hidden;
   }
   
   .swiper {
@@ -54,6 +59,12 @@
   .swiper-slide {
     background-size: cover;
     background-position: center;
+    height: 750px;
+
+  }
+
+.swiper-slide-visible{
+    height: 200px !important;
   }
   
   .mySwiper2 {
@@ -79,8 +90,18 @@
   
   .swiper-slide img {
     display: block;
-    width: 100%;
-    height: 100%;
+    width: 80%;
     object-fit: cover;
+  }
+  @media (max-width:900px) {
+    .swiper-slide {
+        background-size: cover;
+        background-position: center;
+        height: auto !important;
+    
+      }
+      .swiper-slide-visible{
+        height: auto !important;
+      }
   }
   
