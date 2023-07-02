@@ -221,7 +221,7 @@ export default function Navbar() {
           className="a_fff"
           style={{ cursor: "pointer" }}
         >
-          {state === "ru" ? "Команда" : "Sahifalar"}
+          {state === "ru" ? "Команда" : "Jamoa"}
         </h3>
 
         <h3
