@@ -48,7 +48,7 @@ export default function Navbar() {
   function aa(item) {
     sessionStorage.setItem("series", item.id);
     sessionStorage.setItem("model", item.model.id);
-    sessionStorage.setItem("position", 0);
+    sessionStorage.setItem("position", 9999);
     window.location = "/js/Search";
   }
 
