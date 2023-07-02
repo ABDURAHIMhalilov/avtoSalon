@@ -6,6 +6,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
+import "../css/galerey.css"
 import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 import { Pagination } from "swiper";
@@ -39,7 +40,7 @@ export default function Bmw8() {
   const [state, setstate] = useState([]);
   const [p, setP] = useState(2);
   var [data, setData] = useState([]);
-
+ console.log(data,"sassdad");
   function defectOpen() {
     document.querySelector(".defectDiv").style = "display: block;";
     document.querySelector(".mySwiper").style = "display: none";
