@@ -166,7 +166,7 @@
 @media (max-width: 1200px) {
     .mediaUser {
         width: 20%;
-        display: flex;
+        display: flex !important;
         justify-content: space-evenly;
         align-items: center;
         position: absolute;
