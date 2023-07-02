@@ -80,7 +80,7 @@ export default function Navbar() {
         </div>
         <div className="a_box">
           <Link href="#" className="a_fff a_mobile">
-            {state === "ru" ? "Страницы" : "Sahifalar"}
+            {state === "ru" ? "Команда" : "Jamoa"}
           </Link>
         </div>
 
@@ -183,7 +183,7 @@ export default function Navbar() {
           {state === "ru" ? "О нас" : "Biz haqimizda"}
         </Link>
         <Link href="/js/OurTeam" className="a_fff">
-          {state === "ru" ? "Страницы" : "Sahifalar"}
+          {state === "ru" ? "Команда" : "Sahifalar"}
         </Link>
 
         <Link href="/js/Contact" className="a_fff">
