@@ -64,13 +64,21 @@ export default function Navbar() {
       >
         <MdClose className="close_btn" onClick={() => setCount(false)} />
         <div className="a_box">
-          <h3 href="#" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
+          <h3
+            onClick={() => {
+              window.location = "/";
+            }}
+            className="a_fff a_mobile"
+            style={{ cursor: "pointer" }}
+          >
             {state === "ru" ? "Главная" : "Bosh sahifa"}
           </h3>
         </div>
         <div className="a_box">
           <h3
-            href="/js/Search"
+            onClick={() => {
+              window.location = "/js/Search";
+            }}
             className="a_fff a_mobile"
             style={{ cursor: "pointer" }}
           >
@@ -79,21 +87,35 @@ export default function Navbar() {
         </div>
         <div className="a_box">
           <h3
-            href="/js/About"
+            onClick={() => {
+              window.location = "/js/About";
+            }}
             className="a_fff a_mobile"
             style={{ cursor: "pointer" }}
           >
-            {state === "ru" ? "О нас" : "Biz haqimizda2"}
+            {state === "ru" ? "О нас" : "Biz haqimizda"}
           </h3>
         </div>
         <div className="a_box">
-          <h3 href="#" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
+          <h3
+            onClick={() => {
+              window.location = "/js/OurTeam";
+            }}
+            className="a_fff a_mobile"
+            style={{ cursor: "pointer" }}
+          >
             {state === "ru" ? "Команда" : "Jamoa"}
           </h3>
         </div>
 
         <div className="a_box">
-          <h3 href="#" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
+          <h3
+            onClick={() => {
+              window.location = "/js/Contact";
+            }}
+            className="a_fff a_mobile"
+            style={{ cursor: "pointer" }}
+          >
             {state === "ru" ? "Cвязь" : "Bog'lanish"}
           </h3>
         </div>
@@ -212,7 +234,7 @@ export default function Navbar() {
           className="a_fff"
           style={{ cursor: "pointer" }}
         >
-          {state === "ru" ? "О нас" : "Biz haqimizda3"}
+          {state === "ru" ? "О нас" : "Biz haqimizda"}
         </h3>
         <h3
           onClick={() => {

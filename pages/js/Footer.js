@@ -80,6 +80,7 @@ export default function Footer() {
                     window.location = "/";
                   }}
                   className="a_fff f_mobile"
+                  style={{ cursor: "pointer" }}
                 >
                   Bosh sahifa
                 </a>
@@ -90,6 +91,7 @@ export default function Footer() {
                     window.location = "/js/Search";
                   }}
                   className="a_fff f_mobile"
+                  style={{ cursor: "pointer" }}
                 >
                   Qidiruv
                 </a>
@@ -100,6 +102,7 @@ export default function Footer() {
                     window.location = "/js/About";
                   }}
                   className="a_fff f_mobile"
+                  style={{ cursor: "pointer" }}
                 >
                   Biz haqimizda
                 </a>
@@ -110,6 +113,7 @@ export default function Footer() {
                     window.location = "/js/OurTeam";
                   }}
                   className="a_fff f_mobile"
+                  style={{ cursor: "pointer" }}
                 >
                   Jamoa
                 </a>
@@ -120,6 +124,7 @@ export default function Footer() {
                     window.location = "/js/Contact";
                   }}
                   className="a_fff f_mobile"
+                  style={{ cursor: "pointer" }}
                 >
                   Bog'lanish
                 </a>
@@ -199,27 +204,47 @@ export default function Footer() {
             </div>
             <div className="f_bot">
               <div className="a_box a">
-                <a href="#" className="a_fff f_mobile">
+                <a
+                  href="#"
+                  className="a_fff f_mobile"
+                  style={{ cursor: "pointer" }}
+                >
                   Главная страница
                 </a>
               </div>
               <div className="a_box a">
-                <a href="#" className="a_fff f_mobile">
+                <a
+                  href="#"
+                  className="a_fff f_mobile"
+                  style={{ cursor: "pointer" }}
+                >
                   Поиск
                 </a>
               </div>
               <div className="a_box a">
-                <a href="#" className="a_fff f_mobile">
+                <a
+                  href="#"
+                  className="a_fff f_mobile"
+                  style={{ cursor: "pointer" }}
+                >
                   Листинг
                 </a>
               </div>
               <div className="a_box a">
-                <a href="#" className="a_fff f_mobile">
+                <a
+                  href="#"
+                  className="a_fff f_mobile"
+                  style={{ cursor: "pointer" }}
+                >
                   Страницы
                 </a>
               </div>
               <div className="a_box a">
-                <a href="#" className="a_fff f_mobile">
+                <a
+                  href="#"
+                  className="a_fff f_mobile"
+                  style={{ cursor: "pointer" }}
+                >
                   Более
                 </a>
               </div>
