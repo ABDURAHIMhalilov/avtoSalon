@@ -1108,14 +1108,14 @@ export default function Bmw8() {
             spaceBetween: 20,
           },
           991: {
-            slidesPerView: 2,
+            slidesPerView: 3,
             spaceBetween: 20,
           },
-          1100: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-          },
-          1300: {
+          // 1100: {
+          //   slidesPerView: 2,
+          //   spaceBetween: 20,
+          // },
+          1400: {
             slidesPerView: 4,
             spaceBetween: 20,
           },
