@@ -26,6 +26,7 @@ import car from "../images/6.jpg";
 import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import "../../app/globals.css"
+import "../css/galerey.css"
 
 import '@/app/globals.css'
 
@@ -152,6 +153,11 @@ export default function Bmw8() {
   function getData2(key) {
     localStorage.setItem("oneproduct", JSON.stringify(key));
     window.location = "/js/Bmw8";
+  }
+
+  function galeriyaModal(){
+    document.querySelector(".galeriya").style="display:block;width:100%"
+    
   }
 
   return (
@@ -439,12 +445,9 @@ export default function Bmw8() {
                         ? "123 *** *** -раскрывать"
                         : "123 *** *** - aloqa"}
                     </button>
-                    <button className="wat">
+                    <button onClick={()=>galeriyaModal()} className="wat">
                       {" "}
-                      <span>
-                        <BsWhatsapp />
-                      </span>{" "}
-                      Chat via WhatsApp
+                      Avtomobil rasmi
                     </button>
 
                     {/* <div className="pas">
@@ -751,12 +754,9 @@ export default function Bmw8() {
                     ? "123 *** *** -раскрывать"
                     : "123 *** *** - aloqa"}
                 </button>
-                <button className="wat">
+                <button onClick={()=>galeriyaModal()} className="wat">
                   {" "}
-                  <span>
-                    <BsWhatsapp />
-                  </span>{" "}
-                  Chat via WhatsApp
+                  Avtomobil rasmi
                 </button>
 
                 {/* <div className="pas">
@@ -1161,7 +1161,84 @@ export default function Bmw8() {
 
       </Swiper>
     </div>
-      
+      <div className="galeriya">
+      <Swiper
+        style={{
+          "--swiper-navigation-color": "#fff",
+          "--swiper-pagination-color": "#fff",
+        }}
+        spaceBetween={10}
+        navigation={true}
+        thumbs={{ swiper: thumbsSwiper }}
+        modules={[FreeMode, Navigation, Thumbs]}
+        className="mySwiper2"
+      >
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
+        </SwiperSlide>
+      </Swiper>
+      <Swiper
+        onSwiper={setThumbsSwiper}
+        spaceBetween={10}
+        slidesPerView={4}
+        freeMode={true}
+        watchSlidesProgress={true}
+        modules={[FreeMode, Navigation, Thumbs]}
+        className="mySwiper"
+      >
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-1.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-2.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-3.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-4.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-5.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-6.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-7.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-8.jpg" />
+        </SwiperSlide>
+        <SwiperSlide>
+          <img src="https://swiperjs.com/demos/images/nature-10.jpg" />
+        </SwiperSlide>
+      </Swiper>
+      </div>
       <Footer/>
     </div>) : (
         <div class="loader">
