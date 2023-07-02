@@ -809,6 +809,7 @@
   overflow: hidden;
   display: block;
   height: 300px;
+  padding: 10px !important;
   /* padding-bottom: 20px; */
 }
 
