@@ -168,6 +168,7 @@ export default function Navbar() {
             alt=""
           />
         </h3>
+
         <h3
           onClick={() => {
             window.location = "/";
@@ -177,7 +178,20 @@ export default function Navbar() {
         >
           {state === "ru" ? "Главная" : "Bosh sahifa"}
         </h3>
-
+        {user ? (
+          <div style={{ cursor: "pointer" }} className="mediaUser">
+            <AiOutlineUser className="user_icon" />
+            <h3
+              onClick={() => {
+                window.location = "/js/Loginpage";
+              }}
+            >
+              {user.username}
+            </h3>
+          </div>
+        ) : (
+          <>&nbsp;</>
+        )}
         {modal1 === 0 ? (
           <h3
             onMouseEnter={() => {
@@ -245,7 +259,6 @@ export default function Navbar() {
         >
           {state === "ru" ? "Команда" : "Jamoa"}
         </h3>
-
         <h3
           onClick={() => {
             window.location = "/js/Contact";
@@ -255,7 +268,7 @@ export default function Navbar() {
         >
           {state === "ru" ? "Cвязь" : "Bog'lanish"}
         </h3>
-        <AiOutlineUser className="user_icon" id="user1" />
+        {/* <AiOutlineUser className="user_icon" id="user1" /> */}
       </div>
 
       {user ? (
