@@ -18,7 +18,7 @@ import { BsFacebook } from "react-icons/bs";
 import { AiOutlineTwitter } from "react-icons/ai";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import { MdLocationOn } from "react-icons/md";
-import { AiOutlineMail } from "react-icons/ai";
+import { AiOutlineMail,AiOutlineClose } from "react-icons/ai";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import axios from "axios";
@@ -174,6 +174,12 @@ export default function Bmw8() {
               </div>
             ) : (
               <>
+                                            <h5
+                                onClick={() => defectClose()}
+                                className="helloClose"
+                              >
+                                <AiOutlineClose/>
+                              </h5>
                 <Carousel className="carusels">
                   {cars.map((item) => {
                     return (
@@ -206,12 +212,6 @@ export default function Bmw8() {
                               {data.position.series.model.name}{" "}
                               {data.position.series.name}{" "}
                               {state === "ru" ? "дефект" : "nuqson"}
-                              <h5
-                                onClick={() => defectClose()}
-                                className="helloClose"
-                              >
-                                X
-                              </h5>
                             </h4>
 
                             <p>{item.description}</p>
