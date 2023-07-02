@@ -83,7 +83,7 @@ export default function Navbar() {
             className="a_fff a_mobile"
             style={{ cursor: "pointer" }}
           >
-            {state === "ru" ? "О нас" : "Biz haqimizda"}
+            {state === "ru" ? "О нас" : "Biz haqimizda2"}
           </h3>
         </div>
         <div className="a_box">
@@ -94,7 +94,7 @@ export default function Navbar() {
 
         <div className="a_box">
           <h3 href="#" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
-            {state === "ru" ? "Cвязь" : "Bo'lanish"}
+            {state === "ru" ? "Cвязь" : "Bog'lanish"}
           </h3>
         </div>
         <div className="perevod2">
@@ -212,7 +212,7 @@ export default function Navbar() {
           className="a_fff"
           style={{ cursor: "pointer" }}
         >
-          {state === "ru" ? "О нас" : "Biz haqimizda"}
+          {state === "ru" ? "О нас" : "Biz haqimizda3"}
         </h3>
         <h3
           onClick={() => {
@@ -231,7 +231,7 @@ export default function Navbar() {
           className="a_fff"
           style={{ cursor: "pointer" }}
         >
-          {state === "ru" ? "Cвязь" : "Bo'lanish"}
+          {state === "ru" ? "Cвязь" : "Bog'lanish"}
         </h3>
       </div>
 

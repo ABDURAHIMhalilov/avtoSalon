@@ -26,7 +26,7 @@ export default function About() {
       <Navbar />
       <div className="about">
         <div className="about_left">
-          <h1>{state==='ru'?("О нас"):("Biz haqimizda")}</h1>
+          <h1>{state==='ru'?("О нас"):("Biz haqimizda1")}</h1>
           <h4>
           {state==='ru'?("Чем закончилось приключение, увидим позже. Однако Ауда волновалась.она ничего не сказала."):("Sarguzasht qanday tugadi, keyinroq ko'ramiz. Biroq, Auda xavotirda edi.u hech narsa demadi.")}</h4>
           <p className="about_info">
