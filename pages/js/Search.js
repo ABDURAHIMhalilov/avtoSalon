@@ -36,7 +36,6 @@ export default function Search() {
   const [page, setPage] = React.useState(1);
   const [countpag, setCountpag] = React.useState(1);
   const [languange, setlanguange] = React.useState()
-
   const abbasFilter = (model1, seria1, position1, gearBox1, fuelsort1, garant1, branch1, year1, mincount1, maxcount1) => {
     var pushdata = []
     axios.get(`https://api.baracar.uz/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/cars_get/`).then(res => {
@@ -56,8 +55,6 @@ export default function Search() {
             if (
               (model1 != "" ? (item.position.series.model.id === model1) : (true))
               &&
-              // (parseInt(sessionStorage.getItem("model")) != "" ? (item.position.series.model.id === parseInt(sessionStorage.getItem("model"))) : (true))
-              // &&
               (seria1 != "" ? (item.position.series.id === seria1) : (true))
               &&
               (position1 != "" ? (item.position.id === position1) : (true))
@@ -89,12 +86,6 @@ export default function Search() {
 
     })
   }
-  function getData2(key) {
-    console.log(key);
-    localStorage.setItem("oneproduct", JSON.stringify(key))
-    window.location = "/js/Bmw8"
-  }
-
   const handleChange = (event) => {
     setPage(event.target.value)
   };
@@ -117,7 +108,7 @@ export default function Search() {
 
     axios.get(`https://api.baracar.uz/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/position_get/`).then(res2 => {
       const search2 = res2.data.filter(item => item.series.id === event.target.value)
-      setSelectPosition("")
+      setSelectPosition(9999)
       if (event.target.value = "") {
         setPosition([])
       } else {
@@ -125,7 +116,7 @@ export default function Search() {
       }
 
     })
-    abbasFilter(selectModel, event.target.value, "", selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount)
+    abbasFilter(parseInt(sessionStorage.getItem("model")), event.target.value, "", selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount)
 
 
 
@@ -133,50 +124,127 @@ export default function Search() {
   const handlePosition = (event) => {
     setSelectPosition(event.target.value);
     sessionStorage.setItem("position",event.target.value)
-    abbasFilter(selectModel, selectSeries, event.target.value, selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount)
+    abbasFilter( parseInt(sessionStorage.getItem("model")), parseInt(sessionStorage.getItem("series")), event.target.value, selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount)
 
   }
   const handleFuelsort = (event) => {
     setSelectFuelsort(event.target.value);
-    abbasFilter(selectModel, selectSeries, selectPosition, selectGearBox, event.target.value, selectgarant, selectBranch, year, mincount, maxcount)
+
+    var data=parseInt(sessionStorage.getItem("model"))
+    var data2=parseInt(sessionStorage.getItem("series"))
+    var data3=parseInt(sessionStorage.getItem("position"))
+if (data2 === 9999) {
+  abbasFilter(data, "", "", selectGearBox, event.target.value, selectgarant, selectBranch, year, mincount, maxcount)
+} else {
+  abbasFilter(data, data2, "", selectGearBox, event.target.value, selectgarant, selectBranch, year, mincount, maxcount)
+}
+// if (data3===9999) {
+//   abbasFilter(data, data2, "", selectGearBox, event.target.value, selectgarant, selectBranch, year, mincount, maxcount)
+// }else{
+//   abbasFilter(data, data2, data3, selectGearBox, event.target.value, selectgarant, selectBranch, year, mincount, maxcount)
+// }
   }
   const handleGearBox = (event) => {
     setSelectGearBox(event.target.value);
-    const searchdata = makes.filter(item =>
-      item.gearbox.id === event.target.value
-    )
-    abbasFilter(selectModel, selectSeries, selectPosition, event.target.value, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount)
-    setMakes(searchdata)
+    var data=parseInt(sessionStorage.getItem("model"))
+    var data2=parseInt(sessionStorage.getItem("series"))
+    var data3=parseInt(sessionStorage.getItem("position"))
+
+    if (data2 === 9999) {
+      abbasFilter(data, "", "", event.target.value, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount)
+    } else {
+      abbasFilter(data, data2, "", event.target.value, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount)
+    }
+    if (data3===9999) {
+      abbasFilter(data, data2, "", event.target.value, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount)
+    }else{
+      abbasFilter(data, data2, data3,event.target.value, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount)
+    }
   }
   const handlegarant = (event) => {
     setSelectgarant(event.target.value);
-    const searchdata = makes.filter(item =>
-      item.garant.id === event.target.value
-    )
-    abbasFilter(selectModel, selectSeries, selectPosition, selectGearBox, selectFuelsort, event.target.value, selectBranch, year, mincount, maxcount)
-    setMakes(searchdata)
+    var data=parseInt(sessionStorage.getItem("model"))
+    var data2=parseInt(sessionStorage.getItem("series"))
+    var data3=parseInt(sessionStorage.getItem("position"))
+
+    if (data2 === 9999) {
+      abbasFilter(data, "", "", selectGearBox, selectFuelsort, event.target.value, selectBranch, year, mincount, maxcount)
+    } else {
+      abbasFilter(data, data2, "", selectGearBox, selectFuelsort, event.target.value, selectBranch, year, mincount, maxcount)
+    }
+    if (data3===9999) {
+      abbasFilter(data, data2, "", selectGearBox, selectFuelsort, event.target.value, selectBranch, year, mincount, maxcount)
+    }else{
+      abbasFilter(data, data2, data3,selectGearBox, selectFuelsort, event.target.value, selectBranch, year, mincount, maxcount)
+    }
   }
   const handleBranch = (event) => {
     setSelectBranch(event.target.value);
-    const searchdata = makes.filter(item =>
-      item.branch.id === event.target.value
-    )
-    abbasFilter(selectModel, selectSeries, selectPosition, selectGearBox, selectFuelsort, selectgarant, event.target.value, year, mincount, maxcount)
-    setMakes(searchdata)
+    var data=parseInt(sessionStorage.getItem("model"))
+    var data2=parseInt(sessionStorage.getItem("series"))
+    var data3=parseInt(sessionStorage.getItem("position"))
+    if (data2 === 9999) {
+      abbasFilter(data, "", "", selectGearBox, selectFuelsort, selectgarant, event.target.value, year, mincount, maxcount)
+    } else {
+      abbasFilter(data, data2, "", selectGearBox, selectFuelsort, selectgarant, event.target.value, year, mincount, maxcount)
+    }
+    if (data3===9999) {
+      abbasFilter(data, data2, "", selectGearBox, selectFuelsort, selectgarant, event.target.value, year, mincount, maxcount)
+    }else{
+      abbasFilter(data, data2, data3,selectGearBox, selectFuelsort, selectgarant, event.target.value, year, mincount, maxcount)
+    }
   }
   function handleyear(id) {
     setYear(id.target.value)
-    console.log(id.target.value, "LOG");
+    var data=parseInt(sessionStorage.getItem("model"))
+    var data2=parseInt(sessionStorage.getItem("series"))
+    var data3=parseInt(sessionStorage.getItem("position"))
+    if (data2 === 9999) {
+      abbasFilter(data, "", "", selectGearBox, selectFuelsort, selectgarant, selectBranch, id.target.value, mincount, maxcount)
+    } else {
+      abbasFilter(data, data2, "", selectGearBox, selectFuelsort, selectgarant, selectBranch, id.target.value, mincount, maxcount)
+    }
+    if (data3===9999) {
+      abbasFilter(data, data2, "", selectGearBox, selectFuelsort, selectgarant, selectBranch, id.target.value, mincount, maxcount)
+    }else{
+      abbasFilter(data, data2, data3,selectGearBox, selectFuelsort, selectgarant, selectBranch, id.target.value, mincount, maxcount)
+    }
 
-    abbasFilter(selectModel, selectSeries, selectPosition, selectGearBox, selectFuelsort, selectgarant, selectBranch, id.target.value, mincount, maxcount)
   }
   function minChange(id) {
     setmincount(id.target.value)
-    abbasFilter(selectModel, selectSeries, selectPosition, selectGearBox, selectFuelsort, selectgarant, selectBranch, year, id.target.value, maxcount)
+  var data=parseInt(sessionStorage.getItem("model"))
+  var data2=parseInt(sessionStorage.getItem("series"))
+  var data3=parseInt(sessionStorage.getItem("position"))
+
+  if (data2 === 9999) {
+    abbasFilter(data, "", "", selectGearBox, selectFuelsort, selectgarant, selectBranch, year, id.target.value, maxcount)
+  } else {
+    abbasFilter(data, data2, "", selectGearBox, selectFuelsort, selectgarant, selectBranch, year, id.target.value, maxcount)
+  }
+  if (data3===9999) {
+    abbasFilter(data, data2, "", selectGearBox, selectFuelsort, selectgarant, selectBranch, year, id.target.value, maxcount)
+  }else{
+    abbasFilter(data, data2, data3,selectGearBox, selectFuelsort, selectgarant, selectBranch, year, id.target.value, maxcount)
+  }
+
   }
   function maxChange(id) {
     setmaxcount(id.target.value)
-    abbasFilter(selectModel, selectSeries, selectPosition, selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, id.target.value)
+    var data=parseInt(sessionStorage.getItem("model"))
+    var data2=parseInt(sessionStorage.getItem("series"))
+    var data3=parseInt(sessionStorage.getItem("position"))
+
+    if (data2 === 9999) {
+      abbasFilter(data, "", "", selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, id.target.value)
+    } else {
+      abbasFilter(data, data2, "", selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, id.target.value)
+    }
+    if (data3===9999) {
+      abbasFilter(data, data2, "", selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, id.target.value)
+    }else{
+      abbasFilter(data, data2, data3,selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, id.target.value)
+    }
   }
   function getData(key) {
     console.log(key);
@@ -191,9 +259,10 @@ export default function Search() {
     document.querySelector('.mobile_search').classList.remove('db')
   }
   useEffect(() => {
-setSelectModel(parseInt(sessionStorage.getItem("model")))
-setSelectSeries(parseInt(sessionStorage.getItem("series")))
-setSelectPosition(parseInt(sessionStorage.getItem("position")))
+setSelectModel(sessionStorage.getItem("model"))
+setSelectSeries(sessionStorage.getItem("series"))
+setSelectPosition(sessionStorage.getItem("position"))
+
     setlanguange(localStorage.getItem("lang"))
 var dataAA =parseInt(sessionStorage.getItem("model"))
 var dataAA2 =parseInt(sessionStorage.getItem("series"))
@@ -260,10 +329,10 @@ var dataAA3 =parseInt(sessionStorage.getItem("position"))
     var model = parseInt(sessionStorage.getItem("model"));
     var series = parseInt(sessionStorage.getItem("series"));
     var position = parseInt(sessionStorage.getItem("position"));
-    
-    if (dataAA2 < 1) {
+          // abbasFilter(selectModel, selectSeries, selectPosition, selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount,model,series,position);
+    if (dataAA2 ===9999) {
       abbasFilter(model, selectSeries, selectPosition, selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount);
-    } else if (dataAA3 < 1) {
+    } else if (dataAA3 ===9999) {
       abbasFilter(model, series, selectPosition, selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount);
     } else {
       abbasFilter(model, series, position, selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount);
@@ -285,7 +354,7 @@ var dataAA3 =parseInt(sessionStorage.getItem("position"))
                 label="Model"
                 onChange={handleModel}
               >
-                <MenuItem value="">None</MenuItem>
+                <MenuItem value=''>None</MenuItem>
                 {model.map((item) => (
                   <MenuItem value={item.id}>{item.name}</MenuItem>
                 ))}
@@ -302,7 +371,7 @@ var dataAA3 =parseInt(sessionStorage.getItem("position"))
                 label='Series'
                 onChange={handleSeries}
               >
-                <MenuItem value="">None</MenuItem>
+             <MenuItem value="">None</MenuItem>
 
                 {series.map((item) => (
                   <MenuItem value={item.id}>{item.name}</MenuItem>
@@ -320,7 +389,7 @@ var dataAA3 =parseInt(sessionStorage.getItem("position"))
                 label='Position'
                 onChange={handlePosition}
               >
-                <MenuItem value="">None</MenuItem>
+           <MenuItem value="">None</MenuItem>
                 {position.map(item => {
                   return <MenuItem value={item.id}>{item.name}</MenuItem>
                 })}
