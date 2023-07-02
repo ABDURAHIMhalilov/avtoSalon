@@ -97,36 +97,37 @@ export default function Popular() {
         breakpoints={{
           0:{
             slidesPerView: 1,
-            spaceBetween: 50,
+            spaceBetween: 0,
           },
-          650: {
+          600: {
             slidesPerView: 2,
-            spaceBetween: 20,
+            spaceBetween: 0,
           },
           991: {
             slidesPerView: 2,
-            spaceBetween: 20,
+            spaceBetween: 0,
           },
-          1100: {
-            slidesPerView: 2,
-            spaceBetween: 20,
+          1000: {
+            slidesPerView: 3,
+            spaceBetween: 0,
           },
           1300: {
-            slidesPerView: 3,
-            spaceBetween: 20,
+            slidesPerView: 4,
+            spaceBetween: 0,
           },
           1750: {
             slidesPerView: 4,
-            spaceBetween: 20,
+            spaceBetween: 0,
           },
           1950: {
             slidesPerView: 5,
-            spaceBetween: 20,
+            spaceBetween: 0,
           },
         }}
         modules={[Navigation]}
         className="mySwiper"
       >
+
         {cars.map((item, key) => {
         if(key<10){ return (
             <SwiperSlide key={key} onClick={()=>getData2(item)} className="swiperPopCard">
@@ -151,11 +152,13 @@ export default function Popular() {
                   </div>
                 </div> 
               </div>
+            
             </SwiperSlide>
+            
           );} 
         })}
-
       </Swiper>
+      
     </div>
         ) : (
           <div className="popular">
@@ -177,31 +180,31 @@ export default function Popular() {
         breakpoints={{
           0:{
             slidesPerView: 1,
-            spaceBetween: 50,
+            spaceBetween: 0,
           },
-          650: {
+          600: {
             slidesPerView: 2,
-            spaceBetween: 20,
+            spaceBetween: 0,
           },
           991: {
             slidesPerView: 2,
-            spaceBetween: 20,
+            spaceBetween: 0,
           },
-          1100: {
-            slidesPerView: 2,
-            spaceBetween: 20,
+          1000: {
+            slidesPerView: 3,
+            spaceBetween: 0,
           },
           1300: {
             slidesPerView: 4,
-            spaceBetween: 20,
+            spaceBetween: 0,
           },
           1750: {
             slidesPerView: 4,
-            spaceBetween: 20,
+            spaceBetween: 0,
           },
           1950: {
             slidesPerView: 5,
-            spaceBetween: 20,
+            spaceBetween: 0,
           },
         }}
         modules={[Navigation]}
