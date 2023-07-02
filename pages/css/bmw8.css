@@ -1398,6 +1398,7 @@ display:none !important;
     top: 75px;
 }
 .galeriya{
+  z-index: 9999999999999 !important;
   width: 100%;
   background-color: black;
   position: absolute;

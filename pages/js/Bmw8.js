@@ -157,7 +157,7 @@ export default function Bmw8() {
 
   function galeriyaModal(){
     document.querySelector(".galeriya").style="display:block;width:100%"
-    
+    document.querySelector(".galeriya").style="display:block;width:100%"
   }
 
   return (
