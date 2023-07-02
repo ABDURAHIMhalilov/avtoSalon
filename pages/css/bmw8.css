@@ -137,8 +137,7 @@
   display: none;
 }
 .lk {
-  display: flex;
-  margin-top: 20px;
+  display: none;
 }
 .lk1 {
   display: flex;
@@ -150,6 +149,9 @@
 }
 .lk1 p {
   color: #a7a8a8;
+}
+.asdda{
+  display:none ;
 }
 .l1 {
   display: flex;
@@ -325,9 +327,6 @@
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 40px;
   line-height: 44px;
-}
-.dollars {
-  margin-top: 90px;
 }
 .dollars p {
   color: #a7a8a8;
@@ -1320,7 +1319,7 @@ body{
   margin-left: 4% !important;
   /* box-shadow: inset 0 0 10px black; */
   /* background: #000 !important; */
-  margin-top: 120px;
+  margin-top: 7vh;
 }
 .carusels2 h3 {
   font-size: 60px;
@@ -1360,17 +1359,17 @@ display:none !important;
 
 .helloClose {
   position: absolute;
-  top: 6%;
-  right: 2%;
+  top: 100px;
+  right: 1%;
   cursor: pointer;
   font-size: 3vw;
   z-index: 100000000000;
   color: white;
-  position: absolute;
+  /* position: absolute;
   top: 150px;
   display: flex;
   justify-content: end;
-  right: 1vw;
+  right: 1vw; */
 }
 .hellonumber{
   position: absolute;
@@ -1501,21 +1500,19 @@ box-shadow: 0px 0px 10px 0px black;
   font-size: 12px;
   margin-top: 20px;
 }
-.helloClose{
+/* .helloClose{
 font-size: 20px;
 position: absolute;
 top: 4%;
 right: 2%;
-}
+} */
 
 }
 @media (max-width:809px) {
   /* .defectDiv{
     width: 180vw !important;
   } */
-  .deskBgimg{
-    height: auto;
-  }
+
   .deskBg2{
     padding-left: 10px;
     padding-right: 10px;
@@ -1528,7 +1525,7 @@ right: 2%;
   font-size: 25px !important;
   }
   .carusels2{
-    width: 90% !important;
+    width: 92% !important;
   }
   .carousel-control-prev-icon{
     position: absolute;
@@ -1543,7 +1540,7 @@ right: 2%;
 }
 @media (max-width:600px) {
   .deskBgimg{
-    width: 100% !important;
+    width: 98% !important;
     height: auto !important;
     max-height: 30vh !important;
   }
@@ -1565,7 +1562,7 @@ right: 2%;
     font-size: 20px;
   }
   .deskBg2{
-    width: 100%;
+    width: 98%;
     padding-left: 30px;
     padding-right: 30px;
     padding-top: 20px;
