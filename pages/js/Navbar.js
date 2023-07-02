@@ -233,6 +233,7 @@ export default function Navbar() {
         >
           {state === "ru" ? "Cвязь" : "Bo'lanish"}
         </h3>
+        <AiOutlineUser className="user_icon" id="user1" />
       </div>
 
       {user ? (
