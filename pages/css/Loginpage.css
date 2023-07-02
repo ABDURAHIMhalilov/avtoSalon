@@ -438,12 +438,13 @@
 }
 
 .all-button button {
-  width: 200px;
+  width: 250px;
   height: 50px;
   background-color: #ff4605;
   font-size: 18px;
   margin-top: 40px;
   border-radius: 10px;
+  margin-left: 5px;
 }
 
 .all-button {
@@ -616,6 +617,7 @@
     padding-top: 20px;
     border-radius: 20px;
     margin-top: 15px;
+    padding-bottom: 10px;
 }
 #mlk{
   padding: 15px;
@@ -726,7 +728,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 0 4px black;
+  box-shadow: 0 0 1px rgb(172, 172, 172);
+  background: #fff;
   /* text-align: center; */
 }
 
