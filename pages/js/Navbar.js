@@ -8,7 +8,7 @@ import { BiMenuAltLeft } from "react-icons/bi";
 import { MdClose } from "react-icons/md";
 import "../css/Navbar.css";
 import axios from "axios";
-import Link from "next/link";
+// import h3 from "next/h3";
 import "@/app/globals.css";
 // import "../../app/globals.css"
 // import uz from '../images/uzbekistan_round_button_with_iso_code_64.png'
@@ -64,30 +64,38 @@ export default function Navbar() {
       >
         <MdClose className="close_btn" onClick={() => setCount(false)} />
         <div className="a_box">
-          <Link href="#" className="a_fff a_mobile">
+          <h3 href="#" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
             {state === "ru" ? "Главная" : "Bosh sahifa"}
-          </Link>
+          </h3>
         </div>
         <div className="a_box">
-          <Link href="/js/Search" className="a_fff a_mobile">
+          <h3
+            href="/js/Search"
+            className="a_fff a_mobile"
+            style={{ cursor: "pointer" }}
+          >
             {state === "ru" ? "Поиск" : "Qidiruv"}
-          </Link>
+          </h3>
         </div>
         <div className="a_box">
-          <Link href="/js/About" className="a_fff a_mobile">
+          <h3
+            href="/js/About"
+            className="a_fff a_mobile"
+            style={{ cursor: "pointer" }}
+          >
             {state === "ru" ? "О нас" : "Biz haqimizda"}
-          </Link>
+          </h3>
         </div>
         <div className="a_box">
-          <Link href="#" className="a_fff a_mobile">
-            {state === "ru" ? "Страницы" : "Sahifalar"}
-          </Link>
+          <h3 href="#" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
+            {state === "ru" ? "Команда" : "Jamoa"}
+          </h3>
         </div>
 
         <div className="a_box">
-          <Link href="#" className="a_fff a_mobile">
-            {state === "ru" ? "Более" : "Ko'proq"}
-          </Link>
+          <h3 href="#" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
+            {state === "ru" ? "Cвязь" : "Bo'lanish"}
+          </h3>
         </div>
         <div className="perevod2">
           <img
@@ -110,20 +118,26 @@ export default function Navbar() {
             alt=""
           />
           {user ? (
-            <Link href="/js/Login">
+            <h3 href="/js/Login">
               <AiOutlineUser className="user_icon" id="user1" />
-            </Link>
+            </h3>
           ) : (
-            <Link href="/js/Loginpage">
+            <h3 href="/js/Loginpage">
               <AiOutlineUser className="user_icon" id="user1" />
-            </Link>
+            </h3>
           )}
         </div>
       </div>
       <BiMenuAltLeft className="menuLeftIcon" onClick={() => setCount(true)} />
 
       <div className="navbar_left">
-        <Link href="/" className="logo">
+        <h3
+          onClick={() => {
+            window.location = "/";
+          }}
+          className="logo"
+          style={{ cursor: "pointer" }}
+        >
           <Image
             className="vehicaimg"
             src={logo}
@@ -131,24 +145,35 @@ export default function Navbar() {
             height={"auto"}
             alt=""
           />
-        </Link>
-        <Link href="/" className="a_fff">
+        </h3>
+        <h3
+          onClick={() => {
+            window.location = "/";
+          }}
+          className="a_fff"
+          style={{ cursor: "pointer" }}
+        >
           {state === "ru" ? "Главная" : "Bosh sahifa"}
-        </Link>
+        </h3>
 
         {modal1 === 0 ? (
-          <Link
+          <h3
             onMouseEnter={() => {
               setModal1(1);
             }}
-            href="/js/Search"
+            onClick={() => {
+              window.location = "/js/Search";
+            }}
             className="a_fff"
+            style={{ cursor: "pointer" }}
           >
             {state === "ru" ? "Поиск" : "Qidiruv"}
-          </Link>
+          </h3>
         ) : (
-          <Link
-            href="/js/Search"
+          <h3
+            onClick={() => {
+              window.location = "/js/Search";
+            }}
             onMouseLeave={() => {
               setModal1(0);
             }}
@@ -156,6 +181,7 @@ export default function Navbar() {
               setModal1(1);
             }}
             className="a_fff  togle12"
+            style={{ cursor: "pointer" }}
           >
             <div class="dots active">
               {state === "ru" ? "Поиск" : "Qidiruv"}
@@ -177,63 +203,81 @@ export default function Navbar() {
                 </ul>
               </div>
             </div>
-          </Link>
+          </h3>
         )}
-        <Link href="/js/About" className="a_fff">
+        <h3
+          onClick={() => {
+            window.location = "/js/About";
+          }}
+          className="a_fff"
+          style={{ cursor: "pointer" }}
+        >
           {state === "ru" ? "О нас" : "Biz haqimizda"}
-        </Link>
-        <Link href="/js/OurTeam" className="a_fff">
-          {state === "ru" ? "Страницы" : "Sahifalar"}
-        </Link>
+        </h3>
+        <h3
+          onClick={() => {
+            window.location = "/js/OurTeam";
+          }}
+          className="a_fff"
+          style={{ cursor: "pointer" }}
+        >
+          {state === "ru" ? "Команда" : "Jamoa"}
+        </h3>
 
-        <Link href="/js/Contact" className="a_fff">
-          {state === "ru" ? "Более" : "Ko'proq"}
-        </Link>
+        <h3
+          onClick={() => {
+            window.location = "/js/Contact";
+          }}
+          className="a_fff"
+          style={{ cursor: "pointer" }}
+        >
+          {state === "ru" ? "Cвязь" : "Bo'lanish"}
+        </h3>
       </div>
 
       {user ? (
-        <div>
-          {/* <div className="navbar_right">
-            <div className="loginIn">
-              <AiOutlineUser className="user_icon" />
-              <Link href="/js/Loginpage" className="a_fff">
-                {user.username}
-              </Link>
-            </div>
-          </div> */}
-          &nbsp;
-        </div>
+        <div>&nbsp;</div>
       ) : (
         <div>
           <div className="navbar_right">
             <div className="loginIn">
               <AiOutlineUser className="user_icon" />
               {state === "ru" ? (
-                <Link
-                  href="/js/Login"
-                  style={{ width: "155px" }}
+                <h3
+                  onClick={() => {
+                    window.location = "/js/Login";
+                  }}
+                  style={{ width: "155px", cursor: "pointer" }}
                   className="a_fff"
                   id="a_df"
+                  // style={{ cursor: "pointer" }}
                 >
                   Войти в систему
-                </Link>
+                </h3>
               ) : (
-                <Link
-                  style={{ width: "129px" }}
-                  href="/js/Login"
+                <h3
+                  onClick={() => {
+                    window.location = "/js/Login";
+                  }}
+                  style={{ width: "129px", cursor: "pointer" }}
                   className="a_fff"
                   id="a_df"
+                  // style={{ cursor: "pointer" }}
                 >
                   Tizimga kirish
-                </Link>
+                </h3>
               )}
-              {/* </a> */}
-              {/* </a> */}
             </div>
-            {/* <a href="/login" className="a_fff"> */}
-            <Link href="/js/Login" className="a_fff" id="a_sd">
+            <h3
+              onClick={() => {
+                window.location = "/js/Login";
+              }}
+              className="a_fff"
+              id="a_sd"
+              style={{ cursor: "pointer" }}
+            >
               {state === "ru" ? "Регистрация" : "Ro'yxatdan o'tish"}
-            </Link>
+            </h3>
           </div>
         </div>
       )}
@@ -243,7 +287,7 @@ export default function Navbar() {
             localStorage.setItem("lang", "uz");
           }}
           id="per"
-          style={{ width: "35px" }}
+          style={{ width: "35px", cursor: "pointer" }}
           src="https://st4.depositphotos.com/8804418/21485/v/600/depositphotos_214857244-stock-illustration-uzbekistan-flag-glass-button-vector.jpg"
           alt=""
         />
@@ -252,18 +296,23 @@ export default function Navbar() {
             localStorage.setItem("lang", "ru");
           }}
           id="pere"
-          style={{ width: "71px" }}
+          style={{ width: "71px", cursor: "pointer" }}
           src="https://st4.depositphotos.com/15822962/24248/v/600/depositphotos_242484092-stock-video-animated-russian-flag-on-the.jpg"
           alt=""
         />
         {user ? (
-          <div>
+          <div style={{ cursor: "pointer" }}>
             <div className="navbar_right">
               <div className="loginIn">
                 <AiOutlineUser className="user_icon" />
-                <Link href="/js/Loginpage" className="a_fff">
+                <h3
+                  onClick={() => {
+                    window.location = "/js/Loginpage";
+                  }}
+                  className="a_fff"
+                >
                   {user.username}
-                </Link>
+                </h3>
               </div>
             </div>
           </div>
