@@ -48,7 +48,7 @@ export default function Navbar() {
   function aa(item) {
     sessionStorage.setItem("series", item.id);
     sessionStorage.setItem("model", item.model.id);
-    sessionStorage.setItem("position", 9999);
+    sessionStorage.setItem("position", 0);
     window.location = "/js/Search";
   }
 
@@ -64,21 +64,13 @@ export default function Navbar() {
       >
         <MdClose className="close_btn" onClick={() => setCount(false)} />
         <div className="a_box">
-          <h3
-            onClick={() => {
-              window.location = "/";
-            }}
-            className="a_fff a_mobile"
-            style={{ cursor: "pointer" }}
-          >
+          <h3 href="#" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
             {state === "ru" ? "Главная" : "Bosh sahifa"}
           </h3>
         </div>
         <div className="a_box">
           <h3
-            onClick={() => {
-              window.location = "/js/Search";
-            }}
+            href="/js/Search"
             className="a_fff a_mobile"
             style={{ cursor: "pointer" }}
           >
@@ -87,9 +79,7 @@ export default function Navbar() {
         </div>
         <div className="a_box">
           <h3
-            onClick={() => {
-              window.location = "/js/About";
-            }}
+            href="/js/About"
             className="a_fff a_mobile"
             style={{ cursor: "pointer" }}
           >
@@ -97,26 +87,14 @@ export default function Navbar() {
           </h3>
         </div>
         <div className="a_box">
-          <h3
-            onClick={() => {
-              window.location = "/js/OurTeam";
-            }}
-            className="a_fff a_mobile"
-            style={{ cursor: "pointer" }}
-          >
+          <h3 href="#" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
             {state === "ru" ? "Команда" : "Jamoa"}
           </h3>
         </div>
 
         <div className="a_box">
-          <h3
-            onClick={() => {
-              window.location = "/js/Contact";
-            }}
-            className="a_fff a_mobile"
-            style={{ cursor: "pointer" }}
-          >
-            {state === "ru" ? "Cвязь" : "Bog'lanish"}
+          <h3 href="#" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
+            {state === "ru" ? "Cвязь" : "Bo'lanish"}
           </h3>
         </div>
         <div className="perevod2">
@@ -168,7 +146,6 @@ export default function Navbar() {
             alt=""
           />
         </h3>
-
         <h3
           onClick={() => {
             window.location = "/";
@@ -178,20 +155,7 @@ export default function Navbar() {
         >
           {state === "ru" ? "Главная" : "Bosh sahifa"}
         </h3>
-        {user ? (
-          <div style={{ cursor: "pointer" }} className="mediaUser">
-            <AiOutlineUser className="user_icon" />
-            <h3
-              onClick={() => {
-                window.location = "/js/Loginpage";
-              }}
-            >
-              {user.username}
-            </h3>
-          </div>
-        ) : (
-          <>&nbsp;</>
-        )}
+
         {modal1 === 0 ? (
           <h3
             onMouseEnter={() => {
@@ -259,6 +223,7 @@ export default function Navbar() {
         >
           {state === "ru" ? "Команда" : "Jamoa"}
         </h3>
+
         <h3
           onClick={() => {
             window.location = "/js/Contact";
@@ -266,9 +231,8 @@ export default function Navbar() {
           className="a_fff"
           style={{ cursor: "pointer" }}
         >
-          {state === "ru" ? "Cвязь" : "Bog'lanish"}
+          {state === "ru" ? "Cвязь" : "Bo'lanish"}
         </h3>
-        {/* <AiOutlineUser className="user_icon" id="user1" /> */}
       </div>
 
       {user ? (

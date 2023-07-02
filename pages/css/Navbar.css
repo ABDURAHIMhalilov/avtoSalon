@@ -126,9 +126,9 @@
 #a_df{
     /* width: 110px; */
 }
-#user1{
+#user2{
     font-size: 35px;
-    /* display: none; */
+    display: none;
 }
 
 @media(max-width:600px){
@@ -178,6 +178,7 @@
         width: auto;
         display: none;
     }
+    
     .perevod #per{
         display: none;
     }
@@ -196,6 +197,7 @@
         position: relative;
         z-index: 10;
     }
+
     .loginIn {
         display: flex;
         align-items: center;
