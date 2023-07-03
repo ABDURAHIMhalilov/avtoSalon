@@ -1119,7 +1119,9 @@ export default function Bmw8() {
         className="mySwiper"
       >
         {getavto.map((item, key) => {
-        if(key<12){ return (
+
+if(key<12){ 
+          return (
             <SwiperSlide key={key} onClick={()=>getData2(item)} className="swiperPopCard">
               <div className="feat_card">
               <div id="corner-ribbon" style={{position:'absolute',top:'0px',right:'170px'}}>
@@ -1142,7 +1144,9 @@ export default function Bmw8() {
                 </div> 
               </div>
             </SwiperSlide>
-          );} 
+          );}
+          
+        
         })}
 
       </Swiper>
