@@ -14,7 +14,7 @@ import "../css/galerey.css"
         b.push(item.image)
       })
       setImages(b)
-      console.log(images);
+      console.log(b,"salom");
     })
      
     return (
