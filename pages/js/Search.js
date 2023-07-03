@@ -330,13 +330,14 @@ var dataAA3 =parseInt(sessionStorage.getItem("position"))
     var series = parseInt(sessionStorage.getItem("series"));
     var position = parseInt(sessionStorage.getItem("position"));
           // abbasFilter(selectModel, selectSeries, selectPosition, selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount,model,series,position);
-    if (dataAA2 ===9999) {
-      abbasFilter(model, selectSeries, selectPosition, selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount);
-    } else if (dataAA3 ===9999) {
-      abbasFilter(model, series, selectPosition, selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount);
-    } else {
-      abbasFilter(model, series, position, selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount);
-    }
+    // if (dataAA2 ===9999) {
+    //   abbasFilter(model, selectSeries, selectPosition, selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount);
+    // } else if (dataAA3 ===9999) {
+    //   abbasFilter(model, series, selectPosition, selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount);
+    // } else {
+    //   abbasFilter(model, series, position, selectGearBox, selectFuelsort, selectgarant, selectBranch, year, mincount, maxcount);
+    // }
+    abbasFilter(((model!=null && (model*1)!=-1)?model:""),((series!=null && (series*1)!=-1)?series:""),((position!=null && (position*1)!=-1)?position:""),"","","","","","","")
   }, [])
 
   return (

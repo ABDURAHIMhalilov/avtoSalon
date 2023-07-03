@@ -67,8 +67,7 @@ export default function Bmw8() {
 
     formdata.append(
       "visit_time",
-      document.querySelector(".visit_email").value +
-        document.querySelector("#visit_time").value
+      document.querySelector(".visit_email").value +"T"+document.querySelector("#visit_time").value
     );
     formdata.append("branch", document.querySelector(".visit_brench").value);
     formdata.append("user", JSON.parse(localStorage.getItem("onemen")).id);
@@ -302,7 +301,7 @@ export default function Bmw8() {
                   freeMode={true}
                   watchSlidesProgress={true}
                   modules={[FreeMode, Navigation, Thumbs]}
-                  className="mySwiper"
+                  className="mySwiper two2"
                 >
                   {data.image.map((item2) => {
                     if (data.id === item2.car) {
@@ -505,7 +504,7 @@ export default function Bmw8() {
                         : "Avtomobil tarixi"}
                     </h2>
                     <button>
-                      {state === "ru " ? "Безплатно прочитатъ" : 'Bepul o"qish'}
+                      {state === "ru " ? "Безплатно прочитатъ" : "Bepul o`qish"}
                     </button>
                     {/* <h2 className="mnb">Carfax PayPal</h2> */}
                     <h2 className="nm">
