@@ -512,7 +512,7 @@
     width: 100%;
     margin-top: 0px;
   }
-} */
+}
 .buttonz1 {
   display: block;
 }
@@ -584,7 +584,6 @@
   }
 } 
 .card122 {
-  /* width: 80%; */
   display: flex;
   justify-content: space-around;
   border-radius: 20px;
@@ -740,7 +739,6 @@
   .nm {
     display: flex !important;
     font-size: 15px !important;
-    /* margin-left: -20px; */
   }
   .mnb {
     display: none;
@@ -836,12 +834,10 @@
   width: 450px;
   border-radius: 20px;
   background-color: white;
-  /* padding: 20px; */
   overflow: hidden;
   display: block;
   height: 300px;
   padding: 10px !important;
-  /* padding-bottom: 20px; */
 }
 
 .inps1 input {
@@ -857,7 +853,6 @@
   font-family: 'Rubik', sans-serif !important;}
 .inp2 {
   display: flex;
-  /* justify-content: space-between; */
   margin-top: 10px;
   flex-wrap: wrap;
   width: 100%;
@@ -870,7 +865,6 @@
 }
 .select21{
     width: 100%;
-    /* margin-left: 10px; */
     margin-top: 10px;
     background-color: white;
     height: 40px;
@@ -884,7 +878,6 @@
 .texta {
   width: 100%;
   height: 200px;
-  /* margin-left: 10px; */
   min-height: 53px;
   border-radius: 10px;
   padding: 10px 27px;
@@ -897,7 +890,6 @@
 .gfbvdc {
   display: block;
   width: 50%;
-  /* min-width: 300px; */
 }
 .c1 h3 {
   color: #ff4805;
@@ -944,7 +936,6 @@
   justify-content: space-between;
   width: 100%;
   border-radius: 20px;
-  /* border-bottom: 1px solid #eff3fa; */
   height: 150px;
 }
 .carf1 img {
@@ -997,7 +988,6 @@
   .gfbvdc {
     display: block;
     width: 100%;
-    /* min-width: 300px; */
    }
 } 
 
@@ -1243,27 +1233,10 @@ body{
   }
 }
 
-/* @media (max-width: 800px) {
-  .konechswip2 {
-    display: none;
-  }
-  .konechswip3 {
-    display: flex;
-    margin-top: 50%px;
-  }
-  .audi4 {
-    width: 90%;
-    margin-left: 5%;
-  }
-  .audi4 img {
-    height: 250px;
-  }
-} */
+
 
 .gfbvdc select {
   width: 97%;
-  /* margin-left: 10px; */
-  /* margin-top: 10px; */
   height: 40px;
   border: none;
   padding-left: 10px;
@@ -1283,12 +1256,8 @@ body{
 
 .defectBig {
   width: 100%;
-  /* min-height: 520px; */
-  /* background: #fff; */
   display: flex;
   justify-content: space-between;
-  /* padding-left: 5%;
-  padding-top: 60px; */
 }
 
 .deskBg {
@@ -1297,7 +1266,6 @@ body{
 
 .deskBgimg {
   width: 70%;
-  /* height: 800px; */
   max-height: 700px !important;
 }
 
@@ -1307,7 +1275,6 @@ body{
   padding: 30px;
   padding-left: 32px;
   padding-top: 20px;
-  /* height: 800px; */
   max-height: 700px !important;
 }
 
@@ -1333,7 +1300,6 @@ body{
 
 .caruselBootstrap {
   position: absolute;
-  /* top: 100px; */
   left: 0;
   z-index: 999999999999999 !important;
   background: #000 !important;
@@ -1341,14 +1307,12 @@ body{
 
 .carousel-control-prev-icon {
   color: red !important;
-  /* box-shadow:  0 0 10px red; */
   position: absolute;
   left: 4%;
   top: 40%;
   background: #000;
   width: 50px !important;
   height: 50px !important;
-  /* padding: 10px !important; */
   border-radius: 10px;
 }
 
@@ -1357,27 +1321,20 @@ body{
   position: absolute;
   right: 4%;
   top: 40%;
-  /* box-shadow:  0 0 10px red; */
   background: #000;
   width: 50px !important;
   height: 50px !important;
-  /* padding: 10px !important; */
   border-radius: 10px;
 }
 
 .carusels {
   margin-top: 100px;
-  /* min-height: 50vh; */
 }
-/* .swiper{
-  min-height: 25vh !important;
-} */
+
 .carusels2 {
   width: 92% !important;
   min-height: 100vh;
   margin-left: 4% !important;
-  /* box-shadow: inset 0 0 10px black; */
-  /* background: #000 !important; */
   margin-top: 7vh;
 }
 .carusels2 h3 {
@@ -1570,18 +1527,11 @@ box-shadow: 0px 0px 10px 0px black;
   font-size: 12px;
   margin-top: 20px;
 }
-/* .helloClose{
-font-size: 20px;
-position: absolute;
-top: 4%;
-right: 2%;
-} */
+
 
 }
 @media (max-width:809px) {
-  /* .defectDiv{
-    width: 180vw !important;
-  } */
+ 
 
   .deskBg2{
     padding-left: 10px;
@@ -1689,14 +1639,7 @@ right: 2%;
   .defectDiv{
     width:100% !important ;
   }
-  /* .carousel-control-prev-icon{
-    position: absolute;
-    top: 300px;
-  }
-  .carousel-control-next-icon{
-    position: absolute;
-    top: 100px;
-  } */
+
 } 
 
 @media (max-width:1200px) {
@@ -1706,46 +1649,7 @@ right: 2%;
   padding-top: 5px;
   }
 }
-@-webkit-keyframes line {
-  0% {
-    stroke-dashoffset: 22;
-  }
-  25% {
-    stroke-dashoffset: 22;
-  }
-  50% {
-    stroke-dashoffset: 0;
-  }
-  51% {
-    stroke-dashoffset: 0;
-  }
-  80% {
-    stroke-dashoffset: -22;
-  }
-  100% {
-    stroke-dashoffset: -22;
-  }
-}
-@keyframes line {
-  0% {
-    stroke-dashoffset: 22;
-  }
-  25% {
-    stroke-dashoffset: 22;
-  }
-  50% {
-    stroke-dashoffset: 0;
-  }
-  51% {
-    stroke-dashoffset: 0;
-  }
-  80% {
-    stroke-dashoffset: -22;
-  }
-  100% {
-    stroke-dashoffset: -22;
-  }
-}
+
 
 @media(max-width:700px){
   .swiper-button-next, .swiper-button-prev{

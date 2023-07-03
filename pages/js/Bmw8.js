@@ -65,8 +65,7 @@ export default function Bmw8() {
 
     formdata.append(
       "visit_time",
-      document.querySelector(".visit_email").value +
-        document.querySelector("#visit_time").value
+      document.querySelector(".visit_email").value +"T"+document.querySelector("#visit_time").value
     );
     formdata.append("branch", document.querySelector(".visit_brench").value);
     formdata.append("user", JSON.parse(localStorage.getItem("onemen")).id);
