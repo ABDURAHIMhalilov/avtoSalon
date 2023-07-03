@@ -1079,8 +1079,7 @@ export default function Bmw8() {
               })}
             </Swiper>
           </div> */}
-
-<div className="popular">
+{getavto.length>3?(<div className="popular">
        
       <Swiper
         spaceBetween={0}
@@ -1150,7 +1149,8 @@ if(key<12){
         })}
 
       </Swiper>
-    </div>
+    </div>):("")}
+
       <Footer/>
     </div>) : (
         <div class="loader">

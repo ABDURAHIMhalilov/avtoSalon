@@ -10,10 +10,24 @@ import { FaTwitter } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import Head from "next/head";
 import "../../app/globals.css";
+import axios from "axios";
 
 export default function Contact() {
   const [state, setstate] = React.useState();
-
+const dataPost=()=>{
+  var postdata={
+    fullname:document.querySelectorAll('.contact_inp')[0].value,
+    email:document.querySelectorAll('.contact_inp')[1].value,
+    phone_number:document.querySelectorAll('.contact_inp')[2].value,
+    message:document.querySelector('.contact_textarea').value
+  }
+  axios.post("https://www.api.baracar.uz/api/calltouser/",postdata).then(res=>{
+alert("Ma'limot yuborildi.Operator qo'ngirog'ini kuting")
+window.location.reload()
+  }).catch(err=>{
+    alert("Ma'lumotlarni tekshiring yuborilmadi")
+  })
+}
   useEffect(() => {
     setstate(localStorage.getItem("lang"));
   }, []);
@@ -101,7 +115,7 @@ export default function Contact() {
               <input type="checkbox" />
               <span className="checkmark"></span>
             </label>
-            <button className="contact_btn">
+            <button onClick={()=>{dataPost()}} className="contact_btn">
               {state === "ru" ? "Отправлять" : "yuborish"}
             </button>
           </div>
