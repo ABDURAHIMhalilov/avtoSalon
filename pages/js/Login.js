@@ -40,7 +40,7 @@ export default function Login() {
     console.log(staff);
     var usernamee = document.querySelector(".Phone").value;
     var data = new FormData();
-    data.append("username", document.querySelector(".Username").value);
+  
     data.append("username", document.querySelector(".Username").value);
     data.append("phone", usernamee);
     data.append("password", document.querySelector(".Password").value);
@@ -52,6 +52,8 @@ export default function Login() {
         alert("success");
         window.location = "/js/Loginpage";
         localStorage.setItem("username", usernamee);
+        localStorage.setItem("onemen", JSON.stringify({username:document.querySelector(".Username").value})); 
+
       })
       .catch((err) => {
         if (localStorage.getItem("lang") == "uz") {

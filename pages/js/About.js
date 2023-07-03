@@ -71,9 +71,9 @@ export default function About() {
           <h3>
             {state === "ru"
               ? "Закажите тест-драйв!"
-              : "Sinov drayveriga buyurtma bering!"}
+              : "Sinov uchun buyurtma bering!"}
           </h3>
-          <button className="center_btn">
+          <button className="center_btn" onClick={() =>{window.location="/js/Contact"}}>
             {state === "ru" ? "Связаться с нами" : "Biz bilan bog'laning"}
           </button>
         </div>

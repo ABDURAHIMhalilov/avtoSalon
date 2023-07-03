@@ -118,11 +118,11 @@ export default function Navbar() {
             alt=""
           />
           {user ? (
-            <h3 href="/js/Login">
+            <h3 onClick={() =>{window.location="/js/Loginpage"}}>
               <AiOutlineUser className="user_icon" id="user1" />
             </h3>
           ) : (
-            <h3 href="/js/Loginpage">
+            <h3 onClick={() =>{window.location="/js/Login"}}>
               <AiOutlineUser className="user_icon" id="user1" />
             </h3>
           )}
@@ -240,13 +240,10 @@ export default function Navbar() {
       ) : (
         <div>
           <div className="navbar_right">
-            <div className="loginIn">
+            <div className="loginIn" onClick={() =>{window.location="/js/Login"}}>
               <AiOutlineUser className="user_icon" />
               {state === "ru" ? (
                 <h3
-                  onClick={() => {
-                    window.location = "/js/Login";
-                  }}
                   style={{ width: "155px", cursor: "pointer" }}
                   className="a_fff"
                   id="a_df"
@@ -281,7 +278,7 @@ export default function Navbar() {
           </div>
         </div>
       )}
-      <div className="perevod" id="til" onClick={() => setLanguage()}>
+      <div className="perevod" id="til" >
         <img
           onClick={() => {
             localStorage.setItem("lang", "uz");
@@ -294,6 +291,7 @@ export default function Navbar() {
         <img
           onClick={() => {
             localStorage.setItem("lang", "ru");
+            window.location.reload()
           }}
           id="pere"
           style={{ width: "71px", cursor: "pointer" }}
@@ -301,24 +299,18 @@ export default function Navbar() {
           alt=""
         />
         {user ? (
-          <div style={{ cursor: "pointer" }}>
+          <div onClick={()=>{window.location='/js/Loginpage'}} style={{ cursor: "pointer" }}>
             <div className="navbar_right">
-              <div className="loginIn">
+              <div className="loginIn" >
                 <AiOutlineUser className="user_icon" />
                 <h3
-                  onClick={() => {
-                    window.location = "/js/Loginpage";
-                  }}
                   className="a_fff"
                 >
                   {user.username}
                 </h3>
               </div>
             </div>
-          </div>
-        ) : (
-          <>&nbsp;</>
-        )}
+          </div>) : (<>&nbsp;</>)}
         {/* <AiOutlineUser className="user_icon" id="user1" /> */}
       </div>
     </div>
