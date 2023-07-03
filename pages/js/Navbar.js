@@ -10,6 +10,7 @@ import "../css/Navbar.css";
 import axios from "axios";
 // import h3 from "next/h3";
 import "@/app/globals.css";
+import Link from "next/link";
 // import "../../app/globals.css"
 // import uz from '../images/uzbekistan_round_button_with_iso_code_64.png'
 
@@ -64,38 +65,38 @@ export default function Navbar() {
       >
         <MdClose className="close_btn" onClick={() => setCount(false)} />
         <div className="a_box">
-          <h3 href="#" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
+          <Link href="/" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
             {state === "ru" ? "Главная" : "Bosh sahifa"}
-          </h3>
+          </Link>
         </div>
         <div className="a_box">
-          <h3
+          <Link
             href="/js/Search"
             className="a_fff a_mobile"
             style={{ cursor: "pointer" }}
           >
             {state === "ru" ? "Поиск" : "Qidiruv"}
-          </h3>
+          </Link>
         </div>
         <div className="a_box">
-          <h3
+          <Link
             href="/js/About"
             className="a_fff a_mobile"
             style={{ cursor: "pointer" }}
           >
             {state === "ru" ? "О нас" : "Biz haqimizda"}
-          </h3>
+          </Link>
         </div>
         <div className="a_box">
-          <h3 href="#" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
+          <Link href="/js/OurTeam" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
             {state === "ru" ? "Команда" : "Jamoa"}
-          </h3>
+          </Link>
         </div>
 
         <div className="a_box">
-          <h3 href="#" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
-            {state === "ru" ? "Cвязь" : "Bo'lanish"}
-          </h3>
+          <Link href="/js/Contact" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
+            {state === "ru" ? "Cвязь" : "Bog'lanish"}
+          </Link>
         </div>
         <div className="perevod2">
           <img
@@ -231,7 +232,7 @@ export default function Navbar() {
           className="a_fff"
           style={{ cursor: "pointer" }}
         >
-          {state === "ru" ? "Cвязь" : "Bo'lanish"}
+          {state === "ru" ? "Cвязь" : "Bog'lanish"}
         </h3>
       </div>
 
