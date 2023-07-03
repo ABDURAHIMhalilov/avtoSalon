@@ -32,26 +32,26 @@ export default function Home() {
   const [p1, setP1] = React.useState(0);
 
   const getAllSearch = () => {
-    // var data = {
-    //   model: select,
-    //   series: selectSeries,
-    //   position: selectPosition,
-    // };
-    // sessionStorage.setItem("search", JSON.stringify(data));
-    sessionStorage.setItem("model",select)
-    if (selectSeries.length<1) {
-      sessionStorage.setItem("series",0)
+    if (selectSeries.length<1&&selectPosition.length<1&&select.length<1) {
+      sessionStorage.setItem("series",-1)
+      sessionStorage.setItem("position",-1)
+      sessionStorage.setItem("model",-1)
     }else{
-      sessionStorage.setItem("series",selectSeries)
+      sessionStorage.setItem("model",select)
     }
-    if (selectPosition.length<1) {
-      sessionStorage.setItem("position",0)
-    }else{
-      sessionStorage.setItem("position",selectPosition)
-    }
-
-    window.location = "/js/Search";
-  };
+        
+        if (selectSeries.length<1) {
+          sessionStorage.setItem("series",-1)
+        }else{
+          sessionStorage.setItem("series",selectSeries)
+        }
+        if (selectPosition.length<1) {
+          sessionStorage.setItem("position",-1)
+        }else{
+          sessionStorage.setItem("position",selectPosition)
+        }
+        window.location = "/js/Search";
+      };
   useEffect(() => {
     setLanguage(
       localStorage.getItem("lang") ? localStorage.getItem("lang") : "ru"

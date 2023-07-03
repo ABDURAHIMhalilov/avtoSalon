@@ -10,6 +10,7 @@ import "../css/Navbar.css";
 import axios from "axios";
 // import h3 from "next/h3";
 import "@/app/globals.css";
+import Link from "next/link";
 // import "../../app/globals.css"
 // import uz from '../images/uzbekistan_round_button_with_iso_code_64.png'
 
@@ -63,13 +64,14 @@ export default function Navbar() {
         style={count === true ? { display: "flex" } : { display: "none" }}
       >
         <MdClose className="close_btn" onClick={() => setCount(false)} />
-        <div className="a_box">
-          <h3 href="#" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
+        <h3 className="a_box">
+          <h3 onClick={()=>{window.location="/"}} href="/" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
             {state === "ru" ? "Главная" : "Bosh sahifa"}
           </h3>
-        </div>
+        </h3>
         <div className="a_box">
           <h3
+          onClick={()=>{window.location="/js/Search"}}
             href="/js/Search"
             className="a_fff a_mobile"
             style={{ cursor: "pointer" }}
@@ -78,7 +80,8 @@ export default function Navbar() {
           </h3>
         </div>
         <div className="a_box">
-          <h3
+          <h3 
+          onClick={()=>{window.location="/js/About"}}
             href="/js/About"
             className="a_fff a_mobile"
             style={{ cursor: "pointer" }}
@@ -87,17 +90,17 @@ export default function Navbar() {
           </h3>
         </div>
         <div className="a_box">
-          <h3 href="#" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
+          <h3 onClick={()=>{window.location="/js/OurTeam"}} href="/js/OurTeam" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
             {state === "ru" ? "Команда" : "Jamoa"}
           </h3>
         </div>
 
         <div className="a_box">
-          <h3 href="#" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
-            {state === "ru" ? "Cвязь" : "Bo'lanish"}
+          <h3 onClick={()=>{window.location="/js/Contact"}} href="/js/Contact" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
+            {state === "ru" ? "Cвязь" : "Bog'lanish"}
           </h3>
         </div>
-        <div className="perevod2">
+        <div onClick={()=>{window.location.reload()}} className="perevod2">
           <img
             onClick={() => {
               localStorage.setItem("lang", "uz");
@@ -231,7 +234,7 @@ export default function Navbar() {
           className="a_fff"
           style={{ cursor: "pointer" }}
         >
-          {state === "ru" ? "Cвязь" : "Bo'lanish"}
+          {state === "ru" ? "Cвязь" : "Bog'lanish"}
         </h3>
       </div>
 
