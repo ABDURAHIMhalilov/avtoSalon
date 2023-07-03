@@ -25,13 +25,14 @@ import axios from "axios";
 import car from "../images/6.jpg";
 import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.min.css";
-// import "../../app/globals.css"
+import Galery from "./gallery"
 import "../css/galerey.css"
 import {BiCheckCircle} from 'react-icons/bi'
 
 import '@/app/globals.css'
 
 import "../css/Popular.css"
+import { Style } from "@mui/icons-material";
 
 export default function Bmw8() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -66,8 +67,7 @@ export default function Bmw8() {
 
     formdata.append(
       "visit_time",
-      document.querySelector(".visit_email").value +
-        document.querySelector("#visit_time").value
+      document.querySelector(".visit_email").value +"T"+document.querySelector("#visit_time").value
     );
     formdata.append("branch", document.querySelector(".visit_brench").value);
     formdata.append("user", JSON.parse(localStorage.getItem("onemen")).id);
@@ -157,14 +157,23 @@ export default function Bmw8() {
   }
 
   function galeriyaModal(){
-    document.querySelector(".galeriya").style="display:block;width:100%"
-    document.querySelector(".galeriya").style="display:block;width:100%"
+    document.querySelector(".galeriya").style = "display: block;";
+    document.querySelector("body").style = "height: 300vh;overflow:hidden";
+    
+  }
+  function galeriyaClose(){
+    document.querySelector(".galeriya").style = "display: none;";
+    document.querySelector("body").style = "height: auto;";
   }
 
   return (
     <div>
       {p === 1 ? (
         <div>
+              <div className="galeriya">
+    <div className="galeriyaclose"><AiOutlineClose  onClick={()=>galeriyaClose()} /></div>
+    <Galery/>
+    </div>
           <div className="defectDiv">
             {cars.length == 0 ? (
               <div className="defectBig">
@@ -220,8 +229,8 @@ export default function Bmw8() {
                               {data.position.series.name}{" "}
                               {state === "ru" ? "дефект" : "nuqson"}
                             </h4>
-
-                            <p>{item.description}</p>
+<div className="defet1">
+                            <p>{item.description}</p></div>
                           </div>
                         </div>
                       </Carousel.Item>
@@ -461,39 +470,15 @@ export default function Bmw8() {
               <div className="bloksoz">
                 <h1>{state === "ru" ? "Описание" : "Tavsif"}</h1>
                 <p className="p">
-                  {state === "ru"
-                    ? "Чем закончилось приключение, увидим позже. Ауда волновалась, хотяона ничего не сказала. Что касается"
-                    : "Sarguzasht qanday tugaganini keyinroq ko'ramiz. Auda xavotirda ediu hech narsa demadi. Haqida"}{" "}
-                  <br />
-                  {state === "ru"
-                    ? "Паспарту, он счел маневр мистера Фогга просто великолепным.капитан сказал: «между одиннадцатью и "
-                    : "Passepartut, u janob Fogning manevrini shunchaki ajoyib deb o'yladi.kapitan dedi: o'n bir va orasida"}
-                  <br />
-                  {state === "ru"
-                    ? "двенадцать узлов», и «Генриетта» подтвердила его предсказание."
-                    : "o'n ikki tugun va Genrietta uning bashoratini tasdiqladi."}
+                  {data.description.slice(0,350)}
                 </p>
                 <p className="p1">
-                  {state === "ru"
-                    ? "Если бы тогда — а были еще «если» — море не стало бы слишкомшумный, если ветер не повернул на восток, если нетавария произошла с лодкой или ее механизмами, Генриеттаможет пересечь тройку..."
-                    : "Agar o'shanda - va hali ham agar bo'lsa - dengiz ham bo'lmas edishamol sharqqa burilmagan bo'lsa, shovqinlibaxtsiz hodisa qayiq yoki uning mexanizmlari bilan sodir bo'ldi, Genriettauchdan o'tishi mumkin ..."}
-                </p>
-                <p className="iki">
-                  {state === "ru"
-                    ? "Из Нью-Йорка в Ливерпуль за девять дней, между 12 и21 декабря. Правда, когда дело дошло доПравление Генриетты, добавленное к правлению Банка Англии, могло бысоздать мистеру Фоггу больше трудностей, чем он мог себе представить или могжелание."
-                    : "Nyu-Yorkdan Liverpulga to'qqiz kun ichida, 12 va21 dekabr. Kelganida rostAngliya banki boshqaruviga qo'shilgan Genrietta hukmronligi mumkinjanob Fogg uchun u tasavvur qilgan yoki qila olmaganidan ko'ra ko'proq qiyinchiliklarni yaratingtilak."}
-                </p>
-                <p className="iki1">
-                  {state === "ru"
-                    ? "В первые дни они шли достаточно гладко. Морене было очень неблагоприятным, ветер казался неподвижным вна северо-восток, паруса были подняты, и «Генриетта» бороздилапо волнам, как настоящий трансатлантический пароход."
-                    : "Dastlabki kunlarda ular juda muammosiz o'tishdi. Dengiz juda noqulay edi, shamol shimoli-sharqda tinchlanayotganday tuyuldi, yelkanlar ko'tarildi va Genrietta haqiqiy transatlantik paroxod kabi to'lqinlar orasidan suzib ketdi."}
+                {data.description.slice(350)}
                 </p>
                 <h4
                   className="show"
                   onClick={() => {
-                    document.querySelector(".p1").classList.toggle("hg");
-                    document.querySelector(".iki").classList.toggle("hg1");
-                    document.querySelector(".iki1").classList.toggle("hg1");
+                    document.querySelector(".p1").classList.toggle("hg1");
                   }}
                 >
                   {state === "ru" ? "Показать больше" : "Ko'proq ko'rsatish"}
@@ -653,7 +638,7 @@ export default function Bmw8() {
               <div className="maky">
                 <table style={{ width: "100%", paddingTop: "30px" }}>
                   <tr className="maky1">
-                    <th>{state === "ru" ? "Делать:" : "Qilish:"}</th>
+                    <th>{state === "ru" ? "Создатель:" : "Yaratuvchi:"}</th>
                     <td>{data.position.series.model.name}</td>
                   </tr>
                   <tr className="maky1">
@@ -666,7 +651,7 @@ export default function Bmw8() {
                   </tr>
                   <tr className="maky1">
                     <th>
-                      {state === "ru" ? "Тип вождения:" : "Haydash turi:"}
+                      {state === "ru" ? "Гулять пешком:" : "Yurishi:"}
                     </th>
                     <td>
                       {state === "ru"
@@ -683,7 +668,7 @@ export default function Bmw8() {
                     <td>{data.gearbox.name}</td>
                   </tr>
                   <tr className="maky1">
-                    <th>{state === "ru" ? "Состояние:" : "Davlat:"}</th>
+                    <th>{state === "ru" ? "Положение дел:" : "Holat:"}</th>
                     <td>{data.distance > 2 ? "NEW" : "B/Y"}</td>
                   </tr>
                   <tr className="maky1">

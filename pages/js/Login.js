@@ -150,8 +150,8 @@ export default function Login() {
                     type="text"
                     placeholder={
                       state === "ru"
-                        ? "Электронная почта или имя пользователя*"
-                        : "Elektron pochta yoki foydalanuvchi nomi*"
+                        ? "Введите номер телефона*"
+                        : "Telefon nomerni kiriting*"
                     }
                   />
                   <input
