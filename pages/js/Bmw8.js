@@ -27,6 +27,7 @@ import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.min.css";
 // import "../../app/globals.css"
 import "../css/galerey.css"
+import {BiCheckCircle} from 'react-icons/bi'
 
 import '@/app/globals.css'
 
@@ -502,12 +503,12 @@ export default function Bmw8() {
               <div className="koka1">
                 <div className="butt">
                   <div className="lkj">
-                    <button className="but1"></button>
-                    <button className="but2"></button>
-                    <button className="but3"></button>
+                    <button className="but1"><div className="icondiv"><div className="iconca1"><BiCheckCircle className="check1-circle1"/></div><h3>{state === "ru" ? "Резервная камера" : "Zaxira kamerasi"}</h3></div></button>
+                    <button className="but2"><div className="icondiv"><div className="iconca1"><BiCheckCircle className="check1-circle1"/></div><h3>{state === "ru" ? "предупреждение о дефиците" : "kamchilik haqida ogohlantirish"}</h3></div></button>
+                    <button className="but3"><div className="icondiv"><div className="iconca1"><BiCheckCircle className="check1-circle1"/></div><h3>{state === "ru" ? "Системы помощи при торможении" : "Tormoz yordami tizimlari"}</h3></div></button>
 
-                    <button className="but4"></button>
-                    <button className="but5"></button>
+                    <button className="but4"><div className="icondiv"><div className="iconca1"><BiCheckCircle className="check1-circle1"/></div><h3>{state === "ru" ? "Предупреждение о лобовом столкновении" : "Old to'qnashuv haqida ogohlantirish"}</h3></div></button>
+                    <button className="but5"><div className="icondiv"><div className="iconca1"><BiCheckCircle className="check1-circle1"/></div><h3>{state === "ru" ? "Системы помощи при парковке" : "Avtoturargohga yordam tizimlari"}</h3></div></button>
                   </div>
                 </div>
                 <div className="card122">

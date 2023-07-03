@@ -298,7 +298,9 @@
   .accaunt-detailes {
     display: block;
   }
-
+  .TableB{
+    overflow-x: scroll;
+  }
   .profil h2 {
     padding-top: 40px;
     margin-top: 0px;
@@ -371,7 +373,7 @@
 }
 
 .change h2 {
-  margin-top: 40px;
+  margin-top: 20px;
   font-size: 19px;
   font-weight: bold;
   color: #222732;
@@ -454,12 +456,17 @@
 
 @media (max-width: 505px) {
   .all-button button {
-    width: 100px;
+    width: 95px;
     height: 60px;
     background-color: #ff4605;
     font-size: 15px;
     margin-top: 40px;
     border-radius: 10px;
+    padding: 0px !important;
+  }
+  .all-button{
+    padding-left: 1px !important;
+    padding-right: 5px !important;
   }
 }
 .all-button{
@@ -728,7 +735,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 0 1px rgb(172, 172, 172);
+  /* box-shadow: 0 0 1px rgb(172, 172, 172); */
   background: #fff;
   /* text-align: center; */
 }
@@ -750,10 +757,11 @@
 }
 
 .divAdress button {
-  width: 25%;
-  height: 35px;
+  margin: auto;
+  width: 250px;
+  height: 40px;
   font-size: 20px;
-  margin-left: 35%;
+  /* margin-left: 35%; */
   margin-top: 10px;
   display: flex;
   justify-content: center;
@@ -785,7 +793,7 @@
 }
 
 .divAdress2 {
-  width: 40%;
+  width: 600px;
   margin: auto;
   background: #fff;
   padding: 20px;
@@ -805,10 +813,18 @@
 
 
 .divAdress2 input {
-  width: 100%;
-  margin-left: 5px;
-  margin-bottom: 15px;
-  font-family: 'Mulish', sans-serif !important;
+  border-radius: 10px;
+    box-shadow: 1px 1px 0 0 rgba(196, 196, 196, 0.24);
+    border: solid 1px #e7edf3;
+    height: 53px;
+    margin-top: 15px;
+    padding: 0 27px;
+    font-size: 15px;
+    color: #2f3b48;
+    width: 100%;
+    box-shadow: 1px 1px 0 0 rgba(196, 196, 196, 0.24);
+    outline: none;
+    font-family: 'Mulish', sans-serif !important;
 
 }
 
@@ -825,6 +841,8 @@
   min-height: 100vh;
   background: #000007a0;
   position: fixed;
+  z-index: 111;
+  padding: 15px;
   top: 0;
   left: 0;
   display: none;
@@ -836,6 +854,8 @@
   width: 70%;
   margin: auto;
   display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
 
 .btnddiv button {
@@ -875,12 +895,43 @@
     padding-left: 20px;
     padding-right: 20px;
     width: 100%;
+    overflow: hidden;
   }
-  
+  .TableB{
+    width: 720px !important;
+  }
 }
 .perevod img{
   width: 50px;
 }
 #pere{
   width: 45px;
+}
+.TableB{
+  width: 100%;
+    text-align: center;
+    background: white;
+    border-radius: 13px;
+    padding: 7px;
+    padding-top: 13px;
+}
+.tableb{
+  overflow-x: scroll;
+  border-radius: 13px;
+}
+@media(max-width:550px){
+  .btnddiv {
+    width: 100% !important;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-left: -5px !important;
+}
+.btnddiv button {
+  width: 50% !important;
+  margin: 0;
+  margin-left: 10px;
+  margin-right: 0;
+}
 }

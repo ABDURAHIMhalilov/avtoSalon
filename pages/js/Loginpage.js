@@ -10,6 +10,7 @@ import Image from "next/image";
 import { FiEdit } from "react-icons/fi";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import "../../app/globals.css";
+import Table from 'react-bootstrap/Table';
 // import { Select, Space } from "antd";
 
 export default function Loginpage() {
@@ -457,28 +458,33 @@ export default function Loginpage() {
                         {state === "ru" ? "Добавить адрес" : "Manzil qo'shish"}
                       </h2>
                       <br />
-                      <div className="tableAdres">
-                        <div className="minTableA">
-                          <h5>{state === "ru" ? "страна" : "mamlakat"}</h5>
-                          <h5>{state === "ru" ? "область" : "viloyat"}</h5>
-                          <h5>{state === "ru" ? "город" : "shahar"}</h5>
-                          <h5>{state === "ru" ? "округ" : "tuman"}</h5>
-                          <h5>{state === "ru" ? "улица" : "ko'cha"}</h5>
-                          <h5>
-                            {state === "ru" ? "Редактирование" : "Tahrirlash"}
-                          </h5>
-                        </div>
-                        {adress.map((item) => {
+                      
+
+                      
+
+<div className="tableb">
+    <Table striped bordered hover size="sm" className="TableB">
+      <thead className="minTableB1">
+        <tr>
+          <th>{state === "ru" ? "страна" : "mamlakat"}</th>
+          <th>{state === "ru" ? "область" : "viloyat"}</th>
+          <th>{state === "ru" ? "город" : "shahar"}</th>
+          <th>{state === "ru" ? "округ" : "tuman"}</th>
+          <th>{state === "ru" ? "улица" : "ko'cha"}</th>
+          <th>{state === "ru" ? "Редактирование" : "Tahrirlash"}</th>
+        </tr>
+      </thead>
+     
+      {adress.map((item) => {
                           return (
-                            <div className="minTableA2">
-                              <h5>{item.country}</h5>
-                              <h5>{item.region}</h5>
-                              <h5>{item.city}</h5>
-                              <h5>{item.district}</h5>
-                              <h5>{item.street}</h5>
-                              <h5>
-                                <FiEdit
-                                  style={{ cursor: "pointer" }}
+            <tbody className="minTableB2">
+        <tr>
+          <td>{item.country}</td>
+          <td>{item.region}</td>
+          <td>{item.city}</td>
+          <td>{item.district}</td>
+          <td>{item.street}</td>
+          <td><FiEdit style={{ cursor: "pointer" }}
                                   onClick={() => editAdres(item.id)}
                                   className="fiEdit"
                                 />
@@ -487,11 +493,15 @@ export default function Loginpage() {
                                   onClick={() => deleteAdress(item.id)}
                                   className="riDelete"
                                 />
-                              </h5>
-                            </div>
-                          );
-                        })}
-                      </div>
+                              </td>
+        </tr>
+        
+        </tbody>
+);
+})}
+      
+    </Table>
+ </div>
                       <div className="inpla11">
                         <div className="regionAdd">
                           <div className="in11">
@@ -577,12 +587,6 @@ export default function Loginpage() {
                               <input className="regionSlc2" id="regionSlc2" />
                             </div>
                           </div>
-                          <p>
-                            <span>введите город{state === "ru" ? "" : ""}</span>
-                            <span>
-                              введите в район{state === "ru" ? "" : ""}
-                            </span>
-                          </p>{" "}
                           <div className="regionAdd">
                             <div className="in11">
                               <h2>
@@ -617,10 +621,10 @@ export default function Loginpage() {
                         </div>
                         <div className="btnddiv">
                           <button onClick={() => closeditAdres()}>
-                            Закрыть{state === "ru" ? "" : ""}
+                            {state === "ru" ? "Закрыть" : "Yopish"}
                           </button>
                           <button onClick={() => editedAdd()}>
-                            Сохранить{state === "ru" ? "" : ""}
+                            {state === "ru" ? "Сохранить" : "Saqlash"}
                           </button>
                         </div>
                       </div>
