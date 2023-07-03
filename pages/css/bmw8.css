@@ -248,6 +248,7 @@
   .swip {
     width: 100%;
   }
+  
 
   .ypn {
     display: none;
@@ -412,6 +413,7 @@
 }
 .buttonz {
   display: block;
+  padding-top: 20px
 }
 
 .byt {
@@ -515,6 +517,7 @@
 }
 .buttonz1 {
   display: block;
+  ;
 }
 @media (max-width: 600px) {
   .maky1 {
@@ -658,7 +661,7 @@
   color: #ff4605;
 }
 .but3 {
-  width: 180px;
+  width: 210px;
   height: 50px;
   background-color: white;
   border-radius: 7px;
@@ -669,7 +672,7 @@
   color: #ff4605;
 }
 .but4 {
-  width: 250px;
+  width: 260px;
   height: 50px;
   background-color: white;
   border-radius: 7px;
@@ -696,7 +699,7 @@
 }
 .butt {
   padding-top: 30px;
-  margin-left: 30px;
+  margin-left: 10px;
   padding-right: 30px;
 }
 @media (max-width: 1100px) {
@@ -739,6 +742,10 @@
   .nm {
     display: flex !important;
     font-size: 15px !important;
+    margin-top: 15px;
+
+
+
   }
   .mnb {
     display: none;
@@ -756,6 +763,7 @@
     display: block !important;
     width: 100%;
   }
+  
   .c1{
     margin-left: 2%;
   }
@@ -838,6 +846,7 @@
   display: block;
   height: 300px;
   padding: 10px !important;
+
 }
 
 .inps1 input {
@@ -1223,6 +1232,9 @@ body{
   .konechswip1 {
     display: flex;
   }
+  .maky1{
+    padding-top: 10px !important;
+  }
 }
 @media (max-width: 900px) {
   .konechswip2 {
@@ -1574,7 +1586,19 @@ box-shadow: 0px 0px 10px 0px black;
     width: 20% !important;
   }
 }
+.lkj h3{
+  font-size: 17px;
+  margin-bottom: 0px;
+}
+
 @media (max-width:600px) {
+  .carf1 img {
+    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+    margin-top: 30px;
+    margin-right: 5% !important;
+}
   .deskBgimg{
     width: 98% !important;
     height: auto !important;
@@ -1637,6 +1661,9 @@ box-shadow: 0px 0px 10px 0px black;
   /* .bigImg{
     height: 200px;
   } */
+  .lkj h3{
+    font-size: 15px !important;
+  }
   .deskBgimg{
     height: auto !important;
     margin-top: 0 !important;
@@ -1678,6 +1705,9 @@ box-shadow: 0px 0px 10px 0px black;
   }
   #swip111{
     height: 130px !important;
+  }
+  .maky1{
+    padding-top: 10px !important;
   }
 }
 .loader {
@@ -1768,4 +1798,16 @@ box-shadow: 0px 0px 10px 0px black;
   100% {
     stroke-dashoffset: -22;
   }
+}
+.check1-circle1{
+  display: inline-block;
+    float: left;
+    color: #ff4805;
+    margin-right: 10px;
+    font-size: 24px;
+    line-height: 24px;
+}
+.icondiv{
+  display: flex;
+  align-items: center;
 }
