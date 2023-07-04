@@ -169,8 +169,8 @@ export default function Loginpage() {
       })
       .catch((err) => {
         state === "ru"
-          ? alert("Адрес не добавлен")
-          : alert("Введите полный адрес");
+          ? alert("Введите полный адрес")
+          : alert("Manzilni to'liq kiriting");
       });
   }
 
@@ -247,7 +247,7 @@ export default function Loginpage() {
     data.append("street", document.querySelector(".streetSlc2").value);
     data.append("user", locals2.id);
     axios
-      .put(`https://api.baracar.state === "ru" ? alert("Адрес добавuz/auth/adress/${locals}/`, data, {
+      .put(`https://api.baracar.uz/auth/adress/${locals}/`, data, {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("Token_user"),
         },
