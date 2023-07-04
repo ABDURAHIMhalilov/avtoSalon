@@ -73,7 +73,7 @@
 .user_icon {
     color: #ff6505;
     margin-right: 8px;
-    font-size: 20px;
+    font-size: 25px;
 }
 .menuLeftIcon, 
 .usersIcon {
@@ -173,12 +173,19 @@
         right: 10px;
         color: white;
     }
-    .navbar_left .a_fff,
-    .navbar_right {
+    .navbar_left .a_fff{
         width: auto;
         display: none;
     }
-    
+    .navbar_right .a_fff{
+        display: none;
+    }
+    .navbar_right{
+        width: auto !important;
+    }
+    .user_icon{
+        display: flex !important;
+    }
     .perevod #per{
         display: none;
     }

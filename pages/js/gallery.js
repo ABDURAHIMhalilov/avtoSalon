@@ -17,6 +17,7 @@ import "../css/galerey.css"
         setImages(b)
       }
       console.log(images);
+
     })
      
     return (

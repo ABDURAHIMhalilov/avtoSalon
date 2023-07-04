@@ -64,41 +64,43 @@ export default function Navbar() {
         style={count === true ? { display: "flex" } : { display: "none" }}
       >
         <MdClose className="close_btn" onClick={() => setCount(false)} />
-        <div className="a_box">
-          <Link href="/" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
+        <h3 className="a_box">
+          <h3 onClick={()=>{window.location="/"}} href="/" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
             {state === "ru" ? "Главная" : "Bosh sahifa"}
-          </Link>
-        </div>
+          </h3>
+        </h3>
         <div className="a_box">
-          <Link
+          <h3
+          onClick={()=>{window.location="/js/Search"}}
             href="/js/Search"
             className="a_fff a_mobile"
             style={{ cursor: "pointer" }}
           >
             {state === "ru" ? "Поиск" : "Qidiruv"}
-          </Link>
+          </h3>
         </div>
         <div className="a_box">
-          <Link
+          <h3 
+          onClick={()=>{window.location="/js/About"}}
             href="/js/About"
             className="a_fff a_mobile"
             style={{ cursor: "pointer" }}
           >
             {state === "ru" ? "О нас" : "Biz haqimizda"}
-          </Link>
+          </h3>
         </div>
         <div className="a_box">
-          <Link href="/js/OurTeam" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
+          <h3 onClick={()=>{window.location="/js/OurTeam"}} href="/js/OurTeam" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
             {state === "ru" ? "Команда" : "Jamoa"}
-          </Link>
+          </h3>
         </div>
 
         <div className="a_box">
-          <Link href="/js/Contact" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
+          <h3 onClick={()=>{window.location="/js/Contact"}} href="/js/Contact" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
             {state === "ru" ? "Cвязь" : "Bog'lanish"}
-          </Link>
+          </h3>
         </div>
-        <div className="perevod2">
+        <div onClick={()=>{window.location.reload()}} className="perevod2">
           <img
             onClick={() => {
               localStorage.setItem("lang", "uz");
@@ -119,11 +121,11 @@ export default function Navbar() {
             alt=""
           />
           {user ? (
-            <h3 href="/js/Login">
+            <h3 onClick={() =>{window.location="/js/Loginpage"}}>
               <AiOutlineUser className="user_icon" id="user1" />
             </h3>
           ) : (
-            <h3 href="/js/Loginpage">
+            <h3 onClick={() =>{window.location="/js/Login"}}>
               <AiOutlineUser className="user_icon" id="user1" />
             </h3>
           )}
@@ -241,13 +243,10 @@ export default function Navbar() {
       ) : (
         <div>
           <div className="navbar_right">
-            <div className="loginIn">
+            <div className="loginIn" onClick={() =>{window.location="/js/Login"}}>
               <AiOutlineUser className="user_icon" />
               {state === "ru" ? (
                 <h3
-                  onClick={() => {
-                    window.location = "/js/Login";
-                  }}
                   style={{ width: "155px", cursor: "pointer" }}
                   className="a_fff"
                   id="a_df"
@@ -282,7 +281,7 @@ export default function Navbar() {
           </div>
         </div>
       )}
-      <div className="perevod" id="til" onClick={() => setLanguage()}>
+      <div className="perevod" id="til" >
         <img
           onClick={() => {
             localStorage.setItem("lang", "uz");
@@ -295,6 +294,7 @@ export default function Navbar() {
         <img
           onClick={() => {
             localStorage.setItem("lang", "ru");
+            window.location.reload()
           }}
           id="pere"
           style={{ width: "71px", cursor: "pointer" }}
@@ -302,24 +302,18 @@ export default function Navbar() {
           alt=""
         />
         {user ? (
-          <div style={{ cursor: "pointer" }}>
+          <div onClick={()=>{window.location='/js/Loginpage'}} style={{ cursor: "pointer" }}>
             <div className="navbar_right">
-              <div className="loginIn">
+              <div className="loginIn" >
                 <AiOutlineUser className="user_icon" />
                 <h3
-                  onClick={() => {
-                    window.location = "/js/Loginpage";
-                  }}
                   className="a_fff"
                 >
                   {user.username}
                 </h3>
               </div>
             </div>
-          </div>
-        ) : (
-          <>&nbsp;</>
-        )}
+          </div>) : (<>&nbsp;</>)}
         {/* <AiOutlineUser className="user_icon" id="user1" /> */}
       </div>
     </div>
