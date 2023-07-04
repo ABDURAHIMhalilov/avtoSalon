@@ -144,7 +144,7 @@ export default function Popular() {
                       alt="no img" />
                 <div className="featCard_bottom">
                 <h3 className="featCard_name">{item.name}</h3>
-                  <h4 className="featCard_price">${item.price}</h4>
+                  <h4 className="featCard_price">{item.price}$</h4>
                   <div className="featCard_box">
                     <p className="featCard_year">{item.year}</p>
                     <p className="featCard_auto">{item.gearbox.name}</p>
@@ -225,7 +225,7 @@ export default function Popular() {
                       alt="no img" />
                 <div className="featCard_bottom">
                 <h3 className="featCard_name">{item.name}</h3>
-                  <h4 className="featCard_price">${item.price}</h4>
+                  <h4 className="featCard_price">{item.price}$</h4>
                   <div className="featCard_box">
                     <p className="featCard_year">{item.year}</p>
                     <p className="featCard_auto">{item.gearbox.name}</p>

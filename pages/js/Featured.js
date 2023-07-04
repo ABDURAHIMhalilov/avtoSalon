@@ -123,7 +123,7 @@ export default function Featured() {
                         <p className="feat_auto">{item.gearbox.name}</p>
                         <p className="feat_pet">{item.fuel_sort.name}</p>
                         <p className="feat_p">{item.sale}%</p>
-                        <h4 className="feat_price">{item.price}.sum</h4>
+                        <h4 className="feat_price">{item.price}$</h4>
                       </div>
                     </div>
                   </div>
@@ -185,7 +185,7 @@ export default function Featured() {
                       </div>
                       <div className="featCard_bottom">
                         <h3 className="featCard_name">{item.name}</h3>
-                        <h4 className="featCard_price">{item.price}.sum</h4>
+                        <h4 className="featCard_price">{item.price}$</h4>
                         <div className="featCard_box">
                           <p className="featCard_year">{item.year}</p>
                           <p className="featCard_auto">{item.gearbox.name}</p>
@@ -262,7 +262,7 @@ export default function Featured() {
                         <p className="feat_auto">{item.gearbox.name}</p>
                         <p className="feat_pet">{item.fuel_sort.name}</p>
                         <p className="feat_p">{item.sale}%</p>
-                        <h4 className="feat_price">{item.price}.sum</h4>
+                        <h4 className="feat_price">{item.price}$</h4>
                       </div>
                     </div>
                   </div>
@@ -300,7 +300,7 @@ export default function Featured() {
                       </div>
                       <div className="featCard_bottom">
                         <h3 className="featCard_name">{item.name}</h3>
-                        <h4 className="featCard_price">{item.price}.sum</h4>
+                        <h4 className="featCard_price">{item.price}$</h4>
                         <div className="featCard_box">
                           <p className="featCard_year">{item.year}</p>
                           <p className="featCard_auto">{item.gearbox.name}</p>
