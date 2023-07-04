@@ -101,6 +101,58 @@ export default function Loginpage() {
     });
   }, []);
 
+  function userOb() {
+    var usernameUs = localStorage.getItem("username");
+    setLoader(1);
+
+    axios
+      .get(`https://api.baracar.uz/auth/users/`, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("Token_user"),
+        },
+      })
+      .then((res) => {
+        setLoader(1);
+        setTimeout(() => {
+          document.querySelector("#til").value = state;
+          setLoader(1);
+
+          res.data.map((item) => {
+            if (usernameUs == item.phone || usernameUs == item.username) {
+              setUser(item);
+              localStorage.setItem("onemen", JSON.stringify(item));
+              document.querySelector("#username").value = item.username;
+              document.querySelector("#email").value = item.email;
+              document.querySelector("#birthday").value = item.birthday;
+              document.querySelector("#phone").value = item.phone;
+              document.querySelector("#passportNum").value =
+                item.passport_number;
+              document.querySelector("#passportSer").value =
+                item.passport_series;
+            }
+          });
+        }, 1000);
+      });
+    axios.get(`https://api.baracar.uz/auth/adress/`).then((res1) => {
+      setLoader(1);
+      var oneUser = JSON.parse(localStorage.getItem("onemen"));
+      var aa = [];
+      res1.data.map((item) => {
+        if (item.user == oneUser.id) {
+          aa.push(item);
+        }
+        setAdress(aa);
+      });
+      // var aa = [];
+      // res1.data.map((item) => {
+      //   if (item.user == oneUser.id) {
+      //     aa.push(item);
+      //   }
+      // });
+      // setAdress(aa);
+    });
+  }
+
   function putUser() {
     var data = new FormData();
     data.append("birthday", document.querySelector(".birthday").value);
@@ -342,6 +394,7 @@ export default function Loginpage() {
                 }
                 onClick={() => {
                   setData(1);
+                  userOb();
                 }}
               >
                 {state === "ru"
