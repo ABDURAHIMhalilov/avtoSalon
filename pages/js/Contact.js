@@ -22,10 +22,10 @@ const dataPost=()=>{
     message:document.querySelector('.contact_textarea').value
   }
   axios.post("https://www.api.baracar.uz/api/calltouser/",postdata).then(res=>{
-alert("Ma'limot yuborildi.Operator qo'ngirog'ini kuting")
+state==="ru"?(alert("Информация отправлена, дождитесь звонка оператора")):(alert("Ma'limot yuborildi.Operator qo'ngirog'ini kuting"))
 window.location.reload()
   }).catch(err=>{
-    alert("Ma'lumotlarni tekshiring yuborilmadi")
+    state==="ru"?(alert("Проверить информацию,Не удалось отправить")):(alert("Ma'lumotlarni tekshiring yuborilmadi"))
   })
 }
   useEffect(() => {

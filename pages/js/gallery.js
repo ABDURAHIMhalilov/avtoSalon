@@ -11,15 +11,18 @@ import "../css/galerey.css"
       var a=JSON.parse(localStorage.getItem('oneproduct')).image
       var b=[]
       a.map(item=>{
-        b.push(item.image)
+        b.push({src:item.image})
       })
-      setImages(b)
-      console.log(b,"salom");
+      if(images.length===0){
+        setImages(b)
+      }
+      console.log(images);
+
     })
      
     return (
       <div className="avtomobilrasm">
-        <Carousel images={images} style={{ height: 800, width: 500 }} />
+        <Carousel images={images} style={{ height: '90vh', width: '100%' }} />
         </div>
     )
     }
