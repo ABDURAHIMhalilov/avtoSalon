@@ -13,7 +13,13 @@
     align-items: center;
     flex-wrap: wrap;
 }
-
+.css-nhb8h9{
+    display: flex !important;
+    justify-content: center !important;
+    margin-bottom: 50px !important;
+    margin-top: 50px !important;
+    background-color: #ff6505 !important;
+}
 .inpsearch {
     width: 260px;
     background-color: #fff;

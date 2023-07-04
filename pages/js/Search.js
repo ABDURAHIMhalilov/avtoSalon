@@ -39,8 +39,7 @@ export default function Search() {
   const abbasFilter = (model1, seria1, position1, gearBox1, fuelsort1, garant1, branch1, year1, mincount1, maxcount1) => {
     var pushdata = []
     axios.get(`https://api.baracar.uz/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/cars_get/`).then(res => {
-      axios.get(`https://api.baracar.uz/api/images/`)
-        .then((res1) => {
+      axios.get(`https://api.baracar.uz/api/images/`).then((res1) => {
           for (let i = 0; i < res.data.length; i++) {
             res.data[i].image = []
             for (let j = 0; j < res1.data.length; j++) {
@@ -50,8 +49,6 @@ export default function Search() {
             }
           }
           res.data.map(item => {
-            console.log(year1);
-
             if (
               (model1 != "" ? (item.position.series.model.id === model1) : (true))
               &&
@@ -74,10 +71,9 @@ export default function Search() {
               (maxcount1 != "" ? (item.price < maxcount1 * 1) : (true))
             ) {
               pushdata.push(item)
-
             }
           })
-          setCountpag(Math.floor((pushdata.length) / 10) + 1)
+          setCountpag(Math.floor(pushdata.length/12)+1)
           setMakes(pushdata)
 
         })
@@ -86,8 +82,9 @@ export default function Search() {
 
     })
   }
-  const handleChange = (event) => {
-    setPage(event.target.value)
+  const handleChange = (event,value) => {
+    setPage(value)
+    console.log(value,"Sd");
   };
   const handleModel = (event) => {
     sessionStorage.setItem("model",event.target.value)
@@ -355,7 +352,7 @@ var dataAA3 =parseInt(sessionStorage.getItem("position"))
                 label="Model"
                 onChange={handleModel}
               >
-                <MenuItem value=''>None</MenuItem>
+                <MenuItem value=''>{languange==="ru"?("Все"):("Hammasi")}</MenuItem>
                 {model.map((item) => (
                   <MenuItem value={item.id}>{item.name}</MenuItem>
                 ))}
@@ -372,7 +369,7 @@ var dataAA3 =parseInt(sessionStorage.getItem("position"))
                 label='Series'
                 onChange={handleSeries}
               >
-             <MenuItem value="">None</MenuItem>
+             <MenuItem value="">{languange==="ru"?("Все"):("Hammasi")}</MenuItem>
 
                 {series.map((item) => (
                   <MenuItem value={item.id}>{item.name}</MenuItem>
@@ -390,7 +387,7 @@ var dataAA3 =parseInt(sessionStorage.getItem("position"))
                 label='Position'
                 onChange={handlePosition}
               >
-           <MenuItem value="">None</MenuItem>
+           <MenuItem value="">{languange==="ru"?("Все"):("Hammasi")}</MenuItem>
                 {position.map(item => {
                   return <MenuItem value={item.id}>{item.name}</MenuItem>
                 })}
@@ -407,7 +404,7 @@ var dataAA3 =parseInt(sessionStorage.getItem("position"))
                 label='fuel_sort'
                 onChange={handleFuelsort}
               >
-                <MenuItem value="">None</MenuItem>
+                <MenuItem value="">{languange==="ru"?("Все"):("Hammasi")}</MenuItem>
                 {fuelsort.map(item => {
                   return <MenuItem value={item.id}>{item.name}</MenuItem>
                 })}
@@ -424,7 +421,7 @@ var dataAA3 =parseInt(sessionStorage.getItem("position"))
                 label='Gear Box'
                 onChange={handleGearBox}
               >
-                <MenuItem value="">None</MenuItem>
+                <MenuItem value="">{languange==="ru"?("Все"):("Hammasi")}</MenuItem>
                 {gearBox.map(item => {
                   return <MenuItem value={item.id}>{item.name}</MenuItem>
                 })}
@@ -456,7 +453,7 @@ var dataAA3 =parseInt(sessionStorage.getItem("position"))
                 label='Garant'
                 onChange={handlegarant}
               >
-                <MenuItem value="">None</MenuItem>
+                <MenuItem value="">{languange==="ru"?("Все"):("Hammasi")}</MenuItem>
                 {garant.map(item => {
                   return <MenuItem value={item.id}>{item.name}</MenuItem>
                 })}
@@ -663,18 +660,15 @@ var dataAA3 =parseInt(sessionStorage.getItem("position"))
         </div>
         <div className="result_wrapper">
           {makes.map((item, key) => {
-            if (key > page - 2 && key < page * 10) {
-              return (
-                <div key={key} onClick={() => getData(item)} className='feat_card2'>
-                    
-                    {/* <h1 className="salesale"></h1> */}
+            if ((key>(page - 1)*12-1) && key < page * 12) {
+              return <div key={key} onClick={() => getData(item)} className='feat_card2'>
                     <div id="corner-ribbon">
-	<div  style={item.sale == 0 ? { display: "none" }:{ display: "flex" }}>
-    <div>
-      <div><h2 className='sa'>{item.sale == 0 ? ("") : (`${item.sale}%`)}</h2></div>
-    </div>
-  </div>
-</div>
+	                   <div  style={item.sale == 0 ? { display: "none" }:{ display: "flex" }}>
+                     <div>
+                    <div><h2 className='sa'>{item.sale == 0 ? ("") : (`${item.sale}%`)}</h2></div>
+                   </div>
+                </div>
+              </div>
                     <img src={item.image[0] != undefined ? (item.image[0].image) : ("https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg")}
                       alt="no img" />
                     <div className='featCard_bottom'>
@@ -689,13 +683,13 @@ var dataAA3 =parseInt(sessionStorage.getItem("position"))
                     </div>
                   
                 </div>
-              )
+              
             }
           })}
         </div>
 
         <Stack spacing={2}>
-          <Pagination count={countpag} page={page} onChange={handleChange} color="secondary" />
+          <Pagination style={{marginBottom:"50px"}} count={countpag} page={page} onChange={handleChange} color="secondary" />
         </Stack>
       </div>
     <Footer/>
