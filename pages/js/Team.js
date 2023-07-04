@@ -64,7 +64,14 @@ export default function Team() {
                     </div>
                   </div>
                 </div>
-                <button className="team_btn">Qo'shimcha</button>
+                <button
+                  className="team_btn"
+                  onClick={() => {
+                    window.location = "/js/OurTeam";
+                  }}
+                >
+                  Qo'shimcha
+                </button>
               </div>
 
               <Swiper
@@ -245,7 +252,6 @@ export default function Team() {
                     </div>
                   </div>
                   <div className="left_box1">
-                  
                     <div className="team_box">
                       <BsCheckCircleFill />
                       <p>Лорем Ипсум.</p>
