@@ -38,7 +38,8 @@ export default function Loginpage() {
   // };
 
   useEffect(() => {
-    setState(localStorage.getItem("lang"));
+    var lang = localStorage.getItem("lang");
+    setState(lang ? lang : "ru");
   }, []);
 
   const plus = () => {
