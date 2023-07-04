@@ -97,7 +97,7 @@ export default function Footer() {
                 </a>
               </div>
               <div className="a_box a">
-                <a
+                <h3
                   onClick={() => {
                     window.location = "/js/About";
                   }}
@@ -105,10 +105,10 @@ export default function Footer() {
                   style={{ cursor: "pointer" }}
                 >
                   Biz haqimizda
-                </a>
+                </h3>
               </div>
               <div className="a_box a">
-                <a
+                <h3
                   onClick={() => {
                     window.location = "/js/OurTeam";
                   }}
@@ -116,10 +116,10 @@ export default function Footer() {
                   style={{ cursor: "pointer" }}
                 >
                   Jamoa
-                </a>
+                </h3>
               </div>
               <div className="a_box a">
-                <a
+                <h3
                   onClick={() => {
                     window.location = "/js/Contact";
                   }}
@@ -127,7 +127,7 @@ export default function Footer() {
                   style={{ cursor: "pointer" }}
                 >
                   Bog'lanish
-                </a>
+                </h3>
               </div>
             </div>
           </div>
@@ -204,49 +204,54 @@ export default function Footer() {
             </div>
             <div className="f_bot">
               <div className="a_box a">
-                <a
+                <h3
                   href="#"
                   className="a_fff f_mobile"
                   style={{ cursor: "pointer" }}
+                  onClick={() => {window.location = "/"}}
                 >
                   Главная страница
-                </a>
+                </h3>
               </div>
               <div className="a_box a">
-                <a
+                <h3
                   href="#"
                   className="a_fff f_mobile"
+                  onClick={() => {window.location = "/js/Search"}}
                   style={{ cursor: "pointer" }}
                 >
                   Поиск
-                </a>
+                </h3>
               </div>
               <div className="a_box a">
-                <a
+                <h3
                   href="#"
                   className="a_fff f_mobile"
+                  onClick={() => {window.location = "/js/About"}}
                   style={{ cursor: "pointer" }}
                 >
-                  Листинг
-                </a>
+                  О нас
+                </h3>
               </div>
               <div className="a_box a">
-                <a
+                <h3
                   href="#"
                   className="a_fff f_mobile"
+                  onClick={() => {window.location = "/js/OurTeam"}}
                   style={{ cursor: "pointer" }}
                 >
-                  Страницы
-                </a>
+                  Команда
+                </h3>
               </div>
               <div className="a_box a">
-                <a
+                <h3
                   href="#"
                   className="a_fff f_mobile"
+                  onClick={() => {window.location = "/js/Contact"}}
                   style={{ cursor: "pointer" }}
                 >
-                  Более
-                </a>
+                  Связь
+                </h3>
               </div>
             </div>
           </div>

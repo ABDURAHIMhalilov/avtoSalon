@@ -38,7 +38,8 @@ export default function Loginpage() {
   // };
 
   useEffect(() => {
-    setState(localStorage.getItem("lang"));
+    var lang = localStorage.getItem("lang");
+    setState(lang ? lang : "ru");
   }, []);
 
   const plus = () => {
@@ -100,6 +101,58 @@ export default function Loginpage() {
       // setAdress(aa);
     });
   }, []);
+
+  function userOb() {
+    var usernameUs = localStorage.getItem("username");
+    setLoader(1);
+
+    axios
+      .get(`https://api.baracar.uz/auth/users/`, {
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("Token_user"),
+        },
+      })
+      .then((res) => {
+        setLoader(1);
+        setTimeout(() => {
+          document.querySelector("#til").value = state;
+          setLoader(1);
+
+          res.data.map((item) => {
+            if (usernameUs == item.phone || usernameUs == item.username) {
+              setUser(item);
+              localStorage.setItem("onemen", JSON.stringify(item));
+              document.querySelector("#username").value = item.username;
+              document.querySelector("#email").value = item.email;
+              document.querySelector("#birthday").value = item.birthday;
+              document.querySelector("#phone").value = item.phone;
+              document.querySelector("#passportNum").value =
+                item.passport_number;
+              document.querySelector("#passportSer").value =
+                item.passport_series;
+            }
+          });
+        }, 1000);
+      });
+    axios.get(`https://api.baracar.uz/auth/adress/`).then((res1) => {
+      setLoader(1);
+      var oneUser = JSON.parse(localStorage.getItem("onemen"));
+      var aa = [];
+      res1.data.map((item) => {
+        if (item.user == oneUser.id) {
+          aa.push(item);
+        }
+        setAdress(aa);
+      });
+      // var aa = [];
+      // res1.data.map((item) => {
+      //   if (item.user == oneUser.id) {
+      //     aa.push(item);
+      //   }
+      // });
+      // setAdress(aa);
+    });
+  }
 
   function putUser() {
     var data = new FormData();
@@ -169,8 +222,8 @@ export default function Loginpage() {
       })
       .catch((err) => {
         state === "ru"
-          ? alert("Адрес не добавлен")
-          : alert("Введите полный адрес");
+          ? alert("Введите полный адрес")
+          : alert("Manzilni to'liq kiriting");
       });
   }
 
@@ -247,7 +300,7 @@ export default function Loginpage() {
     data.append("street", document.querySelector(".streetSlc2").value);
     data.append("user", locals2.id);
     axios
-      .put(`https://api.baracar.state === "ru" ? alert("Адрес добавuz/auth/adress/${locals}/`, data, {
+      .put(`https://api.baracar.uz/auth/adress/${locals}/`, data, {
         headers: {
           Authorization: "Bearer " + localStorage.getItem("Token_user"),
         },
@@ -317,9 +370,19 @@ export default function Loginpage() {
                 >
                   {state === "ru" ? "Выход" : "Chiqish"}
                 </button>
-                <div className="prof">
-                  <input type="file" />
-                  <FaUserAlt className="icon12" />
+                <div className="miniImg">
+                  {/* <input type="file" className="image" /> */}
+                  {user.image == null ? (
+                    <FaUserAlt className="icon1" />
+                  ) : (
+                    <Image
+                      width={70}
+                      height={70}
+                      style={{ borderRadius: "50%", marginLeft: 10 }}
+                      src={user.image}
+                      alt="no img"
+                    />
+                  )}
                 </div>
               </div>
             </div>
@@ -332,6 +395,7 @@ export default function Loginpage() {
                 }
                 onClick={() => {
                   setData(1);
+                  userOb();
                 }}
               >
                 {state === "ru"
@@ -440,7 +504,7 @@ export default function Loginpage() {
                     </div>
                     <div className="profil">
                       <h2>
-                        {state === "ru" ? "Твое фото" : "Sizning suratingiz"}
+                        {state === "ru" ? "Ваш фото" : "Sizning suratingiz"}
                       </h2>
                       <div className="profil1">
                         <input type="file" className="image" />

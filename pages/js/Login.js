@@ -21,7 +21,8 @@ export default function Login() {
   const [state, setState] = React.useState();
 
   useEffect(() => {
-    setState(localStorage.getItem("lang"));
+    var lang = localStorage.getItem("lang");
+    setState(lang ? lang : "ru");
   }, []);
 
   const plus = () => {
@@ -40,7 +41,7 @@ export default function Login() {
     console.log(staff);
     var usernamee = document.querySelector(".Phone").value;
     var data = new FormData();
-  
+
     data.append("username", document.querySelector(".Username").value);
     data.append("phone", usernamee);
     data.append("password", document.querySelector(".Password").value);
@@ -49,11 +50,15 @@ export default function Login() {
       .post(`https://api.baracar.uz/auth/register/`, data)
       .then((res) => {
         localStorage.setItem("Token_user", res.data.access);
-         state==="ru"?(alert("Успех")):(alert("Muvaffaqiyatli"));
+        state === "ru" ? alert("Успех") : alert("Muvaffaqiyatli");
         window.location = "/js/Loginpage";
         localStorage.setItem("username", usernamee);
-        localStorage.setItem("onemen", JSON.stringify({username:document.querySelector(".Username").value})); 
-
+        localStorage.setItem(
+          "onemen",
+          JSON.stringify({
+            username: document.querySelector(".Username").value,
+          })
+        );
       })
       .catch((err) => {
         if (localStorage.getItem("lang") == "uz") {
