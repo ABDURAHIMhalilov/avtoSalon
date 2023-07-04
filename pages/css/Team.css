@@ -353,6 +353,7 @@
   padding: 15px;
   background-color: #f2f5fb;
   margin-top: 50px;
+  margin-bottom: 50px;
 }
 @media(max-width:1300px){
   .team .swiper{

@@ -98,7 +98,7 @@ export default function About() {
           </div>
         </div>
       </div>
-      <div className="question" style={{ marginBottom: "20px" }}>
+      <div className="question" style={{ marginBottom: "60px" }}>
         <h1>
           {state === "ru"
             ? "Часто задаваемые вопросы"

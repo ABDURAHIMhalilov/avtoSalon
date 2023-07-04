@@ -37,7 +37,7 @@ export default function Team() {
                 <div className="left_box1">
                   <div className="team_box">
                     <BsCheckCircleFill />
-                    <p>Yuqori dizaynga ega avtomobillar</p>
+                    <p>Yuqori dizaynli</p>
                   </div>
                 </div>
               </div>
@@ -167,22 +167,18 @@ export default function Team() {
                 <div className="left_box2">
                   <div className="team_box">
                     <BsCheckCircleFill />
-                    <p>Это грустный мультфильм</p>
+                    <p>Современные автомобили!</p>
                   </div>
                   <div className="team_box">
                     <BsCheckCircleFill />
-                    <p>Adipsing elit</p>
+                    <p>Современная команда!</p>
                   </div>
                   <div className="team_box">
                     <BsCheckCircleFill />
-                    <p>Это грустный мультфильм</p>
+                    <p>Доступные цены!</p>
                   </div>
                 </div>
                 <div className="left_box1">
-                  <div className="team_box">
-                    <BsCheckCircleFill />
-                    <p>Это грустный мультфильм</p>
-                  </div>
                   <div className="team_box">
                     <BsCheckCircleFill />
                     <p>Лорем Ипсум.</p>
