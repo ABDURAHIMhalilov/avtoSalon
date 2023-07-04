@@ -391,7 +391,7 @@ export default function Bmw8() {
                       </tr>
                       <tr className="maky1">
                         <th>
-                          {state === "ru" ? "Тип вождения:" : "haydash turi:"}
+                          {state === "ru" ? "Гулять:" : "Yurishi:"}
                         </th>
                         <td>
                           {state === "ru"
@@ -408,7 +408,7 @@ export default function Bmw8() {
                         <td>{data.gearbox.name}</td>
                       </tr>
                       <tr className="maky1">
-                        <th>{state === "ru" ? "Состояние:" : "Davlat:"}</th>
+                        <th>{state === "ru" ? "Состояние:" : "Holat:"}</th>
                         <td>{data.distance > 2 ? "NEW" : "B/Y"}</td>
                       </tr>
                       <tr className="maky1">
@@ -752,7 +752,7 @@ export default function Bmw8() {
                     <td>{data.gearbox.name}</td>
                   </tr>
                   <tr className="maky1">
-                    <th>{state === "ru" ? "Положение дел:" : "Holat:"}</th>
+                    <th>{state === "ru" ? "Состояние:" : "Holat:"}</th>
                     <td>{data.distance > 2 ? "NEW" : "B/Y"}</td>
                   </tr>
                   <tr className="maky1">
