@@ -49,7 +49,7 @@ export default function Login() {
       .post(`https://api.baracar.uz/auth/register/`, data)
       .then((res) => {
         localStorage.setItem("Token_user", res.data.access);
-        alert("success");
+         state==="ru"?(alert("Успех")):(alert("Muvaffaqiyatli"));
         window.location = "/js/Loginpage";
         localStorage.setItem("username", usernamee);
       })

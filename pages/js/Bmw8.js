@@ -80,11 +80,12 @@ export default function Bmw8() {
         },
       })
       .then((res) => {
-        alert("Ma`lumot yuborildi");
+        state==="ru"?(alert("Информация отправлена")):(alert("Ma`lumot yuborildi"));
         window.location.reload();
       })
       .catch((err) => {
-        alert("to`liqroq ma`lumot yuboring");
+        state==="ru"?(alert("Отправить подробную информацию")):(alert("To`liqroq ma`lumot yuboring"));
+        
       });
   }
   useEffect(() => {
@@ -457,7 +458,7 @@ export default function Bmw8() {
                     </button>
                     <button onClick={()=>galeriyaModal()} className="wat">
                       {" "}
-                      Avtomobil rasmi
+                      {state === "ru"?("Картинка автомобиля"):("Avtomobil rasmi")}
                     </button>
 
                     {/* <div className="pas">
@@ -742,7 +743,7 @@ export default function Bmw8() {
                 </button>
                 <button onClick={()=>galeriyaModal()} className="wat">
                   {" "}
-                  Avtomobil rasmi
+                  {state === "ru"?("Картинка автомобиля"):("Avtomobil rasmi")}
                 </button>
 
                 {/* <div className="pas">
@@ -814,7 +815,7 @@ export default function Bmw8() {
                     ) : (
                       <button
                         onClick={() => {
-                          alert("Siz ro`yhatdan o`tmagansiz");
+                          state==="ru"?(alert("Вы не зарегистрированы")):(alert("Siz ro`yhatdan o`tmagansiz"));
                           window.location = "/js/Login";
                         }}
                       >
@@ -1097,10 +1098,6 @@ export default function Bmw8() {
             slidesPerView: 3,
             spaceBetween: 20,
           },
-          // 1100: {
-          //   slidesPerView: 2,
-          //   spaceBetween: 20,
-          // },
           1400: {
             slidesPerView: 4,
             spaceBetween: 20,

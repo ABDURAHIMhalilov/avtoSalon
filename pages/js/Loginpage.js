@@ -109,7 +109,7 @@ export default function Loginpage() {
         },
       })
       .then((res) => {
-        alert("yangilandi");
+        state==="ru"?(alert("Обновлено")):(alert("Yangilandi"));
         localStorage.setItem(
           "username",
           document.querySelector(".phone").value
@@ -119,7 +119,7 @@ export default function Loginpage() {
         }, 100);
       })
       .catch((err) => {
-        alert("Malumotni to'liq kiriting!");
+        state==="ru"?(alert("Введите полную информацию!!")):(alert("Malumotni to'liq kiriting!"));
       });
   }
 
@@ -138,7 +138,7 @@ export default function Loginpage() {
         },
       })
       .then((res) => {
-        alert("manzil qo'shildi");
+        state==="ru"?(alert("Адрес добавлен")):(alert("Manzil qo'shildi"));
         window.location.reload();
         setManzil(res.data);
         document.querySelector(".countrySlc").value = res.data.country;
@@ -148,7 +148,7 @@ export default function Loginpage() {
         document.querySelector(".streetSlc").value = res.data.street;
       })
       .catch((err) => {
-        alert(err);
+        state==="ru"?(alert("Адрес не добавлен")):(alert("Manzil qo'shilmadi"));
       });
   }
 
@@ -172,11 +172,11 @@ export default function Loginpage() {
         },
       })
       .then((res) => {
-        alert("Yangilandi");
+        state==="ru"?(alert("Обновлено")):(alert("Yangilandi"));
         window.location.reload();
       })
       .catch((err) => {
-        alert(err);
+        state==="ru"?(alert("Не удалось отправить")):(alert("Yuborilmadi"));
       });
   }
 
@@ -188,11 +188,11 @@ export default function Loginpage() {
         },
       })
       .then((res) => {
-        alert("deleted");
+        state==="ru"?(alert("Удален")):(alert("O'chirildi"));
         window.location.reload();
       })
       .catch((err) => {
-        alert(err);
+        state==="ru"?(alert("Не удалось удалить")):(alert("O'chirilmadi"));
       });
   }
 
