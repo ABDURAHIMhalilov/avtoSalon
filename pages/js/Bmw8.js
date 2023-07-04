@@ -6,7 +6,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
-import "../css/galerey.css"
+import "../css/galerey.css";
 import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 import { Pagination } from "swiper";
@@ -18,20 +18,20 @@ import { BsFacebook } from "react-icons/bs";
 import { AiOutlineTwitter } from "react-icons/ai";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import { MdLocationOn } from "react-icons/md";
-import { AiOutlineMail,AiOutlineClose } from "react-icons/ai";
+import { AiOutlineMail, AiOutlineClose } from "react-icons/ai";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import axios from "axios";
 import car from "../images/6.jpg";
 import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Galery from "./gallery"
-import "../css/galerey.css"
-import {BiCheckCircle} from 'react-icons/bi'
+import Galery from "./gallery";
+import "../css/galerey.css";
+import { BiCheckCircle } from "react-icons/bi";
 
-import '@/app/globals.css'
+import "@/app/globals.css";
 
-import "../css/Popular.css"
+import "../css/Popular.css";
 import { Style } from "@mui/icons-material";
 
 export default function Bmw8() {
@@ -43,7 +43,7 @@ export default function Bmw8() {
   const [state, setstate] = useState([]);
   const [p, setP] = useState(2);
   var [data, setData] = useState([]);
- console.log(data,"sassdad");
+  console.log(data, "sassdad");
   function defectOpen() {
     document.querySelector(".defectDiv").style = "display: block;";
     document.querySelector(".mySwiper").style = "display: none";
@@ -67,7 +67,9 @@ export default function Bmw8() {
 
     formdata.append(
       "visit_time",
-      document.querySelector(".visit_email").value +"T"+document.querySelector("#visit_time").value
+      document.querySelector(".visit_email").value +
+        "T" +
+        document.querySelector("#visit_time").value
     );
     formdata.append("branch", document.querySelector(".visit_brench").value);
     formdata.append("user", JSON.parse(localStorage.getItem("onemen")).id);
@@ -80,23 +82,43 @@ export default function Bmw8() {
         },
       })
       .then((res) => {
-        state==="ru"?(alert("Информация отправлена")):(alert("Ma`lumot yuborildi"));
+        state === "ru"
+          ? alert("Информация отправлена")
+          : alert("Ma`lumot yuborildi");
         window.location.reload();
       })
       .catch((err) => {
-        state==="ru"?(alert("Отправить подробную информацию")):(alert("To`liqroq ma`lumot yuboring"));
-        
+        state === "ru"
+          ? alert("Отправить подробную информацию")
+          : alert("To`liqroq ma`lumot yuboring");
       });
   }
   useEffect(() => {
-    setData(JSON.parse(localStorage.getItem("oneproduct")!=null? `${localStorage.getItem("oneproduct")}`: "[]"))
-    var data1=JSON.parse(localStorage.getItem("oneproduct")!=null?`${localStorage.getItem("oneproduct")}`: "[]")
-    setstate(localStorage.getItem("lang"))
-    setUser(localStorage.getItem("onemen") != null
-      ? JSON.parse(localStorage.getItem("onemen"))
-      : false)
-    axios.get(`https://api.baracar.uz/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/branch/`).then((res) => {
-
+    setData(
+      JSON.parse(
+        localStorage.getItem("oneproduct") != null
+          ? `${localStorage.getItem("oneproduct")}`
+          : "[]"
+      )
+    );
+    var data1 = JSON.parse(
+      localStorage.getItem("oneproduct") != null
+        ? `${localStorage.getItem("oneproduct")}`
+        : "[]"
+    );
+    setstate(localStorage.getItem("lang"));
+    setUser(
+      localStorage.getItem("onemen") != null
+        ? JSON.parse(localStorage.getItem("onemen"))
+        : false
+    );
+    axios
+      .get(
+        `https://api.baracar.uz/api/${
+          localStorage.getItem("lang") ? localStorage.getItem("lang") : "ru"
+        }/branch/`
+      )
+      .then((res) => {
         setBranchs(res.data);
       });
     axios
@@ -141,16 +163,15 @@ export default function Bmw8() {
         }
         setCars(initialProducts);
       });
-    setP(1) 
- setTimeout(() => {
-  if (localStorage.getItem("onemen")) {
-    var a = JSON.parse(localStorage.getItem("onemen"));
-    document.querySelector(".visit_name").value = a.username;
-    document.querySelector(".visit_email").value = a.email;
-    document.querySelector(".visit_number").value = a.phone;
-  }
- }, 1000);
-
+    setP(1);
+    setTimeout(() => {
+      if (localStorage.getItem("onemen")) {
+        var a = JSON.parse(localStorage.getItem("onemen"));
+        document.querySelector(".visit_name").value = a.username;
+        document.querySelector(".visit_email").value = a.email;
+        document.querySelector(".visit_number").value = a.phone;
+      }
+    }, 1000);
   }, []);
   function getData2(key) {
     console.log(key);
@@ -160,12 +181,11 @@ export default function Bmw8() {
     window.location = "/js/Bmw8";
   }
 
-  function galeriyaModal(){
+  function galeriyaModal() {
     document.querySelector(".galeriya").style = "display: block;";
     document.querySelector("body").style = "height: 300vh;overflow:hidden";
-    
   }
-  function galeriyaClose(){
+  function galeriyaClose() {
     document.querySelector(".galeriya").style = "display: none;";
     document.querySelector("body").style = "height: auto;";
   }
@@ -174,10 +194,12 @@ export default function Bmw8() {
     <div>
       {p === 1 ? (
         <div>
-              <div className="galeriya">
-    <div className="galeriyaclose"><AiOutlineClose  onClick={()=>galeriyaClose()} /></div>
-    <Galery/>
-    </div>
+          <div className="galeriya">
+            <div className="galeriyaclose">
+              <AiOutlineClose onClick={() => galeriyaClose()} />
+            </div>
+            <Galery />
+          </div>
           <div className="defectDiv">
             {cars.length == 0 ? (
               <div className="defectBig">
@@ -194,12 +216,9 @@ export default function Bmw8() {
               </div>
             ) : (
               <>
-                                            <h5
-                                onClick={() => defectClose()}
-                                className="helloClose"
-                              >
-                                <AiOutlineClose/>
-                              </h5>
+                <h5 onClick={() => defectClose()} className="helloClose">
+                  <AiOutlineClose />
+                </h5>
                 <Carousel className="carusels">
                   {cars.map((item) => {
                     return (
@@ -233,8 +252,9 @@ export default function Bmw8() {
                               {data.position.series.name}{" "}
                               {state === "ru" ? "дефект" : "nuqson"}
                             </h4>
-<div className="defet1">
-                            <p>{item.description}</p></div>
+                            <div className="defet1">
+                              <p>{item.description}</p>
+                            </div>
                           </div>
                         </div>
                       </Carousel.Item>
@@ -277,7 +297,8 @@ export default function Bmw8() {
                     if (data.id === item2.car) {
                       return (
                         <SwiperSlide>
-                          <img id="s2img1"
+                          <img
+                            id="s2img1"
                             className="s2img"
                             src={item2.image}
                             alt={item2.image}
@@ -287,7 +308,7 @@ export default function Bmw8() {
                     } else {
                       return (
                         <SwiperSlide>
-                          <img 
+                          <img
                             className="s2img"
                             src={item2.image}
                             alt={item2.image}
@@ -311,7 +332,8 @@ export default function Bmw8() {
                     if (data.id === item2.car) {
                       return (
                         <SwiperSlide>
-                          <img id="swip111"
+                          <img
+                            id="swip111"
                             className="s2img"
                             src={item2.image}
                             alt={item2.image}
@@ -347,7 +369,14 @@ export default function Bmw8() {
                 </div>
                 <div className="oxirkotta">
                   <div className="maky">
-                    <table className="tab1" style={{ width: "100%", paddingTop: "30px",minWidth:"450px" }}>
+                    <table
+                      className="tab1"
+                      style={{
+                        width: "100%",
+                        paddingTop: "30px",
+                        minWidth: "450px",
+                      }}
+                    >
                       <tr className="maky1">
                         <th>{state === "ru" ? "Делать:" : "Qilish:"}</th>
                         <td>{data.position.series.model.name}</td>
@@ -459,9 +488,11 @@ export default function Bmw8() {
                         ? "123 *** *** -раскрывать"
                         : "123 *** *** - aloqa"}
                     </button>
-                    <button onClick={()=>galeriyaModal()} className="wat">
+                    <button onClick={() => galeriyaModal()} className="wat">
                       {" "}
-                      {state === "ru"?("Картинка автомобиля"):("Avtomobil rasmi")}
+                      {state === "ru"
+                        ? "Картинка автомобиля"
+                        : "Avtomobil rasmi"}
                     </button>
 
                     {/* <div className="pas">
@@ -473,12 +504,8 @@ export default function Bmw8() {
 
               <div className="bloksoz">
                 <h1>{state === "ru" ? "Описание" : "Tavsif"}</h1>
-                <p className="p">
-                  {data.description.slice(0,350)}
-                </p>
-                <p className="p1">
-                {data.description.slice(350)}
-                </p>
+                <p className="p">{data.description.slice(0, 350)}</p>
+                <p className="p1">{data.description.slice(350)}</p>
                 <h4
                   className="show"
                   onClick={() => {
@@ -492,12 +519,67 @@ export default function Bmw8() {
               <div className="koka1">
                 <div className="butt">
                   <div className="lkj">
-                    <button className="but1"><div className="icondiv"><div className="iconca1"><BiCheckCircle className="check1-circle1"/></div><h3>{state === "ru" ? "Резервная камера" : "Zaxira kamerasi"}</h3></div></button>
-                    <button className="but2"><div className="icondiv"><div className="iconca1"><BiCheckCircle className="check1-circle1"/></div><h3>{state === "ru" ? "предупреждение о дефиците" : "kamchilik haqida ogohlantirish"}</h3></div></button>
-                    <button className="but3"><div className="icondiv"><div className="iconca1"><BiCheckCircle className="check1-circle1"/></div><h3>{state === "ru" ? "Системы помощи при торможении" : "Tormoz yordami tizimlari"}</h3></div></button>
+                    <button className="but1">
+                      <div className="icondiv">
+                        <div className="iconca1">
+                          <BiCheckCircle className="check1-circle1" />
+                        </div>
+                        <h3>
+                          {state === "ru"
+                            ? "Резервная камера"
+                            : "Zaxira kamerasi"}
+                        </h3>
+                      </div>
+                    </button>
+                    <button className="but2">
+                      <div className="icondiv">
+                        <div className="iconca1">
+                          <BiCheckCircle className="check1-circle1" />
+                        </div>
+                        <h3>
+                          {state === "ru"
+                            ? "предупреждение о дефиците"
+                            : "kamchilik haqida ogohlantirish"}
+                        </h3>
+                      </div>
+                    </button>
+                    <button className="but3">
+                      <div className="icondiv">
+                        <div className="iconca1">
+                          <BiCheckCircle className="check1-circle1" />
+                        </div>
+                        <h3>
+                          {state === "ru"
+                            ? "Системы помощи при торможении"
+                            : "Tormoz yordami tizimlari"}
+                        </h3>
+                      </div>
+                    </button>
 
-                    <button className="but4"><div className="icondiv"><div className="iconca1"><BiCheckCircle className="check1-circle1"/></div><h3>{state === "ru" ? "Предупреждение о лобовом столкновении" : "Old to'qnashuv haqida ogohlantirish"}</h3></div></button>
-                    <button className="but5"><div className="icondiv"><div className="iconca1"><BiCheckCircle className="check1-circle1"/></div><h3>{state === "ru" ? "Системы помощи при парковке" : "Avtoturargohga yordam tizimlari"}</h3></div></button>
+                    <button className="but4">
+                      <div className="icondiv">
+                        <div className="iconca1">
+                          <BiCheckCircle className="check1-circle1" />
+                        </div>
+                        <h3>
+                          {state === "ru"
+                            ? "Предупреждение о лобовом столкновении"
+                            : "Old to'qnashuv haqida ogohlantirish"}
+                        </h3>
+                      </div>
+                    </button>
+                    <button className="but5">
+                      <div className="icondiv">
+                        <div className="iconca1">
+                          <BiCheckCircle className="check1-circle1" />
+                        </div>
+                        <h3>
+                          {state === "ru"
+                            ? "Системы помощи при парковке"
+                            : "Avtoturargohga yordam tizimlari"}
+                        </h3>
+                      </div>
+                    </button>
                   </div>
                 </div>
                 <div className="card122">
@@ -654,9 +736,7 @@ export default function Bmw8() {
                     <td>{data.colour}</td>
                   </tr>
                   <tr className="maky1">
-                    <th>
-                      {state === "ru" ? "Гулять пешком:" : "Yurishi:"}
-                    </th>
+                    <th>{state === "ru" ? "Гулять:" : "Yurishi:"}</th>
                     <td>
                       {state === "ru"
                         ? "Передний привод"
@@ -744,9 +824,9 @@ export default function Bmw8() {
                     ? "123 *** *** -раскрывать"
                     : "123 *** *** - aloqa"}
                 </button>
-                <button onClick={()=>galeriyaModal()} className="wat">
+                <button onClick={() => galeriyaModal()} className="wat">
                   {" "}
-                  {state === "ru"?("Картинка автомобиля"):("Avtomobil rasmi")}
+                  {state === "ru" ? "Картинка автомобиля" : "Avtomobil rasmi"}
                 </button>
 
                 {/* <div className="pas">
@@ -818,7 +898,9 @@ export default function Bmw8() {
                     ) : (
                       <button
                         onClick={() => {
-                          state==="ru"?(alert("Вы не зарегистрированы")):(alert("Siz ro`yhatdan o`tmagansiz"));
+                          state === "ru"
+                            ? alert("Вы не зарегистрированы")
+                            : alert("Siz ro`yhatdan o`tmagansiz");
                           window.location = "/js/Login";
                         }}
                       >
@@ -1083,76 +1165,108 @@ export default function Bmw8() {
               })}
             </Swiper>
           </div> */}
-{getavto.length>3?(<div className="popular">
-       
-      <Swiper
-        spaceBetween={0}
-        navigation={true}
-        breakpoints={{
-          0:{
-            slidesPerView: 1,
-            spaceBetween: 50,
-          },
-          650: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-          },
-          991: {
-            slidesPerView: 3,
-            spaceBetween: 20,
-          },
-          1400: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-          },
-          1750: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-          },
-          1950: {
-            slidesPerView: 5,
-            spaceBetween: 20,
-          },
-        }}
-        modules={[Navigation]}
-        className="mySwiper"
-      >
-        {getavto.map((item, key) => {
-
-if(key<12){ 
-          return (
-            <SwiperSlide key={key} onClick={()=>getData2(item)} className="swiperPopCard">
-              <div className="feat_card">
-              <div id="corner-ribbon" style={{position:'absolute',top:'0px',right:'170px'}}>
-              <div  style={item.sale == 0 ? { display: "none" }:{ display: "flex" }}>
-                <div>
-                  <div><h2 className='sa'>{item.sale == 0 ? ("") : (`${item.sale}%`)} </h2></div>
-                </div>
-              </div>
+          {getavto.length > 3 ? (
+            <div className="popular">
+              <Swiper
+                spaceBetween={0}
+                navigation={true}
+                breakpoints={{
+                  0: {
+                    slidesPerView: 1,
+                    spaceBetween: 50,
+                  },
+                  650: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                  },
+                  991: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                  },
+                  1400: {
+                    slidesPerView: 4,
+                    spaceBetween: 20,
+                  },
+                  1750: {
+                    slidesPerView: 4,
+                    spaceBetween: 20,
+                  },
+                  1950: {
+                    slidesPerView: 5,
+                    spaceBetween: 20,
+                  },
+                }}
+                modules={[Navigation]}
+                className="mySwiper"
+              >
+                {getavto.map((item, key) => {
+                  if (key < 12) {
+                    return (
+                      <SwiperSlide
+                        key={key}
+                        onClick={() => getData2(item)}
+                        className="swiperPopCard"
+                      >
+                        <div className="feat_card">
+                          <div
+                            id="corner-ribbon"
+                            style={{
+                              position: "absolute",
+                              top: "0px",
+                              right: "170px",
+                            }}
+                          >
+                            <div
+                              style={
+                                item.sale == 0
+                                  ? { display: "none" }
+                                  : { display: "flex" }
+                              }
+                            >
+                              <div>
+                                <div>
+                                  <h2 className="sa">
+                                    {item.sale == 0 ? "" : `${item.sale}%`}{" "}
+                                  </h2>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <img
+                            src={
+                              getavto[key].image != undefined
+                                ? item.image[0].image
+                                : "https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg"
+                            }
+                            alt="no img"
+                          />
+                          <div className="featCard_bottom">
+                            <h3 className="featCard_name">{item.name}</h3>
+                            <h4 className="featCard_price">{item.price}$</h4>
+                            <div className="featCard_box">
+                              <p className="featCard_year">{item.year}</p>
+                              <p className="featCard_auto">
+                                {item.gearbox.name}
+                              </p>
+                              <p className="featCard_pet">
+                                {item.fuel_sort.name}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </SwiperSlide>
+                    );
+                  }
+                })}
+              </Swiper>
             </div>
-                     <img src={getavto[key].image!=undefined?item.image[0].image:("https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg")}
-                      alt="no img" />
-                <div className="featCard_bottom">
-                <h3 className="featCard_name">{item.name}</h3>
-                  <h4 className="featCard_price">{item.price}$</h4>
-                  <div className="featCard_box">
-                    <p className="featCard_year">{item.year}</p>
-                    <p className="featCard_auto">{item.gearbox.name}</p>
-                    <p className="featCard_pet">{item.fuel_sort.name}</p>
-                  </div>
-                </div> 
-              </div>
-            </SwiperSlide>
-          );}
-          
-        
-        })}
+          ) : (
+            ""
+          )}
 
-      </Swiper>
-    </div>):("")}
-
-      <Footer/>
-    </div>) : (
+          <Footer />
+        </div>
+      ) : (
         <div class="loader">
           <svg
             class="car"
