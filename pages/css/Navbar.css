@@ -8,14 +8,14 @@
     justify-content: space-between;
 }
 .navbar_left {
-    width: 50%;
+    width: 53%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 @media(max-width:1500px){
     .navbar_left {
-        width: 55%;
+        width: 60%;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -23,7 +23,7 @@
 }
 @media(max-width:1300px){
     .navbar_left {
-        width: 100%;
+        width: 65%;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -259,7 +259,7 @@
     font-weight: 500;
     font-size: 18px;
     padding-right: 10px;
-
+    margin-bottom: 0px !important;
 }
 
 .mediaUser {

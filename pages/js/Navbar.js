@@ -281,7 +281,19 @@ export default function Navbar() {
           </div>
         </div>
       )}
-      <div className="perevod" id="til" >
+      {user ? (
+          <div onClick={()=>{window.location='/js/Loginpage'}} style={{ cursor: "pointer" }}>
+            <div className="navbar_right" style={{width:"100px"}}>
+              <div className="loginIn"style={{borderRight:"0px"}} >
+                <AiOutlineUser className="user_icon" />
+                <h3
+                  className="a_fff"
+                >
+                  {user.username}
+                </h3>
+              </div>
+            </div></div>) : (<>&nbsp;</>)}
+      <div  onClick={()=>{window.location.reload()}} className="perevod" id="til" >
         <img
           onClick={() => {
             localStorage.setItem("lang", "uz");
@@ -299,23 +311,8 @@ export default function Navbar() {
           id="pere"
           style={{ width: "71px", cursor: "pointer" }}
           src="https://st4.depositphotos.com/15822962/24248/v/600/depositphotos_242484092-stock-video-animated-russian-flag-on-the.jpg"
-          alt=""
-        />
-        {user ? (
-          <div onClick={()=>{window.location='/js/Loginpage'}} style={{ cursor: "pointer" }}>
-            <div className="navbar_right">
-              <div className="loginIn" >
-                <AiOutlineUser className="user_icon" />
-                <h3
-                  className="a_fff"
-                >
-                  {user.username}
-                </h3>
-              </div>
+          alt=""/></div>
+        
             </div>
-          </div>) : (<>&nbsp;</>)}
-        {/* <AiOutlineUser className="user_icon" id="user1" /> */}
-      </div>
-    </div>
   );
 }

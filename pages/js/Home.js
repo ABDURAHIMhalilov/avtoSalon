@@ -15,7 +15,6 @@ import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import axios from "axios";
 import Head from "next/head";
-
 import "../../app/globals.css";
 import "../../app/page.module.css";
 import CarMers from "./car-silver.png";
