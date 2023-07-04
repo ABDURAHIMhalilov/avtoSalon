@@ -153,7 +153,10 @@ export default function Bmw8() {
 
   }, []);
   function getData2(key) {
-    localStorage.setItem("oneproduct", JSON.stringify(key));
+    console.log(key);
+    var oneProd = JSON.stringify(key);
+    localStorage.setItem("oneproduct", oneProd);
+    axios.get(`https://api.baracar.uz/api/cars/${oneProd.id}/`);
     window.location = "/js/Bmw8";
   }
 

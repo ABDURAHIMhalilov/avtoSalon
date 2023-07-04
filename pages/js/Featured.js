@@ -53,7 +53,9 @@ export default function Featured() {
 
   function getData2(key) {
     console.log(key);
-    localStorage.setItem("oneproduct", JSON.stringify(key));
+    var oneProd = JSON.stringify(key);
+    localStorage.setItem("oneproduct", oneProd);
+    axios.get(`https://api.baracar.uz/api/cars/${oneProd.id}/`);
     window.location = "/js/Bmw8";
   }
 
