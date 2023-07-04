@@ -317,9 +317,19 @@ export default function Loginpage() {
                 >
                   {state === "ru" ? "Выход" : "Chiqish"}
                 </button>
-                <div className="prof">
-                  <input type="file" />
-                  <FaUserAlt className="icon12" />
+                <div className="miniImg">
+                  {/* <input type="file" className="image" /> */}
+                  {user.image == null ? (
+                    <FaUserAlt className="icon1" />
+                  ) : (
+                    <Image
+                      width={70}
+                      height={70}
+                      style={{ borderRadius: "50%", marginLeft: 10 }}
+                      src={user.image}
+                      alt="no img"
+                    />
+                  )}
                 </div>
               </div>
             </div>
@@ -440,7 +450,7 @@ export default function Loginpage() {
                     </div>
                     <div className="profil">
                       <h2>
-                        {state === "ru" ? "Твое фото" : "Sizning suratingiz"}
+                        {state === "ru" ? "Ваш фото" : "Sizning suratingiz"}
                       </h2>
                       <div className="profil1">
                         <input type="file" className="image" />
