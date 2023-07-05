@@ -107,6 +107,7 @@
   justify-content: center;
 }
 
+
 .profil {
   text-align: center;
   border-radius: 0px 20px 20px 0px;
@@ -599,12 +600,15 @@
 .kok {
   padding-top: 100px;
   padding-bottom: 100px;
-  width: 1400px;
+  max-width: 1400px;
+  width: 100%;
   margin-top: 100px;
   margin-top: 150px;
   background-color: #f2f5fb;
   border-radius: 20px;
   margin: auto !important;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 .ba {
   margin-top: 60px;
@@ -613,6 +617,7 @@
 .icon1 {
   font-size: 80px !important;
   color: rgb(194, 194, 194);
+  /* display: none !important; */
 }
 
 .selectLocation {

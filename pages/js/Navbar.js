@@ -86,12 +86,12 @@ export default function Navbar() {
             className="a_fff a_mobile"
             style={{ cursor: "pointer" }}
           >
-            {state === "ru" ? "О нас" : "Biz haqimizda"}
+            {state === "ru" ? "О нас" : "Avtokredit"}
           </h3>
         </div>
         <div className="a_box">
           <h3 onClick={()=>{window.location="/js/OurTeam"}} href="/js/OurTeam" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
-            {state === "ru" ? "Команда" : "Jamoa"}
+            {state === "ru" ? "Трад-ин" : "Trade-in"}
           </h3>
         </div>
 
@@ -215,7 +215,7 @@ export default function Navbar() {
           className="a_fff"
           style={{ cursor: "pointer" }}
         >
-          {state === "ru" ? "О нас" : "Biz haqimizda"}
+          {state === "ru" ? "Автокредит" : "Avtokredit"}
         </h3>
         <h3
           onClick={() => {
@@ -224,7 +224,7 @@ export default function Navbar() {
           className="a_fff"
           style={{ cursor: "pointer" }}
         >
-          {state === "ru" ? "Команда" : "Jamoa"}
+          {state === "ru" ? "Трад-ин" : "Trade-in"}
         </h3>
 
         <h3

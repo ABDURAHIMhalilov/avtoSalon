@@ -349,7 +349,7 @@ export default function Bmw8() {
                   <div className="maky">
                     <table className="tab1" style={{ width: "100%", paddingTop: "30px",minWidth:"450px" }}>
                       <tr className="maky1">
-                        <th>{state === "ru" ? "Делать:" : "Qilish:"}</th>
+                        <th>{state === "ru" ? "Создатель:" : "Yaratuvchi:"}</th>
                         <td>{data.position.series.model.name}</td>
                       </tr>
                       <tr className="maky1">
@@ -379,7 +379,7 @@ export default function Bmw8() {
                         <td>{data.gearbox.name}</td>
                       </tr>
                       <tr className="maky1">
-                        <th>{state === "ru" ? "Состояние:" : "Davlat:"}</th>
+                        <th>{state === "ru" ? "Положение дел:" : "Holat:"}</th>
                         <td>{data.distance > 2 ? "NEW" : "B/Y"}</td>
                       </tr>
                       <tr className="maky1">
@@ -405,7 +405,7 @@ export default function Bmw8() {
                         <td>4</td>
                       </tr>
                       <tr className="maky1">
-                        <th>{state === "ru" ? "ВИН:" : "VIN:"}</th>
+                        <th>{state === "ru" ? "ИД номер:" : "ID raqami:"}</th>
                         <td>{data.id}</td>
                       </tr>
                     </table>
@@ -655,7 +655,7 @@ export default function Bmw8() {
                   </tr>
                   <tr className="maky1">
                     <th>
-                      {state === "ru" ? "Гулять пешком:" : "Yurishi:"}
+                      {state === "ru" ? "Тип вождения:" : "haydash turi:"}
                     </th>
                     <td>
                       {state === "ru"
@@ -666,8 +666,8 @@ export default function Bmw8() {
                   <tr className="maky1">
                     <th>
                       {state === "ru"
-                        ? "TransColormission:"
-                        : "Rangni o'zgartirish:"}
+                        ? "ТрансЦветная миссия:"
+                        : "Transcolor missiyasi:"}
                     </th>
                     <td>{data.gearbox.name}</td>
                   </tr>
@@ -696,7 +696,7 @@ export default function Bmw8() {
                     <td>4</td>
                   </tr>
                   <tr className="maky1">
-                    <th>{state === "ru" ? "VIN:" : "G'alaba qozonish:"}</th>
+                    <th>{state === "ru" ? "ИД номер:" : "ID raqami:"}</th>
                     <td>{data.id}</td>
                   </tr>
                 </table>

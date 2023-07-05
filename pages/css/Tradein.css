@@ -1,0 +1,96 @@
+.cazoo{
+    overflow: hidden;
+    background-color: #f5f8f6;
+    border-radius: 0.3125rem;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 6px 12px 0px, rgba(202, 202, 202, 0.2) 0px 0px 6px 0px, rgba(202, 202, 202, 0.1) 0px -1px 4px 0px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1000px;
+    position: relative;
+    min-height: 310px;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+.cazoo img{
+    width: 550px;
+    top: 0px;
+    position: absolute;
+    right: -180px;
+}
+.cazo1{
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
+.cazoh1{
+    font-size: 35px;
+    margin-top: 40px;
+}
+.cazo_card{
+    width: 60%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+.cazo_p{
+    font-size: 17px;
+    margin-top: 17px;
+}
+.cazoo input{
+    width: 320px;
+    height: 45px;
+    font-size: 16px;
+    padding-left: 15px;
+    margin-top: 25px;
+    outline: none;
+    border: 1px solid gray;
+    /* color: gray; */
+}
+.cazoo button{
+    width: 120px;
+    height: 46px;
+    margin-left: 20px;
+    font-size: 17px;
+}
+h4{
+    margin-top: 25px;
+    margin-bottom: 20px;
+}
+h4:hover{
+    color: #ff6505;
+}
+@media(max-width:1050px){
+    .cazoo img{
+        display: none;
+    }
+    .cazoh1{
+        font-size: 30px;
+    }
+    .cazo_p{
+        font-size: 16px;
+    }
+    .cazo_card{
+        width: 100% !important;
+    }
+}
+@media(max-width:800px){
+    .cazoo{
+        text-align: center;
+    }
+    .input_card{
+        display: block;
+    }
+    .cazoo button{
+        margin-left: 0px;
+    }
+    .input_card input{
+        width: 100% !important;
+        max-width: 400px !important;
+    }
+    .input_card button{
+        width: 100% !important;
+        max-width: 400px !important;
+        margin-top: 15px;
+        margin-bottom: 20px;
+    }
+}

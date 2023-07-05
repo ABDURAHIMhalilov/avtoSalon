@@ -328,7 +328,21 @@ export default function Loginpage() {
               <h2>{state === "ru" ? "Аккаунт" : "Akkaunt"}</h2>
               <div id="a1a" className="prof">
                 <input type="file" />
-                <FaUserAlt className="icon12" />
+                {user.image == null ? (
+                    <FaUserAlt className="icon12" />
+                    
+                    
+                  ) : (
+                    <Image
+                      width={70}
+                      height={70}
+                      style={{ borderRadius: "50%", marginLeft: 0 }}
+                      src={user.image}
+                      alt="no img"
+                    />
+                    
+                  )}
+                
                 <div className="orange">
                   <AiOutlineCamera className="ii" />
                 </div>
@@ -370,19 +384,24 @@ export default function Loginpage() {
                 >
                   {state === "ru" ? "Выход" : "Chiqish"}
                 </button>
-                <div className="miniImg">
-                  {/* <input type="file" className="image" /> */}
+                <div className="prof">
+                  <input type="file" className="image" />
                   {user.image == null ? (
-                    <FaUserAlt className="icon1" />
+                    <FaUserAlt className="icon12" />
+                    
+                    
                   ) : (
                     <Image
                       width={70}
                       height={70}
-                      style={{ borderRadius: "50%", marginLeft: 10 }}
+                      style={{ borderRadius: "50%", marginLeft: 0 }}
                       src={user.image}
                       alt="no img"
                     />
-                  )}
+                    
+                  )}<div className="orange">
+                  <AiOutlineCamera className="ii" />
+                </div>
                 </div>
               </div>
             </div>
