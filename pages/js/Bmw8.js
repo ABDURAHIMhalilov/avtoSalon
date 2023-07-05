@@ -655,7 +655,7 @@ export default function Bmw8() {
                   </tr>
                   <tr className="maky1">
                     <th>
-                      {state === "ru" ? "Тип вождения:" : "haydash turi:"}
+                      {state === "ru" ? "Тип вождения:" : "haydash turi::"}
                     </th>
                     <td>
                       {state === "ru"
