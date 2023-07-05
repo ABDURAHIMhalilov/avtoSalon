@@ -43,6 +43,7 @@
     padding-left: 15px;
     margin-top: 25px;
     outline: none;
+    border-radius: 5px;
     border: 1px solid gray;
     /* color: gray; */
 }

@@ -137,7 +137,7 @@ export default function Home() {
                         onChange={getSeries}
                       >
                         <MenuItem value="">
-                          <em>None</em>
+                          <em>Hammasi</em>
                         </MenuItem>
                         {models.map((item, key) => {
                           return (
@@ -159,7 +159,7 @@ export default function Home() {
                         value={selectSeries}
                         onChange={getPosition}
                       >
-                        <MenuItem value="">None</MenuItem>
+                        <MenuItem value="">Hammasi</MenuItem>
                         {series.map((item, key) => {
                           return (
                             <MenuItem key={key} value={item.id}>
@@ -181,7 +181,7 @@ export default function Home() {
                         value={selectPosition}
                         onChange={postPosition}
                       >
-                        <MenuItem value={0}>None</MenuItem>
+                        <MenuItem value={0}>Hammasi</MenuItem>
                         {position.map((item, key) => {
                           return (
                             <MenuItem key={key} value={item.id}>
@@ -270,7 +270,7 @@ export default function Home() {
                         onChange={getSeries}
                       >
                         <MenuItem value="">
-                          <em>None</em>
+                          <em>Все</em>
                         </MenuItem>
                         {models.map((item, key) => {
                           return (
@@ -292,7 +292,7 @@ export default function Home() {
                         value={selectSeries}
                         onChange={getPosition}
                       >
-                        <MenuItem value="">None</MenuItem>
+                        <MenuItem value="">Все</MenuItem>
                         {series.map((item, key) => {
                           return (
                             <MenuItem key={key} value={item.id}>
@@ -314,7 +314,7 @@ export default function Home() {
                         value={selectPosition}
                         onChange={postPosition}
                       >
-                        <MenuItem value="">None</MenuItem>
+                        <MenuItem value="">Все</MenuItem>
                         {position.map((item, key) => {
                           return (
                             <MenuItem key={key} value={item.id}>

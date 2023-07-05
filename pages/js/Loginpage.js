@@ -330,8 +330,6 @@ export default function Loginpage() {
                 <input type="file" />
                 {user.image == null ? (
                     <FaUserAlt className="icon12" />
-                    
-                    
                   ) : (
                     <Image
                       width={70}
@@ -340,12 +338,11 @@ export default function Loginpage() {
                       src={user.image}
                       alt="no img"
                     />
-                    
                   )}
                 
-                <div className="orange">
+                {/* <div className="orange">
                   <AiOutlineCamera className="ii" />
-                </div>
+                </div> */}
               </div>
               <div className="buttons11">
                 <button
@@ -387,9 +384,9 @@ export default function Loginpage() {
                 <div className="prof">
                   <input type="file" className="image" />
                   {user.image == null ? (
-                    <FaUserAlt className="icon12" />
-                    
-                    
+                    <div className="orange">
+                       <AiOutlineCamera className="ii" />
+                     </div>
                   ) : (
                     <Image
                       width={70}
@@ -399,9 +396,10 @@ export default function Loginpage() {
                       alt="no img"
                     />
                     
-                  )}<div className="orange">
-                  <AiOutlineCamera className="ii" />
-                </div>
+                    )}
+                    {/* //   <div className="orange">
+                    //   <AiOutlineCamera className="ii" />
+                    // </div> */}
                 </div>
               </div>
             </div>
