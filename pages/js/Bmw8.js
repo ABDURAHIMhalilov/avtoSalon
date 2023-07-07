@@ -517,7 +517,7 @@ export default function Bmw8() {
                         : "Avtomobil sotib olishga qaror qilishdan oldin,"}{" "}
                       <br />
                       {state === "ru"
-                        ? " прочтите его историю длябесплатно."
+                        ? " прочтите его историю бесплатно."
                         : "uning hikoyasini bepul o'qing."}
                     </h2>
                   </div>
@@ -528,7 +528,7 @@ export default function Bmw8() {
                         : "Avtomobil sotib olishga qaror qilishdan oldin,"}{" "}
                       <br />
                       {state === "ru"
-                        ? " прочтите его историю длябесплатно."
+                        ? " прочтите его историю бесплатно."
                         : "uning hikoyasini bepul o'qing."}
                     </h2>
                   </div>
@@ -794,7 +794,7 @@ export default function Bmw8() {
                   ></textarea>
 
                   <div className="select21">
-                    <select className="visit_brench" onChange={handleChange}>
+                    <select id="visit" className="visit_brench" onChange={handleChange}>
                       {branchs.map((item) => {
                         return (
                           <option value={item.id}>
@@ -845,8 +845,8 @@ export default function Bmw8() {
                             <MdLocationOn />
                           </span>
                           {state === "ru"
-                            ? "70 Вашингтон-стрит"
-                            : "Vashington ko'chasi, 70"}
+                            ? "Мирабадский район"
+                            : "Mirobid tumani"}
                         </p>
                       </div>
                       <img
@@ -860,7 +860,7 @@ export default function Bmw8() {
                       <span>
                         <AiOutlineMail />
                       </span>
-                      {state === "ru" ? "ralph@vehica.com" : "ralph@venika.com"}
+                      {state === "ru" ? "avtobaracar@gmail.com" : "avtobaracar@gmail.com"}
                     </p>
                     <button>
                       <span>

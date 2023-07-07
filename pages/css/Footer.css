@@ -37,7 +37,7 @@
 }
 
 .footer_info {
-  width: 340px;
+  width: 440px;
   color: #fff;
 }
 
@@ -168,9 +168,16 @@
 
   .feat_left {
     margin-top: 20px;
+    width: 150px !important;
   }
 
   .privacy {
     font-size: 14px;
   }
+}
+.footer_bottom .feat_left{
+  width: 150px !important;
+}
+.Tcard_email{
+  color: white !important;
 }

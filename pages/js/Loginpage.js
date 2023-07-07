@@ -577,13 +577,13 @@ export default function Loginpage() {
                               {" "}
                               {state === "ru" ? "Новый пароль" : "Yangi parol"}
                             </h2>
-                            <input className="passwordChange" type="text" />
+                            <input className="passwordChange" type="password" />
                             <h2>
                               {state === "ru"
                                 ? "Подтвердить новый пароль"
                                 : "Yangi parolni tasdiqlash"}
                             </h2>
-                            <input className="restPassword" type="text" />
+                            <input className="restPassword" type="password" />
                           </div>
                           <button onClick={() => postPassword()}>
                             {state === "ru" ? "Сохранять" : "Saqlash"}

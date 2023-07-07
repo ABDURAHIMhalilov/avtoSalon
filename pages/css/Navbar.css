@@ -390,3 +390,12 @@
         min-width: 330px;
     }
   }
+  @media(max-width:480px){
+    .navbar_left{
+        width: 160px !important;
+    }
+    .logo img{
+        width: 180px !important;
+        height: 50px !important;
+    }
+  }

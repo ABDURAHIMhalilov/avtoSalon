@@ -5,6 +5,7 @@
   display: flex;
   align-items: start;
   justify-content: space-between;
+  margin-bottom: 50px;
 }
 .contact_left {
   width: 40%;
@@ -27,7 +28,7 @@
   line-height: 30px;
 }
 .contact_address {
-  width: 160px;
+  width: 220px;
   margin: 30px 0;
 }
 .contact_info {
@@ -40,7 +41,7 @@
   margin-right: 8px;
 }
 .contact_tel {
-  font-size: 26px;
+  font-size: 20px;
   font-weight: 800;
   color: #2c2c2c;
 }
@@ -186,11 +187,26 @@ iframe{
     line-height: normal;
   }
 }
-
+.feat_left{
+  width: 150px;
+}
 @media (max-width: 900px) {
   .contact {
     flex-direction: column;
     align-items: center;
+  }
+  .feat_left {
+    width: 150px !important;
+  }
+  .contact_left h1{
+    font-size: 30px !important;
+  }
+  .contact_info {
+    margin-top: 15px !important;
+  }
+
+  .contact_tel {
+    font-size: 20px !important;
   }
   .contact_left {
     text-align: center;

@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import logo from "../images/logo.png";
+import logo from "../images/logotip.png";
 import { AiOutlineUser } from "react-icons/ai";
 import { HiUsers } from "react-icons/hi";
 import { BiMenuAltLeft } from "react-icons/bi";
@@ -91,7 +91,7 @@ export default function Navbar() {
         </div>
         <div className="a_box">
           <h3 onClick={()=>{window.location="/js/OurTeam"}} href="/js/OurTeam" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
-            {state === "ru" ? "Трад-ин" : "Trade-in"}
+            {state === "ru" ? "трейд-ин " : "Trade-in"}
           </h3>
         </div>
 
@@ -224,7 +224,7 @@ export default function Navbar() {
           className="a_fff"
           style={{ cursor: "pointer" }}
         >
-          {state === "ru" ? "Трад-ин" : "Trade-in"}
+          {state === "ru" ? "трейд-ин " : "Trade-in"}
         </h3>
 
         <h3

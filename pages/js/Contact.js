@@ -46,27 +46,27 @@ window.location.reload()
           </h1>
           <p className="contact_info">
             {state === "ru"
-              ? "Спасибо вам за вашу постоянную поддержку. Слепонет... мы находимся в нужном месте в нужное время... спасаясь от астрологииархитектор."
-              : "Doimiy qo'llab-quvvatlaganingiz uchun tashakkur. Ko'ryo'q... biz kerakli vaqtda kerakli joyda turibmiz... astrologiyadan qochisharxitektor."}
+              ? (<div>Как я могу связаться с вами? <br /><br />По номеру <a className="contact_tel" href="tel: +998330321112">
+              (33) <span> 032 11 12</span>
+            </a>  или же оставить сообщение и наши операторы с вами свяжутся в кратчайшее время. </div>)
+              : (<div>Siz bilan qanday bog'lanishim mumkin? <br /><br /><a className="contact_tel" href="tel: +998330321112">
+            (33) <span> 032 11 12</span>
+          </a> raqamiga qo'ng'iroq qiling yoki xabar qoldiring va operatorlarimiz imkon qadar tezroq siz bilan bog'lanadi.</div>)}
           </p>
           <p className="contact_address">
             {state === "ru"
-              ? " Западная 12-я улица Нью-Йорк, штат Нью-Йорк, США"
-              : "G'arbiy 12-ko'cha Nyu-York, Nyu-York, AQSh"}
+              ? " Мирабадский район,Малая кольцевая дорога, Ташкент, 100015"
+              : "Mirobod tumani,Kichik Halqa Yo’li, Toshkent 100015"}
           </p>
-          <a className="contact_tel" href="tel: +998931513776">
-            (123) <span> 456-78901</span>
-          </a>
+          
           <div className="email_box">
             <MdEmail className="email_icon" />
-            <a href="mailto: asliddinumirzoqov3@gmail.com">
-              support@vehica.com
+            <a href="mailto: avtobaracar@gmail.com">
+              avtobaracar@gmail.com
             </a>
           </div>
           <div className="feat_left contact_icons">
-            <p>
-              {state === "ru" ? "Подписывайтесь на нас" : "Bizga obuna bo'ling"}
-            </p>
+            
             <a href="#" className="iconBox ">
               <FaFacebookF className="icon icon4" />
             </a>
@@ -121,12 +121,7 @@ window.location.reload()
           </div>
         </div>
       </div>
-      <div className="iframe" style={{ marginBottom: "50px" }}>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2997.724080796138!2d69.36349267638798!3d41.29310917131201!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38aef5f1f3347f27%3A0x9a5455de3245cf1f!2z0KjQutC-0LvQsCDihJYyODI!5e0!3m2!1sru!2s!4v1685612426244!5m2!1sru!2s"
-          loading="lazy"
-        ></iframe>
-      </div>
+      
       <Footer />
     </div>
   );

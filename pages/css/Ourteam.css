@@ -1,0 +1,44 @@
+.bank{
+    height: 200px !important;
+}
+.seo_left{
+    background: url("https://avatars.dzeninfra.ru/get-zen_doc/167204/pub_5a7d7bc2a867318132f06f48_5a7d7c4f1aa80c5c505f9432/scale_1200");
+    background-size: 100% !important;
+}
+.question{
+    display: none !important;
+}
+@media(max-width:1200px){
+    .seo_left{
+        height: 280px !important;
+    }
+    .seo_img{
+        height: 280px !important;
+    }
+}
+@media(max-width:991px){
+    .seo_left{
+        height: 500px !important;
+        background-size: 900px !important;
+    }
+    .seo_img{
+        height: 500px !important;
+    }
+    .aboutImage {
+        height: 500px !important;
+    }
+    .seo{
+    margin-top: 3% !important;
+}}
+@media(max-width:600px){
+    .seo_left{
+        height: 300px !important;
+        background-size: 560px !important;
+    }
+    .seo_img{
+        height: 300px !important;
+    }
+    .aboutImage {
+        height: 300px !important;
+    }
+}

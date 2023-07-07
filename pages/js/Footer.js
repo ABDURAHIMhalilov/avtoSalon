@@ -52,26 +52,21 @@ export default function Footer() {
                   </div>
                 </div>
                 <p className="footer_info">
-                  Mukofotga sazovor bo'lgan oilaga tegishli yangi va ishlatilgan
-                  avtomobil sotuvchisi shahar atrofida bir nechta nuqtaga ega
-                  avtomobillar. Eng past narxlar va eng yaxshi mijozlarga xizmat
-                  kafolatlangan.
+                Baracar har bir avtomobilning kamida 30 kun xizmat ko'rsatishiga kafolat beradi. Agar kafolat muddati davomida mashinada muammo yuzaga kelsa, texnik xizmat ko'rsatish bo'yicha hamkorlarimiz uni tuzatadilar. 
                 </p>
               </div>
             </div>
             <div className="f_right_right">
               <p className="aaa">
-                Mukofotga sazovor bo'lgan oilaga tegishli yangi va ishlatilgan
-                avtomobil sotuvchisi shahar atrofida bir nechta nuqtaga ega
-                avtomobillar. Eng past narxlar va eng yaxshi mijozlarga xizmat
-                kafolatlangan.
+              Baracar har bir avtomobilning kamida 30 kun xizmat ko'rsatishiga kafolat beradi. Agar kafolat muddati davomida mashinada muammo yuzaga kelsa, texnik xizmat ko'rsatish bo'yicha hamkorlarimiz uni tuzatadilar. 
               </p>
               <h2>
-                (123) <span>456-78901</span>
+                (33) <span>032 11 12 </span>
               </h2>
-              <p>support@vehica.com</p>
-              <p>G'arbiy 12-ko'cha</p>
-              <p>Nyu-York, Nyu-York, AQSh</p>
+              <a className="Tcard_email" href="mailto: avtobaracar@gmail.com">
+                    avtobaracar@gmail.com</a>
+              <p>Mirobod tumani,</p>
+              <p>Kichik Halqa Yo’li, Toshkent 100015</p>
             </div>
             <div className="f_bot">
               <div className="a_box a">
@@ -182,25 +177,21 @@ export default function Footer() {
                   </div>
                 </div>
                 <p className="footer_info">
-                  Удостоенный наград семейный дилер новых и подержанных
-                  автомобилей автомобили с несколькими точками по всему городу.
-                  Самые низкие цены и гарантировано лучшее обслуживание
-                  клиентов.
+                Baracar гарантирует исправность каждой машины минимум на 30 дней. При возникновении проблем с машиной в срок гарантии, наши партнеры по тех обслуживанию устранят их.  
                 </p>
               </div>
             </div>
             <div className="f_right_right">
               <p className="aaa">
-                Удостоенный наград семейный дилер новых и подержанных
-                автомобилей автомобили с несколькими точками по всему городу.
-                Самые низкие цены и гарантировано лучшее обслуживание клиентов.
+              Baracar гарантирует исправность каждой машины минимум на 30 дней. При возникновении проблем с машиной в срок гарантии, наши партнеры по тех обслуживанию устранят их.  
               </p>
               <h2>
-                (123) <span>456-78901</span>
+                (33) <span>032 11 12 </span>
               </h2>
-              <p>support@vehica.com</p>
-              <p>Западная 12-я улица</p>
-              <p>Нью-Йорк, штат Нью-Йорк, США</p>
+              <a className="Tcard_email" href="mailto: avtobaracar@gmail.com">
+                    avtobaracar@gmail.com</a>
+              <p>Мирабадский район,</p>
+              <p>Малая кольцевая дорога, Ташкент, 100015</p>
             </div>
             <div className="f_bot">
               <div className="a_box a">

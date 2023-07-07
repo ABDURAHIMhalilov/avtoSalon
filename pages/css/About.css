@@ -6,7 +6,12 @@
   justify-content: space-between;
   overflow: hidden;
 }
-
+.bank{
+  width: 300px;
+    margin-bottom: 30px;
+    height: 100px;
+    border-radius: 10px;
+}
 
 .about_left {
   width: 55%;
@@ -39,10 +44,10 @@
   line-height: 1.5vw;
 }
 .aboutImage {
-  width: 450px;
-  height: 450px;
-  border-radius: 15px;
-  object-fit: cover;
+  width: 580px;
+    height: 550px;
+    border-radius: 15px;
+    object-fit: cover;
 }
 .seo {
   height: 320px;
@@ -60,6 +65,8 @@
   align-items: flex-end;
   background-color: #f2f5fb;
   border-radius: 15px;
+  background: url("https://io.drivenn.ru/oo7mg4ob0q89h_j6cy1u.jpeg");
+  background-size: 900px !important;
 }
 .left_box {
   height: 100%;
@@ -67,6 +74,7 @@
   justify-content: center;
   flex-direction: column;
   padding-left: 1vw;
+  padding-right: 20px;
 }
 .left_box > h2 {
   font-size: 30px;
@@ -94,7 +102,7 @@
   left: 50%;
   transform: translateX(-50%);
   border-radius: 10px;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   flex-direction: column;
@@ -170,6 +178,7 @@
   margin-top: 15px !important;
 }
 .question_btn {
+  display: none !important;
   width: 180px;
   height: 50px;
   font-size: 16px;
@@ -254,12 +263,13 @@
   }
 }
 @media (max-width: 900px) {
-  .about {
-    flex-direction: column-reverse;
-  }
+  
   .about_left {
     width: 100%;
     margin-top: 20px;
+  }
+  .acc1{
+  min-height: 45px !important;
   }
   .aboutImage {
     height: 300px;
@@ -292,5 +302,46 @@
   .about_border,
   .about_left > h4 {
     width: 100%;
+  }
+}
+.css-1elwnq4-MuiPaper-root-MuiAccordion-root{
+  border-radius: 4px !important;
+  box-shadow: 1px 1px 0 0 hsla(0,0%,77%,.24) !important;
+  border: none !important;
+}
+
+@media(max-width:1200px){
+  .seo_left{
+      height: 280px !important;
+  }
+  .seo_img{
+      height: 280px !important;
+  }
+}
+@media(max-width:991px){
+  .seo_left{
+      height: 500px !important;
+      background-size: 1400px !important;
+  }
+  .seo_img{
+      height: 500px !important;
+  }
+  .aboutImage {
+      height: 500px !important;
+  }
+  .seo{
+    margin-top: 3% !important;
+  }
+}
+@media(max-width:600px){
+  .seo_left{
+      height: 300px !important;
+      background-size: 800px !important;
+  }
+  .seo_img{
+      height: 300px !important;
+  }
+  .aboutImage {
+      height: 300px !important;
   }
 }

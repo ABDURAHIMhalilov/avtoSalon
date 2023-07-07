@@ -64,7 +64,7 @@ export default function Featured() {
       {state == "uz" ? (
         <div className="featured">
           <h5 className="featured_info">Qulay tanlov</h5>
-          <h2 className="featured_title">Tanlangan reklamalar</h2>
+          <h2 className="featured_title">Tekshiruvdan otgan avto</h2>
           <div className="featured_body">
             {cars.map((item, key) => {
               if (key == 0) {
@@ -202,7 +202,7 @@ export default function Featured() {
           </div>
           <div className="feat_bottom">
             <div className="feat_left">
-              <p>Bizga qo'shiling</p>
+              
               <a href="#" className="iconBox">
                 <FaFacebookF className="icon" />
               </a>
@@ -213,7 +213,7 @@ export default function Featured() {
                 <FaInstagram className="icon" />
               </a>
             </div>
-            <p className="feat_tit">Bizga qo'shiling</p>
+            
             <a href="js/Search">
               <button
                 className="Btnbody feat_btn"
@@ -227,7 +227,7 @@ export default function Featured() {
       ) : (
         <div className="featured">
           <h5 className="featured_info">Удобный выбор</h5>
-          <h2 className="featured_title">Избранные объявления</h2>
+          <h2 className="featured_title">Проверенные авто с пробегом. </h2>
           <div className="featured_body">
             {cars.map((item, key) => {
               if (key == 0) {
@@ -238,6 +238,30 @@ export default function Featured() {
                       getData2(cars[0]);
                     }}
                   >
+                    <div
+                      id="corner-ribbon"
+                      style={{
+                        position: "absolute",
+                        top: "0px",
+                        right: "170px",
+                      }}
+                    >
+                      <div
+                        style={
+                          item.sale == 0
+                            ? { display: "none" }
+                            : { display: "flex" }
+                        }
+                      >
+                        <div>
+                          <div>
+                            <h2 className="sa">
+                              {item.sale == 0 ? "" : `${item.sale}%`}{" "}
+                            </h2>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     <div className="featured_img_size">
                       {item.image.length > 0 ? (
                         <Image
@@ -281,6 +305,30 @@ export default function Featured() {
                         getData2(item);
                       }}
                     >
+                      <div
+                      id="corner-ribbon"
+                      style={{
+                        position: "absolute",
+                        top: "0px",
+                        right: "170px",
+                      }}
+                    >
+                      <div
+                        style={
+                          item.sale == 0
+                            ? { display: "none" }
+                            : { display: "flex" }
+                        }
+                      >
+                        <div>
+                          <div>
+                            <h2 className="sa">
+                              {item.sale == 0 ? "" : `${item.sale}%`}{" "}
+                            </h2>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                       <div className="featured_img_size">
                         {item.image.length > 0 ? (
                           <Image
@@ -317,7 +365,7 @@ export default function Featured() {
           </div>
           <div className="feat_bottom">
             <div className="feat_left">
-              <p>Подписывайтесь на нас</p>
+              
               <a href="#" className="iconBox">
                 <FaFacebookF className="icon" />
               </a>
@@ -328,7 +376,7 @@ export default function Featured() {
                 <FaInstagram className="icon" />
               </a>
             </div>
-            <p className="feat_tit">Подписывайтесь на нас</p>
+            
             <a href="js/Search">
               <button
                 className="Btnbody feat_btn"

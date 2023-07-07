@@ -113,10 +113,9 @@ export default function Home() {
                 <br />
                 <div className="positionImg"></div>
                 <div className="cardHeader">
-                  <h1>Orzuyingizdagi mashinani toping</h1>
+                  <h1>Eng yaxshi Mashina. Eng yaxshi narx. </h1>
                   <p>
-                    Biz sizga eng yaxshi mashinani topishda yordam bera
-                    olamiz.Sotiladigan avtomobillarni toping.
+                  Avto sotish va sotib olish uchun qulay servis
                   </p>
                   <a href="js/About">
                     <button> Batafsil </button>
@@ -207,32 +206,23 @@ export default function Home() {
                 <div className="ushta">
                   <div className="bir">
                     <WiDayStormShowers className="bxs-balloon" />
-                    <h2>Brendlarning keng assortimenti</h2>
+                    <h2>Baracar yuksak sifati.</h2>
                     <h4>
-                      Biz sizning moliyalashtirish rejangizga yordam bera
-                      olamiz, ba'zi maslahatlar va takliflarni taklif qilishimiz
-                      mumkin . Nima bo'lishidan qat'iy nazar, bu orzu qilingan
-                      mashinada haydang kredit tarixi.
+                    Har bir avtomobil 168 punkt bo’yicha sinovdan o'tkaziladi va to'liq avtomashina tarixi va texnik xizmat ko'rsatish tarixiga ega.
                     </h4>
                   </div>
                   <div className="bir">
                     <WiDayStormShowers className="bxs-balloon" />
-                    <h2>Biz mijozlarimiz tomonidan ishonchli</h2>
+                    <h2>Qulay avtokredit</h2>
                     <h4>
-                      Biz sizning moliyalashtirish rejangizga yordam bera
-                      olamiz, ba'zi maslahatlar va takliflarni taklif qilishimiz
-                      mumkin nayranglar. Nima bo'lishidan qat'iy nazar, bu orzu
-                      qilingan mashinada haydang kredit tarixi.
+                    Biz Tenge Bank bilan hamkorlikda avtokredit uchun eng qulay va foydali shartlarni taklif etamiz.
                     </h4>
                   </div>
                   <div className="bir">
                     <WiDayStormShowers className="bxs-balloon" />
-                    <h2>Tez va oson moliyalashtirish</h2>
+                    <h2>30 kunlik kafolat.</h2>
                     <h4>
-                      Biz sizning moliyalashtirish rejangizga yordam bera
-                      olamiz, ba'zi maslahatlar va takliflarni taklif qilishimiz
-                      mumkin nayranglar. Nima bo'lishidan qat'iy nazar, bu orzu
-                      qilingan mashinada haydang kredit tarixi.
+                    Avtosalonimizdagi har bir avtomobil 30 kunlik kafolat ostida to'liq xizmat ko’rsatishga ega.
                     </h4>
                   </div>
                 </div>
@@ -246,10 +236,9 @@ export default function Home() {
                 <br />
                 <div className="positionImg"></div>
                 <div className="cardHeader">
-                  <h1>Найди свой машина мечты</h1>
+                  <h1>Лучшая машина Лучшая цена </h1>
                   <p>
-                    Мы поможем вам найти лучший автомобиль. Ознакомьтесь с
-                    нашими обзорами продажи.
+                  Удобный сервис по покупке и продаже авто. 
                   </p>
                   <a href="js/About">
                     <button> О нас </button>
@@ -468,29 +457,23 @@ export default function Home() {
                 <div className="ushta">
                   <div className="bir">
                     <WiDayStormShowers className="bxs-balloon" />
-                    <h2>Широкий ассортимент брендов</h2>
+                    <h2>Тотальное качество Baracar. </h2>
                     <h4>
-                      Мы можем помочь с вашим планом финансирования, мы можем
-                      предложить несколько советов и трюки. Уезжайте на этой
-                      машине своей мечты независимо от ваших кредитная история.
+                    Каждая машина на Baracar проходит проверку по 168 пунктам и имеет полную историю автомобиля, а также историю технического обслуживания. 
                     </h4>
                   </div>
                   <div className="bir">
                     <WiDayStormShowers className="bxs-balloon" />
-                    <h2>Нам доверяют наши клиенты</h2>
+                    <h2>Выгодный автокредит. </h2>
                     <h4>
-                      Мы можем помочь с вашим планом финансирования, мы можем
-                      предложить несколько советов и трюки. Уезжайте на этой
-                      машине своей мечты независимо от ваших кредитная история.
+                    Мы, в партнерстве с Tenge Bank, предлагаем самые удобные, а также самые выгодные условия по автокредиту. 
                     </h4>
                   </div>
                   <div className="bir">
                     <WiDayStormShowers className="bxs-balloon" />
-                    <h2>Быстрое и простое финансирование</h2>
+                    <h2>30-дневная гарантия. </h2>
                     <h4>
-                      Мы можем помочь с вашим планом финансирования, мы можем
-                      предложить несколько советов и трюки. Уезжайте на этой
-                      машине своей мечты независимо от ваших кредитная история.
+                    Каждый автомобиль в нашем автосалоне имеет гарантию минимум 30 дней на полное обслуживание ходовой части по гарантии. 
                     </h4>
                   </div>
                 </div>

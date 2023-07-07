@@ -191,7 +191,7 @@
     width: 97%;
 }
 .cardHeader h1{
-    width: 500px;
+    width: 600px;
     font-size: 60px;
     color: white;
 }
@@ -312,7 +312,9 @@
         padding: 0 5%;
         display: block;
     }
-
+    .cardHeader2{
+        padding-left: 6px;
+    }
     .HomeHeader {
         height: 90vh;
     }

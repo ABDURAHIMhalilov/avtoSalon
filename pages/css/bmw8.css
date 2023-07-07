@@ -842,7 +842,7 @@
 .bnm {
   margin-top: 50px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   width: 1300px;
   padding-top: 15px;
@@ -855,6 +855,7 @@
   padding: 30px;
 }
 .carf {
+  display: none !important;
   width: 450px;
   border-radius: 20px;
   background-color: white;
@@ -912,13 +913,14 @@
 }
 .gfbvdc {
   display: block;
-  width: 50%;
+  width: 80%;
 }
 .c1 h3 {
   color: #ff4805;
 }
 .c1 span {
   color: #ff4605;
+  padding-right: 7px;
 }
 .c1 h2 {
   margin-top: 20px;
@@ -976,7 +978,7 @@
 }
 .carf2 span {
   color: #ff4605;
-  margin-right: 5px;
+  padding-right: 7px;
   margin-top: 5px;
 }
 .carf2 p {
@@ -1268,7 +1270,9 @@ body{
   padding-left: 10px;
   border-radius: 10px;
 } 
-
+#visit{
+  min-height: 40px !important;
+}
 .defectDiv {
   width: 100%;
   height: auto;

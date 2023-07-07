@@ -55,11 +55,11 @@ export default function Team() {
                   <div className="email_box"></div>
                   <h2>Jorj Braun</h2>
                   <p>Mijoz maslahatchisi</p>
-                  <a className="Tcard_email" href="#!">
-                    george@vehica.com
+                  <a className="Tcard_email" href="mailto: avtobaracar@gmail.com">
+                    avtobaracar@gmail.com
                   </a>
                   <a className="Tcard_tel" href="tel: +998931513776">
-                    (123) 345-6789
+                    (33) 032 11 12 
                   </a>
                 </div>
               </SwiperSlide>
@@ -70,11 +70,11 @@ export default function Team() {
                   <div className="email_box"></div>
                   <h2>George Brown</h2>
                   <p>Mijoz maslahatchisi</p>
-                  <a className="Tcard_email" href="#!">
-                    george@vehica.com
+                  <a className="Tcard_email" href="mailto: avtobaracar@gmail.com">
+                    avtobaracar@gmail.com
                   </a>
                   <a className="Tcard_tel" href="tel: +998931513776">
-                    (123) 345-6789
+                    (33) 032 11 12 
                   </a>
                 </div>
               </SwiperSlide>
@@ -85,11 +85,11 @@ export default function Team() {
                   <div className="email_box"></div>
                   <h2>Michael</h2>
                   <p>Mijoz maslahatchisi</p>
-                  <a className="Tcard_email" href="#!">
-                    george@vehica.com
+                  <a className="Tcard_email" href="mailto: avtobaracar@gmail.com">
+                    avtobaracar@gmail.com
                   </a>
                   <a className="Tcard_tel" href="tel: +998931513776">
-                    (123) 345-6789
+                    (33) 032 11 12 
                   </a>
                 </div>
               </SwiperSlide>
@@ -100,11 +100,11 @@ export default function Team() {
                   <div className="email_box"></div>
                   <h2>George Brown</h2>
                   <p>Customer Advisor</p>
-                  <a className="Tcard_email" href="#!">
-                    george@vehica.com
+                  <a className="Tcard_email" href="mailto: avtobaracar@gmail.com">
+                    avtobaracar@gmail.com
                   </a>
                   <a className="Tcard_tel" href="tel: +998931513776">
-                    (123) 345-6789
+                    (33) 032 11 12 
                   </a>
                 </div>
               </SwiperSlide>
@@ -116,11 +116,11 @@ export default function Team() {
                   <div className="email_box"></div>
                   <h2>John</h2>
                   <p>Mijoz maslahatchisi</p>
-                  <a className="Tcard_email" href="#!">
-                    george@vehica.com
+                  <a className="Tcard_email" href="mailto: avtobaracar@gmail.com">
+                    avtobaracar@gmail.com
                   </a>
                   <a className="Tcard_tel" href="tel: +998931513776">
-                    (123) 345-6789
+                    (33) 032 11 12 
                   </a>
                 </div>
               </SwiperSlide>
@@ -134,11 +134,11 @@ export default function Team() {
                   <div className="email_box"></div>
                   <h2>Jorj Braun</h2>
                   <p>Mijoz maslahatchisi</p>
-                  <a className="Tcard_email" href="#!">
-                    george@vehica.com
+                  <a className="Tcard_email" href="mailto: avtobaracar@gmail.com">
+                    avtobaracar@gmail.com
                   </a>
                   <a className="Tcard_tel" href="tel: +998931513776">
-                    (123) 345-6789
+                    (33) 032 11 12 
                   </a>
                 </div>
               </SwiperSlide>
@@ -149,11 +149,11 @@ export default function Team() {
                   <div className="email_box"></div>
                   <h2>Jorj Braun</h2>
                   <p>Mijoz maslahatchisi</p>
-                  <a className="Tcard_email" href="#!">
-                    george@vehica.com
+                  <a className="Tcard_email" href="mailto: avtobaracar@gmail.com">
+                    avtobaracar@gmail.com
                   </a>
                   <a className="Tcard_tel" href="tel: +998931513776">
-                    (123) 345-6789
+                    (33) 032 11 12 
                   </a>
                 </div>
               </SwiperSlide>
@@ -199,11 +199,11 @@ export default function Team() {
                   <div className="email_box"></div>
                   <h2>Джордж Браун</h2>
                   <p>Советник клиентов</p>
-                  <a className="Tcard_email" href="#!">
-                    george@vehica.com
+                  <a className="Tcard_email" href="mailto: avtobaracar@gmail.com">
+                    avtobaracar@gmail.com
                   </a>
                   <a className="Tcard_tel" href="tel: +998931513776">
-                    (123) 345-6789
+                    (33) 032 11 12 
                   </a>
                 </div>
               </SwiperSlide>
@@ -214,11 +214,11 @@ export default function Team() {
                   <div className="email_box"></div>
                   <h2>George Brown</h2>
                   <p>Советник клиентов</p>
-                  <a className="Tcard_email" href="#!">
-                    george@vehica.com
+                  <a className="Tcard_email" href="mailto: avtobaracar@gmail.com">
+                    avtobaracar@gmail.com
                   </a>
                   <a className="Tcard_tel" href="tel: +998931513776">
-                    (123) 345-6789
+                    (33) 032 11 12 
                   </a>
                 </div>
               </SwiperSlide>
@@ -229,11 +229,11 @@ export default function Team() {
                   <div className="email_box"></div>
                   <h2>George Brown</h2>
                   <p>консультант по работе с клиентами</p>
-                  <a className="Tcard_email" href="#!">
-                    george@vehica.com
+                  <a className="Tcard_email" href="mailto: avtobaracar@gmail.com">
+                    avtobaracar@gmail.com
                   </a>
                   <a className="Tcard_tel" href="tel: +998931513776">
-                    (123) 345-6789
+                    (33) 032 11 12 
                   </a>
                 </div>
               </SwiperSlide>
@@ -244,11 +244,11 @@ export default function Team() {
                   <div className="email_box"></div>
                   <h2>George Brown</h2>
                   <p>консультант по работе с клиентами</p>
-                  <a className="Tcard_email" href="#!">
-                    george@vehica.com
+                  <a className="Tcard_email" href="mailto: avtobaracar@gmail.com">
+                    avtobaracar@gmail.com
                   </a>
                   <a className="Tcard_tel" href="tel: +998931513776">
-                    (123) 345-6789
+                    (33) 032 11 12 
                   </a>
                 </div>
               </SwiperSlide>
@@ -260,11 +260,11 @@ export default function Team() {
                   <div className="email_box"></div>
                   <h2>George Brown</h2>
                   <p>консультант по работе с клиентами</p>
-                  <a className="Tcard_email" href="#!">
-                    george@vehica.com
+                  <a className="Tcard_email" href="mailto: avtobaracar@gmail.com">
+                    avtobaracar@gmail.com
                   </a>
                   <a className="Tcard_tel" href="tel: +998931513776">
-                    (123) 345-6789
+                    (33) 032 11 12 
                   </a>
                 </div>
               </SwiperSlide>

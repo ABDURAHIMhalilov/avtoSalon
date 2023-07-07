@@ -96,7 +96,7 @@ export default function Popular() {
       {state == "uz" ? (
         <div className="popular">
           <div className="popular_top">
-            <h1>Mashhur brendlar</h1>
+            <h1 style={{fontSize:"30px"}}>Mashhur brendlar</h1>
             <div className="pop_btns">
               {model.map((item, key) => {
                 if (key < 4) {
@@ -210,7 +210,7 @@ export default function Popular() {
       ) : (
         <div className="popular">
           <div className="popular_top">
-            <h1>Популярные марки</h1>
+            <h1 style={{fontSize:"30px"}}>Популярные марки</h1>
             <div className="pop_btns">
               {model.map((item, key) => {
                 if (key < 4) {
