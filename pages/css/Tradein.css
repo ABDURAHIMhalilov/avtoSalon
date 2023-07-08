@@ -57,7 +57,7 @@
     margin-top: 25px;
     margin-bottom: 20px;
 }
-h4:hover{
+.cazoo h4:hover{
     color: #ff6505;
 }
 @media(max-width:1050px){

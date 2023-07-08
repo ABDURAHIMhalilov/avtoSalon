@@ -61,6 +61,13 @@
     font-size: 22px;
     border-bottom: .5px solid #999;
     padding-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.featured_name del{
+    opacity: .6;
+    border-top: 3px solid #ff4605;
+    line-height: 0px;
 }
 .feat_price {
     font-size: 30px;

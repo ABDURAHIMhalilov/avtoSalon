@@ -118,13 +118,13 @@ export default function Featured() {
                       )}
                     </div>
                     <div className="featured_bottom">
-                      <h3 className="featured_name">{item.name}</h3>
+                      <h3 className="featured_name">{item.name}<del>{item.sale == 0 ? ("") : (`${item.price}$`)}</del></h3>
                       <div className="featured_box">
                         <p className="feat_year">{item.year}</p>
                         <p className="feat_auto">{item.gearbox.name}</p>
                         <p className="feat_pet">{item.fuel_sort.name}</p>
                         <p className="feat_p">{item.sale}%</p>
-                        <h4 className="feat_price">{item.price}$</h4>
+                        <h4 className="feat_price">{item.sale == 0 ? (item.price) : (`${item.price - ((item.price * item.sale / 100).toFixed(0))}`)}$</h4>
                       </div>
                     </div>
                   </div>
@@ -281,13 +281,13 @@ export default function Featured() {
                       )}
                     </div>
                     <div className="featured_bottom">
-                      <h3 className="featured_name">{item.name}</h3>
+                      <h3 className="featured_name">{item.name}<del>{item.sale == 0 ? ("") : (`${item.price}$`)}</del></h3>
                       <div className="featured_box">
                         <p className="feat_year">{item.year}</p>
                         <p className="feat_auto">{item.gearbox.name}</p>
                         <p className="feat_pet">{item.fuel_sort.name}</p>
                         <p className="feat_p">{item.sale}%</p>
-                        <h4 className="feat_price">{item.price}$</h4>
+                        <h4 className="feat_price">{item.sale == 0 ? (item.price) : (`${item.price - ((item.price * item.sale / 100).toFixed(0))}`)}$</h4>
                       </div>
                     </div>
                   </div>
