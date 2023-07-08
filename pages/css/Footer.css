@@ -140,6 +140,8 @@
   }
   .f_right_right>h2{
     margin-top: 10px;
+    text-align: center !important;
+    margin-left: 25vw;
   }
 
   .f_right_right {
@@ -186,10 +188,34 @@
   .privacy {
     font-size: 14px;
   }
+  
+  .f_right_right>h2{
+    margin-top: 10px;
+    text-align: center !important;
+    margin-left: 20vw;
+  }
 }
 .footer_bottom .feat_left{
   width: 150px !important;
 }
 .Tcard_email{
   color: white !important;
+}
+
+@media(max-width: 476px){
+  
+  .f_right_right>h2{
+    margin-top: 10px;
+    text-align: center !important;
+    margin-left: 15vw;
+  }
+}
+
+@media(max-width: 360px){
+  
+  .f_right_right>h2{
+    margin-top: 10px;
+    text-align: center !important;
+    margin-left: 10vw;
+  }
 }

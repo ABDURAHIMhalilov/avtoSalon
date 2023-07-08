@@ -221,7 +221,7 @@ export default function Footer() {
                   onClick={() => {window.location = "/js/About"}}
                   style={{ cursor: "pointer" }}
                 >
-                  О нас
+                  Автокредит
                 </h3>
               </div>
               <div className="a_box a">

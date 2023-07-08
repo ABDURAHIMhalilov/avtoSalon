@@ -86,7 +86,7 @@ export default function Navbar() {
             className="a_fff a_mobile"
             style={{ cursor: "pointer" }}
           >
-            {state === "ru" ? "О нас" : "Avtokredit"}
+            {state === "ru" ? "Автокредит" : "Avtokredit"}
           </h3>
         </div>
         <div className="a_box">
