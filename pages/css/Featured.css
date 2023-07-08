@@ -19,7 +19,7 @@
 }
 .featured_left {
     width: 48%;
-    height:785px;
+    height:760px;
     position: relative;
     cursor: pointer;
     /* overflow: hidden; */
@@ -65,6 +65,9 @@
 .feat_price {
     font-size: 30px;
     margin-left: 10%;
+}
+.feat_price h4{
+    margin-bottom: 0px !important;
 }
 .featured_box > p {
     opacity: .5;
@@ -114,10 +117,20 @@
 .featCard_name {
     font-weight: 400;
     font-size: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+.featCard_name del{
+    opacity: .6;
+    border-top: 2px solid #ff4605;
+    line-height: 0px;
+}
+
 .featCard_price {
     margin-top: 5px;
     font-size: 20px;
+    text-align: right;
 }
 .featCard_year {
     background-color: #ff6505;
@@ -197,7 +210,7 @@
     } */
     .featured_left {
         width: 48%;
-        height: 745px;
+        height: 730px;
         position: relative;
         cursor: pointer;
         /* overflow: hidden; */
@@ -208,7 +221,7 @@
         width: 90%;
     }
     .featured_box > p {
-        font-size: 13px;
+        font-size: 17px;
     }
     .feat_price {
         font-size: 20px;
@@ -221,7 +234,7 @@
         font-size: 14px;
     }
     .featCard_box > p {
-        font-size: 12px;
+        font-size: 15px;
         margin: 0;
     }
     .featCard_name {
@@ -327,7 +340,7 @@
     height: 230px !important;
 } */
 .featured_img{
-    height:590px !important;
+    height:600px !important;
 }
 
 @media (max-width:1350px) {
@@ -343,7 +356,7 @@
     } */
     .featured_left {
     width: 48%;
-    height:745px !important;
+    height:730px !important;
     position: relative;
     cursor: pointer;
     /* overflow: hidden; */
@@ -351,7 +364,7 @@
     margin-right: 12px;
 }
     .featured_img{
-        height: 550px !important;
+        height: 580px !important;
     }
 
 }
@@ -401,7 +414,7 @@
     }
     .featured_left {
     /* width: 48%; */
-    height:725px !important;
+    height:710px !important;
     position: relative;
     cursor: pointer;
     /* overflow: hidden; */

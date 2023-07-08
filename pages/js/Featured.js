@@ -24,8 +24,7 @@ export default function Featured() {
     );
     axios
       .get(
-        `https://api.baracar.uz/api/${
-          localStorage.getItem("lang") ? localStorage.getItem("lang") : "ru"
+        `https://api.baracar.uz/api/${localStorage.getItem("lang") ? localStorage.getItem("lang") : "ru"
         }/cars_get/`
       )
       .then((res) => {
@@ -186,8 +185,8 @@ export default function Featured() {
                         )}
                       </div>
                       <div className="featCard_bottom">
-                        <h3 className="featCard_name">{item.name}</h3>
-                        <h4 className="featCard_price">{item.price}$</h4>
+                        <h3 className="featCard_name">{item.name}<del>{item.sale == 0 ? ("") : (`${item.price}$`)}</del></h3>
+                        <h4 className="featCard_price">{item.sale == 0 ? (item.price) : (`${item.price - ((item.price * item.sale / 100).toFixed(0))}`)}$</h4>
                         <div className="featCard_box">
                           <p className="featCard_year">{item.year}</p>
                           <p className="featCard_auto">{item.gearbox.name}</p>
@@ -202,7 +201,7 @@ export default function Featured() {
           </div>
           <div className="feat_bottom">
             <div className="feat_left">
-              
+
               <a href="#" className="iconBox">
                 <FaFacebookF className="icon" />
               </a>
@@ -213,7 +212,7 @@ export default function Featured() {
                 <FaInstagram className="icon" />
               </a>
             </div>
-            
+
             <a href="js/Search">
               <button
                 className="Btnbody feat_btn"
@@ -306,29 +305,29 @@ export default function Featured() {
                       }}
                     >
                       <div
-                      id="corner-ribbon"
-                      style={{
-                        position: "absolute",
-                        top: "0px",
-                        right: "170px",
-                      }}
-                    >
-                      <div
-                        style={
-                          item.sale == 0
-                            ? { display: "none" }
-                            : { display: "flex" }
-                        }
+                        id="corner-ribbon"
+                        style={{
+                          position: "absolute",
+                          top: "0px",
+                          right: "170px",
+                        }}
                       >
-                        <div>
+                        <div
+                          style={
+                            item.sale == 0
+                              ? { display: "none" }
+                              : { display: "flex" }
+                          }
+                        >
                           <div>
-                            <h2 className="sa">
-                              {item.sale == 0 ? "" : `${item.sale}%`}{" "}
-                            </h2>
+                            <div>
+                              <h2 className="sa">
+                                {item.sale == 0 ? "" : `${item.sale}%`}{" "}
+                              </h2>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
                       <div className="featured_img_size">
                         {item.image.length > 0 ? (
                           <Image
@@ -349,8 +348,8 @@ export default function Featured() {
                         )}
                       </div>
                       <div className="featCard_bottom">
-                        <h3 className="featCard_name">{item.name}</h3>
-                        <h4 className="featCard_price">{item.price}$</h4>
+                        <h3 className="featCard_name">{item.name}<del>{item.sale == 0 ? ("") : (`${item.price}$`)}</del></h3>
+                        <h4 className="featCard_price">{item.sale == 0 ? (item.price) : (`${item.price - ((item.price * item.sale / 100).toFixed(0))}`)}$</h4>
                         <div className="featCard_box">
                           <p className="featCard_year">{item.year}</p>
                           <p className="featCard_auto">{item.gearbox.name}</p>
@@ -362,10 +361,11 @@ export default function Featured() {
                 }
               })}
             </div>
+
           </div>
           <div className="feat_bottom">
             <div className="feat_left">
-              
+
               <a href="#" className="iconBox">
                 <FaFacebookF className="icon" />
               </a>
@@ -376,7 +376,7 @@ export default function Featured() {
                 <FaInstagram className="icon" />
               </a>
             </div>
-            
+
             <a href="js/Search">
               <button
                 className="Btnbody feat_btn"
