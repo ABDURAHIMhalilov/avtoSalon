@@ -32,7 +32,9 @@ import {BiCheckCircle} from 'react-icons/bi'
 import '@/app/globals.css'
 
 import "../css/Popular.css"
+import "../css/Home.css"
 import { Style } from "@mui/icons-material";
+import Team from "../js/Team";
 
 export default function Bmw8() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -349,7 +351,7 @@ export default function Bmw8() {
                   <div className="maky">
                     <table className="tab1" style={{ width: "100%", paddingTop: "30px",minWidth:"450px" }}>
                       <tr className="maky1">
-                        <th>{state === "ru" ? "Создатель:" : "Yaratuvchi:"}</th>
+                        <th>{state === "ru" ? "Марка:" : "Brend:"}</th>
                         <td>{data.position.series.model.name}</td>
                       </tr>
                       <tr className="maky1">
@@ -489,124 +491,34 @@ export default function Bmw8() {
                 </h4>
               </div>
 
-              <div className="koka1">
-                <div className="butt">
-                  <div className="lkj">
-                    <button className="but1"><div className="icondiv"><div className="iconca1"><BiCheckCircle className="check1-circle1"/></div><h3>{state === "ru" ? "Резервная камера" : "Zaxira kamerasi"}</h3></div></button>
-                    <button className="but2"><div className="icondiv"><div className="iconca1"><BiCheckCircle className="check1-circle1"/></div><h3>{state === "ru" ? "предупреждение о дефиците" : "kamchilik haqida ogohlantirish"}</h3></div></button>
-                    <button className="but3"><div className="icondiv"><div className="iconca1"><BiCheckCircle className="check1-circle1"/></div><h3>{state === "ru" ? "Системы помощи при торможении" : "Tormoz yordami tizimlari"}</h3></div></button>
-
-                    <button className="but4"><div className="icondiv"><div className="iconca1"><BiCheckCircle className="check1-circle1"/></div><h3>{state === "ru" ? "Предупреждение о лобовом столкновении" : "Old to'qnashuv haqida ogohlantirish"}</h3></div></button>
-                    <button className="but5"><div className="icondiv"><div className="iconca1"><BiCheckCircle className="check1-circle1"/></div><h3>{state === "ru" ? "Системы помощи при парковке" : "Avtoturargohga yordam tizimlari"}</h3></div></button>
+              <div className="kotta">
+                <h1>{state === "ru" ? "Почему выбрали нас?" : "Nima uchun bizni tanlaysiz?"}</h1>
+                <div className="ushta">
+                  <div className="bir">
+                    <img className="bxs-balloon" src="https://images.ctfassets.net/6x2h5ns7uwip/2YKwoOLA5dbMWb4HwlqARk/bb90de23a382bee4545fef1c5ab5ae0b/CRM_icons_90-day_warranty_35px.png?w=74&h=73&fit=fill&f=center&fm=webp" alt="" />
+                    <h2>{state === "ru" ? "Тотальное качество Baracar" : "Baracar yuksak sifati"} </h2>
+                    <h4>
+                    {state === "ru" ? "Каждая машина на Baracar проходит проверку по 168 пунктам и имеет полную историю автомобиля, а также историю технического обслуживания. " : "                    Har bir avtomobil 168 punkt bo’yicha sinovdan o'tkaziladi va to'liq avtomashina tarixi va texnik xizmat ko'rsatish tarixiga ega."}
+                    </h4>
                   </div>
-                </div>
-                <div className="card122">
-                  <div className="laaa">
-                    <h2>
-                      {state === "ru"
-                        ? "История автомобиля"
-                        : "Avtomobil tarixi"}
-                    </h2>
-                    <button>
-                      {state === "ru " ? "Безплатно прочитатъ" : "Bepul o`qish"}
-                    </button>
-                    {/* <h2 className="mnb">Carfax PayPal</h2> */}
-                    <h2 className="nm">
-                      {state === "ru"
-                        ? "Прежде чем вы решите купить автомобиль,"
-                        : "Avtomobil sotib olishga qaror qilishdan oldin,"}{" "}
-                      <br />
-                      {state === "ru"
-                        ? " прочтите его историю бесплатно."
-                        : "uning hikoyasini bepul o'qing."}
-                    </h2>
+                  <div className="bir">
+                    <img className="bxs-balloon" src="https://images.ctfassets.net/6x2h5ns7uwip/2YKwoOLA5dbMWb4HwlqARk/bb90de23a382bee4545fef1c5ab5ae0b/CRM_icons_90-day_warranty_35px.png?w=74&h=73&fit=fill&f=center&fm=webp" alt="" />
+                    <h2>{state === "ru" ? "Выгодный автокредит" : "Qulay avtokredi"} </h2>
+                    <h4>
+                    {state === "ru" ? "Мы, в партнерстве с Tenge Bank, предлагаем самые удобные, а также самые выгодные условия по автокредиту. " : "                    Biz Tenge Bank bilan hamkorlikda avtokredit uchun eng qulay va foydali shartlarni taklif etamiz."}
+                    </h4>
                   </div>
-                  <div className="vaa">
-                    <h2>
-                      {state === "ru"
-                        ? "Прежде чем вы решите купить автомобиль,"
-                        : "Avtomobil sotib olishga qaror qilishdan oldin,"}{" "}
-                      <br />
-                      {state === "ru"
-                        ? " прочтите его историю бесплатно."
-                        : "uning hikoyasini bepul o'qing."}
-                    </h2>
-                  </div>
-                  <div className="maa1">
-                    <img
-                      src="https://demo.vehica.com/wp-content/uploads/2020/06/Layer-56.png"
-                      alt="underfined img"
-                    />
+                  <div className="bir">
+                    <img className="bxs-balloon" src="https://images.ctfassets.net/6x2h5ns7uwip/2YKwoOLA5dbMWb4HwlqARk/bb90de23a382bee4545fef1c5ab5ae0b/CRM_icons_90-day_warranty_35px.png?w=74&h=73&fit=fill&f=center&fm=webp" alt="" />
+                    <h2> {state === "ru" ? "30-дневная гарантия" : "30 kunlik kafolat"}</h2>
+                    <h4>
+                    {state === "ru" ? "Каждый автомобиль в нашем автосалоне имеет гарантию минимум 30 дней на полное обслуживание ходовой части по гарантии. " : "                    Avtosalonimizdagi har bir avtomobil 30 kunlik kafolat ostida to'liq xizmat ko’rsatishga ega."}
+                    </h4>
                   </div>
                 </div>
               </div>
 
-              <div className="lkjh">
-                <h1>{state === "ru" ? "видео" : "video"}</h1>
-
-                <iframe
-                  className="iframe"
-                  width="1280"
-                  height="720"
-                  // https://www.youtube.com/watch?v=TitAv45J2J8
-                  src="https://www.youtube.com/embed/TitAv45J2J8"
-                  title="Animated Login Form using Html &amp; CSS"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen
-                ></iframe>
-
-                <div id="vc" className="bv">
-                  <div className="dum">
-                    <div className="dumalo"></div>
-                    <h2>
-                      {state === "ru"
-                        ? "Бесключевой запуск"
-                        : "Kalitsiz ishga tushirish"}
-                    </h2>
-                  </div>
-                  <div className="dum">
-                    <div className="dumalo"></div>
-                    <h2>
-                      {state === "ru" ? "Кожаные сиденья" : "Charm o'rindiqlar"}
-                    </h2>
-                  </div>
-                  <div className="dum">
-                    <div className="dumalo"></div>
-                    <h2>
-                      {state === "ru"
-                        ? "Навигационная система"
-                        : "Navigatsiya tizimi"}
-                    </h2>
-                  </div>
-                </div>
-                <div className="bv">
-                  <div className="dum">
-                    <div className="dumalo"></div>
-                    <h2>
-                      {state === "ru"
-                        ? "Камера заднего вида"
-                        : "Orqa ko'rinish kamerasi"}
-                    </h2>
-                  </div>
-                  <div className="dum">
-                    <div className="dumalo"></div>
-                    <h2>
-                      {state === "ru"
-                        ? "Боковые подушки безопасности"
-                        : "Yon xavfsizlik yostiqchalari"}
-                    </h2>
-                  </div>
-                  <div className="dum">
-                    <div className="dumalo"></div>
-                    <h2>
-                      {state === "ru"
-                        ? "Контроль тяги"
-                        : "Traktsiyani nazorat qilish"}
-                    </h2>
-                  </div>
-                </div>
-              </div>
+              <Team/>
             </div>
 
             <div className="ypn">
@@ -642,7 +554,7 @@ export default function Bmw8() {
               <div className="maky">
                 <table style={{ width: "100%", paddingTop: "30px" }}>
                   <tr className="maky1">
-                    <th>{state === "ru" ? "Создатель:" : "Yaratuvchi:"}</th>
+                    <th>{state === "ru" ? "Марка:" : "Brend:"}</th>
                     <td>{data.position.series.model.name}</td>
                   </tr>
                   <tr className="maky1">

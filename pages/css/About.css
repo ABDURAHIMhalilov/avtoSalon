@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: space-between;
   overflow: hidden;
+  padding-top: 130px !important;
 }
 .bank{
   width: 300px;
@@ -36,7 +37,7 @@
 .about_border {
   width: 70%;
   margin: 30px 0;
-  border-left: 4px solid #ff6505;
+  border-left: 4px solid #0e7c7b;
   color: #6f6f6f;
   padding: 10px;
   padding-left: 20px;
@@ -160,6 +161,7 @@
   text-align: center;
   margin-top: 5%;
   border-radius: 20px;
+  margin-top: 150px !important;
 }
 .question_body {
   width: 800px;

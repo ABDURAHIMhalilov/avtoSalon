@@ -1,7 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
-import logo from "../images/logotip.png";
+import logo from "../images/logobmw.png";
+import uzb from "../images/[removal.ai]_tmp-64abfa5fc8358.png";
+import rus from "../images/depositphotos_242484092-stock-video-animated-russian-flag-on-the_1_-removebg-preview.png";
 import { AiOutlineUser } from "react-icons/ai";
 import { HiUsers } from "react-icons/hi";
 import { BiMenuAltLeft } from "react-icons/bi";
@@ -91,7 +93,7 @@ export default function Navbar() {
         </div>
         <div className="a_box">
           <h3 onClick={()=>{window.location="/js/OurTeam"}} href="/js/OurTeam" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
-            {state === "ru" ? "трейд-ин " : "Trade-in"}
+            {state === "ru" ? "Trade-in " : "Trade-in"}
           </h3>
         </div>
 
@@ -101,23 +103,23 @@ export default function Navbar() {
           </h3>
         </div>
         <div onClick={()=>{window.location.reload()}} className="perevod2">
-          <img
+          <Image
             onClick={() => {
               localStorage.setItem("lang", "uz");
             }}
             id="per"
             style={{ width: "50px" }}
-            src="https://st4.depositphotos.com/8804418/21485/v/600/depositphotos_214857244-stock-illustration-uzbekistan-flag-glass-button-vector.jpg"
+            src={uzb}
             alt=""
           />
 
-          <img
+          <Image
             onClick={() => {
               localStorage.setItem("lang", "ru");
             }}
             id="pere"
             style={{ width: "100px" }}
-            src="https://st4.depositphotos.com/15822962/24248/v/600/depositphotos_242484092-stock-video-animated-russian-flag-on-the.jpg"
+            src={rus}
             alt=""
           />
           {user ? (
@@ -224,7 +226,7 @@ export default function Navbar() {
           className="a_fff"
           style={{ cursor: "pointer" }}
         >
-          {state === "ru" ? "трейд-ин " : "Trade-in"}
+          {state === "ru" ? "Trade-in " : "Trade-in"}
         </h3>
 
         <h3
@@ -294,24 +296,27 @@ export default function Navbar() {
               </div>
             </div></div>) : (<>&nbsp;</>)}
       <div  onClick={()=>{window.location.reload()}} className="perevod" id="til" >
-        <img
+        <Image
           onClick={() => {
             localStorage.setItem("lang", "uz");
           }}
           id="per"
-          style={{ width: "35px", cursor: "pointer" }}
-          src="https://st4.depositphotos.com/8804418/21485/v/600/depositphotos_214857244-stock-illustration-uzbekistan-flag-glass-button-vector.jpg"
+          style={{ width: "35px", cursor: "pointer",borderRadius: "50%" }}
+          src={uzb}
           alt=""
         />
-        <img
+        <div className="perediv">
+        <Image
           onClick={() => {
             localStorage.setItem("lang", "ru");
             window.location.reload()
           }}
           id="pere"
           style={{ width: "71px", cursor: "pointer" }}
-          src="https://st4.depositphotos.com/15822962/24248/v/600/depositphotos_242484092-stock-video-animated-russian-flag-on-the.jpg"
+          src={rus}
           alt=""/></div>
+          </div>
+          
         
             </div>
   );

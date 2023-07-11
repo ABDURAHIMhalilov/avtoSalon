@@ -1,6 +1,6 @@
 .HomeHeader {
     width: 100%;
-    height: 630px;
+    height: 770px;
     background: #0f141e;
     display: flex;
     justify-content: space-evenly;    
@@ -9,11 +9,12 @@
     flex-wrap: wrap;
     padding-bottom: 20px;
     margin-bottom: 200px;
-    padding-top: 60px;
+    padding-top: 140px;
+    padding-right: 40px;
 }
 .positionImg {
     position: absolute;
-    top: -70px;
+    top: 70px;
     left: 0;
     width: 100%;
     height: 700px;
@@ -26,25 +27,30 @@
 }
 .cardHeader2 h1 {
     text-align: center;
+    margin-bottom: 15px !important;
 }
 @media(max-width: 1242px) {
-    .cardHeader h1{
+    /* .cardHeader h1{
         font-size: 50px !important;
-    }
+    } */
     .cardHeader2 {
         width: 80%;
     }
-    .HomeHeader {
-        padding-top: 30px;
-    }
+    
     /* .cardHeader p { */
         /* font-size: 20px; */
     /* } */
 }
-@media(max-width: 1200px) {
+@media(max-width: 1239px) {
     .cardHeader{
         width: 80% !important;
         margin: auto;
+    }
+    .HomeHeader{
+        padding-right: 0px !important;
+    }
+    .cardHeader{
+        text-align: center;
     }
     .cardHeader button{
         margin-left: 20%;
@@ -59,7 +65,7 @@
     }
     .HomeHeader {
     width: 100%;
-    height: 840px;
+    height: 940px;
     background: #0f141e;
     display: flex;
     justify-content: space-evenly;    
@@ -71,7 +77,7 @@
 }
 .positionImg {
     position: absolute;
-    top: 40px;
+    top: 250px;
     left: 0;
     width: 100%;
     height: 700px;
@@ -88,8 +94,11 @@
         width: 96.4% !important;
     }
     .HomeHeader {
-        height: 800px !important;
+        height: 1000px !important;
         margin-bottom: 300px !important;
+    }
+    .positionImg{
+        top: 300px;
     }
 }
 
@@ -104,8 +113,11 @@
         /* height: 2vh !important; */
     }
     .HomeHeader {
-        height: 900px !important;
+        height: 1070px !important;
         /* margin-bottom: 250px !important; */
+    }
+    .positionIm{
+        display: none;
     }
 }
 
@@ -135,6 +147,9 @@
         width: 100% !important;
         margin-left: 2% !important;
     }
+    #carImg2{
+        margin-top: 80px !important;
+    }
 }
 
 @media(max-width: 399px){
@@ -163,9 +178,13 @@
     .HomeHeader {
         margin-bottom: 170px !important;
     }
+    .carImg{
+        width: 400px !important;
+    /* height: 420px !important; */
+    }
 }
 
-/* @media(max-width: 425px){
+/* @media(max-width: смсм                                                          425px){
     .HomeHeader {
         height: 900px !important;
         box-shadow: inset 0 0 10px blue;
@@ -202,6 +221,7 @@
     margin: auto;
     height: 40px;
     font-size: 20px;
+    margin-top: 15px;
 }
 .cardHeader p {
     width: 70%;
@@ -214,17 +234,18 @@
 }
 .carImg {
     width: 60%;
-    height: 300px;
-    background: url('../js/car-silver.png');
+    height: 450px;
+    background: url('../images/494434-removebg-preview.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
     z-index: 3;
     margin: auto;
     text-align: center;
+    /* margin-top: 40px !important; */
 }
 #carImg2 {
-    margin-top: 100px;
+    margin-top: 0px;
     margin-bottom: 140px !important;
 }
 .headerBody1 {
@@ -241,7 +262,7 @@
 }
 
 .headerBody>h1>span {
-    color: #ff6505
+    color: #0e7c7b;
 }
 
 .header_box {
@@ -254,7 +275,7 @@
 }
 
 .headerSelect:focus {
-    border: 1px solid #ff6505 !important;
+    border: 1px solid #0e7c7b !important;
 }
 
 .header_btn {
@@ -263,7 +284,7 @@
 }
 
 .headerSelect option:hover option {
-    color: #ff6505;
+    color: #0e7c7b;
 }
 .kotta {
     width: 80%;

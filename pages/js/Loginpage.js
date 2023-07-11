@@ -348,7 +348,7 @@ export default function Loginpage() {
                 <button
                   style={
                     data === 3
-                      ? { background: "#ff4605", color: "white" }
+                      ? { background: "#0e7c7b", color: "white" }
                       : { background: "white", color: "black" }
                   }
                   onClick={() => {
@@ -362,7 +362,7 @@ export default function Loginpage() {
                 <button
                   style={
                     data === 1
-                      ? { background: "#ff4605", color: "white" }
+                      ? { background: "#0e7c7b", color: "white" }
                       : { background: "white", color: "black" }
                   }
                   onClick={() => {
@@ -407,7 +407,7 @@ export default function Loginpage() {
               <button
                 style={
                   data === 1
-                    ? { background: "#ff4605", color: "white" }
+                    ? { background: "#0e7c7b", color: "white" }
                     : { background: "white", color: "black" }
                 }
                 onClick={() => {
@@ -422,7 +422,7 @@ export default function Loginpage() {
               <button
                 style={
                   data === 2
-                    ? { background: "#ff4605", color: "white" }
+                    ? { background: "#0e7c7b", color: "white" }
                     : { background: "white", color: "black" }
                 }
                 onClick={() => {
@@ -434,7 +434,7 @@ export default function Loginpage() {
               <button
                 style={
                   data === 4
-                    ? { background: "#ff4605", color: "white" }
+                    ? { background: "#0e7c7b", color: "white" }
                     : { background: "white", color: "black" }
                 }
                 onClick={() => {

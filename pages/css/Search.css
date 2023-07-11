@@ -3,6 +3,7 @@
     padding: 20px 10vw;
     background-color: #f2f5fb;
     display: flex;
+    padding-top: 130px !important;
 }
 *{
     box-sizing: border-box;
@@ -24,7 +25,7 @@
     
 }
 .css-1kz0k3h.Mui-selected{
-    background-color: #ff6505 !important;
+    background-color: #0e7c7b !important;
 }
 .inpsearch {
     width: 260px;
@@ -154,7 +155,7 @@
     height: 50px;
     color: #fff;
     border: none;
-    background-color: #ff6505;
+    background-color: #0e7c7b;
     border-radius: 5px;
     position: fixed;
     bottom: 10px;
@@ -163,8 +164,8 @@
 
 .btnSearch:hover {
     background-color: #fff;
-    color: #ff6505;
-    border: 1px solid #ff6505;
+    color: #0e7c7b;
+    border: 1px solid #0e7c7b;
 }
 
 .search_body {
@@ -209,11 +210,12 @@
     margin: 0 12px;
     box-shadow: 0 0 10px #99a1b2;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 .sa{
-    text-shadow: -1px 2px red;
+    text-shadow: -1px 2px #9cfffa;
     position: relative;
-    color: white;
+    color: black;
     z-index: 10;
     font-size: 20px;
 }
@@ -255,11 +257,11 @@
     font-size: 22px;
     font-weight: 900;
     text-align: right;
-    color: #ff4605;
+    color: #0e7c7b;
 }
 
 .featCard_year {
-    background-color: #ff4605;
+    background-color: #0e7c7b;
     padding: 5px 10px;
     border-radius: 5px;
     color: #fff !important;
@@ -322,11 +324,11 @@
 }
 
 .css-19micn4-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
-    background-color: #ff6505 !important;
+    background-color: #0e7c7b !important;
 }
 
 .css-19micn4-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected:hover {
-    background-color: #ff6505 !important;
+    background-color: #0e7c7b !important;
 }
 .css-1oj2twp-MuiPagination-root {
     display: flex !important;
@@ -540,12 +542,11 @@ line-height:0px;
 @media(max-width:1049px){
     .inp10{
         margin-left: 40px;
+        
     }
 }
 
-body {
-    background: #ccc;
-    }
+
     
     /* ----- White Block ---------------------------------------*/ 
         #corner-ribbon > div {
@@ -560,6 +561,7 @@ body {
             top                : 50px;
             left               : 50%;
         margin-left        : -100px;
+        
     
     }
     
@@ -586,7 +588,7 @@ body {
             position              : absolute;
             right                 : 86px;
     
-            background: #852b07; /* Old browsers */
+            background: #0e7c7b; /* Old browsers */
             /* IE9 SVG, needs conditional override of 'filter' to 'none' */
             
     
@@ -604,7 +606,7 @@ body {
             right                 : 0px;
             top                   : 85px;
     
-            background: #852b07; /* Old browsers */
+            background: #0e7c7b; /* Old browsers */
             /* IE9 SVG, needs conditional override of 'filter' to 'none' */
             /* background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSI1NSUiIHN0b3AtY29sb3I9IiMwZjMzMGEiIHN0b3Atb3BhY2l0eT0iMSIvPgogICAgPHN0b3Agb2Zmc2V0PSI5OSUiIHN0b3AtY29sb3I9IiMwMDhhM2IiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+); */
             
@@ -626,17 +628,17 @@ body {
             -moz-transform     :rotate(45deg); /* Firefox */
             -webkit-transform  :rotate(45deg); /* Safari and Chrome */
             -o-transform       :rotate(45deg); /* Opera */
-            box-shadow         : inset 0px 0px 0px 3px#ff4605,inset 0px 0px 0px 4px rgba(0,0,0,0.5),inset 0px 0px 0px 5px rgba(255,255,255,0.4), 0px 21px 5px -18px rgba(0,0,0,0.8); 
-            -webkit-box-shadow : inset 0px 0px 0px 3px#ff4605,inset 0px 0px 0px 4px rgba(0,0,0,0.5),inset 0px 0px 0px 5px rgba(255,255,255,0.4), 0px 21px 5px -18px rgba(0,0,0,0.8);
+            box-shadow         : inset 0px 0px 0px 3px#0e7c7b,inset 0px 0px 0px 4px rgba(0,0,0,0.5),inset 0px 0px 0px 5px rgba(255,255,255,0.4), 0px 21px 5px -18px rgba(0,0,0,0.8); 
+            -webkit-box-shadow : inset 0px 0px 0px 3px#0e7c7b,inset 0px 0px 0px 4px rgba(0,0,0,0.5),inset 0px 0px 0px 5px rgba(255,255,255,0.4), 0px 21px 5px -18px rgba(0,0,0,0.8);
                         
-            background:#ff4605; /* Old browsers */
+            background:#0e7c7b; /* Old browsers */
             /* IE9 SVG, needs conditional override of 'filter' to 'none' */
-            background: -moz-linear-gradient(left,  #ff4605,1 0%, rgba(0,138,59,1) 51%, #ff6505 100%); /* FF3.6+ */
-            background: -webkit-gradient(linear, left top, right top, color-stop(0%,#ff4605,1), color-stop(51%,rgba(0,138,59,1)), color-stop(100%,#ff6505)); /* Chrome,Safari4+ */
-            background: -webkit-linear-gradient(left,  #ff4605,1 0%,rgba(0,138,59,1) 51%,#ff6505 100%); /* Chrome10+,Safari5.1+ */
-            background: -o-linear-gradient(left,  #ff4605,1 0%,rgba(0,138,59,1) 51%,#ff6505 100%); /* Opera 11.10+ */
-            background: -ms-linear-gradient(left,  #ff4605,1 0%,rgba(0,138,59,1) 51%,#ff6505 100%); /* IE10+ */
-            background: linear-gradient(to right,  #ff4605,1 0%,rgba(0,138,59,1) 51%,#ff6505 100%); /* W3C */
+            background: -moz-linear-gradient(left,  #0e7c7b,1 0%, rgba(0,138,59,1) 51%, #0e7c7b 100%); /* FF3.6+ */
+            background: -webkit-gradient(linear, left top, right top, color-stop(0%,#0e7c7b,1), color-stop(51%,rgba(0,138,59,1)), color-stop(100%,#0e7c7b)); /* Chrome,Safari4+ */
+            background: -webkit-linear-gradient(left,  #0e7c7b,1 0%,rgba(0,138,59,1) 51%,#0e7c7b 100%); /* Chrome10+,Safari5.1+ */
+            background: -o-linear-gradient(left,  #0e7c7b,1 0%,rgba(0,138,59,1) 51%,#0e7c7b 100%); /* Opera 11.10+ */
+            background: -ms-linear-gradient(left,  #0e7c7b,1 0%,rgba(0,138,59,1) 51%,#0e7c7b 100%); /* IE10+ */
+            background: linear-gradient(to right,  #0e7c7b,1 0%,rgba(0,138,59,1) 51%,#0e7c7b 100%); /* W3C */
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00722d', endColorstr='#00561c',GradientType=1 ); /* IE6-8 */
             display: flex;
             justify-content: center;

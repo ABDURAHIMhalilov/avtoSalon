@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 import Image from "next/image";
 // import "../css/Home.css";
 import "../css/Home.css";
@@ -113,7 +114,7 @@ export default function Home() {
                 <br />
                 <div className="positionImg"></div>
                 <div className="cardHeader">
-                  <h1>Eng yaxshi Mashina. Eng yaxshi narx. </h1>
+                  <h1>Eng yaxshi mashina. Eng yaxshi narx. </h1>
                   <p>
                   Avto sotish va sotib olish uchun qulay servis
                   </p>
@@ -205,22 +206,22 @@ export default function Home() {
                 <h1>Nima uchun bizni tanlaysiz?</h1>
                 <div className="ushta">
                   <div className="bir">
-                    <WiDayStormShowers className="bxs-balloon" />
-                    <h2>Baracar yuksak sifati.</h2>
+                    <img className="bxs-balloon" src="https://images.ctfassets.net/6x2h5ns7uwip/2YKwoOLA5dbMWb4HwlqARk/bb90de23a382bee4545fef1c5ab5ae0b/CRM_icons_90-day_warranty_35px.png?w=74&h=73&fit=fill&f=center&fm=webp" alt="" />
+                    <h2>Baracar yuksak sifati</h2>
                     <h4>
                     Har bir avtomobil 168 punkt bo’yicha sinovdan o'tkaziladi va to'liq avtomashina tarixi va texnik xizmat ko'rsatish tarixiga ega.
                     </h4>
                   </div>
                   <div className="bir">
-                    <WiDayStormShowers className="bxs-balloon" />
+                    <img className="bxs-balloon" src="https://images.ctfassets.net/6x2h5ns7uwip/2YKwoOLA5dbMWb4HwlqARk/bb90de23a382bee4545fef1c5ab5ae0b/CRM_icons_90-day_warranty_35px.png?w=74&h=73&fit=fill&f=center&fm=webp" alt="" />
                     <h2>Qulay avtokredit</h2>
                     <h4>
                     Biz Tenge Bank bilan hamkorlikda avtokredit uchun eng qulay va foydali shartlarni taklif etamiz.
                     </h4>
                   </div>
                   <div className="bir">
-                    <WiDayStormShowers className="bxs-balloon" />
-                    <h2>30 kunlik kafolat.</h2>
+                    <img className="bxs-balloon" src="https://images.ctfassets.net/6x2h5ns7uwip/2YKwoOLA5dbMWb4HwlqARk/bb90de23a382bee4545fef1c5ab5ae0b/CRM_icons_90-day_warranty_35px.png?w=74&h=73&fit=fill&f=center&fm=webp" alt="" />
+                    <h2>30 kunlik kafolat</h2>
                     <h4>
                     Avtosalonimizdagi har bir avtomobil 30 kunlik kafolat ostida to'liq xizmat ko’rsatishga ega.
                     </h4>
@@ -240,9 +241,6 @@ export default function Home() {
                   <p>
                   Удобный сервис по покупке и продаже авто. 
                   </p>
-                  <a href="js/About">
-                    <button> О нас </button>
-                  </a>
                 </div>
                 <div className="cardHeader2">
                   <h1>Выберите тип машины</h1>
@@ -426,14 +424,14 @@ export default function Home() {
                         data-name="Path 211"
                         d="M14227.891-17798.156c.049-.1,1.166.375,2.176,3.344a23.225,23.225,0,0,1,.9,4.076c0-.068-5.548,0-5.548,0S14219.066-17798.758,14227.891-17798.156Z"
                         transform="translate(-14071.219 17822.395)"
-                        fill="#ff4605"
+                        fill="#0e7c7b"
                       ></path>
                       <path
                         id="Path_212"
                         data-name="Path 212"
                         d="M14226.857-17795.76c-.061-.1-4.7,1.8-5.48,5.779,0-.066,10.9,0,10.9,0S14238.238-17798.965,14226.857-17795.76Z"
                         transform="translate(-14216.396 17821.074)"
-                        fill="#ff4605"
+                        fill="#0e7c7b"
                       ></path>
 
                       <path
@@ -456,22 +454,22 @@ export default function Home() {
                 <h1>Почему выбрали нас?</h1>
                 <div className="ushta">
                   <div className="bir">
-                    <WiDayStormShowers className="bxs-balloon" />
-                    <h2>Тотальное качество Baracar. </h2>
+                    <img className="bxs-balloon" src="https://images.ctfassets.net/6x2h5ns7uwip/2YKwoOLA5dbMWb4HwlqARk/bb90de23a382bee4545fef1c5ab5ae0b/CRM_icons_90-day_warranty_35px.png?w=74&h=73&fit=fill&f=center&fm=webp" alt="" />
+                    <h2>Тотальное качество Baracar </h2>
                     <h4>
                     Каждая машина на Baracar проходит проверку по 168 пунктам и имеет полную историю автомобиля, а также историю технического обслуживания. 
                     </h4>
                   </div>
                   <div className="bir">
-                    <WiDayStormShowers className="bxs-balloon" />
-                    <h2>Выгодный автокредит. </h2>
+                    <img className="bxs-balloon" src="https://images.ctfassets.net/6x2h5ns7uwip/2YKwoOLA5dbMWb4HwlqARk/bb90de23a382bee4545fef1c5ab5ae0b/CRM_icons_90-day_warranty_35px.png?w=74&h=73&fit=fill&f=center&fm=webp" alt="" />
+                    <h2>Выгодный автокредит</h2>
                     <h4>
                     Мы, в партнерстве с Tenge Bank, предлагаем самые удобные, а также самые выгодные условия по автокредиту. 
                     </h4>
                   </div>
                   <div className="bir">
-                    <WiDayStormShowers className="bxs-balloon" />
-                    <h2>30-дневная гарантия. </h2>
+                    <img className="bxs-balloon" src="https://images.ctfassets.net/6x2h5ns7uwip/2YKwoOLA5dbMWb4HwlqARk/bb90de23a382bee4545fef1c5ab5ae0b/CRM_icons_90-day_warranty_35px.png?w=74&h=73&fit=fill&f=center&fm=webp" alt="" />
+                    <h2>30-дневная гарантия </h2>
                     <h4>
                     Каждый автомобиль в нашем автосалоне имеет гарантию минимум 30 дней на полное обслуживание ходовой части по гарантии. 
                     </h4>
@@ -540,6 +538,7 @@ export default function Home() {
           </svg>
         </div>
       )}
+      <Footer/>
     </div>
   );
 }

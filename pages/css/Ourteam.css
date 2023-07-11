@@ -42,3 +42,9 @@
         height: 300px !important;
     }
 }
+.about_images {
+    margin-bottom: 50px;
+}
+.gray1{
+    background: #ccc;
+}

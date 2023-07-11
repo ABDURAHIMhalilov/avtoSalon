@@ -32,7 +32,7 @@ export default function About() {
     );
   }, []);
   return (
-    <div>
+    <div className="gray1">
       <Navbar />
       <div className="about">
         <div className="about_left">

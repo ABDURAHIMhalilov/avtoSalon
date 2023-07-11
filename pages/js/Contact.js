@@ -116,7 +116,7 @@ window.location.reload()
               <span className="checkmark"></span>
             </label>
             <button onClick={()=>{dataPost()}} className="contact_btn">
-              {state === "ru" ? "Отправлять" : "yuborish"}
+              {state === "ru" ? "отправить" : "yuborish"}
             </button>
           </div>
         </div>

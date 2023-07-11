@@ -28,6 +28,8 @@
 
 .form {
     width: 600px;
+    padding-top: 130px;
+    margin-bottom: 50px;
 }
 
 .asos_form {
@@ -309,7 +311,7 @@
 .login button {
     width: 170px;
     height: 50px;
-    background-color: #ff4605;
+    background-color: #0e7c7b;
     font-size: 17px;
     margin-top: 40px;
     border-radius: 10px;
@@ -320,7 +322,7 @@ input[type="checkbox"] {
 }
 
 #cb1 {
-    accent-color: #ff4605;
+    accent-color: #0e7c7b;
     border: none;
 }
 
@@ -335,7 +337,7 @@ input[type="checkbox"] {
 }
 
 .forgot:hover {
-    color: #ff4605;
+    color: #0e7c7b;
 }
 
 .forgot {
@@ -343,14 +345,14 @@ input[type="checkbox"] {
 }
 
 .privacy {
-    color: #ff4605;
+    color: #0e7c7b;
     margin-left: 8px;
 }
 
 .registratsiya button {
     /* width: 120px; */
     height: 50px;
-    background-color: #ff4605;
+    background-color: #0e7c7b;
     font-size: 17px;
     margin-top: 30px;
     border-radius: 10px;

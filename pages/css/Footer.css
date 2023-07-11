@@ -1,12 +1,12 @@
 .footer {
   width: 100%;
   height: auto;
-  background-color: black;
+  background-color: #0f141e;
   padding-bottom: 60px;
 }
 
 .privacy a {
-  color: #ff4505;
+  color: #0e7c7b;
 }
 
 .footer_body {
@@ -24,16 +24,17 @@
   transition: .2s;
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .li span {
-  color: #ff6505;
+  color: #0e7c7b;
   font-size: 20px;
   margin-right: 10px;
 }
 
 .li:hover {
-  color: #ff6505;
+  color: #0e7c7b;
 }
 
 .footer_info {
@@ -62,7 +63,7 @@
 }
 
 .f_right_right>h2>span {
-  color: #ff6505;
+  color: #0e7c7b;
 }
 
 .ff {

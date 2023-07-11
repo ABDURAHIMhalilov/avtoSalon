@@ -108,7 +108,7 @@ export default function Login() {
               style={
                 data === 1
                   ? {
-                      background: "#ff4605",
+                      background: "#0e7c7b",
                       border: "1px solid gray;",
                       color: "white",
                     }
@@ -124,7 +124,7 @@ export default function Login() {
               style={
                 data === 2
                   ? {
-                      background: "#ff4605",
+                      background: "#0e7c7b",
                       border: "10px solid gray ;",
                       color: "white",
                     }

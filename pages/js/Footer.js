@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import logo from "../images/logotip.png"
+import logo from "../images/logobmw.png"
 import "../css/Footer.css";
 import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
@@ -29,25 +29,25 @@ export default function Footer() {
               <div className="footer_right">
                 <div className="right_left">
                   <div className="ul ul2">
-                    <a href="#" className="li">
-                      <span>•</span> Yangilanish
+                    <a style={{ cursor: "pointer" }} onClick={() =>{window.location="/"}} className="li">
+                      <span>•</span> Bosh sahifa
                     </a>
-                    <a href="#" className="li">
-                      <span>•</span> FAQ
+                    <a style={{ cursor: "pointer" }} onClick={() =>{window.location="/js/Search"}}  className="li">
+                      <span>•</span> Qidiruv
                     </a>
-                    <a href="#" className="li">
-                      <span>•</span> Yangilanish
+                    <a style={{ cursor: "pointer" }} onClick={() =>{window.location="/js/About"}} className="li">
+                      <span>•</span> Avtokredit
                     </a>
                   </div>
                   <div className="ul">
-                    <a href="#" className="li">
-                      <span>•</span> Yangilanish
+                    <a style={{ cursor: "pointer" }} onClick={() =>{window.location="/js/OurTeam"}}  className="li">
+                      <span>•</span> Trade-in
                     </a>
-                    <a href="#" className="li">
+                    <a style={{ cursor: "pointer" }}  onClick={() =>{window.location="/js/Contact"}} className="li">
+                      <span>•</span> Bog'lanish
+                    </a>
+                    <a style={{ cursor: "pointer" }} onClick={() =>{window.location="/js/Faq"}} className="li">
                       <span>•</span> FAQ
-                    </a>
-                    <a href="#" className="li">
-                      <span>•</span> Yangilanish
                     </a>
                   </div>
                 </div>
@@ -70,12 +70,12 @@ export default function Footer() {
             </div>
             <div className="f_bot">
               <div className="a_box a">
-                <a
+                <a 
                   onClick={() => {
                     window.location = "/";
                   }}
                   className="a_fff f_mobile"
-                  style={{ cursor: "pointer" }}
+                  style={{ cursor: "pointer" }} 
                 >
                   Bosh sahifa
                 </a>
@@ -124,6 +124,17 @@ export default function Footer() {
                   Bog'lanish
                 </h3>
               </div>
+              <div className="a_box a">
+                <h3
+                  onClick={() => {
+                    window.location = "/js/Faq";
+                  }}
+                  className="a_fff f_mobile"
+                  style={{ cursor: "pointer" }}
+                >
+                  FAQ
+                </h3>
+              </div>
             </div>
           </div>
           <div className="footer_bottom">
@@ -154,25 +165,25 @@ export default function Footer() {
               <div className="footer_right">
                 <div className="right_left">
                   <div className="ul ul2">
-                    <a href="#" className="li">
-                      <span>•</span> Объявления
+                    <a style={{ cursor: "pointer" }} onClick={() =>{window.location="/"}}  className="li">
+                      <span>•</span> Главная
                     </a>
-                    <a href="#" className="li">
-                      <span>•</span> FAQ
+                    <a style={{ cursor: "pointer" }} onClick={() =>{window.location="/js/Search"}} className="li">
+                      <span>•</span> Поиск
                     </a>
-                    <a href="#" className="li">
-                      <span>•</span> Объявления
+                    <a style={{ cursor: "pointer" }} onClick={() =>{window.location="/js/About"}}  className="li">
+                      <span>•</span> Автокредит
                     </a>
                   </div>
                   <div className="ul">
-                    <a href="#" className="li">
-                      <span>•</span> Объявления
+                    <a style={{ cursor: "pointer" }} onClick={() =>{window.location="/js/OurTeam"}}  className="li">
+                      <span>•</span> Trade-in
                     </a>
-                    <a href="#" className="li">
+                    <a style={{ cursor: "pointer" }} onClick={() =>{window.location="/js/Contact"}} className="li">
+                      <span>•</span> Cвязь
+                    </a>
+                    <a style={{ cursor: "pointer" }} onClick={() =>{window.location="/js/Faq"}}  className="li">
                       <span>•</span> FAQ
-                    </a>
-                    <a href="#" className="li">
-                      <span>•</span> Объявления
                     </a>
                   </div>
                 </div>
@@ -242,6 +253,16 @@ export default function Footer() {
                   style={{ cursor: "pointer" }}
                 >
                   Связь
+                </h3>
+              </div>
+              <div className="a_box a">
+                <h3
+                  href="#"
+                  className="a_fff f_mobile"
+                  onClick={() => {window.location = "/js/Faq"}}
+                  style={{ cursor: "pointer" }}
+                >
+                  FAQ
                 </h3>
               </div>
             </div>

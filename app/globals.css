@@ -30,14 +30,14 @@
   color: #ebebeb;
 }
 .a_fff:hover {
-  color: #ff6505;
+  color: #0e7c7b;
 }
 
 :root {
   --text-color: #fff;
   --shadow-color: hsla(210, 40%, 52%, .4);
-  --btn-color: #ff6505;
-  --bg-color: #ff6505;
+  --btn-color: #0e7c7b;
+  --bg-color: #0e7c7b;
 }
 
 * {
@@ -47,7 +47,7 @@ button {
   position: relative;
   overflow: hidden;
   cursor: pointer;
-  background-color: #ff6505;
+  background-color: #0e7c7b;
   border: none;
   padding: 0 15px;
   border-radius: 5px;

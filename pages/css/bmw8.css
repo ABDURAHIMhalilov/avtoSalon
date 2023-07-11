@@ -174,14 +174,14 @@
   display: flex;
   justify-content: space-around;
   width: 35%;
-  color: #ff4605;
+  color: #0e7c7b;
 }
 .l2 {
   display: flex;
   justify-content: space-around;
   width: 35%;
   min-width: 190px;
-  color: #ff4605;
+  color: #0e7c7b;
 }
 .df10 {
   display: flex;
@@ -209,6 +209,9 @@
 @media (max-width: 1300px) {
   .dffd {
     width: 100%;
+  }
+  .bir{
+    width: 300px !important;
   }
   #s2img1 {
     height: 600px !important;
@@ -340,6 +343,7 @@
   align-items: start;
   width: 100%;
   padding: 15px;
+  padding-top: 130px !important;
 }
 
 .assaa {
@@ -347,7 +351,7 @@
 }
 
 .dollars h1 {
-  color: #ff4605;
+  color: #0e7c7b;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 40px;
   line-height: 44px;
@@ -362,11 +366,11 @@
   /* top: 3px; */
 }
 .dollars p:hover {
-  color: #ff4605;
+  color: #0e7c7b;
 }
 
 .dollars1 h1 {
-  color: #ff4605;
+  color: #0e7c7b;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-size: 40px;
   line-height: 44px;
@@ -384,7 +388,7 @@
   /* top: 3px; */
 }
 .dollars1 p:hover {
-  color: #ff4605;
+  color: #0e7c7b;
 }
 
 .mk {
@@ -436,7 +440,7 @@
   width: 100%;
   height: 50px;
   font-size: 20px;
-  border: 1px solid #ff4605;
+  border: 1px solid #0e7c7b;
   background-color: #fff !important;
   color: #000;
   border-radius: 10px;
@@ -446,7 +450,7 @@
   width: 100%;
   height: 50px;
   font-size: 20px;
-  background-color: #05cd51 !important;
+  background-color: #0e7c7b !important;
   border-radius: 10px;
   margin-top: 20px;
 }
@@ -459,11 +463,11 @@
 }
 
 .byt:hover {
-  color: #ff4605;
+  color: #0e7c7b;
   background-color: #ff480530 !important;
 }
 .byt span {
-  color: #ff4605;
+  color: #0e7c7b;
   position: relative;
   top: 3px;
   right: 5px;
@@ -504,7 +508,7 @@
 }
 .bloksoz h4 {
   text-decoration: underline;
-  color: #ff4605;
+  color: #0e7c7b;
   cursor: pointer;
 }
 
@@ -569,7 +573,7 @@
     background-color: #fff;
     width: 90% !important;
     margin-left: 5% !important;
-    border: 1px solid #ff4605;
+    border: 1px solid #0e7c7b;
     border-radius: 10px;
     min-height: 50px;
     font-size: 17px !important;
@@ -634,9 +638,9 @@
   width: 170px;
   height: 50px;
   background-color: #fff;
-  border: 1px solid #ff4605;
+  border: 1px solid #0e7c7b;
   border-radius: 10px;
-  color: #ff4605;
+  color: #0e7c7b;
   font-size: 16px;
   margin-top: 20px;
 }
@@ -663,7 +667,7 @@
   font-size: 18px;
 }
 .but1 span {
-  color: #ff4605;
+  color: #0e7c7b;
 }
 .but2 {
   width: 220px;
@@ -674,7 +678,7 @@
   font-size: 18px;
 }
 .but2 span {
-  color: #ff4605;
+  color: #0e7c7b;
 }
 .but3 {
   width: 210px;
@@ -685,7 +689,7 @@
   font-size: 18px;
 }
 .but3 span {
-  color: #ff4605;
+  color: #0e7c7b;
 }
 .but4 {
   width: 260px;
@@ -696,7 +700,7 @@
   font-size: 18px;
 }
 .but4 span {
-  color: #ff4605;
+  color: #0e7c7b;
 }
 .but5 {
   width: 220px;
@@ -707,7 +711,7 @@
   font-size: 18px;
 }
 .but5 span {
-  color: #ff4605;
+  color: #0e7c7b;
 }
 .butt button {
   margin-left: 10px;
@@ -813,7 +817,7 @@
 .dumalo {
   width: 12px;
   height: 12px;
-  background-color: #ff4605;
+  background-color: #0e7c7b;
   border-radius: 50%;
   margin-top: 5px;
 }
@@ -919,7 +923,7 @@
   color: #ff4805;
 }
 .c1 span {
-  color: #ff4605;
+  color: #0e7c7b;
   padding-right: 7px;
 }
 .c1 h2 {
@@ -941,7 +945,7 @@
   height: 100px;
   font-size: 20px;
   border-radius: 12px;
-  background-color: #ff4605;
+  background-color: #0e7c7b;
 }
 .buy {
   display: flex;
@@ -977,7 +981,7 @@
   padding-bottom: 30px;
 }
 .carf2 span {
-  color: #ff4605;
+  color: #0e7c7b;
   padding-right: 7px;
   margin-top: 5px;
 }
@@ -986,7 +990,7 @@
   margin-left: 10%;
 }
 .carf2 button:hover {
-  color: #ff4605;
+  color: #0e7c7b;
   background-color: #ff7d4e59;
 }
 .carf2 button {
@@ -994,7 +998,7 @@
   background-color: #fff;
   width: 80%;
   margin-left: 10%;
-  border: 1px solid #ff4605;
+  border: 1px solid #0e7c7b;
   border-radius: 10px;
   min-height: 50px;
   font-size: 20px;
@@ -1054,11 +1058,11 @@
   margin-top: 30px;
 }
 .vaa span {
-  color: #ff4605;
+  color: #0e7c7b;
   text-decoration: underline;
 }
 .nm span {
-  color: #ff4605;
+  color: #0e7c7b;
   text-decoration: underline;
 }
 .failly {
@@ -1073,7 +1077,7 @@
   font-size: 20px;
 }
 .sample p:hover {
-  color: #ff4605;
+  color: #0e7c7b;
   cursor: pointer;
 }
 .notes12 img {
@@ -1086,7 +1090,7 @@
   margin-top: 10px;
 }
 .notes12 p:hover {
-  color: #ff4605;
+  color: #0e7c7b;
   cursor: pointer;
 }
 
@@ -1231,7 +1235,7 @@ body{
 }
 .mnb2 {
   color: white;
-  background-color: #ff4605;
+  background-color: #0e7c7b;
   width: 60px;
   height: 30px;
   border-radius: 10px;
@@ -1828,4 +1832,36 @@ box-shadow: 0px 0px 10px 0px black;
 .icondiv{
   display: flex;
   align-items: center;
+}
+.input_card{
+  display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    width: 600px;
+}
+.cazoo input{
+  margin-top: 0px !important;
+}
+.cazoo img{
+  display: none !important;
+}
+.kotta{
+  text-align: center;
+}
+.bir h1{
+  font-size: 25px;
+}
+.bir h2{
+  font-size: 20px;
+}
+.bir h4{
+  font-size: 17px;
+}
+.bir{
+  width: auto;
+}
+@media(max-width:779px){
+  .bir{
+    width: auto !important;
+  }
 }
