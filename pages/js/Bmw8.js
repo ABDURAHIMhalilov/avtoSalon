@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import "../css/tradein.css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/free-mode";
@@ -375,14 +376,14 @@ export default function Bmw8() {
                       <tr className="maky1">
                         <th>
                           {state === "ru"
-                            ? "ТрансЦветная миссия:"
-                            : "Transcolor missiyasi:"}
+                            ? "Трансмиссия:"
+                            : "Transmissiya:"}
                         </th>
                         <td>{data.gearbox.name}</td>
                       </tr>
                       <tr className="maky1">
-                        <th>{state === "ru" ? "Положение дел:" : "Holat:"}</th>
-                        <td>{data.distance > 2 ? "NEW" : "B/Y"}</td>
+                      <th>{data.distance < 200 ?  state === "ru" ? "Состояние:" : "Holat:" :state=== "ru"? "Пройденный путь" : "Bosib o'tilgan masofa"}</th>
+                        <td>{data.distance < 200 ? state === "ru" ? "Новый" : "Yangi" : data.distance}</td>
                       </tr>
                       <tr className="maky1">
                         <th>{state === "ru" ? "Год:" : "Yil:"}</th>
@@ -402,10 +403,7 @@ export default function Bmw8() {
                         </th>
                         <td>{data.engine}L</td>
                       </tr>
-                      <tr className="maky1">
-                        <th>{state === "ru" ? "Цилиндры:" : "Silindrlar:"}</th>
-                        <td>4</td>
-                      </tr>
+                      
                       <tr className="maky1">
                         <th>{state === "ru" ? "ИД номер:" : "ID raqami:"}</th>
                         <td>{data.id}</td>
@@ -578,14 +576,14 @@ export default function Bmw8() {
                   <tr className="maky1">
                     <th>
                       {state === "ru"
-                        ? "ТрансЦветная миссия:"
-                        : "Transcolor missiyasi:"}
+                        ? "Трансмиссия:"
+                        : "Transmissiya:"}
                     </th>
                     <td>{data.gearbox.name}</td>
                   </tr>
                   <tr className="maky1">
-                    <th>{state === "ru" ? "Положение дел:" : "Holat:"}</th>
-                    <td>{data.distance > 2 ? "NEW" : "B/Y"}</td>
+                    <th>{data.distance < 200 ?  state === "ru" ? "Состояние:" : "Holat:" :state=== "ru"? "Пройденный путь" : "Bosib o'tilgan masofa"}</th>
+                    <td>{data.distance < 200 ? state === "ru" ? "Новый" : "Yangi" : data.distance}</td>
                   </tr>
                   <tr className="maky1">
                     <th>{state === "ru" ? "Год:" : "Yil:"}</th>
@@ -602,10 +600,6 @@ export default function Bmw8() {
                       {state === "ru" ? "Размер двигателя:" : "Dvigatel hajmi:"}
                     </th>
                     <td>{data.engine}L</td>
-                  </tr>
-                  <tr className="maky1">
-                    <th>{state === "ru" ? "Цилиндры:" : "Silindrlar:"}</th>
-                    <td>4</td>
                   </tr>
                   <tr className="maky1">
                     <th>{state === "ru" ? "ИД номер:" : "ID raqami:"}</th>

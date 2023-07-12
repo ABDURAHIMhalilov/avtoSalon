@@ -148,7 +148,7 @@
         margin-left: 2% !important;
     }
     #carImg2{
-        margin-top: 80px !important;
+        margin-top: 50px !important;
     }
 }
 
@@ -235,7 +235,7 @@
 .carImg {
     width: 60%;
     height: 450px;
-    background: url('../images/494434-removebg-preview.png');
+    background: url('../images/malibu-removebg-preview.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -393,9 +393,6 @@
         width: 100%;
         display: none;
     }
-    .swiper-slide {
-        width: 100% !important;
-    }
     #swiper2 {
         width: 100%;
         display: flex !important;
@@ -448,9 +445,7 @@
 
 /* #swiper2 .swiper-slide */
 
-#swiper2 .swiper-slide .swiper-button-next, .swiper-button-prev {
-    margin-left: -33px !important;
-}
+
 
 
 

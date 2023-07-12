@@ -114,13 +114,11 @@ export default function Home() {
                 <br />
                 <div className="positionImg"></div>
                 <div className="cardHeader">
-                  <h1>Eng yaxshi mashina. Eng yaxshi narx. </h1>
+                  <h1>Eng yaxshi avomobil Eng yaxshi narx </h1>
                   <p>
                   Avto sotish va sotib olish uchun qulay servis
                   </p>
-                  <a href="js/About">
-                    <button> Batafsil </button>
-                  </a>
+                  
                 </div>
                 <div className="cardHeader2">
                   <h1>Mashina turini tanlang</h1>

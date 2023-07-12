@@ -74,14 +74,14 @@
     position: absolute;
     top: 200px !important;
     margin-right: 10px !important; */
-    display: none !important;
+    display: flex !important;
 
 }
 
-.swiper-slide {
+.popular .swiper-slide {
     font-size: 18px;
     width: 600px;
-    height: 100% !important;
+    height: 480px !important;
     /* Center slide text vertically */
     display: flex;
     justify-content: center;

@@ -82,12 +82,12 @@ button::before {
 }
 
 
-.swiper-button-next:after, .swiper-rtl .swiper-button-prev:after {
+.popular .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after {
   width: 50px !important;
   height: 50px !important;
   position: absolute !important;
   bottom: -200px !important;
-  left: -73.5vw;
+  left: -80vw;
   background-color: #fff;
   border: 1px solid #000;
   display: flex;
@@ -97,7 +97,7 @@ button::before {
   font-size: 18px !important;
   color: #2c2c2c !important;
 }
-.swiper-button-next:after, .swiper-button-prev:after {
+.popular .swiper-button-next:after, .swiper-button-prev:after {
   width: 50px !important;
   height: 50px !important;
   position: absolute !important;
@@ -110,26 +110,30 @@ button::before {
   border-radius: 50%;
   font-size: 18px !important;
   color: #2c2c2c !important;
-  margin-left: 20px;
+  margin-left: 40px;
 }
-
-@media (max-width: 1460px) {
-  .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after {
-      left: -80vw !important;
-      margin-left: 20px !important;
-  }
-}
-@media (max-width: 850px) {
-  .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after {
-      left: -75vw !important;
-      margin-left: 20px !important;
+@media(max-width:1000px){
+  .popular .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after {
+    width: 50px !important;
+    height: 50px !important;
+    position: absolute !important;
+    bottom: -200px !important;
+    left: -75vw;
+    background-color: #fff;
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 18px !important;
+    color: #2c2c2c !important;
   }
 }
 @media (max-width: 600px) {
-  .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after {
-      left: -35vw !important;
+  .popular .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after {
+      left: -40vw !important;
   }
-  .swiper-button-next:after, .swiper-button-prev:after {
+  .popular .swiper-button-next:after, .swiper-button-prev:after {
       right: -30vw;
   }
 }

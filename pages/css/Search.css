@@ -33,6 +33,13 @@
     margin-top: 10px;
     border-radius: 10px;
 }
+#inpsearch {
+    width: 340px;
+    background-color: #fff;
+    margin-top: 10px;
+    border-radius: 10px;
+    margin-left: 110px;
+}
 .feat_card2 img{
     width: 100% !important;
     height: 200px;
@@ -64,6 +71,14 @@
     border-radius: 5px 0 0 5px;
     margin-top: auto;
     border-radius: 10px;
+}
+#input_year{
+    width: 340px;
+    height: 55px;
+    border-radius: 5px 0 0 5px;
+    margin-top: auto;
+    border-radius: 10px;
+    border: 2px solid #0e7c7b;
 }
 .priceInp1 {
     width: 49.5%;
@@ -175,13 +190,15 @@
 
 .body_top {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    margin-top: 2%;
+    margin-top: 10px;
 }
 .body_top h2{
     font-size: 30px;
     font-weight: 900;
+    width: 300px;
 }
 
 .top_box {
@@ -375,6 +392,7 @@
 
 
 @media(max-width:800px){
+    
     #corner-ribbon > div > div {
         background: transparent;
         height: 200px;
@@ -401,6 +419,24 @@
 @media (max-width: 991px) {
     .search_top_body {
         display: none !important;
+    }
+    .div12{
+        display: none;
+    }
+    .body_top{
+        display: block;
+        text-align: center;
+    }
+    .body_top h2{
+        width: auto !important;
+        margin-left: 0px !important;
+    }
+    #inpsearch{
+        width: 300px !important;
+        margin-left: 0px !important;
+    }
+    #input_year{
+        width: 300px !important;
     }
     .search_body {
         width: 100%;
@@ -699,4 +735,34 @@ line-height:0px;
             filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-8 */
     
         }
-    
+    .div12{
+        width: 340px;
+        margin: 0 12px;
+    }
+    #div12{
+        width: 270px;
+    }
+    @media(max-width:1516px){
+        #div12{
+            display: none;
+        }
+        .body_top h2{
+            margin-left: 100px;
+        width: 120px;
+        }
+        #inpsearch{
+            margin-left: 120px;
+        }
+    }
+    @media(max-width:1137px){
+        .div12{
+            width: 170px;
+        }
+        #inpsearch{
+            width: 240px;
+            margin-left: 20px;
+        }
+        #input_year{
+            width: 240px;
+        }
+    }

@@ -11,6 +11,7 @@ import Select from '@mui/material/Select'
 import { IoIosCloseCircle } from 'react-icons/io'
 import Pagination from '@mui/material/Pagination';
 import axios from "axios";
+import Head from 'next/head'
 import Stack from '@mui/material/Stack';
 import "../../app/globals.css"
 export default function Search() {
@@ -106,6 +107,9 @@ export default function Search() {
       setPosition([])
     })
 
+  }
+  const search1 = () => {
+    document.querySelector(".mobile_search").style="display:none"
   }
   const handleSeries = (event) => {
     setSelectSeries(event.target.value);
@@ -204,10 +208,10 @@ export default function Search() {
   }
 
   const openModal2 = () => {
-    document.querySelector('.mobile_search').classList.add('db')
+    document.querySelector('.mobile_search').style="display:block"
   }
   const closeModal2 = () => {
-    document.querySelector('.mobile_search').classList.remove('db')
+    document.querySelector('.mobile_search').style="display:none"
   }
   useEffect(() => {
     setSelectModel(sessionStorage.getItem("model"))
@@ -284,6 +288,10 @@ export default function Search() {
 
   return (
     <div>
+      <Head>
+    <title>Baracar</title>
+    <meta charset="UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="description" content="Baracar гарантирует исправность каждой машины минимум на 30 дней. При возникновении проблем с машиной в срок гарантии, наши партнеры по тех обслуживанию устранят их. В случае невозможности устранения неполадок, Baracar обязуется выкупить автомобиль за 100% от купленной суммы. "/><meta name="keywords" content="Baracar гарантирует исправность каждой машины минимум на 30 дней. При возникновении проблем с машиной в срок гарантии, наши партнеры по тех обслуживанию устранят их. В случае невозможности устранения неполадок, Baracar обязуется выкупить автомобиль за 100% от купленной суммы. "/><meta name="author" content="Baracar гарантирует исправность каждой машины минимум на 30 дней. При возникновении проблем с машиной в срок гарантии, наши партнеры по тех обслуживанию устранят их. В случае невозможности устранения неполадок, Baracar обязуется выкупить автомобиль за 100% от купленной суммы. "/><meta name="description" content="Baracar гарантирует исправность каждой машины минимум на 30 дней. При возникновении проблем с машиной в срок гарантии, наши партнеры по тех обслуживанию устранят их. В случае невозможности устранения неполадок, Baracar обязуется выкупить автомобиль за 100% от купленной суммы.  "/><meta name="twitter:card" content="Baracar гарантирует исправность каждой машины минимум на 30 дней. При возникновении проблем с машиной в срок гарантии, наши партнеры по тех обслуживанию устранят их. В случае невозможности устранения неполадок, Baracar обязуется выкупить автомобиль за 100% от купленной суммы. "/><meta name="twitter:site" content="Baracar.uz"/><meta name="twitter:creator" content="Baracar.uz"/><meta name="twitter:title" content="Baracar"/><meta name="twitter:description" content="Baracar гарантирует исправность каждой машины минимум на 30 дней. При возникновении проблем с машиной в срок гарантии, наши партнеры по тех обслуживанию устранят их. В случае невозможности устранения неполадок, Baracar обязуется выкупить автомобиль за 100% от купленной суммы.  "/><meta name="twitter:image" content="url_to_image"/><meta property="og:title" content="Baracar"/><meta property="og:description" content="Baracar гарантирует исправность каждой машины минимум на 30 дней. При возникновении проблем с машиной в срок гарантии, наши партнеры по тех обслуживанию устранят их. В случае невозможности устранения неполадок, Baracar обязуется выкупить автомобиль за 100% от купленной суммы.  "/><meta property="og:url" content="Baracar.uz"/><meta property="og:site_name" content="Baracar.uz"/><meta property="og:locale" content="en_uz"/><meta property="og:type" content="Baracar.uz"/><meta property="fb:app_id" content="ID_APP_FACEBOOK"/>
+      </Head>
       <Navbar />
       <div className='search_top'>
         <div className='search_top_body'>
@@ -437,15 +445,16 @@ export default function Search() {
               />
             </FormControl>
           </Box>
+          
 
 
         </div>
-        <button className='btnOpen' onClick={openModal2}>
+        <button className='btnOpen' onClick={() => openModal2()}>
           {languange === "ru" ? ("Фильтр") : ("Filtr")}
         </button>
         <div className='mobile_search'>
           <div className='mobile_top'>
-            <h2>{languange === "ru" ? ("Filters") : ("Filtrlar")}</h2>
+            <h2>{languange === "ru" ? ("Фильтеры") : ("Filtrlar")}</h2>
             <IoIosCloseCircle className='closeModalMob' onClick={closeModal2} />
           </div>
           <div className='mobile_body'>
@@ -458,6 +467,7 @@ export default function Search() {
                   value={selectModel}
                   onChange={handleModel}
                 >
+                  <MenuItem value="">{languange === "ru" ? ("Все") : ("Hammasi")}</MenuItem>
                   {model.map((item) => (
                     <MenuItem value={item.id}>{item.name}</MenuItem>
                   ))}
@@ -474,6 +484,7 @@ export default function Search() {
                   label='Series'
                   onChange={handleSeries}
                 >
+                  <MenuItem value="">{languange === "ru" ? ("Все") : ("Hammasi")}</MenuItem>
                   {series.map((item) => (
                     <MenuItem value={item.id}>{item.name}</MenuItem>
                   ))}
@@ -506,6 +517,7 @@ export default function Search() {
                   label='fuel_sort'
                   onChange={handleFuelsort}
                 >
+                  <MenuItem value="">{languange === "ru" ? ("Все") : ("Hammasi")}</MenuItem>
                   {fuelsort.map(item => {
                     return <MenuItem value={item.id}>{item.name}</MenuItem>
                   })}
@@ -522,6 +534,7 @@ export default function Search() {
                   label='Gear Box'
                   onChange={handleGearBox}
                 >
+                  <MenuItem value="">{languange === "ru" ? ("Все") : ("Hammasi")}</MenuItem>
                   {gearBox.map(item => {
                     return <MenuItem value={item.id}>{item.name}</MenuItem>
                   })}
@@ -553,6 +566,7 @@ export default function Search() {
                   // label='Mileage'
                   onChange={handlegarant}
                 >
+                  <MenuItem value="">{languange === "ru" ? ("Все") : ("Hammasi")}</MenuItem>
                   {garant.map(item => {
                     return <MenuItem value={item.id}>{item.name}</MenuItem>
                   })}
@@ -592,17 +606,32 @@ export default function Search() {
 
 
 
-            <button className='btnSearch'>{languange === "ru" ? ("Поиск") : ("Qidirmoq")}</button>
+            <button onClick={()=> search1()} className='btnSearch'>{languange === "ru" ? ("Поиск") : ("Qidirmoq")}</button>
           </div>
         </div>
       </div>
       <div className='search_body'>
         <div className="body_top">
-          {/* {
-            
-          } */}
+          <div className="div12" id="div12"></div>
+          <div className="div12"></div>
           <h2>{languange === "ru" ? ("Результаты") : ("Natijalar")}</h2>
+          <Box>
+            <FormControl id="inpsearch" className='inpsearch'>
+
+              <input
+                className='searchInp input_year'
+                id='input_year'
+                type="text"
+                min="1900"
+                max="2100"
+                minLength='4'
+                onKeyUp={handleyear}
+                placeholder={languange === "ru" ? ("Поиск") : ("Qidiruv")}
+              />
+            </FormControl>
+          </Box>
         </div>
+
         <div className="result_wrapper">
           {makes.map((item, key) => {
             if ((key > (page - 1) * 12 - 1) && key < page * 12) {
