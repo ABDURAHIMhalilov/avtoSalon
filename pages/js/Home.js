@@ -19,6 +19,7 @@ import Head from "next/head";
 import "../../app/globals.css";
 import "../../app/page.module.css";
 import CarMers from "./car-silver.png";
+import Head from 'next/head'
 
 export default function Home() {
   const [select, setSelect] = React.useState("");
@@ -97,6 +98,10 @@ export default function Home() {
 
   return (
     <div>
+      <Head>
+    <title>Baracar</title>
+    <meta charset="UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="description" content="Baracar гарантирует исправность каждой машины минимум на 30 дней. При возникновении проблем с машиной в срок гарантии, наши партнеры по тех обслуживанию устранят их. В случае невозможности устранения неполадок, Baracar обязуется выкупить автомобиль за 100% от купленной суммы. "/><meta name="keywords" content="Baracar гарантирует исправность каждой машины минимум на 30 дней. При возникновении проблем с машиной в срок гарантии, наши партнеры по тех обслуживанию устранят их. В случае невозможности устранения неполадок, Baracar обязуется выкупить автомобиль за 100% от купленной суммы. "/><meta name="author" content="Baracar гарантирует исправность каждой машины минимум на 30 дней. При возникновении проблем с машиной в срок гарантии, наши партнеры по тех обслуживанию устранят их. В случае невозможности устранения неполадок, Baracar обязуется выкупить автомобиль за 100% от купленной суммы. "/><meta name="description" content="Baracar гарантирует исправность каждой машины минимум на 30 дней. При возникновении проблем с машиной в срок гарантии, наши партнеры по тех обслуживанию устранят их. В случае невозможности устранения неполадок, Baracar обязуется выкупить автомобиль за 100% от купленной суммы.  "/><meta name="twitter:card" content="Baracar гарантирует исправность каждой машины минимум на 30 дней. При возникновении проблем с машиной в срок гарантии, наши партнеры по тех обслуживанию устранят их. В случае невозможности устранения неполадок, Baracar обязуется выкупить автомобиль за 100% от купленной суммы. "/><meta name="twitter:site" content="Baracar.uz"/><meta name="twitter:creator" content="Baracar.uz"/><meta name="twitter:title" content="Baracar"/><meta name="twitter:description" content="Baracar гарантирует исправность каждой машины минимум на 30 дней. При возникновении проблем с машиной в срок гарантии, наши партнеры по тех обслуживанию устранят их. В случае невозможности устранения неполадок, Baracar обязуется выкупить автомобиль за 100% от купленной суммы.  "/><meta name="twitter:image" content="url_to_image"/><meta property="og:title" content="Baracar"/><meta property="og:description" content="Baracar гарантирует исправность каждой машины минимум на 30 дней. При возникновении проблем с машиной в срок гарантии, наши партнеры по тех обслуживанию устранят их. В случае невозможности устранения неполадок, Baracar обязуется выкупить автомобиль за 100% от купленной суммы.  "/><meta property="og:url" content="Baracar.uz"/><meta property="og:site_name" content="Baracar.uz"/><meta property="og:locale" content="en_uz"/><meta property="og:type" content="Baracar.uz"/><meta property="fb:app_id" content="ID_APP_FACEBOOK"/>
+      </Head>
       {p1 === 1 ? (
         <>
           <Head>
