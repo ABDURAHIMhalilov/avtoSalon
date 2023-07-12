@@ -19,7 +19,6 @@ import Head from "next/head";
 import "../../app/globals.css";
 import "../../app/page.module.css";
 import CarMers from "./car-silver.png";
-import Head from 'next/head'
 
 export default function Home() {
   const [select, setSelect] = React.useState("");
