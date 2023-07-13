@@ -36,7 +36,7 @@ export default function Search() {
   const [page, setPage] = React.useState(1);
   const [countpag, setCountpag] = React.useState(1);
   const [languange, setlanguange] = React.useState();
-
+  const [search, setSearch] = React.useState("");
   const abbasFilter = (
     model1,
     seria1,
@@ -326,7 +326,40 @@ export default function Search() {
     localStorage.setItem("oneproduct", JSON.stringify(key));
     window.location = "/js/Bmw8";
   }
+  const handleInputChange = (event) => {
+    setSearch(event.target.value);
+    const searchRegex = new RegExp(`^${event.target.value}`, "i");
+    axios.get(`https://api.baracar.uz/api/${localStorage.getItem("lang") ? (localStorage.getItem("lang")) : "ru"}/cars_get/`).then(res => {
+      axios.get(`https://api.baracar.uz/api/images/`).then((res1) => {
+        for (let i = 0; i < res.data.length; i++) {
+          res.data[i].image = []
+          for (let j = 0; j < res1.data.length; j++) {
+            if (res.data[i].id == res1.data[j].car) {
+              res.data[i].image.push(res1.data[j])
+            }
+          }
+        }
+        const searchdata = res.data.filter((item) => {
+          return (
+            searchRegex.test(item.name) ||
+            searchRegex.test(item.position.name) ||
+            searchRegex.test(item.position.series.name) ||
+            searchRegex.test(item.position.series.model.name) ||
+            searchRegex.test(item.branch.name) ||
+            searchRegex.test(item.year) ||
+            searchRegex.test(item.price)
+          );
+        })
+        setCountpag(Math.floor(searchdata.length / 12) + 1)
+        setMakes(searchdata)
 
+      })
+
+
+
+    })
+
+  };
   const openModal2 = () => {
     document.querySelector(".mobile_search").style = "display:block";
   };
@@ -898,7 +931,7 @@ export default function Search() {
                 min="1900"
                 max="2100"
                 minLength="4"
-                onKeyUp={handleyear}
+                onChange={handleInputChange}
                 placeholder={languange === "ru" ? "Поиск" : "Qidiruv"}
               />
             </FormControl>
