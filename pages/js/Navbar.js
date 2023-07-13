@@ -377,6 +377,12 @@ export default function Navbar() {
           type="checkbox"
           onClick={() => {
             sessionStorage.setItem("valuta", "dollar");
+            axios
+            .get(
+              `https://api.baracar.uz/api/${
+                localStorage.getItem("lang") ? localStorage.getItem("lang") : "ru"
+              }/cars_get/?reload_currency=true`
+            ).then((res)=>{})
             window.location.reload();
           }}
         />
@@ -386,7 +392,12 @@ export default function Navbar() {
             type="checkbox"
             onClick={() => {
               sessionStorage.setItem("valuta", "sum");
-
+              axios
+              .get(
+                `https://api.baracar.uz/api/${
+                  localStorage.getItem("lang") ? localStorage.getItem("lang") : "ru"
+                }/cars_get/?reload_currency=true`
+              ).then((res)=>{})
               window.location.reload();
             }}
           />
