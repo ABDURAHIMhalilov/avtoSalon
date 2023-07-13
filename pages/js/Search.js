@@ -646,13 +646,36 @@ export default function Search() {
                 <img src={item.image[0] != undefined ? (item.image[0].image) : ("https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg")}
                   alt="no img" />
                 <div className='featCard_bottom'>
-                  <div className='feat-cardorab'><h3 className='featCard_name'>{item.name}</h3><del>{item.sale == 0 ? ("") : (`${item.price}$`)}</del></div>
-                  <h4 className='featCard_price'>{
-                    item.sale == 0 ? (item.price) : (`${item.price - ((item.price * item.sale / 100).toFixed(0))}`)}$</h4>
+                  <div className='feat-cardorab'><h3 className='featCard_name'>{item.name}</h3><del>{item.sale == 0 ? ("") : (sessionStorage.getItem("valuta") === "sum" ? (
+    `${item.sum_price}sum`
+  ) : sessionStorage.getItem("valuta") === "dollar" ? (
+    `${item.price}$`
+  ) : (
+    `${item.price}$`
+  ))}</del></div>
+                  <h4 className='featCard_price'>
+  {sessionStorage.getItem("valuta") === "sum" ? (
+    `${item.sum_price-item.sum_price*item.sale/100}sum`
+  ) : sessionStorage.getItem("valuta") === "dollar" ? (
+    `${item.price-item.price*item.sale/100}$`
+  ) : (
+    `${item.price-item.price*item.sale/100}$`
+  )}
+</h4>
+{/* <h4 className='featCard_price'>
+  {sessionStorage.getItem("valuta") === "sum" ? (
+    `${item.sum_price}sum`
+  ) : sessionStorage.getItem("valuta") === "dollar" ? (
+    `${item.price}$`
+  ) : (
+    `${item.price}$`
+  )}
+</h4> */}
                   <div className='featCard_box'>
                     <p className='featCard_year'>{item.year}</p>
                     <p className='featCard_auto'>{item.gearbox.name}</p>
                     <p className='featCard_pet'>{item.fuel_sort.name}</p>
+                    {/* ${localStorage.getItem("lang") ? (localStorage.getItem("lang")) : "ru"} */}
                   </div>
                 </div>
 

@@ -67,13 +67,22 @@ export default function Navbar() {
       >
         <MdClose className="close_btn" onClick={() => setCount(false)} />
         <h3 className="a_box">
-          <h3 onClick={()=>{window.location="/"}} href="/" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
+          <h3
+            onClick={() => {
+              window.location = "/";
+            }}
+            href="/"
+            className="a_fff a_mobile"
+            style={{ cursor: "pointer" }}
+          >
             {state === "ru" ? "Главная" : "Bosh sahifa"}
           </h3>
         </h3>
         <div className="a_box">
           <h3
-          onClick={()=>{window.location="/js/Search"}}
+            onClick={() => {
+              window.location = "/js/Search";
+            }}
             href="/js/Search"
             className="a_fff a_mobile"
             style={{ cursor: "pointer" }}
@@ -82,8 +91,10 @@ export default function Navbar() {
           </h3>
         </div>
         <div className="a_box">
-          <h3 
-          onClick={()=>{window.location="/js/About"}}
+          <h3
+            onClick={() => {
+              window.location = "/js/About";
+            }}
             href="/js/About"
             className="a_fff a_mobile"
             style={{ cursor: "pointer" }}
@@ -92,17 +103,36 @@ export default function Navbar() {
           </h3>
         </div>
         <div className="a_box">
-          <h3 onClick={()=>{window.location="/js/OurTeam"}} href="/js/OurTeam" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
+          <h3
+            onClick={() => {
+              window.location = "/js/OurTeam";
+            }}
+            href="/js/OurTeam"
+            className="a_fff a_mobile"
+            style={{ cursor: "pointer" }}
+          >
             {state === "ru" ? "Trade-in " : "Trade-in"}
           </h3>
         </div>
 
         <div className="a_box">
-          <h3 onClick={()=>{window.location="/js/Contact"}} href="/js/Contact" className="a_fff a_mobile" style={{ cursor: "pointer" }}>
+          <h3
+            onClick={() => {
+              window.location = "/js/Contact";
+            }}
+            href="/js/Contact"
+            className="a_fff a_mobile"
+            style={{ cursor: "pointer" }}
+          >
             {state === "ru" ? "Cвязь" : "Bog'lanish"}
           </h3>
         </div>
-        <div onClick={()=>{window.location.reload()}} className="perevod2">
+        <div
+          onClick={() => {
+            window.location.reload();
+          }}
+          className="perevod2"
+        >
           <Image
             onClick={() => {
               localStorage.setItem("lang", "uz");
@@ -123,11 +153,19 @@ export default function Navbar() {
             alt=""
           />
           {user ? (
-            <h3 onClick={() =>{window.location="/js/Loginpage"}}>
+            <h3
+              onClick={() => {
+                window.location = "/js/Loginpage";
+              }}
+            >
               <AiOutlineUser className="user_icon" id="user1" />
             </h3>
           ) : (
-            <h3 onClick={() =>{window.location="/js/Login"}}>
+            <h3
+              onClick={() => {
+                window.location = "/js/Login";
+              }}
+            >
               <AiOutlineUser className="user_icon" id="user1" />
             </h3>
           )}
@@ -245,7 +283,12 @@ export default function Navbar() {
       ) : (
         <div>
           <div className="navbar_right">
-            <div className="loginIn" onClick={() =>{window.location="/js/Login"}}>
+            <div
+              className="loginIn"
+              onClick={() => {
+                window.location = "/js/Login";
+              }}
+            >
               <AiOutlineUser className="user_icon" />
               {state === "ru" ? (
                 <h3
@@ -284,40 +327,72 @@ export default function Navbar() {
         </div>
       )}
       {user ? (
-          <div onClick={()=>{window.location='/js/Loginpage'}} style={{ cursor: "pointer" }}>
-            <div className="navbar_right" style={{width:"100px"}}>
-              <div className="loginIn"style={{borderRight:"0px"}} >
-                <AiOutlineUser className="user_icon" />
-                <h3
-                  className="a_fff"
-                >
-                  {user.username}
-                </h3>
-              </div>
-            </div></div>) : (<>&nbsp;</>)}
-      <div  onClick={()=>{window.location.reload()}} className="perevod" id="til" >
+        <div
+          onClick={() => {
+            window.location = "/js/Loginpage";
+          }}
+          style={{ cursor: "pointer" }}
+        >
+          <div className="navbar_right" style={{ width: "100px" }}>
+            <div className="loginIn" style={{ borderRight: "0px" }}>
+              <AiOutlineUser className="user_icon" />
+              <h3 className="a_fff">{user.username}</h3>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <>&nbsp;</>
+      )}
+      <div
+        onClick={() => {
+          window.location.reload();
+        }}
+        className="perevod"
+        id="til"
+      >
         <Image
           onClick={() => {
             localStorage.setItem("lang", "uz");
           }}
           id="per"
-          style={{ width: "35px", cursor: "pointer",borderRadius: "50%" }}
+          style={{ width: "35px", cursor: "pointer", borderRadius: "50%" }}
           src={uzb}
           alt=""
         />
         <div className="perediv">
-        <Image
+          <Image
+            onClick={() => {
+              localStorage.setItem("lang", "ru");
+              window.location.reload();
+            }}
+            id="pere"
+            style={{ width: "71px", cursor: "pointer" }}
+            src={rus}
+            alt=""
+          />
+        </div>
+      </div>
+      <div>
+        <input
+          type="checkbox"
           onClick={() => {
-            localStorage.setItem("lang", "ru");
-            window.location.reload()
+            sessionStorage.setItem("valuta", "dollar");
+            window.location.reload();
           }}
-          id="pere"
-          style={{ width: "71px", cursor: "pointer" }}
-          src={rus}
-          alt=""/></div>
-          </div>
-          
-        
-            </div>
+        />
+        <p             style={{ color: "red", cursor: "pointer" }}>dollar</p>
+        <div className="perediv">
+          <input
+            type="checkbox"
+            onClick={() => {
+              sessionStorage.setItem("valuta", "sum");
+
+              window.location.reload();
+            }}
+          />
+                  <p style={{ color: "red", cursor: "pointer" }}>sum</p>
+        </div>
+      </div>
+    </div>
   );
 }
