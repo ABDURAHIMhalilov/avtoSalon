@@ -41,6 +41,18 @@ export default function Navbar() {
       .then((res) => {
         setData(res.data);
       });
+if(sessionStorage.getItem("valuta")!=="sum"){
+document.querySelector("#checkbox1").checked=true
+}else{
+  document.querySelector("#checkbox1").checked=false
+}
+if(sessionStorage.getItem("valuta")!=="sum"){
+  document.querySelector("#checkbox2").checked=true
+  }else{
+    document.querySelector("#checkbox2").checked=false
+  }
+
+
   }, []);
 
   function setLanguage() {
@@ -152,6 +164,7 @@ export default function Navbar() {
             src={rus}
             alt=""
           />
+          
           {user ? (
             <h3
               onClick={() => {
@@ -170,6 +183,13 @@ export default function Navbar() {
             </h3>
           )}
         </div>
+        <div id="switch1" class="toggle-button-cover">
+        <div id="button-3" class="button r">
+          <input id="checkbox2" class="checkbox" onClick={()=>{!document.querySelector("#checkbox2").checked?(sessionStorage.setItem("valuta", "sum")):(sessionStorage.setItem("valuta", "dollar"));window.location.reload()}} type="checkbox" />
+          <div class="knobs"></div>
+          <div class="layer"></div>
+        </div>
+      </div>
       </div>
       <BiMenuAltLeft className="menuLeftIcon" onClick={() => setCount(true)} />
 
@@ -372,36 +392,13 @@ export default function Navbar() {
           />
         </div>
       </div>
-      <div>
-        <input
-          type="checkbox"
-          onClick={() => {
-            sessionStorage.setItem("valuta", "dollar");
-            axios
-            .get(
-              `https://api.baracar.uz/api/${
-                localStorage.getItem("lang") ? localStorage.getItem("lang") : "ru"
-              }/cars_get/?reload_currency=true`
-            ).then((res)=>{})
-            window.location.reload();
-          }}
-        />
-        <p             style={{ color: "red", cursor: "pointer" }}>dollar</p>
-        <div className="perediv">
-          <input
-            type="checkbox"
-            onClick={() => {
-              sessionStorage.setItem("valuta", "sum");
-              axios
-              .get(
-                `https://api.baracar.uz/api/${
-                  localStorage.getItem("lang") ? localStorage.getItem("lang") : "ru"
-                }/cars_get/?reload_currency=true`
-              ).then((res)=>{})
-              window.location.reload();
-            }}
-          />
-                  <p style={{ color: "red", cursor: "pointer" }}>sum</p>
+      
+      
+      <div id="switch2" class="toggle-button-cover">
+        <div id="button-3" class="button r">
+          <input id="checkbox1" class="checkbox" onClick={()=>{!document.querySelector("#checkbox1").checked?(sessionStorage.setItem("valuta", "sum")):(sessionStorage.setItem("valuta", "dollar"));window.location.reload()}} type="checkbox" />
+          <div class="knobs"></div>
+          <div class="layer"></div>
         </div>
       </div>
     </div>

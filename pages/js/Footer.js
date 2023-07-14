@@ -110,7 +110,7 @@ export default function Footer() {
                   className="a_fff f_mobile"
                   style={{ cursor: "pointer" }}
                 >
-                  Jamoa
+                  Trade-in
                 </h3>
               </div>
               <div className="a_box a">
@@ -242,7 +242,7 @@ export default function Footer() {
                   onClick={() => {window.location = "/js/OurTeam"}}
                   style={{ cursor: "pointer" }}
                 >
-                  Команда
+                  Trade-in
                 </h3>
               </div>
               <div className="a_box a">

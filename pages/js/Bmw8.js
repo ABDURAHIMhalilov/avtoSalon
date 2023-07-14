@@ -342,7 +342,13 @@ export default function Bmw8() {
               </div>
               <div className="ypn1">
                 <div className="dollars">
-                  <h1>{data.price}$</h1>
+                  <h1>{sessionStorage.getItem("valuta") === "sum"
+                        ? `${
+                            data.sum_price - (data.sum_price * data.sale) / 100
+                          }sum`
+                        : sessionStorage.getItem("valuta") === "dollar"
+                        ? `${data.price - (data.price * data.sale) / 100}$`
+                        : `${data.price - (data.price * data.sale) / 100}$`}</h1>
                   <p>
                     {" "}
                     <span>
@@ -461,8 +467,8 @@ export default function Bmw8() {
                         <HiPhone />{" "}
                       </span>{" "}
                       {state === "ru"
-                        ? "123 *** *** -раскрывать"
-                        : "123 *** *** - aloqa"}
+                        ? "(33) 032 11 12"
+                        : "(33) 032 11 12"}
                     </button>
                     <button onClick={()=>galeriyaModal()} className="wat">
                       {" "}
@@ -543,7 +549,13 @@ export default function Bmw8() {
               </div>
               <hr className="asdda" />
               <div className="dollars">
-                <h1>{data.price}$</h1>
+                <h1>{sessionStorage.getItem("valuta") === "sum"
+                        ? `${
+                            data.sum_price - (data.sum_price * data.sale) / 100
+                          }sum`
+                        : sessionStorage.getItem("valuta") === "dollar"
+                        ? `${data.price - (data.price * data.sale) / 100}$`
+                        : `${data.price - (data.price * data.sale) / 100}$`}</h1>
                 <p>
                   {" "}
                   <span>
@@ -652,8 +664,8 @@ export default function Bmw8() {
                     <HiPhone />{" "}
                   </span>{" "}
                   {state === "ru"
-                    ? "123 *** *** -раскрывать"
-                    : "123 *** *** - aloqa"}
+                    ? "(33) 032 11 12"
+                    : "(33) 032 11 12"}
                 </button>
                 <button onClick={()=>galeriyaModal()} className="wat">
                   {" "}
@@ -708,7 +720,7 @@ export default function Bmw8() {
                     <select id="visit" className="visit_brench" onChange={handleChange}>
                       {branchs.map((item) => {
                         return (
-                          <option value={item.id}>
+                          <option value={item.id} id="visit">
                             {item.city} {item.district} {item.street}
                           </option>
                         );
@@ -1045,7 +1057,13 @@ if(key<12){
                       alt="no img" />
                 <div className="featCard_bottom">
                 <h3 className="featCard_name">{item.name}</h3>
-                  <h4 className="featCard_price">{item.price}$</h4>
+                  <h4 className="featCard_price">{sessionStorage.getItem("valuta") === "sum"
+                        ? `${
+                            data.sum_price - (data.sum_price * data.sale) / 100
+                          }sum`
+                        : sessionStorage.getItem("valuta") === "dollar"
+                        ? `${data.price - (data.price * data.sale) / 100}$`
+                        : `${data.price - (data.price * data.sale) / 100}$`}</h4>
                   <div className="featCard_box">
                     <p className="featCard_year">{item.year}</p>
                     <p className="featCard_auto">{item.gearbox.name}</p>

@@ -192,8 +192,20 @@ export default function Popular() {
                         alt="no img"
                       />
                       <div className="featCard_bottom">
-                        <h3 className="featCard_name">{item.name}<del>{item.sale == 0 ? ("") : (`${item.price}$`)}</del></h3>
-                        <h4 className="featCard_price">{item.sale == 0 ? (item.price) : (`${item.price - ((item.price * item.sale / 100).toFixed(0))}`)}$</h4>
+                        <h3 className="featCard_name">{item.name}<del>{item.sale == 0
+                          ? ""
+                          : sessionStorage.getItem("valuta") === "sum"
+                          ? `${item.sum_price}sum`
+                          : sessionStorage.getItem("valuta") === "dollar"
+                          ? `${item.price}$`
+                          : `${item.price}$`}</del></h3>
+                        <h4 className="featCard_price">{sessionStorage.getItem("valuta") === "sum"
+                        ? `${
+                            item.sum_price - (item.sum_price * item.sale) / 100
+                          }sum`
+                        : sessionStorage.getItem("valuta") === "dollar"
+                        ? `${item.price - (item.price * item.sale) / 100}$`
+                        : `${item.price - (item.price * item.sale) / 100}$`}</h4>
                         <div className="featCard_box">
                           <p className="featCard_year">{item.year}</p>
                           <p className="featCard_auto">{item.gearbox.name}</p>
@@ -305,8 +317,20 @@ export default function Popular() {
                         alt="no img"
                       />
                       <div className="featCard_bottom">
-                        <h3 className="featCard_name">{item.name}<del>{item.sale == 0 ? ("") : (`${item.price}$`)}</del></h3>
-                        <h4 className="featCard_price">{item.sale == 0 ? (item.price) : (`${item.price - ((item.price * item.sale / 100).toFixed(0))}`)}$</h4>
+                        <h3 className="featCard_name">{item.name}<del>{item.sale == 0
+                          ? ""
+                          : sessionStorage.getItem("valuta") === "sum"
+                          ? `${item.sum_price}sum`
+                          : sessionStorage.getItem("valuta") === "dollar"
+                          ? `${item.price}$`
+                          : `${item.price}$`}</del></h3>
+                        <h4 className="featCard_price">{sessionStorage.getItem("valuta") === "sum"
+                        ? `${
+                            item.sum_price - (item.sum_price * item.sale) / 100
+                          }sum`
+                        : sessionStorage.getItem("valuta") === "dollar"
+                        ? `${item.price - (item.price * item.sale) / 100}$`
+                        : `${item.price - (item.price * item.sale) / 100}$`}</h4>
                         <div className="featCard_box">
                           <p className="featCard_year">{item.year}</p>
                           <p className="featCard_auto">{item.gearbox.name}</p>

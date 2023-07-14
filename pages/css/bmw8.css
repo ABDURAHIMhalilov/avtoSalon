@@ -187,7 +187,7 @@
 .l2 {
   display: flex;
   justify-content: space-around;
-  width: 35%;
+  width: 220px;
   min-width: 190px;
   color: #0e7c7b;
 }
@@ -217,6 +217,9 @@
 @media (max-width: 1300px) {
   .dffd {
     width: 100%;
+  }
+  .hf1{
+    margin-top: 0px !important;
   }
   .bir{
     width: 300px !important;
@@ -274,6 +277,7 @@
   }
   .swip {
     width: 100%;
+    margin-top: 0px !important;
   }
   
 

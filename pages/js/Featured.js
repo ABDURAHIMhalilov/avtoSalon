@@ -118,13 +118,25 @@ export default function Featured() {
                       )}
                     </div>
                     <div className="featured_bottom">
-                      <h3 className="featured_name">{item.name}<del>{item.sale == 0 ? ("") : (`${item.price}$`)}</del></h3>
+                      <h3 className="featured_name">{item.name}<del>{item.sale == 0
+                          ? ""
+                          : sessionStorage.getItem("valuta") === "sum"
+                          ? `${item.sum_price}sum`
+                          : sessionStorage.getItem("valuta") === "dollar"
+                          ? `${item.price}$`
+                          : `${item.price}$`}</del></h3>
                       <div className="featured_box">
                         <p className="feat_year">{item.year}</p>
                         <p className="feat_auto">{item.gearbox.name}</p>
                         <p className="feat_pet">{item.fuel_sort.name}</p>
                         <p className="feat_p">{item.sale}%</p>
-                        <h4 className="feat_price">{item.sale == 0 ? (item.price) : (`${item.price - ((item.price * item.sale / 100).toFixed(0))}`)}$</h4>
+                        <h4 className="feat_price">{sessionStorage.getItem("valuta") === "sum"
+                        ? `${
+                            item.sum_price - (item.sum_price * item.sale) / 100
+                          }sum`
+                        : sessionStorage.getItem("valuta") === "dollar"
+                        ? `${item.price - (item.price * item.sale) / 100}$`
+                        : `${item.price - (item.price * item.sale) / 100}$`}</h4>
                       </div>
                     </div>
                   </div>
@@ -185,8 +197,20 @@ export default function Featured() {
                         )}
                       </div>
                       <div className="featCard_bottom">
-                        <h3 className="featCard_name">{item.name}<del>{item.sale == 0 ? ("") : (`${item.price}$`)}</del></h3>
-                        <h4 className="featCard_price">{item.sale == 0 ? (item.price) : (`${item.price - ((item.price * item.sale / 100).toFixed(0))}`)}$</h4>
+                        <h3 className="featCard_name">{item.name}<del>{item.sale == 0
+                          ? ""
+                          : sessionStorage.getItem("valuta") === "sum"
+                          ? `${item.sum_price}sum`
+                          : sessionStorage.getItem("valuta") === "dollar"
+                          ? `${item.price}$`
+                          : `${item.price}$`}</del></h3>
+                        <h4 className="featCard_price">{sessionStorage.getItem("valuta") === "sum"
+                        ? `${
+                            item.sum_price - (item.sum_price * item.sale) / 100
+                          }sum`
+                        : sessionStorage.getItem("valuta") === "dollar"
+                        ? `${item.price - (item.price * item.sale) / 100}$`
+                        : `${item.price - (item.price * item.sale) / 100}$`}</h4>
                         <div className="featCard_box">
                           <p className="featCard_year">{item.year}</p>
                           <p className="featCard_auto">{item.gearbox.name}</p>
@@ -281,13 +305,25 @@ export default function Featured() {
                       )}
                     </div>
                     <div className="featured_bottom">
-                      <h3 className="featured_name">{item.name}<del>{item.sale == 0 ? ("") : (`${item.price}$`)}</del></h3>
+                      <h3 className="featured_name">{item.name}<del>{item.sale == 0
+                          ? ""
+                          : sessionStorage.getItem("valuta") === "sum"
+                          ? `${item.sum_price}sum`
+                          : sessionStorage.getItem("valuta") === "dollar"
+                          ? `${item.price}$`
+                          : `${item.price}$`}</del></h3>
                       <div className="featured_box">
                         <p className="feat_year">{item.year}</p>
                         <p className="feat_auto">{item.gearbox.name}</p>
                         <p className="feat_pet">{item.fuel_sort.name}</p>
                         <p className="feat_p">{item.sale}%</p>
-                        <h4 className="feat_price">{item.sale == 0 ? (item.price) : (`${item.price - ((item.price * item.sale / 100).toFixed(0))}`)}$</h4>
+                        <h4 className="feat_price">{sessionStorage.getItem("valuta") === "sum"
+                        ? `${
+                            item.sum_price - (item.sum_price * item.sale) / 100
+                          }sum`
+                        : sessionStorage.getItem("valuta") === "dollar"
+                        ? `${item.price - (item.price * item.sale) / 100}$`
+                        : `${item.price - (item.price * item.sale) / 100}$`}</h4>
                       </div>
                     </div>
                   </div>
@@ -348,8 +384,20 @@ export default function Featured() {
                         )}
                       </div>
                       <div className="featCard_bottom">
-                        <h3 className="featCard_name">{item.name}<del>{item.sale == 0 ? ("") : (`${item.price}$`)}</del></h3>
-                        <h4 className="featCard_price">{item.sale == 0 ? (item.price) : (`${item.price - ((item.price * item.sale / 100).toFixed(0))}`)}$</h4>
+                        <h3 className="featCard_name">{item.name}<del>{item.sale == 0
+                          ? ""
+                          : sessionStorage.getItem("valuta") === "sum"
+                          ? `${item.sum_price}sum`
+                          : sessionStorage.getItem("valuta") === "dollar"
+                          ? `${item.price}$`
+                          : `${item.price}$`}</del></h3>
+                        <h4 className="featCard_price">{sessionStorage.getItem("valuta") === "sum"
+                        ? `${
+                            item.sum_price - (item.sum_price * item.sale) / 100
+                          }sum`
+                        : sessionStorage.getItem("valuta") === "dollar"
+                        ? `${item.price - (item.price * item.sale) / 100}$`
+                        : `${item.price - (item.price * item.sale) / 100}$`}</h4>
                         <div className="featCard_box">
                           <p className="featCard_year">{item.year}</p>
                           <p className="featCard_auto">{item.gearbox.name}</p>

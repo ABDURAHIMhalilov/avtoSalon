@@ -44,7 +44,7 @@
     margin-top: 25px;
     outline: none;
     border-radius: 5px;
-    border: 1px solid #0e7c7b;
+    border: 2px solid #0e7c7b;
     /* color: gray; */
 }
 .cazoo button{
@@ -52,6 +52,7 @@
     height: 46px;
     margin-left: 20px;
     font-size: 17px;
+    border-radius: 4px;
 }
 .cazoo h4{
     margin-top: 25px;
