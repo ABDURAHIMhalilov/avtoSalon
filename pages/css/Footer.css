@@ -6,9 +6,11 @@
 }
 
 .privacy a {
+  color: white;
+}
+.privacy a:hover {
   color: #0e7c7b;
 }
-
 .footer_body {
   width: 80%;
   margin: 0 auto;

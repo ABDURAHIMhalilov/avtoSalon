@@ -67,6 +67,7 @@ if(sessionStorage.getItem("valuta")!=="sum"){
     window.location = "/js/Search";
   }
 
+
   return (
     <div className="navbar">
       <div
@@ -396,6 +397,7 @@ if(sessionStorage.getItem("valuta")!=="sum"){
       
       <div id="switch2" class="toggle-button-cover">
         <div id="button-3" class="button r">
+        {state === "ru" ? "Сум" : "Sum"}
           <input id="checkbox1" class="checkbox" onClick={()=>{!document.querySelector("#checkbox1").checked?(sessionStorage.setItem("valuta", "sum")):(sessionStorage.setItem("valuta", "dollar"));window.location.reload()}} type="checkbox" />
           <div class="knobs"></div>
           <div class="layer"></div>

@@ -552,7 +552,7 @@ export default function Bmw8() {
                 <h1>{sessionStorage.getItem("valuta") === "sum"
                         ? `${
                             data.sum_price - (data.sum_price * data.sale) / 100
-                          }sum`
+                          }${state === "ru" ? "сум" : "sum"}`
                         : sessionStorage.getItem("valuta") === "dollar"
                         ? `${data.price - (data.price * data.sale) / 100}$`
                         : `${data.price - (data.price * data.sale) / 100}$`}</h1>
@@ -1053,14 +1053,15 @@ if(key<12){
                 </div>
               </div>
             </div>
-                     <img src={getavto[key].image!=undefined?item.image[0].image:("https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg")}
+                    <img src={getavto[key].image!=undefined?item.image[0].image:("https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg")
+              }
                       alt="no img" />
                 <div className="featCard_bottom">
                 <h3 className="featCard_name">{item.name}</h3>
                   <h4 className="featCard_price">{sessionStorage.getItem("valuta") === "sum"
                         ? `${
                             data.sum_price - (data.sum_price * data.sale) / 100
-                          }sum`
+                          }${state === "ru" ? "сум" : "sum"}`
                         : sessionStorage.getItem("valuta") === "dollar"
                         ? `${data.price - (data.price * data.sale) / 100}$`
                         : `${data.price - (data.price * data.sale) / 100}$`}</h4>

@@ -1907,3 +1907,26 @@ box-shadow: 0px 0px 10px 0px black;
 .swiper-button-next:after, .swiper-rtl .swiper-button-prev:after{
   display: none !important;
 }
+#pere{
+  margin-top: 0px !important;
+}
+#button-3 .knobs:before {
+  content: "Sum";
+  position: absolute;
+  top: 4px;
+  left: 5px;
+  width: 30px !important;
+  height: 28px !important;
+  color: #fff;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+  padding: 9px 4px;
+  background-color: #0e7c7b;
+  border-radius: 50%;
+  transition: 0.3s ease all, left 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15);
+}
+.cazoh1{
+  font-size: 30px !important;
+}

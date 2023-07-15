@@ -804,7 +804,7 @@ export default function Loginpage() {
                       <div className="kok">
                         <center>
                           <h1>
-                            Избранного пока нет!{state === "ru" ? "" : ""}
+                            {state === "ru" ? "Избранного пока нет!" : "Sevimlilar hali yo'q!"}
                           </h1>
                         </center>
                       </div>

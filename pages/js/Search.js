@@ -979,7 +979,7 @@ export default function Search() {
                         {item.sale == 0
                           ? ""
                           : sessionStorage.getItem("valuta") === "sum"
-                          ? `${item.sum_price}sum`
+                          ? `${item.sum_price}${languange === "ru" ? "сум" : "sum"}`
                           : sessionStorage.getItem("valuta") === "dollar"
                           ? `${item.price}$`
                           : `${item.price}$`}
@@ -989,7 +989,7 @@ export default function Search() {
                       {sessionStorage.getItem("valuta") === "sum"
                         ? `${
                             item.sum_price - (item.sum_price * item.sale) / 100
-                          }sum`
+                          }${languange === "ru" ? "сум" : "sum"}`
                         : sessionStorage.getItem("valuta") === "dollar"
                         ? `${item.price - (item.price * item.sale) / 100}$`
                         : `${item.price - (item.price * item.sale) / 100}$`}

@@ -195,14 +195,14 @@ export default function Popular() {
                         <h3 className="featCard_name">{item.name}<del>{item.sale == 0
                           ? ""
                           : sessionStorage.getItem("valuta") === "sum"
-                          ? `${item.sum_price}sum`
+                          ? `${item.sum_price}${languange === "ru" ? "сум" : "sum"}`
                           : sessionStorage.getItem("valuta") === "dollar"
                           ? `${item.price}$`
                           : `${item.price}$`}</del></h3>
                         <h4 className="featCard_price">{sessionStorage.getItem("valuta") === "sum"
                         ? `${
                             item.sum_price - (item.sum_price * item.sale) / 100
-                          }sum`
+                          }${languange === "ru" ? "сум" : "sum"}`
                         : sessionStorage.getItem("valuta") === "dollar"
                         ? `${item.price - (item.price * item.sale) / 100}$`
                         : `${item.price - (item.price * item.sale) / 100}$`}</h4>
@@ -320,14 +320,14 @@ export default function Popular() {
                         <h3 className="featCard_name">{item.name}<del>{item.sale == 0
                           ? ""
                           : sessionStorage.getItem("valuta") === "sum"
-                          ? `${item.sum_price}sum`
+                          ? `${item.sum_price}${languange === "ru" ? "сум" : "sum"}`
                           : sessionStorage.getItem("valuta") === "dollar"
                           ? `${item.price}$`
                           : `${item.price}$`}</del></h3>
                         <h4 className="featCard_price">{sessionStorage.getItem("valuta") === "sum"
                         ? `${
                             item.sum_price - (item.sum_price * item.sale) / 100
-                          }sum`
+                          }${languange === "ru" ? "сум" : "sum"}`
                         : sessionStorage.getItem("valuta") === "dollar"
                         ? `${item.price - (item.price * item.sale) / 100}$`
                         : `${item.price - (item.price * item.sale) / 100}$`}</h4>

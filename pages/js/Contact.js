@@ -104,17 +104,6 @@ window.location.reload()
             className="contact_textarea"
           ></textarea>
           <div className="inputs_bottom">
-            <label className="container">
-              {state === "ru" ? "я принимаю" : "men qabul qilaman"}{" "}
-              <a href="#!">
-                {" "}
-                {state === "ru"
-                  ? "политика конфиденциальности"
-                  : "maxfiylik siyosati"}
-              </a>
-              <input type="checkbox" />
-              <span className="checkmark"></span>
-            </label>
             <button onClick={()=>{dataPost()}} className="contact_btn">
               {state === "ru" ? "отправить" : "yuborish"}
             </button>

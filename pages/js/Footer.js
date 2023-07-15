@@ -24,7 +24,7 @@ export default function Footer() {
           <div className="footer_body">
             <div className="ff">
               <a href="/" className="logo">
-                <Image src={logo} width={200} alt="" />
+                <Image style={{marginLeft:"-20px"}} src={logo} width={200} alt="" />
               </a>
               <div className="footer_right">
                 <div className="right_left">
@@ -139,8 +139,8 @@ export default function Footer() {
           </div>
           <div className="footer_bottom">
             <p className="privacy">
-              © 2023. Barcha huquqlar himoyalangan.{" "}
-              <a href="#!"> Maxfiylik siyosati</a>
+              © 2023.<a href="tel:996487223">  Abbas Team{" "}
+              </a>
             </p>
             <div className="feat_left">
               <a href="#" className="iconBox icon2">
@@ -160,7 +160,7 @@ export default function Footer() {
           <div className="footer_body">
             <div className="ff">
               <a href="/" className="logo">
-                <Image src={logo} width={200} alt="" />
+                <Image src={logo} style={{marginLeft:"-20px"}} width={200} alt="" />
               </a>
               <div className="footer_right">
                 <div className="right_left">
@@ -269,8 +269,7 @@ export default function Footer() {
           </div>
           <div className="footer_bottom">
             <p className="privacy">
-              © 2023. Все права защищены.{" "}
-              <a href="#!"> политика конфиденциальности</a>
+            © 2023.<a href="tel:996487223">  Аббас Теам{" "}</a>
             </p>
             <div className="feat_left">
               <a href="#" className="iconBox icon2">
