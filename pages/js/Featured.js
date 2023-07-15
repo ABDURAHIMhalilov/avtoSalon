@@ -63,7 +63,7 @@ export default function Featured() {
       {state == "uz" ? (
         <div className="featured">
           <h5 className="featured_info">Qulay tanlov</h5>
-          <h2 className="featured_title">Tekshiruvdan otgan avto</h2>
+          <h2 className="featured_title">Tekshiruvdan o'tgan avto</h2>
           <div className="featured_body">
             {cars.map((item, key) => {
               if (key == 0) {
