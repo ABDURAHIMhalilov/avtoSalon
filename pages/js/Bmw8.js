@@ -105,9 +105,7 @@ export default function Bmw8() {
       });
     axios
       .get(
-        `https://api.baracar.uz/api/${
-          localStorage.getItem("lang") ? localStorage.getItem("lang") : "ru"
-        }/cars_get/`
+        `https://api.baracar.uz/api/${localStorage.getItem("lang") ? localStorage.getItem("lang") : "ru"}/cars_get/`
       )
       .then((res) => {
         axios.get(`https://api.baracar.uz/api/images/`).then((res1) => {
@@ -120,13 +118,9 @@ export default function Bmw8() {
             }
           }
           res.data = res.data.filter((item) => data1.id != item.id);
-          res.data = res.data.filter(
-            (item) => data1.position.series.id == item.position.series.id
-          );
-          setTimeout(() => {
+          res.data = res.data.filter((item) => data1.position.series.id == item.position.series.id);
             setAvto(res.data);
-            console.log(res.data, "ddd");
-          }, 100);
+            console.log(res.data);
         });
       });
 
@@ -1041,7 +1035,6 @@ export default function Bmw8() {
         className="mySwiper"
       >
         {getavto.map((item, key) => {
-
 if(key<12){ 
           return (
             <SwiperSlide key={key} onClick={()=>getData2(item)} className="swiperPopCard">
@@ -1053,7 +1046,7 @@ if(key<12){
                 </div>
               </div>
             </div>
-                    <img src={getavto[key].image!=undefined?item.image[0].image:("https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg")
+                    <img src={item.image.length>0?item.image[0].image:("https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg")
               }
                       alt="no img" />
                 <div className="featCard_bottom">

@@ -121,7 +121,7 @@ export default function Featured() {
                       <h3 className="featured_name">{item.name}<del>{item.sale == 0
                           ? ""
                           : sessionStorage.getItem("valuta") === "sum"
-                          ? `${item.sum_price}${languange === "ru" ? "сум" : "sum"}`
+                          ? `${item.sum_price}sum`
                           : sessionStorage.getItem("valuta") === "dollar"
                           ? `${item.price}$`
                           : `${item.price}$`}</del></h3>
@@ -133,7 +133,7 @@ export default function Featured() {
                         <h4 className="feat_price">{sessionStorage.getItem("valuta") === "sum"
                         ? `${
                             item.sum_price - (item.sum_price * item.sale) / 100
-                          }${languange === "ru" ? "сум" : "sum"}`
+                          }sum`
                         : sessionStorage.getItem("valuta") === "dollar"
                         ? `${item.price - (item.price * item.sale) / 100}$`
                         : `${item.price - (item.price * item.sale) / 100}$`}</h4>
@@ -200,14 +200,14 @@ export default function Featured() {
                         <h3 className="featCard_name">{item.name}<del>{item.sale == 0
                           ? ""
                           : sessionStorage.getItem("valuta") === "sum"
-                          ? `${item.sum_price}${languange === "ru" ? "сум" : "sum"}`
+                          ? `${item.sum_price}sum`
                           : sessionStorage.getItem("valuta") === "dollar"
                           ? `${item.price}$`
                           : `${item.price}$`}</del></h3>
                         <h4 className="featCard_price">{sessionStorage.getItem("valuta") === "sum"
                         ? `${
                             item.sum_price - (item.sum_price * item.sale) / 100
-                          }${languange === "ru" ? "сум" : "sum"}`
+                          }sum`
                         : sessionStorage.getItem("valuta") === "dollar"
                         ? `${item.price - (item.price * item.sale) / 100}$`
                         : `${item.price - (item.price * item.sale) / 100}$`}</h4>
@@ -308,7 +308,7 @@ export default function Featured() {
                       <h3 className="featured_name">{item.name}<del>{item.sale == 0
                           ? ""
                           : sessionStorage.getItem("valuta") === "sum"
-                          ? `${item.sum_price}${languange === "ru" ? "сум" : "sum"}`
+                          ? `${item.sum_price}сум`
                           : sessionStorage.getItem("valuta") === "dollar"
                           ? `${item.price}$`
                           : `${item.price}$`}</del></h3>
@@ -320,7 +320,7 @@ export default function Featured() {
                         <h4 className="feat_price">{sessionStorage.getItem("valuta") === "sum"
                         ? `${
                             item.sum_price - (item.sum_price * item.sale) / 100
-                          }${languange === "ru" ? "сум" : "sum"}`
+                          }сум`
                         : sessionStorage.getItem("valuta") === "dollar"
                         ? `${item.price - (item.price * item.sale) / 100}$`
                         : `${item.price - (item.price * item.sale) / 100}$`}</h4>
@@ -387,14 +387,14 @@ export default function Featured() {
                         <h3 className="featCard_name">{item.name}<del>{item.sale == 0
                           ? ""
                           : sessionStorage.getItem("valuta") === "sum"
-                          ? `${item.sum_price}${languange === "ru" ? "сум" : "sum"}`
+                          ? `${item.sum_price}сум`
                           : sessionStorage.getItem("valuta") === "dollar"
                           ? `${item.price}$`
                           : `${item.price}$`}</del></h3>
                         <h4 className="featCard_price">{sessionStorage.getItem("valuta") === "sum"
                         ? `${
                             item.sum_price - (item.sum_price * item.sale) / 100
-                          }${languange === "ru" ? "сум" : "sum"}`
+                          }сум`
                         : sessionStorage.getItem("valuta") === "dollar"
                         ? `${item.price - (item.price * item.sale) / 100}$`
                         : `${item.price - (item.price * item.sale) / 100}$`}</h4>
