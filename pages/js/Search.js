@@ -573,7 +573,7 @@ export default function Search() {
                 label="Model"
                 onChange={handleModel}
               >
-                <MenuItem>
+                <MenuItem value="">
                   {languange === "ru" ? "Все" : "Hammasi"}
                 </MenuItem>
                 {model.map((item) => (
@@ -594,7 +594,7 @@ export default function Search() {
                 label="Series"
                 onChange={handleSeries}
               >
-                <MenuItem>
+                <MenuItem value="">
                   {languange === "ru" ? "Все" : "Hammasi"}
                 </MenuItem>
 
@@ -635,7 +635,7 @@ export default function Search() {
                 label="fuel_sort"
                 onChange={handleFuelsort}
               >
-                <MenuItem>
+                <MenuItem value="">
                   {languange === "ru" ? "Все" : "Hammasi"}
                 </MenuItem>
                 {fuelsort.map((item) => {
@@ -656,7 +656,7 @@ export default function Search() {
                 label="Gear Box"
                 onChange={handleGearBox}
               >
-                <MenuItem>
+                <MenuItem value="">
                   {languange === "ru" ? "Все" : "Hammasi"}
                 </MenuItem>
                 {gearBox.map((item) => {
@@ -691,7 +691,7 @@ export default function Search() {
                 label="Garant"
                 onChange={handlegarant}
               >
-                <MenuItem>
+                <MenuItem value="">
                   {languange === "ru" ? "Все" : "Hammasi"}
                 </MenuItem>
                 {garant.map((item) => {
@@ -753,7 +753,7 @@ export default function Search() {
                   value={selectModel}
                   onChange={handleModel}
                 >
-                  <MenuItem>
+                  <MenuItem value="">
                     {languange === "ru" ? "Все" : "Hammasi"}
                   </MenuItem>
                   {model.map((item) => (
@@ -774,7 +774,7 @@ export default function Search() {
                   label="Series"
                   onChange={handleSeries}
                 >
-                  <MenuItem>
+                  <MenuItem value="">
                     {languange === "ru" ? "Все" : "Hammasi"}
                   </MenuItem>
                   {series.map((item) => (
@@ -813,7 +813,7 @@ export default function Search() {
                   label="fuel_sort"
                   onChange={handleFuelsort}
                 >
-                  <MenuItem>
+                  <MenuItem value="">
                     {languange === "ru" ? "Все" : "Hammasi"}
                   </MenuItem>
                   {fuelsort.map((item) => {
@@ -834,7 +834,7 @@ export default function Search() {
                   label="Gear Box"
                   onChange={handleGearBox}
                 >
-                  <MenuItem>
+                  <MenuItem value="">
                     {languange === "ru" ? "Все" : "Hammasi"}
                   </MenuItem>
                   {gearBox.map((item) => {
@@ -871,7 +871,7 @@ export default function Search() {
                   // label='Mileage'
                   onChange={handlegarant}
                 >
-                  <MenuItem>
+                  <MenuItem value="">
                     {languange === "ru" ? "Все" : "Hammasi"}
                   </MenuItem>
                   {garant.map((item) => {

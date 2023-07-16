@@ -482,7 +482,7 @@
 .byt span {
   color: #0e7c7b;
   position: relative;
-  top: 3px;
+  /* top: 3px; */
   right: 5px;
 }
 .wat span {
@@ -1285,6 +1285,7 @@ body{
   height: 40px;
   border: none;
   padding-left: 10px;
+  background-color: white;
   border-radius: 10px;
 } 
 #visit{

@@ -13,6 +13,7 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
+    justify-content: center;
 }
 .css-13sljp9{
     margin-top: 10px !important;
@@ -198,7 +199,7 @@
 .body_top h2{
     font-size: 30px;
     font-weight: 900;
-    width: 300px;
+    width: 330px;
 }
 
 .top_box {
@@ -736,7 +737,7 @@ line-height:0px;
     
         }
     .div12{
-        width: 340px;
+        width: 310px;
         margin: 0 12px;
     }
     #div12{
@@ -746,12 +747,15 @@ line-height:0px;
         #div12{
             display: none;
         }
+        .div12{
+            width: 340px;
+        }
         .body_top h2{
-            margin-left: 100px;
+            margin-left: 80px;
         width: 120px;
         }
         #inpsearch{
-            margin-left: 120px;
+            margin-left: 140px;
         }
     }
     @media(max-width:1137px){
@@ -760,9 +764,13 @@ line-height:0px;
         }
         #inpsearch{
             width: 240px;
-            margin-left: 20px;
+            margin-left: 60px;
         }
         #input_year{
             width: 240px;
         }
+        .body_top h2 {
+            margin-left: 60px;
+        }
+
     }

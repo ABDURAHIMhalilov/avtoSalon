@@ -269,7 +269,7 @@ export default function Footer() {
           </div>
           <div className="footer_bottom">
             <p className="privacy">
-            © 2023.<a href="tel:996487223">  Аббас Теам{" "}</a>
+            © 2023.<a href="tel:996487223">  Команда Аббаса{" "}</a>
             </p>
             <div className="feat_left">
               <a href="#" className="iconBox icon2">
