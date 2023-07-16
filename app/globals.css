@@ -134,6 +134,6 @@ button::before {
       left: -40vw !important;
   }
   .popular .swiper-button-next:after, .swiper-button-prev:after {
-      right: -30vw;
+      right: -28vw;
   }
 }
