@@ -743,9 +743,7 @@
     display: flex;
     flex-wrap: wrap;
   }
-  .swiper-slide img{
-    height: 100% !important;
-  }
+  
 }
 .maa1 {
   margin: auto;
