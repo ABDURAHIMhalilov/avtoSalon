@@ -60,9 +60,9 @@ export default function Footer() {
               <p className="aaa">
               Baracar har bir avtomobilning kamida 30 kun xizmat ko'rsatishiga kafolat beradi. Agar kafolat muddati davomida mashinada muammo yuzaga kelsa, texnik xizmat ko'rsatish bo'yicha hamkorlarimiz uni tuzatadilar. 
               </p>
-              <h2>
+            <a href="tel:330321112">  <h2>
                 (33) <span>032 11 12 </span>
-              </h2>
+              </h2></a>
               <a className="Tcard_email" href="mailto: avtobaracar@gmail.com">
                     avtobaracar@gmail.com</a>
               <p>Mirobod tumani,</p>
@@ -196,9 +196,9 @@ export default function Footer() {
               <p className="aaa">
               Baracar гарантирует исправность каждой машины минимум на 30 дней. При возникновении проблем с машиной в срок гарантии, наши партнеры по тех обслуживанию устранят их.  
               </p>
-              <h2>
+              <a href="tel:3330321112"><h2>
                 (33) <span>032 11 12 </span>
-              </h2>
+              </h2></a>
               <a className="Tcard_email" href="mailto: avtobaracar@gmail.com">
                     avtobaracar@gmail.com</a>
               <p>Мирабадский район,</p>
