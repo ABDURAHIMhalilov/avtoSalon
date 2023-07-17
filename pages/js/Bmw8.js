@@ -456,14 +456,16 @@ export default function Bmw8() {
                       </button>
                     )}
                     <button className="byt">
-                      {" "}
-                      <span>
-                        <HiPhone />{" "}
-                      </span>{" "}
-                      {state === "ru"
-                        ? "(33) 032 11 12"
-                        : "(33) 032 11 12"}
-                    </button>
+                  {" "}
+                  <span>
+                    <HiPhone />{" "}
+                  </span>{" "}
+                  <a className="tel_a" href="tel:330321112">
+                  {state === "ru"
+                    ? "(33) 032 11 12"
+                    : "(33) 032 11 12"}
+                    </a>
+                </button>
                     <button onClick={()=>galeriyaModal()} className="wat">
                       {" "}
                       {state === "ru"?("Картинка автомобиля"):("Avtomobil rasmi")}
@@ -657,9 +659,11 @@ export default function Bmw8() {
                   <span>
                     <HiPhone />{" "}
                   </span>{" "}
+                  <a className="tel_a" href="tel:330321112">
                   {state === "ru"
                     ? "(33) 032 11 12"
                     : "(33) 032 11 12"}
+                    </a>
                 </button>
                 <button onClick={()=>galeriyaModal()} className="wat">
                   {" "}
@@ -779,14 +783,17 @@ export default function Bmw8() {
                       </span>
                       {state === "ru" ? "avtobaracar@gmail.com" : "avtobaracar@gmail.com"}
                     </p>
-                    <button>
-                      <span>
-                        <HiPhone />
-                      </span>
-                      {state === "ru"
-                        ? "123*** ***-обращаться"
-                        : "123*** ***-murojaat"}
-                    </button>
+                    <button className="byt">
+                  {" "}
+                  <span>
+                    <HiPhone />{" "}
+                  </span>{" "}
+                  <a className="tel_a" href="tel:330321112">
+                  {state === "ru"
+                    ? "(33) 032 11 12"
+                    : "(33) 032 11 12"}
+                    </a>
+                </button>
                   </div>
                 </div>
               </div>

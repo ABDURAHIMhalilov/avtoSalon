@@ -1305,7 +1305,13 @@ body{
   display: flex;
   justify-content: space-between;
 }
-
+.tel_a{
+  color: #0e7c7b;
+}
+body{
+  width: 100vw;
+  overflow-x: hidden;
+}
 .deskBg {
   width: 40%;
 }

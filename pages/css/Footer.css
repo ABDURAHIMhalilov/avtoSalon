@@ -21,6 +21,8 @@
 }
 .footerh2{
   color: #0e7c7b;
+  font-size: 28px;
+  line-height: 40px;
 }
 .li {
   color: #fff;
@@ -105,6 +107,7 @@
 
 .privacy {
   color: #fff;
+  margin-bottom: 0px;
 }
 
 .footer_bottom {
