@@ -387,7 +387,7 @@ export default function Bmw8() {
                         <td>{data.gearbox.name}</td>
                       </tr>
                       <tr className="maky1">
-                      <th>{data.distance < 200 ?  state === "ru" ? "Состояние:" : "Holat:" :state=== "ru"? "Пройденный путь" : "Bosib o'tilgan masofa"}</th>
+                      <th>{data.distance < 200 ?  state === "ru" ? "Состояние:" : "Holat:" :state=== "ru"? "Пройденный путь" : "Bosib o'tilgan ma'sofa"}</th>
                         <td>{data.distance < 200 ? state === "ru" ? "Новый" : "Yangi" : data.distance}</td>
                       </tr>
                       <tr className="maky1">
@@ -593,7 +593,7 @@ export default function Bmw8() {
                     <td>{data.gearbox.name}</td>
                   </tr>
                   <tr className="maky1">
-                    <th>{data.distance < 200 ?  state === "ru" ? "Состояние:" : "Holat:" :state=== "ru"? "Пройденный путь" : "Bosib o'tilgan masofa"}</th>
+                    <th>{data.distance < 200 ?  state === "ru" ? "Состояние:" : "Holat:" :state=== "ru"? "Пройденный путь" : "Bosib o'tilgan ma'sofa"}</th>
                     <td>{data.distance < 200 ? state === "ru" ? "Новый" : "Yangi" : data.distance}</td>
                   </tr>
                   <tr className="maky1">

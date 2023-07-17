@@ -169,10 +169,12 @@
         width: 97% !important;
     }
     .HomeHeader {
-        height: 860px !important;
+        height: 820px !important;
         margin-bottom: 100px !important;
     }
-}
+    #carImg2 {
+    margin-top: 30px;
+}}
 
 @media(max-width: 433px) {
     .HomeHeader {
@@ -182,6 +184,17 @@
         width: 400px !important;
     /* height: 420px !important; */
     }
+    .positionImg{
+        display: none;
+    }
+}
+#mnbh{
+    background-color: #fff !important;
+    padding-right: 30px;
+}
+.mnbh{
+    padding-right: 30px;
+    background-color: #fff !important;
 }
 
 /* @media(max-width: смсм                                                          425px){
