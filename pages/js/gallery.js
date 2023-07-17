@@ -22,7 +22,7 @@ import "../css/galerey.css"
      
     return (
       <div className="avtomobilrasm">
-        <Carousel images={images} style={{ height: '90vh', width: '100%' }} />
+        <Carousel images={images} style={{ height: '85vh', width: '100%' }} />
         </div>
     )
     }
