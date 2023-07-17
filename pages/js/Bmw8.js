@@ -7,7 +7,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/free-mode";
 import "swiper/css/navigation";
-import "../css/galerey.css"
+import "../css/galerey.css";
 import "swiper/css/thumbs";
 import { FreeMode, Navigation, Thumbs } from "swiper";
 import { Pagination } from "swiper";
@@ -19,22 +19,22 @@ import { BsFacebook } from "react-icons/bs";
 import { AiOutlineTwitter } from "react-icons/ai";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import { MdLocationOn } from "react-icons/md";
-import { AiOutlineMail,AiOutlineClose } from "react-icons/ai";
+import { AiOutlineMail, AiOutlineClose } from "react-icons/ai";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import axios from "axios";
 import car from "../images/6.jpg";
 import Carousel from "react-bootstrap/Carousel";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Galery from "./gallery"
-import "../css/galerey.css"
-import {BiCheckCircle} from 'react-icons/bi'
-import Head from 'next/head'
+import Galery from "./gallery";
+import "../css/galerey.css";
+import { BiCheckCircle } from "react-icons/bi";
+import Head from "next/head";
 
-import '@/app/globals.css'
+import "@/app/globals.css";
 
-import "../css/Popular.css"
-import "../css/Home.css"
+import "../css/Popular.css";
+import "../css/Home.css";
 import { Style } from "@mui/icons-material";
 import Team from "../js/Team";
 
@@ -47,7 +47,7 @@ export default function Bmw8() {
   const [state, setstate] = useState([]);
   const [p, setP] = useState(2);
   var [data, setData] = useState([]);
- console.log(data,"sassdad");
+  console.log(data, "sassdad");
   function defectOpen() {
     document.querySelector(".defectDiv").style = "display: block;";
     document.querySelector(".mySwiper").style = "display: none";
@@ -71,7 +71,9 @@ export default function Bmw8() {
 
     formdata.append(
       "visit_time",
-      document.querySelector(".visit_email").value +"T"+document.querySelector("#visit_time").value
+      document.querySelector(".visit_email").value +
+        "T" +
+        document.querySelector("#visit_time").value
     );
     formdata.append("branch", document.querySelector(".visit_brench").value);
     formdata.append("user", JSON.parse(localStorage.getItem("onemen")).id);
@@ -84,28 +86,50 @@ export default function Bmw8() {
         },
       })
       .then((res) => {
-        state==="ru"?(alert("Информация отправлена")):(alert("Ma`lumot yuborildi"));
+        state === "ru"
+          ? alert("Информация отправлена")
+          : alert("Ma`lumot yuborildi");
         window.location.reload();
       })
       .catch((err) => {
-        state==="ru"?(alert("Отправить подробную информацию")):(alert("To`liqroq ma`lumot yuboring"));
-        
+        state === "ru"
+          ? alert("Отправить подробную информацию")
+          : alert("To`liqroq ma`lumot yuboring");
       });
   }
   useEffect(() => {
-    setData(JSON.parse(localStorage.getItem("oneproduct")!=null? `${localStorage.getItem("oneproduct")}`: "[]"))
-    var data1=JSON.parse(localStorage.getItem("oneproduct")!=null?`${localStorage.getItem("oneproduct")}`: "[]")
-    setstate(localStorage.getItem("lang"))
-    setUser(localStorage.getItem("onemen") != null
-      ? JSON.parse(localStorage.getItem("onemen"))
-      : false)
-    axios.get(`https://api.baracar.uz/api/${localStorage.getItem("lang")?(localStorage.getItem("lang")):"ru"}/branch/`).then((res) => {
-
+    setData(
+      JSON.parse(
+        localStorage.getItem("oneproduct") != null
+          ? `${localStorage.getItem("oneproduct")}`
+          : "[]"
+      )
+    );
+    var data1 = JSON.parse(
+      localStorage.getItem("oneproduct") != null
+        ? `${localStorage.getItem("oneproduct")}`
+        : "[]"
+    );
+    setstate(localStorage.getItem("lang"));
+    setUser(
+      localStorage.getItem("onemen") != null
+        ? JSON.parse(localStorage.getItem("onemen"))
+        : false
+    );
+    axios
+      .get(
+        `https://api.baracar.uz/api/${
+          localStorage.getItem("lang") ? localStorage.getItem("lang") : "ru"
+        }/branch/`
+      )
+      .then((res) => {
         setBranchs(res.data);
       });
     axios
       .get(
-        `https://api.baracar.uz/api/${localStorage.getItem("lang") ? localStorage.getItem("lang") : "ru"}/cars_get/`
+        `https://api.baracar.uz/api/${
+          localStorage.getItem("lang") ? localStorage.getItem("lang") : "ru"
+        }/cars_get/`
       )
       .then((res) => {
         axios.get(`https://api.baracar.uz/api/images/`).then((res1) => {
@@ -118,9 +142,11 @@ export default function Bmw8() {
             }
           }
           res.data = res.data.filter((item) => data1.id != item.id);
-          res.data = res.data.filter((item) => data1.position.series.id == item.position.series.id);
-            setAvto(res.data);
-            console.log(res.data);
+          res.data = res.data.filter(
+            (item) => data1.position.series.id == item.position.series.id
+          );
+          setAvto(res.data);
+          console.log(res.data);
         });
       });
 
@@ -139,16 +165,15 @@ export default function Bmw8() {
         }
         setCars(initialProducts);
       });
-    setP(1) 
- setTimeout(() => {
-  if (localStorage.getItem("onemen")) {
-    var a = JSON.parse(localStorage.getItem("onemen"));
-    document.querySelector(".visit_name").value = a.username;
-    document.querySelector(".visit_email").value = a.email;
-    document.querySelector(".visit_number").value = a.phone;
-  }
- }, 1000);
-
+    setP(1);
+    setTimeout(() => {
+      if (localStorage.getItem("onemen")) {
+        var a = JSON.parse(localStorage.getItem("onemen"));
+        document.querySelector(".visit_name").value = a.username;
+        document.querySelector(".visit_email").value = a.email;
+        document.querySelector(".visit_number").value = a.phone;
+      }
+    }, 1000);
   }, []);
   function getData2(key) {
     console.log(key);
@@ -158,12 +183,11 @@ export default function Bmw8() {
     window.location = "/js/Bmw8";
   }
 
-  function galeriyaModal(){
+  function galeriyaModal() {
     document.querySelector(".galeriya").style = "display: block;";
     document.querySelector("body").style = "height: 300vh;overflow:hidden";
-    
   }
-  function galeriyaClose(){
+  function galeriyaClose() {
     document.querySelector(".galeriya").style = "display: none;";
     document.querySelector("body").style = "height: auto;";
   }
@@ -171,15 +195,57 @@ export default function Bmw8() {
   return (
     <div>
       <Head>
-    <title>Baracar</title>
-    <meta charset="UTF-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="description" content="Baracar гарантирует исправность каждой машины минимум на 30 дней. При возникновении проблем с машиной в срок гарантии, наши партнеры по тех обслуживанию устранят их. В случае невозможности устранения неполадок, Baracar обязуется выкупить автомобиль за 100% от купленной суммы. "/><meta name="keywords" content="Baracar гарантирует исправность каждой машины минимум на 30 дней. При возникновении проблем с машиной в срок гарантии, наши партнеры по тех обслуживанию устранят их. В случае невозможности устранения неполадок, Baracar обязуется выкупить автомобиль за 100% от купленной суммы. "/><meta name="author" content="Baracar гарантирует исправность каждой машины минимум на 30 дней. При возникновении проблем с машиной в срок гарантии, наши партнеры по тех обслуживанию устранят их. В случае невозможности устранения неполадок, Baracar обязуется выкупить автомобиль за 100% от купленной суммы. "/><meta name="description" content="Baracar гарантирует исправность каждой машины минимум на 30 дней. При возникновении проблем с машиной в срок гарантии, наши партнеры по тех обслуживанию устранят их. В случае невозможности устранения неполадок, Baracar обязуется выкупить автомобиль за 100% от купленной суммы.  "/><meta name="twitter:card" content="Baracar гарантирует исправность каждой машины минимум на 30 дней. При возникновении проблем с машиной в срок гарантии, наши партнеры по тех обслуживанию устранят их. В случае невозможности устранения неполадок, Baracar обязуется выкупить автомобиль за 100% от купленной суммы. "/><meta name="twitter:site" content="Baracar.uz"/><meta name="twitter:creator" content="Baracar.uz"/><meta name="twitter:title" content="Baracar"/><meta name="twitter:description" content="Baracar гарантирует исправность каждой машины минимум на 30 дней. При возникновении проблем с машиной в срок гарантии, наши партнеры по тех обслуживанию устранят их. В случае невозможности устранения неполадок, Baracar обязуется выкупить автомобиль за 100% от купленной суммы.  "/><meta name="twitter:image" content="url_to_image"/><meta property="og:title" content="Baracar"/><meta property="og:description" content="Baracar гарантирует исправность каждой машины минимум на 30 дней. При возникновении проблем с машиной в срок гарантии, наши партнеры по тех обслуживанию устранят их. В случае невозможности устранения неполадок, Baracar обязуется выкупить автомобиль за 100% от купленной суммы.  "/><meta property="og:url" content="Baracar.uz"/><meta property="og:site_name" content="Baracar.uz"/><meta property="og:locale" content="en_uz"/><meta property="og:type" content="Baracar.uz"/><meta property="fb:app_id" content="ID_APP_FACEBOOK"/>
+        <title>Baracar</title>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta
+          name="description"
+          content="Baracar гарантирует исправность каждой машины минимум на 30 дней. При возникновении проблем с машиной в срок гарантии, наши партнеры по тех обслуживанию устранят их. В случае невозможности устранения неполадок, Baracar обязуется выкупить автомобиль за 100% от купленной суммы. "
+        />
+        <meta
+          name="keywords"
+          content="Baracar гарантирует исправность каждой машины минимум на 30 дней. При возникновении проблем с машиной в срок гарантии, наши партнеры по тех обслуживанию устранят их. В случае невозможности устранения неполадок, Baracar обязуется выкупить автомобиль за 100% от купленной суммы. "
+        />
+        <meta
+          name="author"
+          content="Baracar гарантирует исправность каждой машины минимум на 30 дней. При возникновении проблем с машиной в срок гарантии, наши партнеры по тех обслуживанию устранят их. В случае невозможности устранения неполадок, Baracar обязуется выкупить автомобиль за 100% от купленной суммы. "
+        />
+        <meta
+          name="description"
+          content="Baracar гарантирует исправность каждой машины минимум на 30 дней. При возникновении проблем с машиной в срок гарантии, наши партнеры по тех обслуживанию устранят их. В случае невозможности устранения неполадок, Baracar обязуется выкупить автомобиль за 100% от купленной суммы.  "
+        />
+        <meta
+          name="twitter:card"
+          content="Baracar гарантирует исправность каждой машины минимум на 30 дней. При возникновении проблем с машиной в срок гарантии, наши партнеры по тех обслуживанию устранят их. В случае невозможности устранения неполадок, Baracar обязуется выкупить автомобиль за 100% от купленной суммы. "
+        />
+        <meta name="twitter:site" content="Baracar.uz" />
+        <meta name="twitter:creator" content="Baracar.uz" />
+        <meta name="twitter:title" content="Baracar" />
+        <meta
+          name="twitter:description"
+          content="Baracar гарантирует исправность каждой машины минимум на 30 дней. При возникновении проблем с машиной в срок гарантии, наши партнеры по тех обслуживанию устранят их. В случае невозможности устранения неполадок, Baracar обязуется выкупить автомобиль за 100% от купленной суммы.  "
+        />
+        <meta name="twitter:image" content="url_to_image" />
+        <meta property="og:title" content="Baracar" />
+        <meta
+          property="og:description"
+          content="Baracar гарантирует исправность каждой машины минимум на 30 дней. При возникновении проблем с машиной в срок гарантии, наши партнеры по тех обслуживанию устранят их. В случае невозможности устранения неполадок, Baracar обязуется выкупить автомобиль за 100% от купленной суммы.  "
+        />
+        <meta property="og:url" content="Baracar.uz" />
+        <meta property="og:site_name" content="Baracar.uz" />
+        <meta property="og:locale" content="en_uz" />
+        <meta property="og:type" content="Baracar.uz" />
+        <meta property="fb:app_id" content="ID_APP_FACEBOOK" />
       </Head>
       {p === 1 ? (
         <div>
-              <div className="galeriya">
-    <div className="galeriyaclose"><AiOutlineClose  onClick={()=>galeriyaClose()} /></div>
-    <Galery/>
-    </div>
+          <div className="galeriya">
+            <div className="galeriyaclose">
+              <AiOutlineClose onClick={() => galeriyaClose()} />
+            </div>
+            <Galery />
+          </div>
           <div className="defectDiv">
             {cars.length == 0 ? (
               <div className="defectBig">
@@ -196,12 +262,9 @@ export default function Bmw8() {
               </div>
             ) : (
               <>
-                                            <h5
-                                onClick={() => defectClose()}
-                                className="helloClose"
-                              >
-                                <AiOutlineClose/>
-                              </h5>
+                <h5 onClick={() => defectClose()} className="helloClose">
+                  <AiOutlineClose />
+                </h5>
                 <Carousel className="carusels">
                   {cars.map((item) => {
                     return (
@@ -235,8 +298,9 @@ export default function Bmw8() {
                               {data.position.series.name}{" "}
                               {state === "ru" ? "дефект" : "nuqson"}
                             </h4>
-<div className="defet1">
-                            <p>{item.description}</p></div>
+                            <div className="defet1">
+                              <p>{item.description}</p>
+                            </div>
                           </div>
                         </div>
                       </Carousel.Item>
@@ -279,7 +343,8 @@ export default function Bmw8() {
                     if (data.id === item2.car) {
                       return (
                         <SwiperSlide>
-                          <img id="s2img1"
+                          <img
+                            id="s2img1"
                             className="s2img"
                             src={item2.image}
                             alt={item2.image}
@@ -289,7 +354,7 @@ export default function Bmw8() {
                     } else {
                       return (
                         <SwiperSlide>
-                          <img 
+                          <img
                             className="s2img"
                             src={item2.image}
                             alt={item2.image}
@@ -313,7 +378,8 @@ export default function Bmw8() {
                     if (data.id === item2.car) {
                       return (
                         <SwiperSlide>
-                          <img id="swip111"
+                          <img
+                            id="swip111"
                             className="s2img"
                             src={item2.image}
                             alt={item2.image}
@@ -336,13 +402,15 @@ export default function Bmw8() {
               </div>
               <div className="ypn1">
                 <div className="dollars">
-                  <h1>{sessionStorage.getItem("valuta") === "sum"
-                        ? `${
-                            data.sum_price - (data.sum_price * data.sale) / 100
-                          }sum`
-                        : sessionStorage.getItem("valuta") === "dollar"
-                        ? `${data.price - (data.price * data.sale) / 100}$`
-                        : `${data.price - (data.price * data.sale) / 100}$`}</h1>
+                  <h1>
+                    {sessionStorage.getItem("valuta") === "sum"
+                      ? `${
+                          data.sum_price - (data.sum_price * data.sale) / 100
+                        }sum`
+                      : sessionStorage.getItem("valuta") === "dollar"
+                      ? `${data.price - (data.price * data.sale) / 100}$`
+                      : `${data.price - (data.price * data.sale) / 100}$`}
+                  </h1>
                   <p>
                     {" "}
                     <span>
@@ -355,7 +423,14 @@ export default function Bmw8() {
                 </div>
                 <div className="oxirkotta">
                   <div className="maky">
-                    <table className="tab1" style={{ width: "100%", paddingTop: "30px",minWidth:"450px" }}>
+                    <table
+                      className="tab1"
+                      style={{
+                        width: "100%",
+                        paddingTop: "30px",
+                        minWidth: "450px",
+                      }}
+                    >
                       <tr className="maky1">
                         <th>{state === "ru" ? "Марка:" : "Brend:"}</th>
                         <td>{data.position.series.model.name}</td>
@@ -370,7 +445,7 @@ export default function Bmw8() {
                       </tr>
                       <tr className="maky1">
                         <th>
-                          {state === "ru" ? "Тип вождения:" : "haydash turi:"}
+                          {state === "ru" ? "Тип вождения:" : "Haydash turi:"}
                         </th>
                         <td>
                           {state === "ru"
@@ -380,15 +455,27 @@ export default function Bmw8() {
                       </tr>
                       <tr className="maky1">
                         <th>
-                          {state === "ru"
-                            ? "Трансмиссия:"
-                            : "Transmissiya:"}
+                          {state === "ru" ? "Трансмиссия:" : "Transmissiya:"}
                         </th>
                         <td>{data.gearbox.name}</td>
                       </tr>
                       <tr className="maky1">
-                      <th>{data.distance < 200 ?  state === "ru" ? "Состояние:" : "Holat:" :state=== "ru"? "Пройденный путь" : "Bosib o'tilgan ma'sofa"}</th>
-                        <td>{data.distance < 200 ? state === "ru" ? "Новый" : "Yangi" : data.distance}</td>
+                        <th>
+                          {data.distance < 200
+                            ? state === "ru"
+                              ? "Состояние:"
+                              : "Holat:"
+                            : state === "ru"
+                            ? "Пройденный пробег:"
+                            : "Bosib o'tilgan ma'sofa"}
+                        </th>
+                        <td>
+                          {data.distance < 200
+                            ? state === "ru"
+                              ? "Новый"
+                              : "Yangi"
+                            : data.distance}
+                        </td>
                       </tr>
                       <tr className="maky1">
                         <th>{state === "ru" ? "Год:" : "Yil:"}</th>
@@ -408,7 +495,7 @@ export default function Bmw8() {
                         </th>
                         <td>{data.engine}L</td>
                       </tr>
-                      
+
                       <tr className="maky1">
                         <th>{state === "ru" ? "ИД номер:" : "ID raqami:"}</th>
                         <td>{data.id}</td>
@@ -456,19 +543,19 @@ export default function Bmw8() {
                       </button>
                     )}
                     <button className="byt">
-                  {" "}
-                  <span>
-                    <HiPhone />{" "}
-                  </span>{" "}
-                  <a className="tel_a" href="tel:330321112">
-                  {state === "ru"
-                    ? "(33) 032 11 12"
-                    : "(33) 032 11 12"}
-                    </a>
-                </button>
-                    <button onClick={()=>galeriyaModal()} className="wat">
                       {" "}
-                      {state === "ru"?("Картинка автомобиля"):("Avtomobil rasmi")}
+                      <span>
+                        <HiPhone />{" "}
+                      </span>{" "}
+                      <a className="tel_a" href="tel:330321112">
+                        {state === "ru" ? "(33) 032 11 12" : "(33) 032 11 12"}
+                      </a>
+                    </button>
+                    <button onClick={() => galeriyaModal()} className="wat">
+                      {" "}
+                      {state === "ru"
+                        ? "Картинка автомобиля"
+                        : "Avtomobil rasmi"}
                     </button>
 
                     {/* <div className="pas">
@@ -480,12 +567,8 @@ export default function Bmw8() {
 
               <div className="bloksoz">
                 <h1>{state === "ru" ? "Описание" : "Tavsif"}</h1>
-                <p className="p">
-                  {data.description.slice(0,350)}
-                </p>
-                <p className="p1">
-                {data.description.slice(350)}
-                </p>
+                <p className="p">{data.description.slice(0, 350)}</p>
+                <p className="p1">{data.description.slice(350)}</p>
                 <h4
                   className="show"
                   onClick={() => {
@@ -497,33 +580,68 @@ export default function Bmw8() {
               </div>
 
               <div className="kotta">
-                <h1>{state === "ru" ? "Почему выбрали нас?" : "Nima uchun bizni tanlaysiz?"}</h1>
+                <h1>
+                  {state === "ru"
+                    ? "Почему выбрали нас?"
+                    : "Nima uchun bizni tanlaysiz?"}
+                </h1>
                 <div className="ushta">
                   <div className="bir">
-                    <img className="bxs-balloon" src="https://images.ctfassets.net/6x2h5ns7uwip/2YKwoOLA5dbMWb4HwlqARk/bb90de23a382bee4545fef1c5ab5ae0b/CRM_icons_90-day_warranty_35px.png?w=74&h=73&fit=fill&f=center&fm=webp" alt="" />
-                    <h2>{state === "ru" ? "Тотальное качество Baracar" : "Baracar yuksak sifati"} </h2>
+                    <img
+                      className="bxs-balloon"
+                      src="https://images.ctfassets.net/6x2h5ns7uwip/2YKwoOLA5dbMWb4HwlqARk/bb90de23a382bee4545fef1c5ab5ae0b/CRM_icons_90-day_warranty_35px.png?w=74&h=73&fit=fill&f=center&fm=webp"
+                      alt=""
+                    />
+                    <h2>
+                      {state === "ru"
+                        ? "Тотальное качество Baracar"
+                        : "Baracar yuksak sifati"}{" "}
+                    </h2>
                     <h4>
-                    {state === "ru" ? "Каждая машина на Baracar проходит проверку по 168 пунктам и имеет полную историю автомобиля, а также историю технического обслуживания. " : "                    Har bir avtomobil 168 punkt bo’yicha sinovdan o'tkaziladi va to'liq avtomashina tarixi va texnik xizmat ko'rsatish tarixiga ega."}
+                      {state === "ru"
+                        ? "Каждая машина на Baracar проходит проверку по 168 пунктам и имеет полную историю автомобиля, а также историю технического обслуживания. "
+                        : "                    Har bir avtomobil 168 punkt bo’yicha sinovdan o'tkaziladi va to'liq avtomashina tarixi va texnik xizmat ko'rsatish tarixiga ega."}
                     </h4>
                   </div>
                   <div className="bir">
-                    <img className="bxs-balloon" src="https://images.ctfassets.net/6x2h5ns7uwip/2YKwoOLA5dbMWb4HwlqARk/bb90de23a382bee4545fef1c5ab5ae0b/CRM_icons_90-day_warranty_35px.png?w=74&h=73&fit=fill&f=center&fm=webp" alt="" />
-                    <h2>{state === "ru" ? "Выгодный автокредит" : "Qulay avtokredi"} </h2>
+                    <img
+                      className="bxs-balloon"
+                      src="https://images.ctfassets.net/6x2h5ns7uwip/2YKwoOLA5dbMWb4HwlqARk/bb90de23a382bee4545fef1c5ab5ae0b/CRM_icons_90-day_warranty_35px.png?w=74&h=73&fit=fill&f=center&fm=webp"
+                      alt=""
+                    />
+                    <h2>
+                      {state === "ru"
+                        ? "Выгодный автокредит"
+                        : "Qulay avtokredi"}{" "}
+                    </h2>
                     <h4>
-                    {state === "ru" ? "Мы, в партнерстве с Tenge Bank, предлагаем самые удобные, а также самые выгодные условия по автокредиту. " : "                    Biz Tenge Bank bilan hamkorlikda avtokredit uchun eng qulay va foydali shartlarni taklif etamiz."}
+                      {state === "ru"
+                        ? "Мы, в партнерстве с Tenge Bank, предлагаем самые удобные, а также самые выгодные условия по автокредиту. "
+                        : "                    Biz Tenge Bank bilan hamkorlikda avtokredit uchun eng qulay va foydali shartlarni taklif etamiz."}
                     </h4>
                   </div>
                   <div className="bir">
-                    <img className="bxs-balloon" src="https://images.ctfassets.net/6x2h5ns7uwip/2YKwoOLA5dbMWb4HwlqARk/bb90de23a382bee4545fef1c5ab5ae0b/CRM_icons_90-day_warranty_35px.png?w=74&h=73&fit=fill&f=center&fm=webp" alt="" />
-                    <h2> {state === "ru" ? "30-дневная гарантия" : "30 kunlik kafolat"}</h2>
+                    <img
+                      className="bxs-balloon"
+                      src="https://images.ctfassets.net/6x2h5ns7uwip/2YKwoOLA5dbMWb4HwlqARk/bb90de23a382bee4545fef1c5ab5ae0b/CRM_icons_90-day_warranty_35px.png?w=74&h=73&fit=fill&f=center&fm=webp"
+                      alt=""
+                    />
+                    <h2>
+                      {" "}
+                      {state === "ru"
+                        ? "30-дневная гарантия"
+                        : "30 kunlik kafolat"}
+                    </h2>
                     <h4>
-                    {state === "ru" ? "Каждый автомобиль в нашем автосалоне имеет гарантию минимум 30 дней на полное обслуживание ходовой части по гарантии. " : "                    Avtosalonimizdagi har bir avtomobil 30 kunlik kafolat ostida to'liq xizmat ko’rsatishga ega."}
+                      {state === "ru"
+                        ? "Каждый автомобиль в нашем автосалоне имеет гарантию минимум 30 дней на полное обслуживание ходовой части по гарантии. "
+                        : "                    Avtosalonimizdagi har bir avtomobil 30 kunlik kafolat ostida to'liq xizmat ko’rsatishga ega."}
                     </h4>
                   </div>
                 </div>
               </div>
 
-              <Team/>
+              <Team />
             </div>
 
             <div className="ypn">
@@ -545,13 +663,15 @@ export default function Bmw8() {
               </div>
               <hr className="asdda" />
               <div className="dollars">
-                <h1>{sessionStorage.getItem("valuta") === "sum"
-                        ? `${
-                            data.sum_price - (data.sum_price * data.sale) / 100
-                          }${state === "ru" ? "сум" : "sum"}`
-                        : sessionStorage.getItem("valuta") === "dollar"
-                        ? `${data.price - (data.price * data.sale) / 100}$`
-                        : `${data.price - (data.price * data.sale) / 100}$`}</h1>
+                <h1>
+                  {sessionStorage.getItem("valuta") === "sum"
+                    ? `${data.sum_price - (data.sum_price * data.sale) / 100}${
+                        state === "ru" ? "сум" : "sum"
+                      }`
+                    : sessionStorage.getItem("valuta") === "dollar"
+                    ? `${data.price - (data.price * data.sale) / 100}$`
+                    : `${data.price - (data.price * data.sale) / 100}$`}
+                </h1>
                 <p>
                   {" "}
                   <span>
@@ -578,7 +698,7 @@ export default function Bmw8() {
                   </tr>
                   <tr className="maky1">
                     <th>
-                      {state === "ru" ? "Тип вождения:" : "haydash turi::"}
+                      {state === "ru" ? "Тип вождения:" : "Haydash turi:"}
                     </th>
                     <td>
                       {state === "ru"
@@ -587,16 +707,26 @@ export default function Bmw8() {
                     </td>
                   </tr>
                   <tr className="maky1">
-                    <th>
-                      {state === "ru"
-                        ? "Трансмиссия:"
-                        : "Transmissiya:"}
-                    </th>
+                    <th>{state === "ru" ? "Трансмиссия:" : "Transmissiya:"}</th>
                     <td>{data.gearbox.name}</td>
                   </tr>
                   <tr className="maky1">
-                    <th>{data.distance < 200 ?  state === "ru" ? "Состояние:" : "Holat:" :state=== "ru"? "Пройденный путь" : "Bosib o'tilgan ma'sofa"}</th>
-                    <td>{data.distance < 200 ? state === "ru" ? "Новый" : "Yangi" : data.distance}</td>
+                    <th>
+                      {data.distance < 200
+                        ? state === "ru"
+                          ? "Состояние:"
+                          : "Holat:"
+                        : state === "ru"
+                        ? "Пройденный пробег:"
+                        : "Bosib o'tilgan ma'sofa"}
+                    </th>
+                    <td>
+                      {data.distance < 200
+                        ? state === "ru"
+                          ? "Новый"
+                          : "Yangi"
+                        : data.distance}
+                    </td>
                   </tr>
                   <tr className="maky1">
                     <th>{state === "ru" ? "Год:" : "Yil:"}</th>
@@ -660,14 +790,12 @@ export default function Bmw8() {
                     <HiPhone />{" "}
                   </span>{" "}
                   <a className="tel_a" href="tel:330321112">
-                  {state === "ru"
-                    ? "(33) 032 11 12"
-                    : "(33) 032 11 12"}
-                    </a>
+                    {state === "ru" ? "(33) 032 11 12" : "(33) 032 11 12"}
+                  </a>
                 </button>
-                <button onClick={()=>galeriyaModal()} className="wat">
+                <button onClick={() => galeriyaModal()} className="wat">
                   {" "}
-                  {state === "ru"?("Картинка автомобиля"):("Avtomobil rasmi")}
+                  {state === "ru" ? "Картинка автомобиля" : "Avtomobil rasmi"}
                 </button>
 
                 {/* <div className="pas">
@@ -715,7 +843,11 @@ export default function Bmw8() {
                   ></textarea>
 
                   <div className="select21">
-                    <select id="visit" className="visit_brench" onChange={handleChange}>
+                    <select
+                      id="visit"
+                      className="visit_brench"
+                      onChange={handleChange}
+                    >
                       {branchs.map((item) => {
                         return (
                           <option value={item.id} id="visit">
@@ -739,7 +871,9 @@ export default function Bmw8() {
                     ) : (
                       <button
                         onClick={() => {
-                          state==="ru"?(alert("Вы не зарегистрированы")):(alert("Siz ro`yhatdan o`tmagansiz"));
+                          state === "ru"
+                            ? alert("Вы не зарегистрированы")
+                            : alert("Siz ro`yhatdan o`tmagansiz");
                           window.location = "/js/Login";
                         }}
                       >
@@ -781,19 +915,19 @@ export default function Bmw8() {
                       <span>
                         <AiOutlineMail />
                       </span>
-                      {state === "ru" ? "avtobaracar@gmail.com" : "avtobaracar@gmail.com"}
+                      {state === "ru"
+                        ? "avtobaracar@gmail.com"
+                        : "avtobaracar@gmail.com"}
                     </p>
                     <button className="byt">
-                  {" "}
-                  <span>
-                    <HiPhone />{" "}
-                  </span>{" "}
-                  <a className="tel_a" href="tel:330321112">
-                  {state === "ru"
-                    ? "(33) 032 11 12"
-                    : "(33) 032 11 12"}
-                    </a>
-                </button>
+                      {" "}
+                      <span>
+                        <HiPhone />{" "}
+                      </span>{" "}
+                      <a className="tel_a" href="tel:330321112">
+                        {state === "ru" ? "(33) 032 11 12" : "(33) 032 11 12"}
+                      </a>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -1007,82 +1141,121 @@ export default function Bmw8() {
               })}
             </Swiper>
           </div> */}
-{getavto.length>3?(<div className="popular">
-       
-      <Swiper
-        spaceBetween={0}
-        navigation={true}
-        breakpoints={{
-          0:{
-            slidesPerView: 1,
-            spaceBetween: 50,
-          },
-          650: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-          },
-          991: {
-            slidesPerView: 3,
-            spaceBetween: 20,
-          },
-          1400: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-          },
-          1750: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-          },
-          1950: {
-            slidesPerView: 5,
-            spaceBetween: 20,
-          },
-        }}
-        modules={[Navigation]}
-        className="mySwiper"
-      >
-        {getavto.map((item, key) => {
-if(key<12){ 
-          return (
-            <SwiperSlide key={key} onClick={()=>getData2(item)} className="swiperPopCard">
-              <div className="feat_card">
-              <div id="corner-ribbon" style={{position:'absolute',top:'0px',right:'170px'}}>
-              <div  style={item.sale == 0 ? { display: "none" }:{ display: "flex" }}>
-                <div>
-                  <div><h2 className='sa'>{item.sale == 0 ? ("") : (`${item.sale}%`)} </h2></div>
-                </div>
-              </div>
+          {getavto.length > 3 ? (
+            <div className="popular">
+              <Swiper
+                spaceBetween={0}
+                navigation={true}
+                breakpoints={{
+                  0: {
+                    slidesPerView: 1,
+                    spaceBetween: 50,
+                  },
+                  650: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                  },
+                  991: {
+                    slidesPerView: 3,
+                    spaceBetween: 20,
+                  },
+                  1400: {
+                    slidesPerView: 4,
+                    spaceBetween: 20,
+                  },
+                  1750: {
+                    slidesPerView: 4,
+                    spaceBetween: 20,
+                  },
+                  1950: {
+                    slidesPerView: 5,
+                    spaceBetween: 20,
+                  },
+                }}
+                modules={[Navigation]}
+                className="mySwiper"
+              >
+                {getavto.map((item, key) => {
+                  if (key < 12) {
+                    return (
+                      <SwiperSlide
+                        key={key}
+                        onClick={() => getData2(item)}
+                        className="swiperPopCard"
+                      >
+                        <div className="feat_card">
+                          <div
+                            id="corner-ribbon"
+                            style={{
+                              position: "absolute",
+                              top: "0px",
+                              right: "170px",
+                            }}
+                          >
+                            <div
+                              style={
+                                item.sale == 0
+                                  ? { display: "none" }
+                                  : { display: "flex" }
+                              }
+                            >
+                              <div>
+                                <div>
+                                  <h2 className="sa">
+                                    {item.sale == 0 ? "" : `${item.sale}%`}{" "}
+                                  </h2>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <img
+                            src={
+                              item.image.length > 0
+                                ? item.image[0].image
+                                : "https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg"
+                            }
+                            alt="no img"
+                          />
+                          <div className="featCard_bottom">
+                            <h3 className="featCard_name">{item.name}</h3>
+                            <h4 className="featCard_price">
+                              {sessionStorage.getItem("valuta") === "sum"
+                                ? `${
+                                    data.sum_price -
+                                    (data.sum_price * data.sale) / 100
+                                  }${state === "ru" ? "сум" : "sum"}`
+                                : sessionStorage.getItem("valuta") === "dollar"
+                                ? `${
+                                    data.price - (data.price * data.sale) / 100
+                                  }$`
+                                : `${
+                                    data.price - (data.price * data.sale) / 100
+                                  }$`}
+                            </h4>
+                            <div className="featCard_box">
+                              <p className="featCard_year">{item.year}</p>
+                              <p className="featCard_auto">
+                                {item.gearbox.name}
+                              </p>
+                              <p className="featCard_pet">
+                                {item.fuel_sort.name}
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </SwiperSlide>
+                    );
+                  }
+                })}
+              </Swiper>
             </div>
-                    <img src={item.image.length>0?item.image[0].image:("https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg")
-              }
-                      alt="no img" />
-                <div className="featCard_bottom">
-                <h3 className="featCard_name">{item.name}</h3>
-                  <h4 className="featCard_price">{sessionStorage.getItem("valuta") === "sum"
-                        ? `${
-                            data.sum_price - (data.sum_price * data.sale) / 100
-                          }${state === "ru" ? "сум" : "sum"}`
-                        : sessionStorage.getItem("valuta") === "dollar"
-                        ? `${data.price - (data.price * data.sale) / 100}$`
-                        : `${data.price - (data.price * data.sale) / 100}$`}</h4>
-                  <div className="featCard_box">
-                    <p className="featCard_year">{item.year}</p>
-                    <p className="featCard_auto">{item.gearbox.name}</p>
-                    <p className="featCard_pet">{item.fuel_sort.name}</p>
-                  </div>
-                </div> 
-              </div>
-            </SwiperSlide>
-          );}
-          
-        
-        })}
+          ) : (
+            ""
+          )}
 
-      </Swiper>
-    </div>):("")}
-
-      <Footer/>
-    </div>) : (
+          <Footer />
+        </div>
+      ) : (
         <div class="loader">
           <svg
             class="car"
