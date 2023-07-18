@@ -68,9 +68,7 @@ export default function Search() {
           }
           res.data.map((item) => {
             if (
-              (model1 != ""
-                ? item.position.series.model.id === model1
-                : true) &&
+              (model1 != "" ? item.position.series.model.id === model1 : true) &&
               (seria1 != "" ? item.position.series.id === seria1 : true) &&
               (position1 != "" ? item.position.id === position1 : true) &&
               (branch1 != "" ? item.branch.id === branch1 : true) &&
@@ -78,12 +76,12 @@ export default function Search() {
               (gearBox1 != "" ? item.gearbox.id === gearBox1 : true) &&
               (garant1 != "" ? item.garant.id === garant1 : true) &&
               (year1 != "" ? item.year === year1 * 1 : true) &&
-              (mincount1 != "" ? item.price > mincount1 * 1 : true) &&
-              (maxcount1 != "" ? item.price < maxcount1 * 1 : true)
+              (mincount1 != "" ? (sessionStorage.getItem("valuta") === "sum" ? (item.sum_price-(item.sum_price * item.sale) / 100) : (item.price-(item.price * item.sale) / 100)) >= mincount1 * 1 : true) &&
+              (maxcount1 != "" ? (sessionStorage.getItem("valuta") === "sum" ? (item.sum_price-(item.sum_price * item.sale) / 100) : (item.price-(item.price * item.sale) / 100)) <= maxcount1 * 1 : true)
             ) {
               pushdata.push(item);
             }
-          });
+          })
           setCountpag(Math.floor(pushdata.length / 12) + 1);
           setMakes(pushdata);
         });
@@ -347,7 +345,8 @@ export default function Search() {
             searchRegex.test(item.position.series.model.name) ||
             searchRegex.test(item.branch.name) ||
             searchRegex.test(item.year) ||
-            searchRegex.test(item.price)
+            searchRegex.test(item.price - (item.price * item.sale) / 100)||
+            searchRegex.test(item.sum_price - (item.sum_price * item.sale) / 100)
           );
         })
         setCountpag(Math.floor(searchdata.length / 12) + 1)
