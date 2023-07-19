@@ -466,7 +466,7 @@ export default function Bmw8() {
                               ? "Состояние:"
                               : "Holat:"
                             : state === "ru"
-                            ? "Пройденный пробег:"
+                            ? "Пробег:"
                             : "Bosib o'tilgan ma'sofa"}
                         </th>
                         <td>
@@ -717,7 +717,7 @@ export default function Bmw8() {
                           ? "Состояние:"
                           : "Holat:"
                         : state === "ru"
-                        ? "Пройденный пробег:"
+                        ? "Пробег:"
                         : "Bosib o'tilgan ma'sofa"}
                     </th>
                     <td>
