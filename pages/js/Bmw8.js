@@ -30,9 +30,10 @@ import Galery from "./gallery";
 import "../css/galerey.css";
 import { BiCheckCircle } from "react-icons/bi";
 import Head from "next/head";
-
+import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder';
+import BookmarkIcon from '@mui/icons-material/Bookmark';
 import "@/app/globals.css";
-
+import Checkbox from '@mui/material/Checkbox';
 import "../css/Popular.css";
 import "../css/Home.css";
 import { Style } from "@mui/icons-material";
@@ -46,6 +47,8 @@ export default function Bmw8() {
   const [cars, setCars] = useState([]);
   const [state, setstate] = useState([]);
   const [p, setP] = useState(2);
+  // const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+  const [checked, setChecked] = useState(true);
   var [data, setData] = useState([]);
   console.log(data, "sassdad");
   function defectOpen() {
@@ -62,9 +65,55 @@ export default function Bmw8() {
     // document.querySelector(".mySwiper2").style = "display: none";
     document.querySelector("body").style = "height: auto;";
   }
-  const handleChange = (e) => {
-    console.log(e.target.value);
+
+
+
+
+
+
+
+
+
+  const handleChange = (event) => {
+    setChecked(event.target.checked);
+    let userData = localStorage.getItem("onemen");
+if (userData===null) {
+  alert("izbraniyga qoshish uchun registratsiya oting")
+  window.location="/js/Login"
+}else{
+  alert("work")
+  let carData = localStorage.getItem("oneproduct");
+  carData = JSON.parse(carData);
+  let carId=carData.id
+  userData = JSON.parse(userData);
+  let userId = userData.id;
+  console.log("car:  "+carId+" user:  "+userId);
+}
   };
+
+  
+  useEffect(() => {
+    let userData = localStorage.getItem("onemen");
+if (userData===null) {
+
+}else{
+  let carData = localStorage.getItem("oneproduct");
+  carData = JSON.parse(carData);
+  let carId=carData.id
+  userData = JSON.parse(userData);
+  let userId = userData.id;
+  console.log("car:  "+carId+" user:  "+userId);
+}
+  }, []);
+  
+
+
+
+
+
+
+
+
 
   function postData() {
     var formdata = new FormData();
@@ -420,6 +469,19 @@ export default function Bmw8() {
                       ? "Добавить в избранное"
                       : "Sevimlilarga qo'shing"}
                   </p>
+                </div>
+                <div style={{
+                  display:"flex"
+                }}>
+                     <Checkbox
+                           checked={checked}
+                           onChange={handleChange}
+
+        icon={<BookmarkBorderIcon />}
+        checkedIcon={<BookmarkIcon />}
+      />
+
+                  <p>iznranniy</p>
                 </div>
                 <div className="oxirkotta">
                   <div className="maky">
