@@ -51,21 +51,25 @@ export default function Loginpage() {
 
   useEffect(() => {
     let userData = localStorage.getItem("onemen");
-  userData = JSON.parse(userData);
-  let userId = userData.id;
-  // console.log("car:  "+carId+" user:  "+userId);
-  axios.get(`https://api.baracar.uz/api/likes/`,{
-    headers: {
-      Authorization: "Bearer " + localStorage.getItem("Token_user"),
-    },
-  }).then((res)=>{
-    const filter=res.data.filter(item=>item.user===userId)
-    if (filter) {
-      setChecked(filter)
-     }else{
-      alert("xech  narsa ek")
-     }
-  })
+    if (userData===null) {
+    }else{
+      userData = JSON.parse(userData);
+      let userId = userData.id;
+      // console.log("car:  "+carId+" user:  "+userId);
+      axios.get(`https://api.baracar.uz/api/likes/`,{
+        headers: {
+          Authorization: "Bearer " + localStorage.getItem("Token_user"),
+        },
+      }).then((res)=>{
+        const filter=res.data.filter(item=>item.user===userId)
+        if (filter) {
+          setChecked(filter)
+         }else{
+          alert("xech  narsa ek")
+         }
+      })
+    }
+
 
 
 

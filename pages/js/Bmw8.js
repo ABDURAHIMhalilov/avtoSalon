@@ -144,10 +144,10 @@ if (userData===null) {
     },
   }).then((res)=>{
  const filter=res.data.filter(item=>item.car===carId&&item.user===userId)
- if (filter) {
-  setChecked(true)
+ if (filter.length===0) {
+  setChecked(false)
  }else{
-  setChecked(flase)
+  setChecked(true)
  }
   })
 }
