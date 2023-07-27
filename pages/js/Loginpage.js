@@ -13,8 +13,9 @@ import "../../app/globals.css";
 import Table from "react-bootstrap/Table";
 import Head from 'next/head'
 // import { Select, Space } from "antd";
-// import "../css/Popular.css";
-// import "../css/Home.css";
+import "../css/Popular.css";
+import "../css/Home.css";
+import "../../app/globals.css";
 export default function Loginpage() {
   const [user, setUser] = React.useState([]);
   const [data, setData] = React.useState(1);
@@ -866,7 +867,10 @@ export default function Loginpage() {
                     <div className="ba">
                       <div className="kok">
                         
-        <div className="result_wrapper">
+        <div style={{
+             overflowY: "scroll",
+             overflowX: "hidden"
+        }} className="result_wrapper">
           {checked.map((mainItem)=>{
             return<>
 {makes.map((item, key) => {
@@ -895,6 +899,9 @@ export default function Loginpage() {
           </div>
         </div>
         <img
+        style={{width:"100%",
+        height:"50vw"
+      }}
           src={
             item.image[0] != undefined
               ? item.image[0].image
