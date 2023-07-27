@@ -80,7 +80,7 @@ export default function Bmw8() {
     // alert(event.target.checked)
     let userData = localStorage.getItem("onemen");
     if (userData===null) {
-      window.location="/login"
+      window.location="/js/Login"
     }else{
       let carData = localStorage.getItem("oneproduct");
       carData = JSON.parse(carData);
@@ -130,7 +130,7 @@ export default function Bmw8() {
   useEffect(() => {
     let userData = localStorage.getItem("onemen");
 if (userData===null) {
-  window.location="/login"
+
 }else{
   let carData = localStorage.getItem("oneproduct");
   carData = JSON.parse(carData);
