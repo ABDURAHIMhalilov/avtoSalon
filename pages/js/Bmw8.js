@@ -48,7 +48,7 @@ export default function Bmw8() {
   const [state, setstate] = useState([]);
   const [p, setP] = useState(2);
   // const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-  const [checked, setChecked] = useState(true);
+  const [checked, setChecked] = useState(false);
   var [data, setData] = useState([]);
   console.log(data, "sassdad");
   function defectOpen() {
@@ -81,13 +81,27 @@ if (userData===null) {
   alert("izbraniyga qoshish uchun registratsiya oting")
   window.location="/js/Login"
 }else{
-  alert("work")
+  // alert("work")
   let carData = localStorage.getItem("oneproduct");
   carData = JSON.parse(carData);
   let carId=carData.id
   userData = JSON.parse(userData);
   let userId = userData.id;
-  console.log("car:  "+carId+" user:  "+userId);
+  let userConst=[
+    userId
+  ]
+  // console.log("car:  "+carId+" user:  "+userId);
+  var formdata = new FormData();
+  formdata.append("liked_users",userConst );
+  axios.put(`https://api.baracar.uz/api/cars/${carId}/`,formdata,{
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("Token_user"),
+    },
+  }).then((res)=>{
+    alert("work");
+  }).catch((err)=>{
+    alert(err)
+  })
 }
   };
 
@@ -95,7 +109,6 @@ if (userData===null) {
   useEffect(() => {
     let userData = localStorage.getItem("onemen");
 if (userData===null) {
-
 }else{
   let carData = localStorage.getItem("oneproduct");
   carData = JSON.parse(carData);
@@ -103,6 +116,31 @@ if (userData===null) {
   userData = JSON.parse(userData);
   let userId = userData.id;
   console.log("car:  "+carId+" user:  "+userId);
+  axios.get(`https://api.baracar.uz/api/cars/${carId}/`,{
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("Token_user"),
+    },
+  }).then((res)=>{
+let checkedUser=res.data.liked_users
+console.log(checkedUser,"dddrrrrrr");
+const filter=checkedUser.filter(item=>item===userId)
+if (filter.length===0) {
+  alert("yok")
+  setChecked(false)
+}else{
+  if (filter[0]===userId) {
+    alert("bor")
+    setChecked(true)
+  }else{
+    alert("id yok")
+  }
+}
+console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAA");
+console.log(filter);
+  }).catch((err)=>{
+    alert(err)
+  })
+
 }
   }, []);
   
@@ -470,19 +508,7 @@ if (userData===null) {
                       : "Sevimlilarga qo'shing"}
                   </p>
                 </div>
-                <div style={{
-                  display:"flex"
-                }}>
-                     <Checkbox
-                           checked={checked}
-                           onChange={handleChange}
-
-        icon={<BookmarkBorderIcon />}
-        checkedIcon={<BookmarkIcon />}
-      />
-
-                  <p>iznranniy</p>
-                </div>
+                
                 <div className="oxirkotta">
                   <div className="maky">
                     <table
@@ -564,6 +590,7 @@ if (userData===null) {
                       </tr>
                     </table>
                   </div>
+
                   <div className="buttonz">
                     {cars.length === 0 ? (
                       state === "uz" ? (
@@ -625,9 +652,11 @@ if (userData===null) {
                 </div> */}
                   </div>
                 </div>
+
               </div>
 
               <div className="bloksoz">
+  
                 <h1>{state === "ru" ? "Описание" : "Tavsif"}</h1>
                 <p className="p">{data.description.slice(0, 350)}</p>
                 <p className="p1">{data.description.slice(350)}</p>
@@ -734,7 +763,19 @@ if (userData===null) {
                     ? `${data.price - (data.price * data.sale) / 100}$`
                     : `${data.price - (data.price * data.sale) / 100}$`}
                 </h1>
-                <p>
+                <div >
+                     <Checkbox
+                           checked={checked}
+                           onChange={handleChange}
+
+        icon={<BookmarkBorderIcon />}
+        checkedIcon={<BookmarkIcon />}
+      />
+                  <p>{state === "ru"
+                    ? "Добавить в избранное"
+                    : "Sevimlilarga qo'shing"}</p>
+                </div>
+                {/* <p>
                   {" "}
                   <span>
                     <AiOutlineStar />
@@ -742,7 +783,7 @@ if (userData===null) {
                   {state === "ru"
                     ? "Добавить в избранное"
                     : "Sevimlilarga qo'shing"}
-                </p>
+                </p> */}
               </div>
               <div className="maky">
                 <table style={{ width: "100%", paddingTop: "30px" }}>
