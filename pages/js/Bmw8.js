@@ -76,80 +76,84 @@ export default function Bmw8() {
 
   const handleChange = (event) => {
     setChecked(event.target.checked);
+    // alert(checked)
+    // alert(event.target.checked)
     let userData = localStorage.getItem("onemen");
-if (userData===null) {
-  alert("izbraniyga qoshish uchun registratsiya oting")
-  window.location="/js/Login"
-}else{
-  // alert("work")
-  let carData = localStorage.getItem("oneproduct");
-  carData = JSON.parse(carData);
-  let carId=carData.id
-  userData = JSON.parse(userData);
-  let userId = userData.id;
-  let userConst=[
-    userId
-  ]
-  // console.log("car:  "+carId+" user:  "+userId);
-  var formdata = new FormData();
-  formdata.append("liked_users",userConst );
-  axios.put(`https://api.baracar.uz/api/cars/${carId}/`,formdata,{
-    headers: {
-      Authorization: "Bearer " + localStorage.getItem("Token_user"),
-    },
-  }).then((res)=>{
-    alert("work");
-  }).catch((err)=>{
-    alert(err)
-  })
-}
+    if (userData===null) {
+      window.location="/login"
+    }else{
+      let carData = localStorage.getItem("oneproduct");
+      carData = JSON.parse(carData);
+      let carId=carData.id
+      userData = JSON.parse(userData);
+      let userId = userData.id;
+      // console.log("car:  "+carId+" user:  "+userId);
+      var formdata = new FormData();
+      formdata.append("car", carId);
+      if (checked===true) {
+        axios.get(`https://api.baracar.uz/api/likes/`,{
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("Token_user"),
+          },
+        }).then((res)=>{
+          res.data.map((item)=>{
+            if (item.user===userId&&item.car===carId) {
+              axios.delete(`https://api.baracar.uz/api/likes/${item.id}/`,{
+                headers: {
+                  Authorization: "Bearer " + localStorage.getItem("Token_user"),
+                },
+              }).then((res)=>{
+                alert("uspekh")
+                setChecked(false)
+              }).catch((err)=>{
+                alert("xatto")
+              })
+            }
+          })
+        })
+      }else{
+        axios.post(`https://api.baracar.uz/api/likes/`,formdata,{
+          headers: {
+            Authorization: "Bearer " + localStorage.getItem("Token_user"),
+          },
+        }).then((res)=>{
+          alert("uspekh")
+          setChecked(true)
+        }).catch((err)=>{
+          alert("xatto")
+        })
+      }
+    }
   };
 
   
   useEffect(() => {
     let userData = localStorage.getItem("onemen");
 if (userData===null) {
+  window.location="/login"
 }else{
   let carData = localStorage.getItem("oneproduct");
   carData = JSON.parse(carData);
   let carId=carData.id
   userData = JSON.parse(userData);
   let userId = userData.id;
-  console.log("car:  "+carId+" user:  "+userId);
-  axios.get(`https://api.baracar.uz/api/cars/${carId}/`,{
+  // console.log("car:  "+carId+" user:  "+userId);
+  axios.get(`https://api.baracar.uz/api/likes/`,{
     headers: {
       Authorization: "Bearer " + localStorage.getItem("Token_user"),
     },
   }).then((res)=>{
-let checkedUser=res.data.liked_users
-console.log(checkedUser,"dddrrrrrr");
-const filter=checkedUser.filter(item=>item===userId)
-if (filter.length===0) {
-  alert("yok")
-  setChecked(false)
-}else{
-  if (filter[0]===userId) {
-    alert("bor")
-    setChecked(true)
-  }else{
-    alert("id yok")
-  }
-}
-console.log("AAAAAAAAAAAAAAAAAAAAAAAAAAA");
-console.log(filter);
-  }).catch((err)=>{
-    alert(err)
+ const filter=res.data.filter(item=>item.car===carId&&item.user===userId)
+ if (filter) {
+  setChecked(true)
+ }else{
+  setChecked(flase)
+ }
   })
-
 }
+
   }, []);
   
-
-
-
-
-
-
 
 
 

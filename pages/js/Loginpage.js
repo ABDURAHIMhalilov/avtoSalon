@@ -13,7 +13,8 @@ import "../../app/globals.css";
 import Table from "react-bootstrap/Table";
 import Head from 'next/head'
 // import { Select, Space } from "antd";
-
+// import "../css/Popular.css";
+// import "../css/Home.css";
 export default function Loginpage() {
   const [user, setUser] = React.useState([]);
   const [data, setData] = React.useState(1);
@@ -22,6 +23,8 @@ export default function Loginpage() {
   const [adresput, setAdresput] = React.useState([]);
   const [state, setState] = React.useState();
   const [loader, setLoader] = React.useState(2);
+  const [checked, setChecked] = useState([]);
+  const [makes, setMakes] = React.useState([]);
   // const [ users, setUsers ] = JSON.parse(localStorage.getItem('onemen'))
   // const provinceData = ['Zhejiang', 'Jiangsu'];
   // const cityData = {
@@ -42,6 +45,62 @@ export default function Loginpage() {
     var lang = localStorage.getItem("lang");
     setState(lang ? lang : "ru");
   }, []);
+
+
+
+
+  useEffect(() => {
+    let userData = localStorage.getItem("onemen");
+  userData = JSON.parse(userData);
+  let userId = userData.id;
+  // console.log("car:  "+carId+" user:  "+userId);
+  axios.get(`https://api.baracar.uz/api/likes/`,{
+    headers: {
+      Authorization: "Bearer " + localStorage.getItem("Token_user"),
+    },
+  }).then((res)=>{
+    const filter=res.data.filter(item=>item.user===userId)
+    if (filter) {
+      setChecked(filter)
+     }else{
+      alert("xech  narsa ek")
+     }
+  })
+
+
+
+
+  axios
+  .get(
+    `https://api.baracar.uz/api/${
+      localStorage.getItem("lang") ? localStorage.getItem("lang") : "ru"
+    }/cars_get/`
+  )
+  .then((res) => {
+    axios.get(`https://api.baracar.uz/api/images/`).then((res1) => {
+      for (let i = 0; i < res.data.length; i++) {
+        res.data[i].image = [];
+        for (let j = 0; j < res1.data.length; j++) {
+          if (res.data[i].id == res1.data[j].car) {
+            res.data[i].image.push(res1.data[j]);
+          }
+        }
+      }
+      setMakes(res.data);
+    });
+  })
+  .catch((err) => {
+    console.log(err, "salom");
+  });
+  }, []);
+
+
+  function getData(key) {
+    console.log(key);
+    localStorage.setItem("oneproduct", JSON.stringify(key));
+    window.location = "/js/Bmw8";
+  }
+
 
   const plus = () => {
     setData(data + 1);
@@ -802,11 +861,94 @@ export default function Loginpage() {
                   ) : (
                     <div className="ba">
                       <div className="kok">
+                        
+        <div className="result_wrapper">
+          {checked.map((mainItem)=>{
+            return<>
+{makes.map((item, key) => {
+  if (mainItem.car===item.id) {
+    return (
+      <div
+        key={key}
+        onClick={() => getData(item)}
+        className="feat_card2"
+      >
+        <div id="corner-ribbon">
+          <div
+            style={
+              item.sale == 0
+                ? { display: "none" }
+                : { display: "flex" }
+            }
+          >
+            <div>
+              <div>
+                <h2 className="sa">
+                  {item.sale == 0 ? "" : `${item.sale}%`}
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img
+          src={
+            item.image[0] != undefined
+              ? item.image[0].image
+              : "https://demo.vehica.com/wp-content/uploads/2020/08/2-4-670x372.jpg"
+          }
+          alt="no img"
+        />
+        <div className="featCard_bottom">
+          <div className="feat-cardorab">
+            <h3 className="featCard_name">{item.name}</h3>
+            <del>
+              {item.sale == 0
+                ? ""
+                : sessionStorage.getItem("valuta") === "sum"
+                ? `${item.sum_price}${languange === "ru" ? "сум" : "sum"}`
+                : sessionStorage.getItem("valuta") === "dollar"
+                ? `${item.price}$`
+                : `${item.price}$`}
+            </del>
+          </div>
+          <h4 className="featCard_price">
+            {sessionStorage.getItem("valuta") === "sum"
+              ? `${
+                  item.sum_price - (item.sum_price * item.sale) / 100
+                }${languange === "ru" ? "сум" : "sum"}`
+              : sessionStorage.getItem("valuta") === "dollar"
+              ? `${item.price - (item.price * item.sale) / 100}$`
+              : `${item.price - (item.price * item.sale) / 100}$`}
+          </h4>
+          <div className="featCard_box">
+            <p className="featCard_year">{item.year}</p>
+            <p className="featCard_auto">{item.gearbox.name}</p>
+            <p className="featCard_pet">{item.fuel_sort.name}</p>
+            {/* ${localStorage.getItem("lang") ? (localStorage.getItem("lang")) : "ru"} */}
+          </div>
+        </div>
+      </div>
+    );  
+  }else{
+    return<p></p>
+  }
+
+          })}
+            </>
+          })}
+
+        </div>
+                        {/* {checked.map((item)=>{
+                          return<div>
+                            <p>{item.id}</p>
+                          </div>
+                        })}
                         <center>
                           <h1>
+                            aaaaaaaaaaaaaa
                             {state === "ru" ? "Избранного пока нет!" : "Sevimlilar hali yo'q!"}
                           </h1>
-                        </center>
+                        </center> */}
                       </div>
                     </div>
                   )}{" "}
