@@ -103,10 +103,14 @@ export default function Bmw8() {
                   Authorization: "Bearer " + localStorage.getItem("Token_user"),
                 },
               }).then((res)=>{
-                alert("uspekh")
+                state === "ru"
+                ? alert(" Удалено из избранного ")
+                : alert(" Sevimlilardan olindi");
                 setChecked(false)
               }).catch((err)=>{
-                alert("xatto")
+                state === "ru"
+          ? alert("Ошибка пожалуйста попробуйте снова ")
+          : alert("Xato iltimos boshqattan urinib ko'ring");
               })
             }
           })
@@ -117,10 +121,14 @@ export default function Bmw8() {
             Authorization: "Bearer " + localStorage.getItem("Token_user"),
           },
         }).then((res)=>{
-          alert("uspekh")
           setChecked(true)
+          state === "ru"
+          ? alert(" Добавлено в избранное ")
+          : alert(" Sevimlilarga qo'shildi");
         }).catch((err)=>{
-          alert("xatto")
+          state === "ru"
+          ? alert("Ошибка пожалуйста попробуйте снова ")
+          : alert("Xato iltimos boshqattan urinib ko'ring");
         })
       }
     }
@@ -330,7 +338,7 @@ if (userData===null) {
         <meta property="fb:app_id" content="ID_APP_FACEBOOK" />
       </Head>
       {p === 1 ? (
-        <div>
+        <div className="carspage">
           <div className="galeriya">
             <div className="galeriyaclose">
               <AiOutlineClose onClick={() => galeriyaClose()} />
@@ -502,11 +510,14 @@ if (userData===null) {
                       ? `${data.price - (data.price * data.sale) / 100}$`
                       : `${data.price - (data.price * data.sale) / 100}$`}
                   </h1>
-                  <p>
+                  <p className="save">
                     {" "}
-                    <span>
-                      <AiOutlineStar />
-                    </span>{" "}
+                    <Checkbox
+                           checked={checked}
+                           onChange={handleChange}
+        icon={<BookmarkBorderIcon />}
+        checkedIcon={<BookmarkIcon />}
+      />
                     {state === "ru"
                       ? "Добавить в избранное"
                       : "Sevimlilarga qo'shing"}
@@ -767,11 +778,10 @@ if (userData===null) {
                     ? `${data.price - (data.price * data.sale) / 100}$`
                     : `${data.price - (data.price * data.sale) / 100}$`}
                 </h1>
-                <div >
+                <div style={{display:"flex",alignItems:"center"}} >
                      <Checkbox
                            checked={checked}
                            onChange={handleChange}
-
         icon={<BookmarkBorderIcon />}
         checkedIcon={<BookmarkIcon />}
       />

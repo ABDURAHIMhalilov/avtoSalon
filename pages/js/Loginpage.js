@@ -865,12 +865,9 @@ export default function Loginpage() {
                     </div>
                   ) : (
                     <div className="ba">
-                      <div className="kok">
+                      
                         
-        <div style={{
-             overflowY: "scroll",
-             overflowX: "hidden"
-        }} className="result_wrapper">
+        <div  className="result_wrapper">
           {checked.map((mainItem)=>{
             return<>
 {makes.map((item, key) => {
@@ -900,7 +897,7 @@ export default function Loginpage() {
         </div>
         <img
         style={{width:"100%",
-        height:"50vw"
+        
       }}
           src={
             item.image[0] != undefined
@@ -960,7 +957,7 @@ export default function Loginpage() {
                             {state === "ru" ? "Избранного пока нет!" : "Sevimlilar hali yo'q!"}
                           </h1>
                         </center> */}
-                      </div>
+                      
                     </div>
                   )}{" "}
                 </div>

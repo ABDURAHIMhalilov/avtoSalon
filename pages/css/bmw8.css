@@ -214,9 +214,29 @@
 #mnbh{
   margin-left: 2%;
 }
+.carspage .swiper{
+  min-height: auto !important;
+}
+@media(max-width:1700px){
+  .featCard_box > p{
+    font-size: 15px;
+  }
+}
+.dollars{
+  margin-top: 20px;
+}
 @media (max-width: 1300px) {
   .dffd {
     width: 100%;
+  }
+  .save{
+    display: flex !important;
+    align-items: center;
+  }
+  .dollars{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
   }
   .hf1{
     margin-top: 0px !important;
@@ -370,8 +390,14 @@
 }
 .dollars p {
   color: #a7a8a8;
-  margin-top: 10px;
+  margin-bottom: 0px !important;
   cursor: pointer;
+}
+.save{
+  display: none;
+}
+.css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.Mui-checked, .css-12wnr2w-MuiButtonBase-root-MuiCheckbox-root.MuiCheckbox-indeterminate{
+  color: #0e7c7b !important;
 }
 .dollars span {
   position: relative;
@@ -1915,9 +1941,7 @@ box-shadow: 0px 0px 10px 0px black;
 #pere{
   margin-top: 0px !important;
 }
-.dollars p{
-  display: none;
-}
+
 #button-3 .knobs:before {
   content: "Sum";
   position: absolute;
